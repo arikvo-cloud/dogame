@@ -1,0 +1,194 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import {
+  ArrowRight,
+  Sparkles,
+  AlertTriangle,
+  Heart,
+  XCircle,
+  Clock,
+  Scale,
+  Activity,
+  ExternalLink,
+} from "lucide-react";
+import {
+  allBreedSlugs,
+  bestWikipediaUrl,
+  getBreedBySlug,
+} from "@/lib/breeds/data";
+import { BreedTraits } from "@/components/breed/BreedTraits";
+import { InfoList } from "@/components/breed/InfoList";
+import { BreedPhoto } from "@/components/breed/BreedPhoto";
+import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return allBreedSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const breed = getBreedBySlug(slug);
+  if (!breed) return { title: "גזע לא נמצא · DoGame" };
+  return {
+    title: `${breed.name} (${breed.nameEn}) · DoGame`,
+    description: `${breed.tagline}. ${breed.description.slice(0, 140)}`,
+    openGraph: {
+      title: `${breed.name} · DoGame`,
+      description: breed.tagline,
+      locale: "he_IL",
+    },
+  };
+}
+
+export default async function BreedPage({ params }: PageProps) {
+  const { slug } = await params;
+  const breed = getBreedBySlug(slug);
+  if (!breed) notFound();
+  const wiki = bestWikipediaUrl(breed);
+
+  return (
+    <main id="main" className="min-h-dvh bg-clay py-8 md:py-12 px-4">
+      <div className="mx-auto max-w-4xl">
+        <div className="mb-6 flex items-center justify-between">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 font-display font-extrabold text-lg text-ink hover:text-primary-deep transition-colors"
+          >
+            <span className="text-2xl">🐾</span> DoGame
+          </Link>
+          <Link
+            href="/result"
+            className="inline-flex items-center gap-1 text-ink-soft hover:text-primary-deep text-sm font-display font-bold transition-colors"
+          >
+            חזרה לתוצאות
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* Hero */}
+        <header
+          className="rounded-[36px] border-[3px] bg-surface p-6 md:p-10 text-center shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]"
+          style={{ borderColor: breed.accent }}
+        >
+          <div className="flex justify-center">
+            <BreedPhoto
+              breed={breed}
+              size={176}
+              rounded="rounded-[32px]"
+              priority
+              kenBurns
+            />
+          </div>
+          <h1 className="mt-5 text-4xl md:text-5xl font-black text-ink leading-tight">
+            {breed.name}
+          </h1>
+          <p className="text-base text-ink-mute font-display font-bold mt-1">{breed.nameEn}</p>
+          <p className="mt-4 text-lg text-ink-soft max-w-prose mx-auto font-medium">
+            {breed.tagline}
+          </p>
+
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-sm">
+            <span className="inline-flex items-center gap-1.5 bg-bg-soft border-2 border-border-strong px-3 py-1.5 rounded-full font-display font-bold text-ink shadow-[var(--shadow-clay-sm)]">
+              <Scale className="w-4 h-4" strokeWidth={2.5} />
+              {breed.weightKg[0]}-{breed.weightKg[1]} ק"ג
+            </span>
+            <span className="inline-flex items-center gap-1.5 bg-bg-soft border-2 border-border-strong px-3 py-1.5 rounded-full font-display font-bold text-ink shadow-[var(--shadow-clay-sm)]">
+              <Clock className="w-4 h-4" strokeWidth={2.5} />
+              {breed.lifeExpectancy[0]}-{breed.lifeExpectancy[1]} שנים
+            </span>
+            <span className="inline-flex items-center gap-1.5 bg-bg-soft border-2 border-border-strong px-3 py-1.5 rounded-full font-display font-bold text-ink shadow-[var(--shadow-clay-sm)]">
+              <Activity className="w-4 h-4" strokeWidth={2.5} />
+              {breed.exerciseMinPerDay} דק'/יום
+            </span>
+            {breed.hypoallergenic && (
+              <span className="inline-flex items-center gap-1.5 bg-success text-white border-2 border-success/80 px-3 py-1.5 rounded-full font-display font-extrabold shadow-[0_3px_0_rgba(20,83,45,0.5)]">
+                <Sparkles className="w-4 h-4" strokeWidth={2.5} />
+                היפואלרגני
+              </span>
+            )}
+            {wiki && (
+              <a
+                href={wiki.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-accent text-white border-2 border-accent-deep px-3 py-1.5 rounded-full font-display font-extrabold shadow-[0_3px_0_var(--color-accent-deep)] hover:-translate-y-px transition-transform"
+              >
+                <ExternalLink className="w-4 h-4" strokeWidth={2.5} />
+                ויקיפדיה {wiki.lang === "he" ? "(עברית)" : "(EN)"}
+              </a>
+            )}
+          </div>
+        </header>
+
+        {/* Description */}
+        <Reveal from="up">
+          <section className="mt-6 rounded-[28px] border-[3px] border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+            <h2 className="font-display font-black text-2xl text-ink mb-3">
+              על {breed.name}
+            </h2>
+            <p className="text-ink leading-relaxed text-lg font-medium">{breed.description}</p>
+          </section>
+        </Reveal>
+
+        {/* Traits */}
+        <Reveal from="up">
+          <section className="mt-6 rounded-[28px] border-[3px] border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+            <h2 className="font-display font-black text-2xl text-ink mb-5">פרופיל תכונות</h2>
+            <BreedTraits traits={breed.traits} />
+          </section>
+        </Reveal>
+
+        {/* Care + mistakes grid */}
+        <Stagger className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5" stagger={0.1}>
+          <StaggerItem>
+            <InfoList
+              title="טיפים לטיפול נכון"
+              Icon={Heart}
+              items={breed.careTips}
+              variant="success"
+            />
+          </StaggerItem>
+          <StaggerItem>
+            <InfoList
+              title="טעויות נפוצות"
+              Icon={AlertTriangle}
+              items={breed.commonMistakes}
+              variant="warning"
+            />
+          </StaggerItem>
+          <StaggerItem>
+            <InfoList
+              title="מתאים במיוחד ל..."
+              Icon={Sparkles}
+              items={breed.goodFor}
+              variant="primary"
+            />
+          </StaggerItem>
+          <StaggerItem>
+            <InfoList
+              title="פחות מתאים ל..."
+              Icon={XCircle}
+              items={breed.notIdealFor}
+              variant="accent"
+            />
+          </StaggerItem>
+        </Stagger>
+
+        <Reveal from="scale">
+          <div className="mt-10 text-center">
+            <Link
+              href="/quiz"
+              className="inline-flex items-center gap-2 bg-primary text-white border-[3px] border-primary-deep font-display font-extrabold px-8 py-4 rounded-[22px] text-lg shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] transition-all"
+            >
+              בדוק התאמה אישית במשחק
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+    </main>
+  );
+}

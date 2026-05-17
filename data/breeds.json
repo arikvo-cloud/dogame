@@ -1,0 +1,2159 @@
+[
+  {
+    "slug": "labrador",
+    "name": "לברדור רטריבר",
+    "nameEn": "Labrador Retriever",
+    "tagline": "החבר הכל-משפחתי הקלאסי",
+    "description": "אחד הגזעים הפופולריים בעולם ובישראל. לברדורים ידועים בנעימותם, אהבת המים והאנרגיה החיובית. מצוין למשפחות פעילות.",
+    "traits": {
+      "size": 7,
+      "energy": 8,
+      "trainability": 9,
+      "grooming": 4,
+      "shedding": 8,
+      "kidFriendly": 10,
+      "petFriendly": 9,
+      "apartmentOk": 5,
+      "heatTolerance": 5,
+      "barkLevel": 5
+    },
+    "size": "large",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "ספורט",
+    "weightKg": [
+      25,
+      36
+    ],
+    "lifeExpectancy": [
+      10,
+      12
+    ],
+    "exerciseMinPerDay": 90,
+    "careTips": [
+      "מצריך 1-2 שעות פעילות יומית",
+      "נוטה להשמנה — חשוב לפקח על האכלה",
+      "אוהב מאוד מים ושחייה"
+    ],
+    "commonMistakes": [
+      "חוסר פעילות גורם להשמנה והרס בבית",
+      "התעלמות מאילוף בגיל גור — חזק וגדול מהר",
+      "מתן מזון אנושי מסוכן לבריאותו"
+    ],
+    "goodFor": [
+      "משפחות עם ילדים",
+      "אנשים פעילים",
+      "ספורט וטיולים"
+    ],
+    "notIdealFor": [
+      "דירה קטנה בלי טיולים סדירים",
+      "אנשים שלא נמצאים בבית הרבה"
+    ],
+    "emoji": "🦮",
+    "accent": "#E8B14A",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/34/Labrador_on_Quantock_%282175262184%29.jpg",
+    "imageWidth": 1410,
+    "imageHeight": 919,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%9C%D7%91%D7%A8%D7%93%D7%95%D7%A8_%D7%A8%D7%98%D7%A8%D7%99%D7%91%D7%A8",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Labrador_Retriever"
+  },
+  {
+    "slug": "golden",
+    "name": "גולדן רטריבר",
+    "nameEn": "Golden Retriever",
+    "tagline": "לב פתוח, פרווה זהובה",
+    "description": "גזע ידידותי, סבלני וחכם, אהוב במיוחד על משפחות. דורש פעילות יומית קבועה ותחזוקת פרווה.",
+    "traits": {
+      "size": 7,
+      "energy": 7,
+      "trainability": 9,
+      "grooming": 7,
+      "shedding": 9,
+      "kidFriendly": 10,
+      "petFriendly": 10,
+      "apartmentOk": 4,
+      "heatTolerance": 4,
+      "barkLevel": 4
+    },
+    "size": "large",
+    "coat": "long",
+    "hypoallergenic": false,
+    "group": "ספורט",
+    "weightKg": [
+      25,
+      34
+    ],
+    "lifeExpectancy": [
+      10,
+      12
+    ],
+    "exerciseMinPerDay": 75,
+    "careTips": [
+      "סירוק פעמיים-שלוש בשבוע",
+      "רגיש לחום ישראלי — להימנע מטיולים בשעות הלוהטות",
+      "פעילות יומית של שעה לפחות"
+    ],
+    "commonMistakes": [
+      "הזנחת תחזוקת פרווה גורמת לקשרים וזיהומים",
+      "ציפייה שיהיה 'כלב שמירה' — גולדן לא תוקפני",
+      "מחסור בגירוי מנטלי גורם לחרדה"
+    ],
+    "goodFor": [
+      "משפחות",
+      "בית עם גינה",
+      "ילדים בכל גיל"
+    ],
+    "notIdealFor": [
+      "אזורים חמים מאוד ללא מיזוג",
+      "אנשים אלרגיים"
+    ],
+    "emoji": "🐕",
+    "accent": "#E8B14A",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_Retriever_Dukedestiny01_drvd.jpg",
+    "imageWidth": 652,
+    "imageHeight": 515,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%92%D7%95%D7%9C%D7%93%D7%9F_%D7%A8%D7%98%D7%A8%D7%99%D7%91%D7%A8",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Golden_Retriever"
+  },
+  {
+    "slug": "german-shepherd",
+    "name": "רועה גרמני",
+    "nameEn": "German Shepherd",
+    "tagline": "חכם, נאמן ושומר אמיתי",
+    "description": "גזע אינטליגנטי במיוחד עם דחף עבודה גבוה. דורש בעלים מנוסה, אילוף עקבי וגירוי מנטלי. מצוין לשמירה.",
+    "traits": {
+      "size": 8,
+      "energy": 8,
+      "trainability": 10,
+      "grooming": 6,
+      "shedding": 9,
+      "kidFriendly": 7,
+      "petFriendly": 5,
+      "apartmentOk": 3,
+      "heatTolerance": 4,
+      "barkLevel": 7
+    },
+    "size": "large",
+    "coat": "medium",
+    "hypoallergenic": false,
+    "group": "רועים",
+    "weightKg": [
+      22,
+      40
+    ],
+    "lifeExpectancy": [
+      9,
+      13
+    ],
+    "exerciseMinPerDay": 90,
+    "careTips": [
+      "דורש חברה אנושית — לא להשאיר לבד שעות רבות",
+      "אילוף ציות מגיל גור הכרחי",
+      "סוציאליזציה מוקדמת עם זרים ואנשים"
+    ],
+    "commonMistakes": [
+      "אילוף תוקפנות במקום ציות מאוזן",
+      "אי-טיפול בבעיות מפרקים (בריאותית)",
+      "השארה ארוכה לבד גורמת להרס וחרדה"
+    ],
+    "goodFor": [
+      "בעלים מנוסים",
+      "בית עם גינה",
+      "שמירה ועבודה"
+    ],
+    "notIdealFor": [
+      "בעלים ראשון בלי ניסיון",
+      "דירה קטנה בלי פעילות"
+    ],
+    "emoji": "🐺",
+    "accent": "#6B4D35",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/German_Shepherd_-_DSC_0346_%2810096362833%29.jpg",
+    "imageWidth": 583,
+    "imageHeight": 485,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A8%D7%95%D7%A2%D7%94_%D7%92%D7%A8%D7%9E%D7%A0%D7%99",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/German_Shepherd"
+  },
+  {
+    "slug": "malinois",
+    "name": "מליניוס בלגי",
+    "nameEn": "Belgian Malinois",
+    "tagline": "כלב עבודה ברמה צבאית",
+    "description": "אחד הגזעים הפעילים והחכמים בעולם. מתאים אך ורק לאנשים מנוסים מאוד שיודעים לתעל את האנרגיה והאינטליגנציה.",
+    "traits": {
+      "size": 7,
+      "energy": 10,
+      "trainability": 10,
+      "grooming": 3,
+      "shedding": 7,
+      "kidFriendly": 5,
+      "petFriendly": 4,
+      "apartmentOk": 1,
+      "heatTolerance": 6,
+      "barkLevel": 7
+    },
+    "size": "large",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "רועים",
+    "weightKg": [
+      20,
+      30
+    ],
+    "lifeExpectancy": [
+      12,
+      14
+    ],
+    "exerciseMinPerDay": 150,
+    "careTips": [
+      "דורש 2-3 שעות פעילות מנטלית ופיזית ביום",
+      "מקצוע חובה: עבודת ציות מתקדמת או ספורט כלבים",
+      "חברה אנושית קבועה הכרחית"
+    ],
+    "commonMistakes": [
+      "בעלים ראשון — הגזע מציף אנשים לא מנוסים",
+      "ראיה כ'גרסת רועה גרמני' — שונים מאוד",
+      "מחסור בעבודה הופך אותו להרסני"
+    ],
+    "goodFor": [
+      "מאלפים, ספורטאי כלבים",
+      "אנשים פעילים מאוד"
+    ],
+    "notIdealFor": [
+      "משפחה רגילה",
+      "אנשים שעובדים מחוץ לבית",
+      "דירה"
+    ],
+    "emoji": "🐕‍🦺",
+    "accent": "#A35D35",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2f/04_-_Belgian_shepherd_dog_varieties_-_Groenendael%2CTervuren%2C_Malinois%2C_Laekenois.jpg",
+    "imageWidth": 1079,
+    "imageHeight": 1184,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Belgian_Shepherd"
+  },
+  {
+    "slug": "french-bulldog",
+    "name": "בולדוג צרפתי",
+    "nameEn": "French Bulldog",
+    "tagline": "קטן, נעים ושותף יומיומי",
+    "description": "כלב חברה אידיאלי לדירה. שקט יחסית, אוהב מנוחה, אבל רגיש לחום ולמאמץ פיזי בגלל הפנים השטוחות.",
+    "traits": {
+      "size": 3,
+      "energy": 4,
+      "trainability": 6,
+      "grooming": 3,
+      "shedding": 5,
+      "kidFriendly": 8,
+      "petFriendly": 7,
+      "apartmentOk": 10,
+      "heatTolerance": 2,
+      "barkLevel": 3
+    },
+    "size": "small",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "לא ספורטיבי",
+    "weightKg": [
+      8,
+      14
+    ],
+    "lifeExpectancy": [
+      10,
+      12
+    ],
+    "exerciseMinPerDay": 30,
+    "careTips": [
+      "להימנע ממאמץ ומחום — סובל מקצרת נשימה (BOAS)",
+      "ניקוי קפלי הפנים פעמיים בשבוע",
+      "מים זמינים כל הזמן, מיזוג בקיץ"
+    ],
+    "commonMistakes": [
+      "טיולים בשעות חמות מסכן את חייו",
+      "השמנת יתר מחמירה בעיות נשימה",
+      "התעלמות מבדיקות נשימה אצל וטרינר"
+    ],
+    "goodFor": [
+      "דירות",
+      "סטודנטים",
+      "זוגות צעירים, מבוגרים"
+    ],
+    "notIdealFor": [
+      "אנשים שמחפשים כלב לטיולים ארוכים",
+      "סביבות חמות בלי מיזוג"
+    ],
+    "emoji": "🐶",
+    "accent": "#C97B4B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/2008-07-28_Dog_at_Frolick_Field.jpg",
+    "imageWidth": 1078,
+    "imageHeight": 800,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%95%D7%9C%D7%93%D7%95%D7%92_%D7%A6%D7%A8%D7%A4%D7%AA%D7%99",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/French_Bulldog"
+  },
+  {
+    "slug": "poodle-standard",
+    "name": "פודל סטנדרט",
+    "nameEn": "Standard Poodle",
+    "tagline": "אצילי, חכם והיפואלרגני",
+    "description": "אחד הכלבים החכמים בעולם, פרווה לא משירה — מתאים לאלרגיים. דורש סירוק שבועי ותספורת מקצועית.",
+    "traits": {
+      "size": 7,
+      "energy": 7,
+      "trainability": 10,
+      "grooming": 9,
+      "shedding": 1,
+      "kidFriendly": 9,
+      "petFriendly": 8,
+      "apartmentOk": 6,
+      "heatTolerance": 6,
+      "barkLevel": 5
+    },
+    "size": "large",
+    "coat": "curly",
+    "hypoallergenic": true,
+    "group": "לא ספורטיבי",
+    "weightKg": [
+      20,
+      32
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 75,
+    "careTips": [
+      "תספורת מקצועית כל 4-6 שבועות",
+      "סירוק 2-3 פעמים בשבוע",
+      "פעילות מנטלית — חכמים ומשתעממים מהר"
+    ],
+    "commonMistakes": [
+      "הזנחת פרווה גורמת לקשרים כואבים",
+      "ראיה כ'כלב לתחרויות יופי' בלבד — הם ספורטיביים",
+      "פחות אילוף ממה שהם צריכים"
+    ],
+    "goodFor": [
+      "אלרגיים",
+      "משפחות פעילות",
+      "אנשים שאוהבים אילוף"
+    ],
+    "notIdealFor": [
+      "אנשים שלא רוצים להשקיע בתחזוקה",
+      "תקציב מצומצם (מספרה יקרה)"
+    ],
+    "emoji": "🐩",
+    "accent": "#7BA05B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Full_attention_%288067543690%29.jpg/3840px-Full_attention_%288067543690%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "imageWidth": 4928,
+    "imageHeight": 3264,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%93%D7%9C",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Poodle"
+  },
+  {
+    "slug": "poodle-mini",
+    "name": "פודל מיני",
+    "nameEn": "Miniature Poodle",
+    "tagline": "אנרגיית פודל בגוף קטן",
+    "description": "גרסה קטנה של הפודל הסטנדרטי — היפואלרגנית, חכמה, מתאימה לדירה. דורש תחזוקה דומה.",
+    "traits": {
+      "size": 3,
+      "energy": 6,
+      "trainability": 10,
+      "grooming": 9,
+      "shedding": 1,
+      "kidFriendly": 7,
+      "petFriendly": 7,
+      "apartmentOk": 10,
+      "heatTolerance": 6,
+      "barkLevel": 6
+    },
+    "size": "small",
+    "coat": "curly",
+    "hypoallergenic": true,
+    "group": "טויי",
+    "weightKg": [
+      5,
+      9
+    ],
+    "lifeExpectancy": [
+      13,
+      15
+    ],
+    "exerciseMinPerDay": 45,
+    "careTips": [
+      "תספורת כל 4-6 שבועות",
+      "סירוק קבוע",
+      "אילוף עקבי — חכמים מאוד וצריכים גירוי"
+    ],
+    "commonMistakes": [
+      "פינוק יתר — לא מקבלים גבולות",
+      "התעלמות מנביחה מוגזמת בגיל גור",
+      "מספרה לא מקצועית פוגעת בפרווה"
+    ],
+    "goodFor": [
+      "דירות",
+      "אלרגיים",
+      "מבוגרים, זוגות"
+    ],
+    "notIdealFor": [
+      "משפחות עם ילדים קטנים מאוד (שביר)",
+      "תקציב מצומצם"
+    ],
+    "emoji": "🐩",
+    "accent": "#7BA05B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Full_attention_%288067543690%29.jpg/3840px-Full_attention_%288067543690%29.jpg",
+    "imageWidth": 4928,
+    "imageHeight": 3264,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%93%D7%9C",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Poodle"
+  },
+  {
+    "slug": "bichon-frise",
+    "name": "בישון פריזה",
+    "nameEn": "Bichon Frise",
+    "tagline": "ענן לבן שמח ולא משיר",
+    "description": "כלב חברה עליז ומקסים, היפואלרגני, מתאים מאוד לדירות. אוהב להיות עם אנשים ולא לבד.",
+    "traits": {
+      "size": 2,
+      "energy": 5,
+      "trainability": 7,
+      "grooming": 9,
+      "shedding": 1,
+      "kidFriendly": 8,
+      "petFriendly": 8,
+      "apartmentOk": 10,
+      "heatTolerance": 6,
+      "barkLevel": 5
+    },
+    "size": "small",
+    "coat": "curly",
+    "hypoallergenic": true,
+    "group": "לא ספורטיבי",
+    "weightKg": [
+      4,
+      8
+    ],
+    "lifeExpectancy": [
+      14,
+      15
+    ],
+    "exerciseMinPerDay": 30,
+    "careTips": [
+      "תספורת חודשית",
+      "סירוק יומיומי קצר",
+      "סוציאליזציה כדי למנוע חרדת נטישה"
+    ],
+    "commonMistakes": [
+      "השארה לבד לזמן ארוך מובילה לחרדה",
+      "תזונה לא מאוזנת גורמת לדמעת עיניים",
+      "הזנחת אוזניים — נוטה לזיהומים"
+    ],
+    "goodFor": [
+      "אלרגיים",
+      "דירות",
+      "מבוגרים, משפחות"
+    ],
+    "notIdealFor": [
+      "אנשים שלא בבית הרבה",
+      "תקציב מצומצם לטיפוח"
+    ],
+    "emoji": "🤍",
+    "accent": "#FBF7F0",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/93/Bichon_Fris%C3%A9_-_studdogbichon.jpg",
+    "imageWidth": 2126,
+    "imageHeight": 1535,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%99%D7%A9%D7%95%D7%9F_%D7%A4%D7%A8%D7%99%D7%96%D7%94",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Bichon_Fris%C3%A9"
+  },
+  {
+    "slug": "maltese",
+    "name": "מלטז",
+    "nameEn": "Maltese",
+    "tagline": "ג'נטלמן קטן עם פרווה ארוכה",
+    "description": "כלב חברה עתיק, אהוב, היפואלרגני. דורש סירוק יומי כדי לשמור על הפרווה הארוכה.",
+    "traits": {
+      "size": 1,
+      "energy": 5,
+      "trainability": 6,
+      "grooming": 9,
+      "shedding": 1,
+      "kidFriendly": 6,
+      "petFriendly": 6,
+      "apartmentOk": 10,
+      "heatTolerance": 5,
+      "barkLevel": 7
+    },
+    "size": "toy",
+    "coat": "long",
+    "hypoallergenic": true,
+    "group": "טויי",
+    "weightKg": [
+      2,
+      4
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 25,
+    "careTips": [
+      "סירוק יומיומי — פרווה משתפלת ונקשרת מהר",
+      "תספורת קצרה בקיץ",
+      "נביחה — אילוף שקט מגיל צעיר"
+    ],
+    "commonMistakes": [
+      "נשיאה מתמדת במקום הליכה",
+      "פינוק יתר יוצר 'תסמונת הכלב הקטן'",
+      "התעלמות מטיפוח שיניים"
+    ],
+    "goodFor": [
+      "דירות קטנות",
+      "מבוגרים",
+      "אלרגיים"
+    ],
+    "notIdealFor": [
+      "ילדים קטנים מאוד (שביר)",
+      "אנשים שמחפשים שקט מוחלט"
+    ],
+    "emoji": "🐾",
+    "accent": "#F4D18A",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/94/Maltese_600.jpg",
+    "imageWidth": 600,
+    "imageHeight": 600,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Maltese_dog"
+  },
+  {
+    "slug": "chihuahua",
+    "name": "צ'יוואווה",
+    "nameEn": "Chihuahua",
+    "tagline": "כלב קטן עם אישיות ענקית",
+    "description": "הכלב הקטן בעולם. נאמן לבעליו, אך יכול להיות חוששני וווקאלי. דורש סוציאליזציה ואילוף נכון.",
+    "traits": {
+      "size": 1,
+      "energy": 5,
+      "trainability": 5,
+      "grooming": 3,
+      "shedding": 4,
+      "kidFriendly": 4,
+      "petFriendly": 5,
+      "apartmentOk": 10,
+      "heatTolerance": 7,
+      "barkLevel": 8
+    },
+    "size": "toy",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "טויי",
+    "weightKg": [
+      1,
+      3
+    ],
+    "lifeExpectancy": [
+      14,
+      17
+    ],
+    "exerciseMinPerDay": 20,
+    "careTips": [
+      "מעיל בחורף — קר להם מהר",
+      "סוציאליזציה כדי למנוע פחד מזרים",
+      "תזונה איכותית — מערכת עיכול עדינה"
+    ],
+    "commonMistakes": [
+      "מתייחסים אליו כאל צעצוע — צריך גבולות",
+      "חוסר סוציאליזציה גורם לתוקפנות",
+      "הגזמה בחימום (גרידה ומגרבי כלבים)"
+    ],
+    "goodFor": [
+      "דירות זעירות",
+      "מבוגרים יחידים",
+      "סטודנטים"
+    ],
+    "notIdealFor": [
+      "משפחות עם ילדים קטנים",
+      "אנשים שרוצים שקט מוחלט"
+    ],
+    "emoji": "🐶",
+    "accent": "#E8826B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Chihuahua1_bvdb.jpg",
+    "imageWidth": 370,
+    "imageHeight": 322,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A6'%D7%99%D7%95%D7%95%D7%90%D7%95%D7%95%D7%94",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Chihuahua_(dog_breed)"
+  },
+  {
+    "slug": "yorkshire",
+    "name": "יורקשייר טרייר",
+    "nameEn": "Yorkshire Terrier",
+    "tagline": "טרייר אמיתי בגוף זעיר",
+    "description": "מתחת לפרווה הארוכה מסתתר טרייר אמיץ ועצמאי. היפואלרגני, מתאים לדירות אבל זקוק לאילוף.",
+    "traits": {
+      "size": 1,
+      "energy": 6,
+      "trainability": 6,
+      "grooming": 9,
+      "shedding": 1,
+      "kidFriendly": 5,
+      "petFriendly": 5,
+      "apartmentOk": 10,
+      "heatTolerance": 5,
+      "barkLevel": 8
+    },
+    "size": "toy",
+    "coat": "long",
+    "hypoallergenic": true,
+    "group": "טרייר",
+    "weightKg": [
+      2,
+      4
+    ],
+    "lifeExpectancy": [
+      13,
+      16
+    ],
+    "exerciseMinPerDay": 30,
+    "careTips": [
+      "סירוק יומי או תספורת קצרה",
+      "אילוף בית — נוטים להתעקש",
+      "טיפוח שיניים חשוב"
+    ],
+    "commonMistakes": [
+      "פינוק יתר — הם טריירים, צריכים חוקים",
+      "התעלמות מנביחה — מפתחים הרגלי נביחה",
+      "אכילה ממזון אנושי גורמת לבעיות עיכול"
+    ],
+    "goodFor": [
+      "דירות",
+      "אלרגיים",
+      "אנשים בודדים, מבוגרים"
+    ],
+    "notIdealFor": [
+      "משפחות עם ילדים קטנים מאוד",
+      "אנשים שלא רוצים השקעה באילוף"
+    ],
+    "emoji": "🎀",
+    "accent": "#8FB8C9",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/%282_version%29_Grupp_3%2C_YORKSHIRETERRIER%2C_NO_UCH_SE_UCH_Oxzar_Amazing_Bel%E2%80%99s_Toffy_%2824310212305%29.jpg",
+    "imageWidth": 575,
+    "imageHeight": 714,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%99%D7%95%D7%A8%D7%A7%D7%A9%D7%99%D7%99%D7%A8_%D7%98%D7%A8%D7%99%D7%99%D7%A8",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Yorkshire_Terrier"
+  },
+  {
+    "slug": "shih-tzu",
+    "name": "שיצו",
+    "nameEn": "Shih Tzu",
+    "tagline": "פרצוף קסום, אופי רגוע",
+    "description": "כלב חברה רגוע ועליז, מתאים לחיים בדירה. דורש תחזוקת פרווה אך נחשב יחסית רגוע.",
+    "traits": {
+      "size": 2,
+      "energy": 4,
+      "trainability": 5,
+      "grooming": 9,
+      "shedding": 2,
+      "kidFriendly": 8,
+      "petFriendly": 8,
+      "apartmentOk": 10,
+      "heatTolerance": 3,
+      "barkLevel": 4
+    },
+    "size": "small",
+    "coat": "long",
+    "hypoallergenic": true,
+    "group": "טויי",
+    "weightKg": [
+      4,
+      7
+    ],
+    "lifeExpectancy": [
+      10,
+      16
+    ],
+    "exerciseMinPerDay": 30,
+    "careTips": [
+      "תספורת קצרה בקיץ — סובל מחום",
+      "ניקוי קפלים סביב העיניים",
+      "סירוק לפחות 3 פעמים בשבוע"
+    ],
+    "commonMistakes": [
+      "טיולים בשעות חמות מסכן (פנים שטוחות)",
+      "עיניים בולטות — להישמר מפגיעות",
+      "פינוק יתר באוכל גורם להשמנה"
+    ],
+    "goodFor": [
+      "דירות",
+      "משפחות עם ילדים גדולים יותר",
+      "מבוגרים"
+    ],
+    "notIdealFor": [
+      "טיולים ארוכים בחום",
+      "אנשים בלי זמן לטיפוח"
+    ],
+    "emoji": "🐾",
+    "accent": "#F4D18A",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/d/df/Shihtzu_%28cropped%29.jpg",
+    "imageWidth": 426,
+    "imageHeight": 341,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A9%D7%99_%D7%98%D7%A1%D7%95",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Shih_Tzu"
+  },
+  {
+    "slug": "cavalier",
+    "name": "קוואלייר קינג צ'רלס",
+    "nameEn": "Cavalier King Charles Spaniel",
+    "tagline": "אחד הכלבים החמים ביותר שיש",
+    "description": "כלב חברה אצילי, ידידותי לכולם, מתאים מאוד לחיים משפחתיים. דורש פעילות מתונה.",
+    "traits": {
+      "size": 3,
+      "energy": 5,
+      "trainability": 7,
+      "grooming": 6,
+      "shedding": 6,
+      "kidFriendly": 10,
+      "petFriendly": 10,
+      "apartmentOk": 9,
+      "heatTolerance": 5,
+      "barkLevel": 3
+    },
+    "size": "small",
+    "coat": "medium",
+    "hypoallergenic": false,
+    "group": "טויי",
+    "weightKg": [
+      5,
+      8
+    ],
+    "lifeExpectancy": [
+      9,
+      14
+    ],
+    "exerciseMinPerDay": 45,
+    "careTips": [
+      "בדיקות לב סדירות — נוטים לבעיות לב גנטיות",
+      "סירוק 2-3 פעמים בשבוע",
+      "פעילות יומיומית מתונה"
+    ],
+    "commonMistakes": [
+      "אי-בדיקת היסטוריה גנטית של ההורים",
+      "מחסור בפעילות (חושבים שהם 'כלב נוח')",
+      "פינוק במזון — נוטים להשמנה"
+    ],
+    "goodFor": [
+      "משפחות",
+      "מבוגרים, זוגות",
+      "דירות"
+    ],
+    "notIdealFor": [
+      "אנשים שמשאירים אותו לבד הרבה",
+      "תקציב מצומצם (בעיות גנטיות)"
+    ],
+    "emoji": "👑",
+    "accent": "#E8826B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5f/CarterBIS.Tiki.13.6.09.jpg",
+    "imageWidth": 691,
+    "imageHeight": 505,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Cavalier_King_Charles_Spaniel"
+  },
+  {
+    "slug": "cocker",
+    "name": "קוקר ספניאל",
+    "nameEn": "Cocker Spaniel",
+    "tagline": "אוזניים ארוכות, לב גדול",
+    "description": "כלב משפחה ידידותי ופעיל. דורש תחזוקת פרווה ובעיקר טיפוח אוזניים תכוף.",
+    "traits": {
+      "size": 5,
+      "energy": 7,
+      "trainability": 7,
+      "grooming": 8,
+      "shedding": 6,
+      "kidFriendly": 9,
+      "petFriendly": 8,
+      "apartmentOk": 6,
+      "heatTolerance": 5,
+      "barkLevel": 5
+    },
+    "size": "medium",
+    "coat": "long",
+    "hypoallergenic": false,
+    "group": "ספורט",
+    "weightKg": [
+      12,
+      16
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 60,
+    "careTips": [
+      "ניקוי אוזניים שבועי — נוטה לזיהומים",
+      "סירוק 2-3 פעמים בשבוע",
+      "פעילות יומיומית של שעה"
+    ],
+    "commonMistakes": [
+      "הזנחת אוזניים גורמת לזיהומים כרוניים",
+      "מחסור באילוף — נוטה לחרדת נטישה",
+      "תזונה לא מאוזנת"
+    ],
+    "goodFor": [
+      "משפחות",
+      "אנשים פעילים",
+      "בית עם גינה"
+    ],
+    "notIdealFor": [
+      "אנשים בלי זמן לטיפוח",
+      "השארה ארוכה לבד"
+    ],
+    "emoji": "🐕",
+    "accent": "#C97B4B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/%22Bill%22_-_Cocker_spaniel_anglais_2.JPG/3840px-%22Bill%22_-_Cocker_spaniel_anglais_2.JPG",
+    "imageWidth": 5184,
+    "imageHeight": 3456,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/English_Cocker_Spaniel"
+  },
+  {
+    "slug": "beagle",
+    "name": "ביגל",
+    "nameEn": "Beagle",
+    "tagline": "האף הטוב בעולם, האנרגיה הכי גדולה",
+    "description": "כלב ציד נחוש, ידידותי וסקרן. אוהב להריח הכל ולברוח אחרי ריחות — דורש גינה מגודרת היטב.",
+    "traits": {
+      "size": 4,
+      "energy": 8,
+      "trainability": 4,
+      "grooming": 3,
+      "shedding": 6,
+      "kidFriendly": 9,
+      "petFriendly": 8,
+      "apartmentOk": 5,
+      "heatTolerance": 6,
+      "barkLevel": 9
+    },
+    "size": "medium",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "ספורט",
+    "weightKg": [
+      9,
+      13
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 75,
+    "careTips": [
+      "גינה עם גדר גבוהה — בורחים אחרי ריחות",
+      "פעילות מנטלית (משחקי ריח)",
+      "מעקב משקל — נוטים להשמנה"
+    ],
+    "commonMistakes": [
+      "טיול ללא רצועה — בורחים אחרי ריחות",
+      "ראיה כ'כלב משפחה רגוע' — הם פעילים מאוד",
+      "פיתוח 'יילול' (baying) ללא אילוף"
+    ],
+    "goodFor": [
+      "משפחות עם ילדים",
+      "בית עם גינה",
+      "אנשים פעילים"
+    ],
+    "notIdealFor": [
+      "דירה עם שכנים רגישים לרעש",
+      "בית בלי גדר טובה"
+    ],
+    "emoji": "🐕",
+    "accent": "#A35D35",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/55/Beagle_600.jpg",
+    "imageWidth": 600,
+    "imageHeight": 480,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%99%D7%92%D7%9C",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Beagle"
+  },
+  {
+    "slug": "dachshund",
+    "name": "תחש (דקסל)",
+    "nameEn": "Dachshund",
+    "tagline": "כלב נקניק עם אישיות גדולה",
+    "description": "כלב חצוצרה (ציד מחילות) נמרץ ואמיץ. נאמן לבעליו, אבל יכול להיות עיקש ווקאלי. רגיש בגב.",
+    "traits": {
+      "size": 3,
+      "energy": 6,
+      "trainability": 4,
+      "grooming": 4,
+      "shedding": 5,
+      "kidFriendly": 6,
+      "petFriendly": 6,
+      "apartmentOk": 9,
+      "heatTolerance": 6,
+      "barkLevel": 8
+    },
+    "size": "small",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "ספורט",
+    "weightKg": [
+      7,
+      14
+    ],
+    "lifeExpectancy": [
+      12,
+      16
+    ],
+    "exerciseMinPerDay": 45,
+    "careTips": [
+      "להימנע מקפיצות גבוהות — בעיות גב",
+      "מעקב משקל קריטי — משקל יתר פוגע בגב",
+      "אילוף בית — דורש סבלנות"
+    ],
+    "commonMistakes": [
+      "נשיאה לא נכונה — תמיכה בגב!",
+      "השמנה גורמת לפריצת דיסק",
+      "הרשאה לקפוץ מספה — מסוכן"
+    ],
+    "goodFor": [
+      "דירות",
+      "מבוגרים, זוגות",
+      "ילדים גדולים יותר"
+    ],
+    "notIdealFor": [
+      "משפחות עם ילדים קטנים מאוד (שביר)",
+      "בעלים שלא יכולים לאלף בעקביות"
+    ],
+    "emoji": "🌭",
+    "accent": "#A35D35",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/be/%EB%8B%A5%EC%8A%A4%ED%9B%88%ED%8A%B8%28%EB%8B%A8%EB%AA%A8%EC%A2%85%29_%28Dachshund_%28Short%29%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageWidth": 1000,
+    "imageHeight": 741,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%AA%D7%97%D7%A9_(%D7%9B%D7%9C%D7%91)",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Dachshund"
+  },
+  {
+    "slug": "pug",
+    "name": "פאג",
+    "nameEn": "Pug",
+    "tagline": "פנים מצחיקות, לב ענקי",
+    "description": "כלב חברה רגוע, אוהב מנוחה והרבה ליטופים. רגיש מאוד לחום ולמאמץ פיזי (פנים שטוחות).",
+    "traits": {
+      "size": 3,
+      "energy": 3,
+      "trainability": 5,
+      "grooming": 4,
+      "shedding": 8,
+      "kidFriendly": 9,
+      "petFriendly": 8,
+      "apartmentOk": 10,
+      "heatTolerance": 1,
+      "barkLevel": 3
+    },
+    "size": "small",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "טויי",
+    "weightKg": [
+      6,
+      9
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 30,
+    "careTips": [
+      "להימנע מטיולים בחום הישראלי",
+      "ניקוי קפלי פנים יומי",
+      "תזונה מבוקרת — נוטים להשמנה"
+    ],
+    "commonMistakes": [
+      "טיול בצהריים בקיץ = סכנת חיים",
+      "התעלמות מבעיות נשימה",
+      "האכלת יתר"
+    ],
+    "goodFor": [
+      "דירות, מבוגרים",
+      "משפחות",
+      "אנשים שאוהבים כלב נוח"
+    ],
+    "notIdealFor": [
+      "סביבות חמות בלי מיזוג",
+      "אנשים פעילים מאוד"
+    ],
+    "emoji": "🐶",
+    "accent": "#F4D18A",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Mops-duke-mopszucht-vom-maegdebrunnen.jpg",
+    "imageWidth": 1000,
+    "imageHeight": 665,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A4%D7%90%D7%92",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Pug"
+  },
+  {
+    "slug": "boxer",
+    "name": "בוקסר",
+    "nameEn": "Boxer",
+    "tagline": "ליצן משפחתי בעוצמה גדולה",
+    "description": "אנרגטי, משועשע וטוב לב — אבל חזק וחסון, דורש בעלים שיודע להציב גבולות. רגיש לחום.",
+    "traits": {
+      "size": 7,
+      "energy": 9,
+      "trainability": 7,
+      "grooming": 3,
+      "shedding": 6,
+      "kidFriendly": 9,
+      "petFriendly": 6,
+      "apartmentOk": 4,
+      "heatTolerance": 3,
+      "barkLevel": 5
+    },
+    "size": "large",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "עבודה",
+    "weightKg": [
+      25,
+      32
+    ],
+    "lifeExpectancy": [
+      10,
+      12
+    ],
+    "exerciseMinPerDay": 90,
+    "careTips": [
+      "טיולים בשעות הקרירות (פנים שטוחות חלקית)",
+      "סוציאליזציה בגיל גור",
+      "פעילות מאתגרת — חכמים ומשתעממים"
+    ],
+    "commonMistakes": [
+      "מחסור בפעילות גורם להרסנות",
+      "התעלמות מאילוף מגיל גור — חזקים מהר",
+      "מחסור בסוציאליזציה עם כלבים אחרים"
+    ],
+    "goodFor": [
+      "משפחות פעילות עם ילדים",
+      "בית עם גינה"
+    ],
+    "notIdealFor": [
+      "דירה קטנה",
+      "אנשים מבוגרים פיזית"
+    ],
+    "emoji": "🥊",
+    "accent": "#C97B4B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Male_fawn_Boxer_undocked.jpg",
+    "imageWidth": 1373,
+    "imageHeight": 1012,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%95%D7%A7%D7%A1%D7%A8_(%D7%9B%D7%9C%D7%91)",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Boxer_(dog_breed)"
+  },
+  {
+    "slug": "border-collie",
+    "name": "בורדר קולי",
+    "nameEn": "Border Collie",
+    "tagline": "אולי הכלב הכי חכם בעולם",
+    "description": "גזע רועים אינטליגנטי במיוחד עם דחף עבודה אדיר. דורש בעלים שיוכל לתת לו עבודה מנטלית ופיזית יומיומית.",
+    "traits": {
+      "size": 6,
+      "energy": 10,
+      "trainability": 10,
+      "grooming": 6,
+      "shedding": 8,
+      "kidFriendly": 8,
+      "petFriendly": 7,
+      "apartmentOk": 2,
+      "heatTolerance": 4,
+      "barkLevel": 6
+    },
+    "size": "medium",
+    "coat": "medium",
+    "hypoallergenic": false,
+    "group": "רועים",
+    "weightKg": [
+      14,
+      22
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 120,
+    "careTips": [
+      "דורש 2+ שעות פעילות יומית, כולל מנטלית",
+      "ספורט כלבים מומלץ (אג'יליטי, פלייבול)",
+      "סוציאליזציה עם ילדים אם יש"
+    ],
+    "commonMistakes": [
+      "ראיה כ'כלב משפחה רגיל' — צריכים עבודה",
+      "מחסור בגירוי מנטלי הופך אותם נברוטיים",
+      "התעלמות מהנטייה לרעות (לרדוף ילדים/אופניים)"
+    ],
+    "goodFor": [
+      "אנשים פעילים מאוד",
+      "בית עם גינה",
+      "ספורט כלבים"
+    ],
+    "notIdealFor": [
+      "דירה",
+      "אנשים עסוקים",
+      "בעלים ראשון"
+    ],
+    "emoji": "🐺",
+    "accent": "#3D2817",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Border_Collie_600.jpg",
+    "imageWidth": 600,
+    "imageHeight": 491,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%95%D7%A8%D7%93%D7%A8_%D7%A7%D7%95%D7%9C%D7%99",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Border_Collie"
+  },
+  {
+    "slug": "australian-shepherd",
+    "name": "רועה אוסטרלי",
+    "nameEn": "Australian Shepherd",
+    "tagline": "אנרגיה, חוכמה ופרווה מנומרת",
+    "description": "גזע רועים פעיל ואינטליגנטי. מצוין לאנשים פעילים שמחפשים שותף ספורט וטיולים.",
+    "traits": {
+      "size": 7,
+      "energy": 9,
+      "trainability": 9,
+      "grooming": 7,
+      "shedding": 8,
+      "kidFriendly": 9,
+      "petFriendly": 7,
+      "apartmentOk": 3,
+      "heatTolerance": 5,
+      "barkLevel": 6
+    },
+    "size": "large",
+    "coat": "medium",
+    "hypoallergenic": false,
+    "group": "רועים",
+    "weightKg": [
+      16,
+      32
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 120,
+    "careTips": [
+      "סירוק 2-3 פעמים בשבוע (השלה רבה)",
+      "ספורט כלבים או פעילות עומק",
+      "סוציאליזציה כדי למנוע 'רעיית' ילדים"
+    ],
+    "commonMistakes": [
+      "מחסור בפעילות הופך הרסני",
+      "התעלמות מהשלה — גורם בעיות בבית",
+      "אילוף לא עקבי"
+    ],
+    "goodFor": [
+      "אנשים פעילים מאוד",
+      "ספורטאי כלבים",
+      "בית עם גינה"
+    ],
+    "notIdealFor": [
+      "דירה קטנה",
+      "תקציב מצומצם לטיפוח",
+      "אנשים לא פעילים"
+    ],
+    "emoji": "🐕",
+    "accent": "#6B4D35",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Australian_Shepherd_red_bi.JPG/3840px-Australian_Shepherd_red_bi.JPG",
+    "imageWidth": 5184,
+    "imageHeight": 3456,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A8%D7%95%D7%A2%D7%94_%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Australian_Shepherd"
+  },
+  {
+    "slug": "husky",
+    "name": "האסקי סיבירי",
+    "nameEn": "Siberian Husky",
+    "tagline": "יפהפה, פראי ומאתגר",
+    "description": "כלב משיכה סיברי עם פרווה כפולה — קשה במיוחד בחום הישראלי. עצמאי, בורח, ולא מומלץ לבעלים ראשון.",
+    "traits": {
+      "size": 7,
+      "energy": 9,
+      "trainability": 3,
+      "grooming": 7,
+      "shedding": 10,
+      "kidFriendly": 7,
+      "petFriendly": 6,
+      "apartmentOk": 2,
+      "heatTolerance": 1,
+      "barkLevel": 6
+    },
+    "size": "large",
+    "coat": "long",
+    "hypoallergenic": false,
+    "group": "עבודה",
+    "weightKg": [
+      16,
+      27
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 120,
+    "careTips": [
+      "חובה גינה עם גדר גבוהה מאוד — בורחים",
+      "מיזוג בקיץ הישראלי הכרחי",
+      "סירוק יומי בעונות השלה"
+    ],
+    "commonMistakes": [
+      "גילוח הפרווה בקיץ — מחמיר את הבעיה!",
+      "ציפייה לציות גבוה — עצמאים מטבעם",
+      "מחסור בטיולים — חופרים ובורחים"
+    ],
+    "goodFor": [
+      "אנשים מאוד פעילים",
+      "אזורים קרים יחסית",
+      "ספורט"
+    ],
+    "notIdealFor": [
+      "ישראל החמה (אם אין מיזוג מלא)",
+      "דירה",
+      "בעלים ראשון"
+    ],
+    "emoji": "🐺",
+    "accent": "#8FB8C9",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Husky_L.jpg",
+    "imageWidth": 800,
+    "imageHeight": 579,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%A1%D7%A7%D7%99_%D7%A1%D7%99%D7%91%D7%99%D7%A8%D7%99",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Siberian_Husky"
+  },
+  {
+    "slug": "vizsla",
+    "name": "וייזסלה",
+    "nameEn": "Vizsla",
+    "tagline": "אצן הונגרי עם לב משפחתי",
+    "description": "כלב ציד אנרגטי וקשור מאוד לבעליו. אוהב להיות צמוד אליך כל הזמן, מצוין לרצים ומטיילים.",
+    "traits": {
+      "size": 7,
+      "energy": 9,
+      "trainability": 8,
+      "grooming": 2,
+      "shedding": 4,
+      "kidFriendly": 9,
+      "petFriendly": 8,
+      "apartmentOk": 4,
+      "heatTolerance": 6,
+      "barkLevel": 5
+    },
+    "size": "large",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "ספורט",
+    "weightKg": [
+      20,
+      30
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 90,
+    "careTips": [
+      "פעילות יומית של 1.5-2 שעות",
+      "חברה אנושית — נוטה לחרדת נטישה",
+      "מעיל בחורף — פרווה קצרה"
+    ],
+    "commonMistakes": [
+      "השארה לבד הרבה — חרדת נטישה קשה",
+      "מחסור בפעילות הופך הרסני",
+      "אילוף קשוח — רגישים רגשית"
+    ],
+    "goodFor": [
+      "רצים, מטיילים",
+      "משפחות פעילות",
+      "אנשים שבבית הרבה"
+    ],
+    "notIdealFor": [
+      "אנשים שעובדים שעות ארוכות מחוץ לבית",
+      "דירה קטנה"
+    ],
+    "emoji": "🦌",
+    "accent": "#C97B4B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Wy%C5%BCe%C5%82_w%C4%99gierski_g%C5%82adkow%C5%82osy_500.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageWidth": 2022,
+    "imageHeight": 2124,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Vizsla"
+  },
+  {
+    "slug": "doberman",
+    "name": "דוברמן",
+    "nameEn": "Doberman Pinscher",
+    "tagline": "אצילי, נאמן וחכם",
+    "description": "כלב שמירה אצילי וחכם. נאמן במיוחד לבעליו. דורש סוציאליזציה ואילוף יסודי.",
+    "traits": {
+      "size": 8,
+      "energy": 8,
+      "trainability": 9,
+      "grooming": 2,
+      "shedding": 5,
+      "kidFriendly": 7,
+      "petFriendly": 5,
+      "apartmentOk": 4,
+      "heatTolerance": 5,
+      "barkLevel": 6
+    },
+    "size": "large",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "עבודה",
+    "weightKg": [
+      27,
+      45
+    ],
+    "lifeExpectancy": [
+      10,
+      13
+    ],
+    "exerciseMinPerDay": 90,
+    "careTips": [
+      "סוציאליזציה מגיל גור — קריטית",
+      "אילוף ציות מקצועי מומלץ",
+      "בדיקות לב סדירות"
+    ],
+    "commonMistakes": [
+      "אילוף ל'תוקפנות' במקום ציות מאוזן",
+      "מחסור בחברה — סובלים מבדידות",
+      "מעיל בחורף הכרחי — פרווה דקה"
+    ],
+    "goodFor": [
+      "בעלים מנוסים",
+      "שמירה",
+      "בית עם גינה"
+    ],
+    "notIdealFor": [
+      "בעלים ראשון",
+      "משפחה עם הרבה אורחים"
+    ],
+    "emoji": "🐕‍🦺",
+    "accent": "#3D2817",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Dobermann_handling.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageWidth": 3072,
+    "imageHeight": 2048,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%93%D7%95%D7%91%D7%A8%D7%9E%D7%9F_%D7%A4%D7%99%D7%A0%D7%A6'%D7%A8",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Dobermann"
+  },
+  {
+    "slug": "rottweiler",
+    "name": "רוטווילר",
+    "nameEn": "Rottweiler",
+    "tagline": "כוח רומאי עם לב חם",
+    "description": "כלב שמירה עוצמתי, רגוע בבית עם בעליו אבל זקוק לסוציאליזציה ואילוף ברור. בישראל יש חוקים — כלב מסוכן ע\"פ חוק.",
+    "traits": {
+      "size": 9,
+      "energy": 6,
+      "trainability": 8,
+      "grooming": 3,
+      "shedding": 6,
+      "kidFriendly": 7,
+      "petFriendly": 4,
+      "apartmentOk": 3,
+      "heatTolerance": 4,
+      "barkLevel": 5
+    },
+    "size": "giant",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "עבודה",
+    "weightKg": [
+      35,
+      60
+    ],
+    "lifeExpectancy": [
+      8,
+      10
+    ],
+    "exerciseMinPerDay": 75,
+    "careTips": [
+      "סוציאליזציה אינטנסיבית מגיל גור",
+      "אילוף ציות מקצועי",
+      "בישראל: מסוכן ע\"פ חוק — חובת זמם וביטוח"
+    ],
+    "commonMistakes": [
+      "אילוף לתוקפנות — מסוכן וגם בעייתי בחוק",
+      "מחסור בסוציאליזציה — בעיות התנהגות",
+      "התעלמות מההיבט המשפטי בישראל"
+    ],
+    "goodFor": [
+      "בעלים מנוסים",
+      "שמירה",
+      "בית עם גינה גדולה"
+    ],
+    "notIdealFor": [
+      "בעלים ראשון",
+      "אזורים עירוניים צפופים"
+    ],
+    "emoji": "🛡️",
+    "accent": "#3D2817",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Rottweiler_standing_facing_left.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageWidth": 1000,
+    "imageHeight": 760,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A8%D7%95%D7%98%D7%95%D7%95%D7%99%D7%99%D7%9C%D7%A8",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Rottweiler"
+  },
+  {
+    "slug": "canaan",
+    "name": "כלב כנעני",
+    "nameEn": "Canaan Dog",
+    "tagline": "הגזע הישראלי המקורי",
+    "description": "הגזע הלאומי של ישראל. עצמאי, חכם, עמיד בחום ובמדבר. רגיש לזרים, מצוין לשמירה משפחתית.",
+    "traits": {
+      "size": 5,
+      "energy": 7,
+      "trainability": 7,
+      "grooming": 3,
+      "shedding": 6,
+      "kidFriendly": 7,
+      "petFriendly": 5,
+      "apartmentOk": 5,
+      "heatTolerance": 9,
+      "barkLevel": 6
+    },
+    "size": "medium",
+    "coat": "medium",
+    "hypoallergenic": false,
+    "group": "רועים",
+    "weightKg": [
+      16,
+      25
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 60,
+    "careTips": [
+      "סוציאליזציה מגיל גור — חששני מזרים",
+      "אילוף עקבי — חכמים ועצמאיים",
+      "מתאים מאוד לאקלים הישראלי"
+    ],
+    "commonMistakes": [
+      "צפייה לידידות עם זרים — לא בטבעם",
+      "מחסור בסוציאליזציה גורם לחשש קיצוני",
+      "התעלמות מהאופי העצמאי באילוף"
+    ],
+    "goodFor": [
+      "אנשים שאוהבים כלב עצמאי",
+      "אקלים ישראלי",
+      "שמירה משפחתית"
+    ],
+    "notIdealFor": [
+      "משפחות עם הרבה אורחים",
+      "בעלים שרוצים כלב 'דבוק'"
+    ],
+    "emoji": "🇮🇱",
+    "accent": "#C97B4B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fe/CanaanDogChakede.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageWidth": 600,
+    "imageHeight": 422,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%9B%D7%9C%D7%91_%D7%9B%D7%A0%D7%A2%D7%A0%D7%99",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Canaan_Dog"
+  },
+  {
+    "slug": "jack-russell",
+    "name": "ג'ק ראסל טרייר",
+    "nameEn": "Jack Russell Terrier",
+    "tagline": "אנרגיה בתפזורת",
+    "description": "טרייר ציד קטן וקשוח. עצמאי, נחוש ומלא אנרגיה. דורש פעילות וגירוי מנטלי קבוע.",
+    "traits": {
+      "size": 3,
+      "energy": 9,
+      "trainability": 6,
+      "grooming": 3,
+      "shedding": 6,
+      "kidFriendly": 6,
+      "petFriendly": 5,
+      "apartmentOk": 5,
+      "heatTolerance": 6,
+      "barkLevel": 8
+    },
+    "size": "small",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "טרייר",
+    "weightKg": [
+      5,
+      8
+    ],
+    "lifeExpectancy": [
+      13,
+      16
+    ],
+    "exerciseMinPerDay": 75,
+    "careTips": [
+      "פעילות יומית של 1+ שעות, כולל מנטלית",
+      "סוציאליזציה עם חיות קטנות (יש דחף ציד)",
+      "אילוף עקבי — עיקשים"
+    ],
+    "commonMistakes": [
+      "ראיה כ'כלב קטן רגוע' — הם פעילים מאוד",
+      "מחסור בפעילות הופך הרסני",
+      "החזקה עם חתולים/אוגרים בלי הכנה"
+    ],
+    "goodFor": [
+      "אנשים פעילים",
+      "משפחות עם ילדים גדולים",
+      "טיולים"
+    ],
+    "notIdealFor": [
+      "דירה בלי טיולים",
+      "בית עם חיות קטנות",
+      "בעלים שלא רוצים אילוף"
+    ],
+    "emoji": "🐕",
+    "accent": "#E8B14A",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Jack_Russell_Terrier_1.jpg",
+    "imageWidth": 2091,
+    "imageHeight": 3136,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%92'%D7%A7_%D7%A8%D7%90%D7%A1%D7%9C_%D7%98%D7%A8%D7%99%D7%99%D7%A8",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Jack_Russell_Terrier"
+  },
+  {
+    "slug": "schnauzer-mini",
+    "name": "שנאוצר מיניאטורי",
+    "nameEn": "Miniature Schnauzer",
+    "tagline": "זקנקן חכם והיפואלרגני",
+    "description": "טרייר חכם, ידידותי והיפואלרגני. מתאים לדירה ודורש תספורת קבועה.",
+    "traits": {
+      "size": 3,
+      "energy": 6,
+      "trainability": 8,
+      "grooming": 8,
+      "shedding": 1,
+      "kidFriendly": 8,
+      "petFriendly": 7,
+      "apartmentOk": 9,
+      "heatTolerance": 6,
+      "barkLevel": 7
+    },
+    "size": "small",
+    "coat": "wire",
+    "hypoallergenic": true,
+    "group": "טרייר",
+    "weightKg": [
+      5,
+      9
+    ],
+    "lifeExpectancy": [
+      12,
+      15
+    ],
+    "exerciseMinPerDay": 60,
+    "careTips": [
+      "תספורת מקצועית כל 6-8 שבועות",
+      "סוציאליזציה — נוטים להגיב לזרים",
+      "אילוף שקט — נוטים לנביחה"
+    ],
+    "commonMistakes": [
+      "הזנחת תספורת — פרווה הופכת לקשרים",
+      "אילוף לא עקבי — חכמים ומנצלים",
+      "מחסור בסוציאליזציה גורם להגנה יתר"
+    ],
+    "goodFor": [
+      "משפחות, אלרגיים",
+      "דירות",
+      "אנשים שאוהבים כלב חכם"
+    ],
+    "notIdealFor": [
+      "דירה עם שכנים רגישים לרעש",
+      "תקציב מצומצם לטיפוח"
+    ],
+    "emoji": "🐕",
+    "accent": "#6B4D35",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/30/Miniature_Schnauzer_salt_%26_pepper_%28cropped%29.jpg",
+    "imageWidth": 1582,
+    "imageHeight": 1188,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Miniature_Schnauzer"
+  },
+  {
+    "slug": "pomeranian",
+    "name": "פומרניאן",
+    "nameEn": "Pomeranian",
+    "tagline": "כדור פרווה זעיר עם אישיות",
+    "description": "כלב חברה עליז עם אישיות גדולה בגוף קטן. דורש סירוק קבוע ואילוף נכון של נביחה.",
+    "traits": {
+      "size": 1,
+      "energy": 5,
+      "trainability": 6,
+      "grooming": 8,
+      "shedding": 7,
+      "kidFriendly": 5,
+      "petFriendly": 5,
+      "apartmentOk": 10,
+      "heatTolerance": 4,
+      "barkLevel": 8
+    },
+    "size": "toy",
+    "coat": "long",
+    "hypoallergenic": false,
+    "group": "טויי",
+    "weightKg": [
+      2,
+      4
+    ],
+    "lifeExpectancy": [
+      12,
+      16
+    ],
+    "exerciseMinPerDay": 30,
+    "careTips": [
+      "סירוק 3 פעמים בשבוע — פרווה כפולה",
+      "תספורת קצרה בקיץ",
+      "אילוף שקט מגיל צעיר"
+    ],
+    "commonMistakes": [
+      "גילוח מוחלט — פוגע בפרווה",
+      "פינוק יתר — 'תסמונת הכלב הקטן'",
+      "התעלמות מנביחה — מפתחים הרגלים קשים"
+    ],
+    "goodFor": [
+      "דירות זעירות",
+      "מבוגרים, יחידים",
+      "אנשים שאוהבים טיפוח"
+    ],
+    "notIdealFor": [
+      "משפחות עם ילדים קטנים מאוד (שביר)",
+      "סבלנים נמוכים לרעש"
+    ],
+    "emoji": "🦊",
+    "accent": "#E8B14A",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Pomeranian.JPG",
+    "imageWidth": 768,
+    "imageHeight": 636,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%9E%D7%A8%D7%A0%D7%99%D7%90%D7%9F",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Pomeranian_dog"
+  },
+  {
+    "slug": "bernese",
+    "name": "הר ברני",
+    "nameEn": "Bernese Mountain Dog",
+    "tagline": "ענק עדין עם נשמה זהב",
+    "description": "כלב משפחה עוצמתי ועדין. רגוע, אוהב משפחה. רגיש מאוד לחום הישראלי — לא מומלץ ללא מיזוג.",
+    "traits": {
+      "size": 9,
+      "energy": 5,
+      "trainability": 7,
+      "grooming": 8,
+      "shedding": 9,
+      "kidFriendly": 10,
+      "petFriendly": 9,
+      "apartmentOk": 2,
+      "heatTolerance": 1,
+      "barkLevel": 4
+    },
+    "size": "giant",
+    "coat": "long",
+    "hypoallergenic": false,
+    "group": "עבודה",
+    "weightKg": [
+      35,
+      50
+    ],
+    "lifeExpectancy": [
+      7,
+      10
+    ],
+    "exerciseMinPerDay": 60,
+    "careTips": [
+      "מיזוג חובה בקיץ הישראלי",
+      "סירוק יומי בעונות השלה",
+      "מודעות לתוחלת חיים קצרה יחסית"
+    ],
+    "commonMistakes": [
+      "טיול בחום קיצוני — סכנת חיים",
+      "גילוח הפרווה — מחמיר את הבעיה",
+      "פעילות יתר בגיל גור — בעיות מפרקים"
+    ],
+    "goodFor": [
+      "משפחות",
+      "בית עם גינה גדולה ומיזוג",
+      "אזורים קרירים יחסית"
+    ],
+    "notIdealFor": [
+      "ישראל החמה בלי מיזוג מלא",
+      "דירה",
+      "תקציב מצומצם"
+    ],
+    "emoji": "🐻",
+    "accent": "#3D2817",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/3-BerneseMountainDogInGrass.jpg/3840px-3-BerneseMountainDogInGrass.jpg",
+    "imageWidth": 8870,
+    "imageHeight": 5913,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Bernese_Mountain_Dog"
+  },
+  {
+    "slug": "shiba-inu",
+    "name": "שיבא אינו",
+    "nameEn": "Shiba Inu",
+    "tagline": "חתול בלבוש כלב",
+    "description": "כלב יפני עצמאי וגאה. נקי כמו חתול אבל עצמאי באופיו. דורש בעלים סבלן עם ניסיון.",
+    "traits": {
+      "size": 4,
+      "energy": 6,
+      "trainability": 4,
+      "grooming": 5,
+      "shedding": 8,
+      "kidFriendly": 5,
+      "petFriendly": 4,
+      "apartmentOk": 7,
+      "heatTolerance": 5,
+      "barkLevel": 4
+    },
+    "size": "small",
+    "coat": "medium",
+    "hypoallergenic": false,
+    "group": "לא ספורטיבי",
+    "weightKg": [
+      7,
+      11
+    ],
+    "lifeExpectancy": [
+      12,
+      16
+    ],
+    "exerciseMinPerDay": 60,
+    "careTips": [
+      "סוציאליזציה אינטנסיבית מגיל גור",
+      "אילוף עקבי — עצמאיים",
+      "סירוק יומי בעונות השלה"
+    ],
+    "commonMistakes": [
+      "טיול ללא רצועה — בורחים",
+      "ראיה כ'כלב משפחה רגיל' — עצמאי כחתול",
+      "אילוף קשוח — לא עובד עליהם"
+    ],
+    "goodFor": [
+      "מבוגרים, זוגות",
+      "אנשים שאוהבים כלב עצמאי",
+      "בעלים מנוסים"
+    ],
+    "notIdealFor": [
+      "משפחות עם ילדים קטנים",
+      "בעלים ראשון",
+      "אנשים שרוצים כלב 'מחובק'"
+    ],
+    "emoji": "🦊",
+    "accent": "#E8B14A",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Taka_Shiba.jpg",
+    "imageWidth": 1280,
+    "imageHeight": 960,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Shiba_Inu"
+  },
+  {
+    "slug": "samoyed",
+    "name": "סמויד",
+    "nameEn": "Samoyed",
+    "tagline": "החיוך הלבן של סיביר",
+    "description": "כלב סיברי עליז עם פרווה לבנה כפולה. ידידותי מאוד אבל קשה בחום הישראלי — דורש מיזוג.",
+    "traits": {
+      "size": 6,
+      "energy": 7,
+      "trainability": 6,
+      "grooming": 8,
+      "shedding": 10,
+      "kidFriendly": 9,
+      "petFriendly": 8,
+      "apartmentOk": 3,
+      "heatTolerance": 1,
+      "barkLevel": 7
+    },
+    "size": "large",
+    "coat": "long",
+    "hypoallergenic": false,
+    "group": "עבודה",
+    "weightKg": [
+      16,
+      30
+    ],
+    "lifeExpectancy": [
+      12,
+      14
+    ],
+    "exerciseMinPerDay": 75,
+    "careTips": [
+      "מיזוג בקיץ הישראלי הכרחי",
+      "סירוק יומי בעונות השלה",
+      "פעילות יומית קבועה"
+    ],
+    "commonMistakes": [
+      "טיולים בחום קיצוני",
+      "גילוח הפרווה — אסור",
+      "מחסור בסוציאליזציה"
+    ],
+    "goodFor": [
+      "משפחות עם מיזוג מלא",
+      "אזורים קרירים",
+      "אנשים פעילים"
+    ],
+    "notIdealFor": [
+      "ישראל החמה בלי מיזוג",
+      "דירה קטנה",
+      "אנשים אלרגיים"
+    ],
+    "emoji": "☃️",
+    "accent": "#8FB8C9",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/1/18/Samojed00.jpg",
+    "imageWidth": 1900,
+    "imageHeight": 1954,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Samoyed_dog"
+  },
+  {
+    "slug": "dalmatian",
+    "name": "דלמטי",
+    "nameEn": "Dalmatian",
+    "tagline": "נקודות שחורות, אנרגיה אינסופית",
+    "description": "כלב פעיל ויפה עם דחף ריצה גבוה. דורש פעילות יומית רצינית ובעלים שאוהב לרוץ ולטייל.",
+    "traits": {
+      "size": 7,
+      "energy": 9,
+      "trainability": 6,
+      "grooming": 3,
+      "shedding": 8,
+      "kidFriendly": 7,
+      "petFriendly": 7,
+      "apartmentOk": 3,
+      "heatTolerance": 5,
+      "barkLevel": 5
+    },
+    "size": "large",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "לא ספורטיבי",
+    "weightKg": [
+      20,
+      32
+    ],
+    "lifeExpectancy": [
+      11,
+      13
+    ],
+    "exerciseMinPerDay": 90,
+    "careTips": [
+      "פעילות יומית מינימום שעה וחצי",
+      "מים בשפע — נוטים לאבני שתן",
+      "סוציאליזציה מגיל גור"
+    ],
+    "commonMistakes": [
+      "מחסור בפעילות הופך הרסני",
+      "אבחון מאוחר של חירשות תורשתית",
+      "מחסור במים — בעיות כליה"
+    ],
+    "goodFor": [
+      "רצים",
+      "אנשים מאוד פעילים",
+      "בית עם גינה"
+    ],
+    "notIdealFor": [
+      "דירה",
+      "מבוגרים פיזית",
+      "אנשים שלא רוצים השקעה"
+    ],
+    "emoji": "🐶",
+    "accent": "#3D2817",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/6/68/Sun_Dog_Dalmatian.jpg",
+    "imageWidth": 768,
+    "imageHeight": 1024,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%93%D7%9C%D7%9E%D7%98%D7%99",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Dalmatian_dog"
+  },
+  {
+    "slug": "greyhound",
+    "name": "גרייהאונד",
+    "nameEn": "Greyhound",
+    "tagline": "אצן מהיר, חיים רגועים בבית",
+    "description": "מנגב שיא במהירות, אבל בבית 'תפוח אדמה' רגוע. אוהב מנוחה ושוקלצה קצרה אינטנסיבית.",
+    "traits": {
+      "size": 7,
+      "energy": 5,
+      "trainability": 6,
+      "grooming": 2,
+      "shedding": 4,
+      "kidFriendly": 8,
+      "petFriendly": 6,
+      "apartmentOk": 8,
+      "heatTolerance": 5,
+      "barkLevel": 2
+    },
+    "size": "large",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "ספורט",
+    "weightKg": [
+      25,
+      40
+    ],
+    "lifeExpectancy": [
+      10,
+      14
+    ],
+    "exerciseMinPerDay": 45,
+    "careTips": [
+      "טיולים קצרים אך אינטנסיביים (ריצה)",
+      "מעיל בחורף — פרווה דקה",
+      "מקום רך לישון — מפרקים בולטים"
+    ],
+    "commonMistakes": [
+      "טיול ללא רצועה — דחף ציד גבוה",
+      "מחשבה שצריך 'הרבה אימון' — להפך",
+      "מקום קשה לישון פוגע במפרקים"
+    ],
+    "goodFor": [
+      "דירות גדולות, בית עם גינה",
+      "מבוגרים, זוגות",
+      "אנשים שאוהבים כלב רגוע"
+    ],
+    "notIdealFor": [
+      "בית עם חיות קטנות",
+      "אנשים שרוצים כלב 'אקטיבי' בבית"
+    ],
+    "emoji": "🏃",
+    "accent": "#6B4D35",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ef/GraceTheGreyhound.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageWidth": 1024,
+    "imageHeight": 768,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%92%D7%A8%D7%99%D7%99%D7%94%D7%90%D7%95%D7%A0%D7%93",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Greyhound"
+  },
+  {
+    "slug": "cattle-dog",
+    "name": "כלב בקר אוסטרלי",
+    "nameEn": "Australian Cattle Dog",
+    "tagline": "מקצוען חרוצ שנהנה לעבוד",
+    "description": "גזע רועים מקצועי, חכם, נאמן וקשוח. דורש בעלים שיעבוד איתו — לא לבית רגיל.",
+    "traits": {
+      "size": 5,
+      "energy": 10,
+      "trainability": 9,
+      "grooming": 3,
+      "shedding": 6,
+      "kidFriendly": 6,
+      "petFriendly": 5,
+      "apartmentOk": 2,
+      "heatTolerance": 7,
+      "barkLevel": 5
+    },
+    "size": "medium",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "רועים",
+    "weightKg": [
+      15,
+      22
+    ],
+    "lifeExpectancy": [
+      13,
+      15
+    ],
+    "exerciseMinPerDay": 120,
+    "careTips": [
+      "דורש 2+ שעות עבודה ביום",
+      "ספורט כלבים מומלץ",
+      "סוציאליזציה לסביבות שונות"
+    ],
+    "commonMistakes": [
+      "ראיה כ'כלב בית' — הם כלבי עבודה",
+      "מחסור בעבודה — מקבלים החלטות בעצמם",
+      "התעלמות מהנטייה לנשך עקבים (רעיה)"
+    ],
+    "goodFor": [
+      "חוות, אנשים פעילים מאוד",
+      "ספורט",
+      "בית עם גינה גדולה"
+    ],
+    "notIdealFor": [
+      "דירה",
+      "בעלים ראשון",
+      "משפחה עם ילדים קטנים"
+    ],
+    "emoji": "🐕",
+    "accent": "#5A7D3F",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/cc/ACD-blue-spud.jpg",
+    "imageWidth": 800,
+    "imageHeight": 640,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%9B%D7%9C%D7%91_%D7%91%D7%A7%D7%A8_%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Australian_Cattle_Dog"
+  },
+  {
+    "slug": "great-dane",
+    "name": "דוג גרמני (גרייט דיין)",
+    "nameEn": "Great Dane",
+    "tagline": "ענק עדין במידות סוס קטן",
+    "description": "אחד הגזעים הגדולים בעולם. עדין ורגוע באופיו אבל זקוק למקום ופעילות. תוחלת חיים קצרה.",
+    "traits": {
+      "size": 10,
+      "energy": 5,
+      "trainability": 7,
+      "grooming": 2,
+      "shedding": 5,
+      "kidFriendly": 8,
+      "petFriendly": 7,
+      "apartmentOk": 4,
+      "heatTolerance": 4,
+      "barkLevel": 4
+    },
+    "size": "giant",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "עבודה",
+    "weightKg": [
+      50,
+      80
+    ],
+    "lifeExpectancy": [
+      7,
+      10
+    ],
+    "exerciseMinPerDay": 60,
+    "careTips": [
+      "טיולים מתונים — אסור להעמיס בגיל גור",
+      "תזונה איכותית — מערכת עיכול רגישה",
+      "מודעות לתוחלת חיים קצרה"
+    ],
+    "commonMistakes": [
+      "פעילות מוגזמת בגיל גור — בעיות מפרקים",
+      "תזונה לא נכונה — נפיחות קיבה מסוכנת",
+      "התעלמות מצורך במקום פיזי"
+    ],
+    "goodFor": [
+      "בית עם גינה ומקום",
+      "משפחות אוהבות ענקים",
+      "מבוגרים"
+    ],
+    "notIdealFor": [
+      "דירה קטנה",
+      "תקציב מצומצם (עלות אוכל)",
+      "אנשים שלא יכולים להתמודד עם אובדן מוקדם"
+    ],
+    "emoji": "🦒",
+    "accent": "#6B4D35",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Dog_niemiecki_%C5%BC%C3%B3%C5%82ty_LM980.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageWidth": 1900,
+    "imageHeight": 1844,
+    "wikipediaHe": null,
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Great_Dane"
+  },
+  {
+    "slug": "english-bulldog",
+    "name": "בולדוג אנגלי",
+    "nameEn": "English Bulldog",
+    "tagline": "ג'נטלמן בריטי עצלן וקשוח",
+    "description": "סמל אנגליה — רגוע, חברותי, אוהב מנוחה. סובל מבעיות נשימה ולא מתאים לחום הישראלי בלי מיזוג.",
+    "traits": {
+      "size": 5,
+      "energy": 3,
+      "trainability": 5,
+      "grooming": 5,
+      "shedding": 6,
+      "kidFriendly": 9,
+      "petFriendly": 7,
+      "apartmentOk": 9,
+      "heatTolerance": 1,
+      "barkLevel": 3
+    },
+    "size": "medium",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "לא ספורטיבי",
+    "weightKg": [
+      18,
+      25
+    ],
+    "lifeExpectancy": [
+      8,
+      10
+    ],
+    "exerciseMinPerDay": 25,
+    "careTips": [
+      "מיזוג בקיץ חובה — פנים שטוחות",
+      "ניקוי קפלי פנים יומי",
+      "תזונה מבוקרת — נוטים מאוד להשמנה"
+    ],
+    "commonMistakes": [
+      "טיול בחום = סכנת חיים",
+      "התעלמות מבעיות נשימה",
+      "ניקוי קפלים לקוי — זיהומים"
+    ],
+    "goodFor": [
+      "דירות, מבוגרים",
+      "משפחות שאוהבות כלב נוח",
+      "אנשים לא פעילים"
+    ],
+    "notIdealFor": [
+      "סביבות חמות בלי מיזוג",
+      "אנשים פעילים",
+      "תקציב מצומצם (וטרינר)"
+    ],
+    "emoji": "🐂",
+    "accent": "#C97B4B",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bulldog_inglese.jpg",
+    "imageWidth": 1204,
+    "imageHeight": 769,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%95%D7%9C%D7%93%D7%95%D7%92_%D7%90%D7%A0%D7%92%D7%9C%D7%99",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Bulldog"
+  },
+  {
+    "slug": "cane-corso",
+    "name": "קאנה קורסו",
+    "nameEn": "Cane Corso",
+    "tagline": "מולוס איטלקי עוצמתי",
+    "description": "כלב שמירה ענק ועוצמתי, נאמן למשפחה. מסוכן ע\"פ חוק בישראל — דורש זמם וביטוח. בעלים מנוסה בלבד.",
+    "traits": {
+      "size": 9,
+      "energy": 6,
+      "trainability": 8,
+      "grooming": 2,
+      "shedding": 5,
+      "kidFriendly": 6,
+      "petFriendly": 3,
+      "apartmentOk": 2,
+      "heatTolerance": 5,
+      "barkLevel": 4
+    },
+    "size": "giant",
+    "coat": "short",
+    "hypoallergenic": false,
+    "group": "עבודה",
+    "weightKg": [
+      40,
+      50
+    ],
+    "lifeExpectancy": [
+      9,
+      12
+    ],
+    "exerciseMinPerDay": 75,
+    "careTips": [
+      "סוציאליזציה אינטנסיבית מגיל גור",
+      "אילוף ציות מקצועי מומלץ",
+      "בישראל: כלב מסוכן ע\"פ חוק — זמם ורישוי"
+    ],
+    "commonMistakes": [
+      "אילוף לתוקפנות — מסוכן וגם נגד החוק",
+      "מחסור בסוציאליזציה — מסוכן",
+      "התעלמות מההיבט המשפטי"
+    ],
+    "goodFor": [
+      "בעלים מנוסים מאוד",
+      "בית עם גינה גדולה",
+      "שמירה"
+    ],
+    "notIdealFor": [
+      "בעלים ראשון",
+      "אזורים עירוניים",
+      "משפחה עם אורחים רבים"
+    ],
+    "emoji": "🛡️",
+    "accent": "#3D2817",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/03/Cane_corso_temi_1_1024x768x24_%28cropped%29.png",
+    "imageWidth": 528,
+    "imageHeight": 704,
+    "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A7%D7%90%D7%A0%D7%94_%D7%A7%D7%95%D7%A8%D7%A1%D7%95",
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Cane_Corso"
+  }
+]

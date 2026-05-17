@@ -1,0 +1,824 @@
+[
+  {
+    "id": "housing",
+    "layer": "core",
+    "order": 1,
+    "text": "איפה אתה מתכוון לגדל את הכלב?",
+    "subtext": "סוג הדיור משפיע מאוד על הגזע המתאים",
+    "mascot": "thinking",
+    "answers": [
+      {
+        "id": "apartment-small",
+        "label": "דירה קטנה (עד 60 מ\"ר)",
+        "emoji": "🏢",
+        "shifts": { "size": -3, "apartmentOk": 4, "energy": -2, "barkLevel": -2 },
+        "flags": ["small-space"]
+      },
+      {
+        "id": "apartment-large",
+        "label": "דירה גדולה / פנטהאוז",
+        "emoji": "🏙️",
+        "shifts": { "size": -1, "apartmentOk": 2, "barkLevel": -1 }
+      },
+      {
+        "id": "house-no-garden",
+        "label": "בית פרטי בלי גינה",
+        "emoji": "🏠",
+        "shifts": { "size": 1, "apartmentOk": 1 }
+      },
+      {
+        "id": "house-garden",
+        "label": "בית עם גינה",
+        "emoji": "🌳",
+        "shifts": { "size": 2, "energy": 1, "apartmentOk": -1 },
+        "flags": ["has-garden"]
+      }
+    ]
+  },
+  {
+    "id": "alone-hours",
+    "layer": "core",
+    "order": 2,
+    "text": "כמה שעות הכלב יהיה לבד בבית ביום?",
+    "subtext": "כלבים שונים מתמודדים אחרת עם בדידות",
+    "mascot": "curious",
+    "answers": [
+      {
+        "id": "rarely",
+        "label": "כמעט לא — אני בבית רוב הזמן",
+        "emoji": "🏡",
+        "shifts": { "energy": 1 }
+      },
+      {
+        "id": "few",
+        "label": "2-4 שעות ביום",
+        "emoji": "⏰",
+        "shifts": {}
+      },
+      {
+        "id": "workday",
+        "label": "5-8 שעות (יום עבודה רגיל)",
+        "emoji": "💼",
+        "shifts": { "energy": -1 },
+        "flags": ["long-alone"]
+      },
+      {
+        "id": "long",
+        "label": "מעל 8 שעות ביום",
+        "emoji": "🕐",
+        "shifts": { "energy": -2, "trainability": 1 },
+        "flags": ["very-long-alone"]
+      }
+    ]
+  },
+  {
+    "id": "household",
+    "layer": "core",
+    "order": 3,
+    "text": "מי גר איתך בבית?",
+    "subtext": "הרכב המשפחה חשוב לבחירת הגזע",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "alone",
+        "label": "אני לבד",
+        "emoji": "🧑",
+        "shifts": {}
+      },
+      {
+        "id": "couple",
+        "label": "זוג בלי ילדים",
+        "emoji": "💕",
+        "shifts": {}
+      },
+      {
+        "id": "kids-young",
+        "label": "ילדים קטנים (עד גיל 6)",
+        "emoji": "👶",
+        "shifts": { "kidFriendly": 4, "trainability": 2, "barkLevel": -1 },
+        "flags": ["young-kids"]
+      },
+      {
+        "id": "kids-older",
+        "label": "ילדים גדולים (7 ומעלה)",
+        "emoji": "👧",
+        "shifts": { "kidFriendly": 2 }
+      }
+    ]
+  },
+  {
+    "id": "experience",
+    "layer": "core",
+    "order": 4,
+    "text": "מה הניסיון שלך עם כלבים?",
+    "subtext": "ניסיון משפיע על רמת המורכבות שתוכל להתמודד איתה",
+    "mascot": "wave",
+    "answers": [
+      {
+        "id": "none",
+        "label": "זה הכלב הראשון שלי",
+        "emoji": "🆕",
+        "shifts": { "trainability": 3 },
+        "flags": ["first-time"]
+      },
+      {
+        "id": "some",
+        "label": "היה לי כלב פעם / חוויה משפחתית",
+        "emoji": "📖",
+        "shifts": { "trainability": 1 }
+      },
+      {
+        "id": "experienced",
+        "label": "מנוסה — גידלתי כמה כלבים",
+        "emoji": "🎓",
+        "shifts": {}
+      },
+      {
+        "id": "expert",
+        "label": "מאלף / איש מקצוע",
+        "emoji": "🏅",
+        "shifts": { "trainability": -2 }
+      }
+    ]
+  },
+  {
+    "id": "activity-level",
+    "layer": "lifestyle",
+    "text": "כמה אתה פעיל גופנית?",
+    "subtext": "הכלב יצטרך להתאים לרמת הפעילות שלך",
+    "mascot": "run",
+    "answers": [
+      {
+        "id": "low",
+        "label": "בעיקר רגוע — אוהב מנוחה",
+        "emoji": "🛋️",
+        "shifts": { "energy": -3 }
+      },
+      {
+        "id": "moderate",
+        "label": "הליכה יומית של 30-45 דק'",
+        "emoji": "🚶",
+        "shifts": { "energy": -1 }
+      },
+      {
+        "id": "active",
+        "label": "פעיל — מתאמן / טיולים ארוכים",
+        "emoji": "🚴",
+        "shifts": { "energy": 2 }
+      },
+      {
+        "id": "very-active",
+        "label": "מאוד פעיל — רץ או יוצא לטיולים שעות",
+        "emoji": "🏃",
+        "shifts": { "energy": 4 }
+      }
+    ]
+  },
+  {
+    "id": "exercise-commitment",
+    "layer": "lifestyle",
+    "text": "כמה זמן ביום תקדיש לטיול / משחק עם הכלב?",
+    "subtext": "כלבים שונים דורשים כמויות שונות של פעילות",
+    "mascot": "ball",
+    "answers": [
+      {
+        "id": "minimal",
+        "label": "עד 30 דקות ביום",
+        "emoji": "⏱️",
+        "shifts": { "energy": -3 },
+        "flags": ["low-exercise"]
+      },
+      {
+        "id": "moderate",
+        "label": "30-60 דקות",
+        "emoji": "⏰",
+        "shifts": { "energy": -1 }
+      },
+      {
+        "id": "good",
+        "label": "שעה עד שעתיים",
+        "emoji": "⌛",
+        "shifts": { "energy": 2 }
+      },
+      {
+        "id": "high",
+        "label": "2+ שעות, כולל ספורט",
+        "emoji": "🔥",
+        "shifts": { "energy": 4 }
+      }
+    ]
+  },
+  {
+    "id": "other-pets",
+    "layer": "lifestyle",
+    "text": "יש לך חיות אחרות בבית?",
+    "subtext": "התאמה לחיות אחרות משתנה בין גזעים",
+    "mascot": "curious",
+    "answers": [
+      {
+        "id": "none",
+        "label": "אין חיות אחרות",
+        "emoji": "🚫",
+        "shifts": {}
+      },
+      {
+        "id": "dog",
+        "label": "יש לי כלב אחר",
+        "emoji": "🐶",
+        "shifts": { "petFriendly": 3 },
+        "flags": ["has-dog"]
+      },
+      {
+        "id": "cat",
+        "label": "יש לי חתול",
+        "emoji": "🐱",
+        "shifts": { "petFriendly": 4 },
+        "flags": ["has-cat"]
+      },
+      {
+        "id": "small",
+        "label": "יש חיות קטנות (אוגר, ארנב, ציפור)",
+        "emoji": "🐹",
+        "shifts": { "petFriendly": 5 },
+        "flags": ["has-small-pets"]
+      }
+    ]
+  },
+  {
+    "id": "shedding-tolerance",
+    "layer": "lifestyle",
+    "text": "כמה אתה מוכן להתמודד עם פרווה בבית?",
+    "subtext": "חלק מהגזעים משירים מעט וחלקם הרבה",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "very-low",
+        "label": "אסור — אני אלרגי / רגיש מאוד",
+        "emoji": "🤧",
+        "shifts": { "shedding": -5, "grooming": 2 },
+        "flags": ["allergic"]
+      },
+      {
+        "id": "low",
+        "label": "מעדיף מינימום פרווה",
+        "emoji": "✨",
+        "shifts": { "shedding": -3 }
+      },
+      {
+        "id": "ok",
+        "label": "לא ממש אכפת לי",
+        "emoji": "🧹",
+        "shifts": {}
+      },
+      {
+        "id": "fine",
+        "label": "מוכן להשקיע בשאיבה ושטיפה",
+        "emoji": "🛁",
+        "shifts": { "shedding": 2 }
+      }
+    ]
+  },
+  {
+    "id": "grooming-time",
+    "layer": "preferences",
+    "text": "כמה זמן תקדיש לטיפוח (סירוק, רחיצה)?",
+    "subtext": "פרוות ארוכות דורשות תחזוקה",
+    "mascot": "brush",
+    "answers": [
+      {
+        "id": "minimal",
+        "label": "כמה שפחות — סירוק מהיר פעם בשבוע",
+        "emoji": "⚡",
+        "shifts": { "grooming": -3 }
+      },
+      {
+        "id": "weekly",
+        "label": "סירוק 2-3 פעמים בשבוע",
+        "emoji": "🪮",
+        "shifts": {}
+      },
+      {
+        "id": "daily",
+        "label": "סירוק יומי + מספרה חודשית",
+        "emoji": "💇",
+        "shifts": { "grooming": 3 }
+      }
+    ]
+  },
+  {
+    "id": "bark-tolerance",
+    "layer": "preferences",
+    "text": "כמה אתה (והשכנים שלך) סובלים נביחות?",
+    "subtext": "חלק מהגזעים ווקאליים בטבעם",
+    "mascot": "curious",
+    "answers": [
+      {
+        "id": "silent",
+        "label": "אסור בכלל — שכנים רגישים",
+        "emoji": "🤫",
+        "shifts": { "barkLevel": -4 }
+      },
+      {
+        "id": "moderate",
+        "label": "מעט בסדר — לא להגזים",
+        "emoji": "🔉",
+        "shifts": { "barkLevel": -2 }
+      },
+      {
+        "id": "fine",
+        "label": "לא אכפת לי — אפילו עוזר לשמירה",
+        "emoji": "📢",
+        "shifts": { "barkLevel": 2 }
+      }
+    ]
+  },
+  {
+    "id": "size-preference",
+    "layer": "preferences",
+    "text": "איזה גודל כלב אתה מעדיף?",
+    "subtext": "גודל משפיע על מקום, אוכל, וטיפול",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "tiny",
+        "label": "זעיר (עד 5 ק\"ג)",
+        "emoji": "🐾",
+        "shifts": { "size": -5 }
+      },
+      {
+        "id": "small",
+        "label": "קטן (5-12 ק\"ג)",
+        "emoji": "🐕",
+        "shifts": { "size": -2 }
+      },
+      {
+        "id": "medium",
+        "label": "בינוני (12-25 ק\"ג)",
+        "emoji": "🐶",
+        "shifts": { "size": 0 }
+      },
+      {
+        "id": "large-plus",
+        "label": "גדול / ענק (25+ ק\"ג)",
+        "emoji": "🐺",
+        "shifts": { "size": 4 }
+      }
+    ]
+  },
+  {
+    "id": "training-investment",
+    "layer": "preferences",
+    "text": "כמה אתה מוכן להשקיע באילוף מקצועי?",
+    "subtext": "גזעים מורכבים זקוקים לליווי מאלף",
+    "mascot": "graduation",
+    "answers": [
+      {
+        "id": "diy",
+        "label": "אעשה זאת לבד מקליפים וספרים",
+        "emoji": "📚",
+        "shifts": { "trainability": 3 }
+      },
+      {
+        "id": "basic",
+        "label": "קורס גורים בסיסי בקבוצה",
+        "emoji": "🐕‍🦺",
+        "shifts": { "trainability": 1 }
+      },
+      {
+        "id": "professional",
+        "label": "מאלף פרטי לפי הצורך",
+        "emoji": "🏅",
+        "shifts": { "trainability": -1 }
+      },
+      {
+        "id": "expert",
+        "label": "ספורט כלבים / אילוף מתקדם",
+        "emoji": "🎯",
+        "shifts": { "trainability": -2, "energy": 2 }
+      }
+    ]
+  },
+  {
+    "id": "budget",
+    "layer": "preferences",
+    "text": "מה התקציב החודשי שאתה מוכן להשקיע בכלב?",
+    "subtext": "כולל אוכל, וטרינר, ביטוח, טיפוח",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "low",
+        "label": "עד 400 ש\"ח לחודש",
+        "emoji": "💰",
+        "shifts": { "size": -2, "grooming": -2 },
+        "flags": ["low-budget"]
+      },
+      {
+        "id": "medium",
+        "label": "400-800 ש\"ח לחודש",
+        "emoji": "💵",
+        "shifts": {}
+      },
+      {
+        "id": "high",
+        "label": "800-1500 ש\"ח לחודש",
+        "emoji": "💎",
+        "shifts": { "size": 1 }
+      },
+      {
+        "id": "no-limit",
+        "label": "התקציב לא בעיה",
+        "emoji": "💸",
+        "shifts": { "grooming": 1 }
+      }
+    ]
+  },
+  {
+    "id": "climate",
+    "layer": "lifestyle",
+    "text": "איפה אתה גר בארץ?",
+    "subtext": "האקלים הישראלי קשה לגזעים מסוימים",
+    "mascot": "sun",
+    "answers": [
+      {
+        "id": "hot",
+        "label": "אזור חם מאוד (דרום, ערבה)",
+        "emoji": "🌡️",
+        "shifts": { "heatTolerance": 4 },
+        "flags": ["very-hot"]
+      },
+      {
+        "id": "warm",
+        "label": "מרכז / שפלה — חם יחסית",
+        "emoji": "☀️",
+        "shifts": { "heatTolerance": 2 }
+      },
+      {
+        "id": "moderate",
+        "label": "הרים / צפון — קריר יותר",
+        "emoji": "🏔️",
+        "shifts": { "heatTolerance": -1 }
+      },
+      {
+        "id": "ac",
+        "label": "יש מיזוג מלא בבית כל יום",
+        "emoji": "❄️",
+        "shifts": { "heatTolerance": -2 },
+        "flags": ["has-ac"]
+      }
+    ]
+  },
+  {
+    "id": "guest-frequency",
+    "layer": "lifestyle",
+    "text": "כמה תכופות מגיעים אורחים לבית?",
+    "subtext": "גזעי שמירה מתקשים עם אורחים תכופים",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "rare",
+        "label": "לעיתים רחוקות",
+        "emoji": "🚪",
+        "shifts": {}
+      },
+      {
+        "id": "sometimes",
+        "label": "כמה פעמים בחודש",
+        "emoji": "👥",
+        "shifts": { "petFriendly": 1 }
+      },
+      {
+        "id": "often",
+        "label": "כמה פעמים בשבוע",
+        "emoji": "🎉",
+        "shifts": { "petFriendly": 2, "kidFriendly": 1 }
+      }
+    ]
+  },
+  {
+    "id": "guarding",
+    "layer": "preferences",
+    "text": "האם חשוב לך שהכלב ישמש לשמירה?",
+    "subtext": "גזעי שמירה דורשים אילוף מיוחד",
+    "mascot": "shield",
+    "answers": [
+      {
+        "id": "no",
+        "label": "לא — מחפש בעיקר חבר",
+        "emoji": "💛",
+        "shifts": { "barkLevel": -1 }
+      },
+      {
+        "id": "warning",
+        "label": "ירעיש על מי שמתקרב — מספיק",
+        "emoji": "🔔",
+        "shifts": { "barkLevel": 1 }
+      },
+      {
+        "id": "real-guard",
+        "label": "כן — כלב שמירה אמיתי",
+        "emoji": "🛡️",
+        "shifts": { "size": 2, "barkLevel": 2, "trainability": -1 },
+        "flags": ["wants-guard"]
+      }
+    ]
+  },
+  {
+    "id": "look-importance",
+    "layer": "preferences",
+    "text": "כמה חשוב לך המראה החיצוני של הכלב?",
+    "subtext": "אופי קודם למראה, אבל אם משהו חשוב לך נתחשב בכך",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "not-important",
+        "label": "האופי קודם — לא משנה איך נראה",
+        "emoji": "💚",
+        "shifts": {}
+      },
+      {
+        "id": "fluffy",
+        "label": "אני אוהב פרוותי / רך",
+        "emoji": "🐑",
+        "shifts": { "grooming": 1 }
+      },
+      {
+        "id": "short-hair",
+        "label": "אני מעדיף שיער קצר וחלק",
+        "emoji": "✨",
+        "shifts": { "grooming": -2, "shedding": -1 }
+      },
+      {
+        "id": "athletic",
+        "label": "אני אוהב מראה אתלטי / כלב 'חזק'",
+        "emoji": "💪",
+        "shifts": { "size": 2, "energy": 1 }
+      }
+    ]
+  },
+  {
+    "id": "travel",
+    "layer": "lifestyle",
+    "text": "כמה תכופות אתה נוסע מהבית?",
+    "subtext": "תכיפות הנסיעות משפיעה על בחירת הגזע",
+    "mascot": "curious",
+    "answers": [
+      {
+        "id": "never",
+        "label": "כמעט אף פעם",
+        "emoji": "🏠",
+        "shifts": {}
+      },
+      {
+        "id": "rare",
+        "label": "כמה פעמים בשנה",
+        "emoji": "🧳",
+        "shifts": {}
+      },
+      {
+        "id": "monthly",
+        "label": "פעם בחודש או יותר",
+        "emoji": "✈️",
+        "shifts": { "trainability": 1 }
+      }
+    ]
+  },
+  {
+    "id": "first-time-help",
+    "layer": "lifestyle",
+    "text": "האם תהיה מוכן להתחיל ליטול עזרה מקצועית עם הכלב?",
+    "subtext": "כלבים מאתגרים זקוקים לליווי",
+    "mascot": "graduation",
+    "showIf": { "flags": ["first-time"] },
+    "answers": [
+      {
+        "id": "yes-eager",
+        "label": "בהחלט — אני אקח קורס מקצועי",
+        "emoji": "📚",
+        "shifts": { "trainability": -1 }
+      },
+      {
+        "id": "yes-budget",
+        "label": "אם זה לא יקר מדי",
+        "emoji": "💭",
+        "shifts": { "trainability": 1 }
+      },
+      {
+        "id": "no",
+        "label": "אני מעדיף לעשות לבד",
+        "emoji": "🤷",
+        "shifts": { "trainability": 3 }
+      }
+    ]
+  },
+  {
+    "id": "kids-age-detail",
+    "layer": "lifestyle",
+    "text": "מה הגיל של הילדים הקטנים בבית?",
+    "subtext": "ילדים בגיל הרך זקוקים לכלב מאוד סבלני",
+    "mascot": "smile",
+    "showIf": { "flags": ["young-kids"] },
+    "answers": [
+      {
+        "id": "baby",
+        "label": "תינוק (עד שנה)",
+        "emoji": "👶",
+        "shifts": { "barkLevel": -3, "kidFriendly": 3, "size": -1 },
+        "flags": ["baby-in-home"]
+      },
+      {
+        "id": "toddler",
+        "label": "פעוט (1-3)",
+        "emoji": "🧒",
+        "shifts": { "kidFriendly": 3, "barkLevel": -2 }
+      },
+      {
+        "id": "preschool",
+        "label": "גן (4-6)",
+        "emoji": "👧",
+        "shifts": { "kidFriendly": 2, "energy": 1 }
+      }
+    ]
+  },
+  {
+    "id": "work-from-home",
+    "layer": "lifestyle",
+    "text": "באיזה מצב אתה רוב היום?",
+    "subtext": "השאלה הזו עוזרת להתאים את רמת הצמידות של הכלב",
+    "mascot": "smile",
+    "showIf": { "notFlags": ["long-alone", "very-long-alone"] },
+    "answers": [
+      {
+        "id": "home-active",
+        "label": "בבית, אבל עסוק (עובד מהבית)",
+        "emoji": "💻",
+        "shifts": { "trainability": 1 }
+      },
+      {
+        "id": "home-free",
+        "label": "בבית ופנוי לחבר את הכלב",
+        "emoji": "🛋️",
+        "shifts": {}
+      },
+      {
+        "id": "mixed",
+        "label": "מתחלף — חלק בבית, חלק בחוץ",
+        "emoji": "🔄",
+        "shifts": { "energy": 1 }
+      }
+    ]
+  },
+  {
+    "id": "dealbreaker-allergy",
+    "layer": "preferences",
+    "text": "מישהו בבית סובל מאלרגיה לכלבים?",
+    "subtext": "במקרה כזה נחפש רק גזעים היפואלרגניים",
+    "mascot": "thinking",
+    "answers": [
+      {
+        "id": "no",
+        "label": "לא — אין בעיה",
+        "emoji": "✅",
+        "shifts": {}
+      },
+      {
+        "id": "mild",
+        "label": "אלרגיה קלה — נעדיף מינימום השלה",
+        "emoji": "🤧",
+        "shifts": { "shedding": -3 }
+      },
+      {
+        "id": "severe",
+        "label": "אלרגיה חזקה — רק היפואלרגני",
+        "emoji": "🚨",
+        "shifts": { "shedding": -5 },
+        "flags": ["allergic"]
+      }
+    ]
+  },
+  {
+    "id": "patience-level",
+    "layer": "preferences",
+    "text": "כמה אתה סבלן עם תהליכי אילוף?",
+    "subtext": "כלבים עצמאיים דורשים סבלנות אינסופית",
+    "mascot": "thinking",
+    "answers": [
+      {
+        "id": "very-patient",
+        "label": "סבלן מאוד — אני נהנה מהתהליך",
+        "emoji": "🧘",
+        "shifts": { "trainability": -2 }
+      },
+      {
+        "id": "moderate",
+        "label": "סבלנות בינונית",
+        "emoji": "😌",
+        "shifts": {}
+      },
+      {
+        "id": "results-now",
+        "label": "אני מעדיף תוצאות מהירות",
+        "emoji": "⚡",
+        "shifts": { "trainability": 3 }
+      }
+    ]
+  },
+  {
+    "id": "noise-environment",
+    "layer": "lifestyle",
+    "text": "איפה תטייל עם הכלב לרוב?",
+    "subtext": "כלבים שונים מתאימים לסביבות שונות",
+    "mascot": "run",
+    "answers": [
+      {
+        "id": "city",
+        "label": "רחובות עירוניים סואנים",
+        "emoji": "🚗",
+        "shifts": { "trainability": 1, "barkLevel": -1 }
+      },
+      {
+        "id": "park",
+        "label": "פארקים שכונתיים",
+        "emoji": "🌳",
+        "shifts": {}
+      },
+      {
+        "id": "nature",
+        "label": "טבע וטרקים פתוחים",
+        "emoji": "🥾",
+        "shifts": { "energy": 2 }
+      },
+      {
+        "id": "beach",
+        "label": "ים / מים",
+        "emoji": "🌊",
+        "shifts": { "energy": 1 }
+      }
+    ]
+  },
+  {
+    "id": "future-plans",
+    "layer": "preferences",
+    "text": "מה התכניות שלך ל-10-15 השנים הקרובות?",
+    "subtext": "כלב הוא התחייבות ארוכת טווח",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "stable",
+        "label": "החיים שלי יציבים — אותו בית, אותו אזור",
+        "emoji": "🏡",
+        "shifts": {}
+      },
+      {
+        "id": "kids-soon",
+        "label": "מתכנן ילדים בעתיד הקרוב",
+        "emoji": "👶",
+        "shifts": { "kidFriendly": 2, "barkLevel": -1 }
+      },
+      {
+        "id": "moving",
+        "label": "אולי אעבור דירה בעתיד",
+        "emoji": "📦",
+        "shifts": { "apartmentOk": 1 }
+      },
+      {
+        "id": "unsure",
+        "label": "לא יודע, החיים גמישים",
+        "emoji": "🤷",
+        "shifts": { "trainability": 1 }
+      }
+    ]
+  },
+  {
+    "id": "dog-personality",
+    "layer": "preferences",
+    "text": "איזה אופי כלב היית רוצה?",
+    "subtext": "השאלה הזו עוזרת לסיים בין מועמדים קרובים",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "cuddly",
+        "label": "מחובק וצמוד אליי",
+        "emoji": "🤗",
+        "shifts": { "trainability": 1, "petFriendly": 1 }
+      },
+      {
+        "id": "independent",
+        "label": "עצמאי, לא דורש המון תשומת לב",
+        "emoji": "🦊",
+        "shifts": { "trainability": -1, "barkLevel": -1 }
+      },
+      {
+        "id": "playful",
+        "label": "שמח, ליצן ומלא חיים",
+        "emoji": "🎾",
+        "shifts": { "energy": 2, "kidFriendly": 1 }
+      },
+      {
+        "id": "calm",
+        "label": "רגוע ומכובד",
+        "emoji": "🧘",
+        "shifts": { "energy": -2 }
+      }
+    ]
+  }
+]

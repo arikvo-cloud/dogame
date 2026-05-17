@@ -1,0 +1,61 @@
+"use client";
+
+import { motion } from "motion/react";
+import { TRAITS, TRAIT_KEYS, type TraitVector } from "@/lib/traits";
+
+interface Props {
+  traits: TraitVector;
+}
+
+/** Animated trait grid — each bar fills on viewport entry, staggered. */
+export function BreedTraits({ traits }: Props) {
+  return (
+    <motion.div
+      className="grid grid-cols-1 sm:grid-cols-2 gap-3.5"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      variants={{
+        hidden: {},
+        visible: { transition: { staggerChildren: 0.05 } },
+      }}
+    >
+      {TRAIT_KEYS.map((k) => {
+        const def = TRAITS[k];
+        const value = traits[k];
+        const pct = (value / 10) * 100;
+        return (
+          <motion.div
+            key={k}
+            variants={{
+              hidden: { opacity: 0, y: 16 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-[18px] border-[3px] border-border bg-surface p-3.5 shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)]"
+          >
+            <div className="flex items-center justify-between text-sm mb-2.5">
+              <span className="font-display font-black text-ink">{def.label}</span>
+              <span className="text-ink-mute text-xs font-medium">
+                {def.lowLabel} ← → {def.highLabel}
+              </span>
+            </div>
+            <div className="relative h-3 w-full rounded-full bg-bg-soft border-2 border-border-strong overflow-hidden shadow-[inset_0_1px_3px_rgba(124,45,18,0.16)]">
+              <motion.div
+                className="absolute inset-y-0 right-0 rounded-full bg-gradient-to-l from-primary via-peach to-primary-soft shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]"
+                initial={{ width: 0 }}
+                whileInView={{ width: `${pct}%` }}
+                viewport={{ once: true, amount: 0.6 }}
+                transition={{
+                  duration: 0.9,
+                  delay: 0.15,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              />
+            </div>
+          </motion.div>
+        );
+      })}
+    </motion.div>
+  );
+}

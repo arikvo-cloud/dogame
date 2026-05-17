@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@theme {
+  /* === Claymorphism warm palette === */
+  /* Background and surfaces */
+  --color-bg: #FFF7ED;
+  --color-bg-soft: #FFEDD5;
+  --color-bg-warm: #FED7AA;
+  --color-surface: #FFFFFF;
+  --color-surface-tint: #FFFBF5;
+
+  /* Primary (playful orange) */
+  --color-primary: #F97316;
+  --color-primary-soft: #FB923C;
+  --color-primary-deep: #C2410C;
+  --color-primary-tint: #FFEDD5;
+
+  /* Accent (trust blue) */
+  --color-accent: #2563EB;
+  --color-accent-soft: #60A5FA;
+  --color-accent-tint: #DBEAFE;
+  --color-accent-deep: #1D4ED8;
+
+  /* Secondary - playful peach */
+  --color-peach: #FDBA74;
+  --color-peach-deep: #EA580C;
+
+  /* Functional */
+  --color-success: #16A34A;
+  --color-success-deep: #15803D;
+  --color-success-tint: #DCFCE7;
+  --color-warning: #F59E0B;
+  --color-warning-deep: #B45309;
+  --color-warning-tint: #FEF3C7;
+  --color-danger: #DC2626;
+  --color-danger-tint: #FEE2E2;
+  --color-info: #2563EB;
+
+  /* Ink (text) */
+  --color-ink: #7C2D12;
+  --color-ink-soft: #9A3412;
+  --color-ink-mute: #C2410C;
+  --color-ink-faint: #FDBA74;
+  --color-ink-on-primary: #FFFFFF;
+
+  /* Border */
+  --color-border: #FED7AA;
+  --color-border-strong: #FB923C;
+  --color-border-ink: #7C2D12;
+
+  /* === Typography === */
+  --font-sans: var(--font-heebo), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-display: var(--font-rubik), var(--font-heebo), system-ui, sans-serif;
+  --font-fun: var(--font-rubik), system-ui, sans-serif;
+
+  /* === Radii (chunky claymorphism) === */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+  --radius-3xl: 48px;
+  --radius-blob: 50% 60% 55% 45% / 55% 45% 50% 50%;
+
+  /* === Clay shadows ===
+   * Two-layer recipe:
+   *   1. Hard offset bottom (gives "sit on shelf" depth)
+   *   2. Soft ambient outer (atmospheric warmth)
+   * Inner highlight on top for the silicone gleam. */
+  --shadow-clay-sm:
+    0 2px 0 0 var(--color-border-strong),
+    0 4px 12px -4px rgba(124, 45, 18, 0.12);
+  --shadow-clay:
+    0 4px 0 0 var(--color-border-strong),
+    0 10px 22px -8px rgba(124, 45, 18, 0.22);
+  --shadow-clay-lg:
+    0 6px 0 0 var(--color-border-strong),
+    0 14px 32px -10px rgba(154, 52, 18, 0.28);
+  --shadow-clay-xl:
+    0 8px 0 0 var(--color-border-strong),
+    0 22px 50px -16px rgba(154, 52, 18, 0.35);
+  --shadow-clay-press:
+    0 1px 0 0 var(--color-border-strong),
+    0 3px 8px -3px rgba(124, 45, 18, 0.16);
+  --shadow-inner-clay:
+    inset 0 2px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -2px 0 rgba(124, 45, 18, 0.08);
+  --shadow-glow-primary:
+    0 6px 0 0 var(--color-primary-deep),
+    0 16px 36px -10px rgba(249, 115, 22, 0.45);
+  --shadow-glow-accent:
+    0 6px 0 0 var(--color-accent-deep),
+    0 16px 36px -10px rgba(37, 99, 235, 0.45);
+
+  /* === Motion ===
+   * Squishy / bouncy / friendly. Spring overshoot gives clay personality. */
+  --ease-squish: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* === Base === */
+html,
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+body {
+  font-feature-settings: "kern", "liga", "calt";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* === Accessibility === */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === Background ambience: floating warm blobs === */
+.bg-clay {
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
+}
+.bg-clay::before,
+.bg-clay::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+  transform: translateZ(0);
+  contain: paint;
+}
+.bg-clay::before {
+  width: 700px;
+  height: 700px;
+  top: -200px;
+  right: -200px;
+  background: radial-gradient(circle, #FDBA74 0%, transparent 70%);
+}
+.bg-clay::after {
+  width: 620px;
+  height: 620px;
+  bottom: -220px;
+  left: -180px;
+  background: radial-gradient(circle, #93C5FD 0%, transparent 70%);
+}
+.bg-clay > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hide expensive blobs on small phones */
+@media (max-width: 480px) {
+  .bg-clay::before,
+  .bg-clay::after {
+    display: none;
+  }
+}
+
+/* === Clay surface util ===
+ * Use on Cards and major containers. Combine with rounded-clay-* */
+.clay-surface {
+  background: var(--color-surface);
+  border: 3px solid var(--color-border);
+  box-shadow: var(--shadow-clay), var(--shadow-inner-clay);
+}
+.clay-surface-warm {
+  background: var(--color-surface-tint);
+  border: 3px solid var(--color-border);
+  box-shadow: var(--shadow-clay), var(--shadow-inner-clay);
+}
+.clay-surface-tint {
+  background: var(--color-primary-tint);
+  border: 3px solid var(--color-border-strong);
+  box-shadow: var(--shadow-clay-sm), var(--shadow-inner-clay);
+}
+
+/* === Animations === */
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -30px) scale(1.05); }
+  66% { transform: translate(-15px, 25px) scale(0.97); }
+}
+.animate-blob {
+  animation: blob-drift 18s ease-in-out infinite;
+}
+
+@keyframes wag {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(6deg); }
+}
+.animate-wag {
+  animation: wag 0.9s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.86) translateY(8px); }
+  60% { opacity: 1; transform: scale(1.04) translateY(-3px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-pop-in {
+  animation: pop-in 0.4s var(--ease-squish) both;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+/* Hide scrollbar */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar { display: none; }
