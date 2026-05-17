@@ -11,6 +11,7 @@ import { decodeAnswers } from "@/lib/share";
 import { MatchCard } from "./MatchCard";
 import { ShareButtons } from "./ShareButtons";
 import { CompatibilityRadar } from "./CompatibilityRadar";
+import { AdoptionLinks } from "./AdoptionLinks";
 import { Confetti } from "@/components/ui/Confetti";
 import { CountUp } from "@/components/ui/CountUp";
 
@@ -157,6 +158,9 @@ export function ResultView() {
           )}
         </aside>
       </div>
+
+      {/* Adoption next-step */}
+      <AdoptionLinks breed={top.breed} />
 
       {/* Share */}
       <div className="rounded-[32px] border-[3px] border-primary-soft bg-primary-tint p-6 md:p-10 text-center shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">

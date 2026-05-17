@@ -22,6 +22,7 @@ import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { BreedGallery } from "@/components/breed/BreedGallery";
 import { FavoriteButton } from "@/components/breed/FavoriteButton";
 import { CostEstimator } from "@/components/breed/CostEstimator";
+import { BreedChat } from "@/components/breed/BreedChat";
 import { FavoritesBadge } from "@/components/providers/FavoritesBadge";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 
@@ -212,6 +213,13 @@ export default async function BreedPage({ params }: PageProps) {
         <Reveal from="up">
           <div className="mt-6">
             <CostEstimator breed={breed} />
+          </div>
+        </Reveal>
+
+        {/* AI Q&A chat */}
+        <Reveal from="up">
+          <div className="mt-6">
+            <BreedChat breed={breed} />
           </div>
         </Reveal>
 

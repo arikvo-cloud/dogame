@@ -7,6 +7,9 @@ import { useQuizStore } from "@/store/useQuizStore";
 import { getNextQuestion, estimatedTotal } from "@/lib/quiz/engine";
 import { QuestionCard } from "./QuestionCard";
 import { ProgressBar } from "./ProgressBar";
+import { PersonaPicker } from "./PersonaPicker";
+
+const PICKER_DISMISSED_KEY = "dogame-picker-dismissed-v1";
 
 /** Slight delay so the user sees their selected answer pop before we advance. */
 const ANSWER_TRANSITION_MS = 380;
@@ -14,6 +17,7 @@ const ANSWER_TRANSITION_MS = 380;
 export function QuizContainer() {
   const router = useRouter();
   const [hydrated, setHydrated] = useState(false);
+  const [pickerDismissed, setPickerDismissed] = useState(false);
   const [pending, setPending] = useState<string | null>(null);
   const pendingTimerRef = useRef<number | null>(null);
 
@@ -22,7 +26,19 @@ export function QuizContainer() {
   const goBack = useQuizStore((s) => s.goBack);
   const history = useQuizStore((s) => s.history);
 
-  useEffect(() => setHydrated(true), []);
+  useEffect(() => {
+    setHydrated(true);
+    if (typeof window !== "undefined") {
+      setPickerDismissed(sessionStorage.getItem(PICKER_DISMISSED_KEY) === "1");
+    }
+  }, []);
+
+  function dismissPicker() {
+    setPickerDismissed(true);
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem(PICKER_DISMISSED_KEY, "1");
+    }
+  }
 
   useEffect(() => {
     if (!hydrated) return;
@@ -47,6 +63,12 @@ export function QuizContainer() {
         טוען...
       </div>
     );
+  }
+
+  // First-time visitors get a persona picker before the quiz.
+  // Users who already started (have answers) skip straight to the quiz.
+  if (!pickerDismissed && Object.keys(answers).length === 0) {
+    return <PersonaPicker onSkipToQuiz={dismissPicker} />;
   }
 
   const currentQuestion = getNextQuestion(answers);

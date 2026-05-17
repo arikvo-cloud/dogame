@@ -50,3 +50,7 @@ next-env.d.ts
 
 # OS
 Thumbs.db
+
+# scratch / test artifacts
+.qa*.json
+.answer*.txt
