@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "motion/react";
-import { ChevronLeft, Sparkles, AlertTriangle, Trophy } from "lucide-react";
+import { ChevronLeft, Sparkles, AlertTriangle, Trophy, Lightbulb } from "lucide-react";
 import type { BreedMatch } from "@/lib/breeds/types";
 import { cn } from "@/lib/cn";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
@@ -77,6 +77,24 @@ export function MatchCard({ match, rank }: Props) {
           <div className="text-xs text-ink-soft font-display font-bold mt-0.5">התאמה</div>
         </div>
       </div>
+
+      {/* "Why we matched" — only on top result to avoid noise */}
+      {isTop && match.reasons.length > 0 && (
+        <div className="mt-5 rounded-[18px] bg-accent-tint border-2 border-accent-soft p-4 shadow-[var(--shadow-clay-sm)]">
+          <div className="flex items-center gap-1.5 text-accent-deep font-display font-extrabold text-sm mb-2">
+            <Lightbulb className="w-4 h-4" strokeWidth={2.5} />
+            למה התאמנו אותך לגזע הזה?
+          </div>
+          <ul className="text-sm text-ink space-y-1.5">
+            {match.reasons.map((r, i) => (
+              <li key={i} className="flex items-start gap-2 font-medium leading-relaxed">
+                <span className="text-accent-deep mt-1 shrink-0">✓</span>
+                <span>{r}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-5">
         {strengths.length > 0 && (

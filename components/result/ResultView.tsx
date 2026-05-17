@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
-import { Share2, Sparkles } from "lucide-react";
+import { Share2, Sparkles, Eye } from "lucide-react";
 import { useQuizStore } from "@/store/useQuizStore";
 import { matchBreeds } from "@/lib/breeds/matcher";
+import { decodeAnswers } from "@/lib/share";
 import { MatchCard } from "./MatchCard";
 import { ShareButtons } from "./ShareButtons";
 import { CompatibilityRadar } from "./CompatibilityRadar";
@@ -15,16 +16,26 @@ import { CountUp } from "@/components/ui/CountUp";
 
 export function ResultView() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [hydrated, setHydrated] = useState(false);
-  const answers = useQuizStore((s) => s.answers);
+  const storeAnswers = useQuizStore((s) => s.answers);
+
+  // If `?q=` is present in the URL, use those shared answers instead of local store
+  const sharedAnswers = useMemo(() => {
+    const q = searchParams.get("q");
+    return q ? decodeAnswers(q) : null;
+  }, [searchParams]);
+  const isShared = sharedAnswers !== null;
+  const answers = sharedAnswers ?? storeAnswers;
 
   useEffect(() => setHydrated(true), []);
 
   useEffect(() => {
-    if (hydrated && Object.keys(answers).length === 0) {
+    if (!hydrated) return;
+    if (!isShared && Object.keys(storeAnswers).length === 0) {
       router.replace("/quiz");
     }
-  }, [hydrated, answers, router]);
+  }, [hydrated, isShared, storeAnswers, router]);
 
   if (!hydrated || Object.keys(answers).length === 0) {
     return <div className="py-20 text-center text-ink-soft font-display font-bold">טוען תוצאות...</div>;
@@ -59,6 +70,21 @@ export function ResultView() {
 
   return (
     <div className="space-y-10">
+      {isShared && (
+        <div className="rounded-[18px] border-2 border-accent-soft bg-accent-tint p-3.5 text-center shadow-[var(--shadow-clay-sm)] mb-2 flex items-center justify-center gap-2">
+          <Eye className="w-4 h-4 text-accent-deep" strokeWidth={2.5} aria-hidden />
+          <span className="text-accent-deep font-display font-extrabold text-sm">
+            את/ה צופה בתוצאות משותפות. רוצה תוצאות משלך?{" "}
+            <Link
+              href="/quiz"
+              className="underline underline-offset-2 hover:text-accent"
+            >
+              קח/י את השאלון
+            </Link>
+          </span>
+        </div>
+      )}
+
       {/* Hero */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -74,7 +100,7 @@ export function ResultView() {
           className="inline-flex items-center gap-1.5 bg-accent-tint text-accent-deep border-2 border-accent-soft px-3.5 py-1.5 rounded-full text-sm font-display font-extrabold shadow-[var(--shadow-clay-sm)]"
         >
           <Sparkles className="w-4 h-4" strokeWidth={2.5} />
-          התוצאות שלך מוכנות
+          {isShared ? "תוצאות משותפות" : "התוצאות שלך מוכנות"}
         </motion.span>
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
@@ -142,7 +168,11 @@ export function ResultView() {
           אם זה עזר לך, ייתכן שזה יעזור גם לחבר שמתלבט
         </p>
         <div className="mt-6">
-          <ShareButtons topBreedName={top.breed.name} topScore={top.score} />
+          <ShareButtons
+            topBreedName={top.breed.name}
+            topScore={top.score}
+            answers={answers}
+          />
         </div>
       </div>
     </div>

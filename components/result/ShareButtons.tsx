@@ -3,25 +3,33 @@
 import { useState } from "react";
 import { Copy, Check, MessageCircle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import { buildShareText, copyToClipboard, whatsappLink } from "@/lib/share";
+import {
+  buildShareText,
+  buildShareUrl,
+  copyToClipboard,
+  whatsappLink,
+} from "@/lib/share";
 import { useQuizStore } from "@/store/useQuizStore";
 import { useRouter } from "next/navigation";
+import type { AnswerMap } from "@/lib/quiz/types";
 
 interface Props {
   topBreedName: string;
   topScore: number;
+  /** Answers to encode in the share URL (so recipients see the same results) */
+  answers: AnswerMap;
 }
 
-export function ShareButtons({ topBreedName, topScore }: Props) {
+export function ShareButtons({ topBreedName, topScore, answers }: Props) {
   const router = useRouter();
   const reset = useQuizStore((s) => s.reset);
   const [copied, setCopied] = useState(false);
 
-  const siteUrl =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/quiz`
-      : "https://dogame.app/quiz";
-  const text = `${buildShareText(topBreedName, topScore)} ${siteUrl}`;
+  const origin =
+    typeof window !== "undefined" ? window.location.origin : "https://dogame.pages.dev";
+  // Shareable result URL with encoded answers
+  const shareUrl = buildShareUrl(answers, origin);
+  const text = `${buildShareText(topBreedName, topScore)} ${shareUrl}`;
 
   return (
     <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">

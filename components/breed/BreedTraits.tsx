@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Info } from "lucide-react";
 import { TRAITS, TRAIT_KEYS, type TraitVector } from "@/lib/traits";
+import { Tooltip } from "@/components/ui/Tooltip";
 
 interface Props {
   traits: TraitVector;
@@ -35,8 +37,13 @@ export function BreedTraits({ traits }: Props) {
             className="rounded-[18px] border-[3px] border-border bg-surface p-3.5 shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)]"
           >
             <div className="flex items-center justify-between text-sm mb-2.5">
-              <span className="font-display font-black text-ink">{def.label}</span>
-              <span className="text-ink-mute text-xs font-medium">
+              <Tooltip content={def.description}>
+                <span className="font-display font-black text-ink inline-flex items-center gap-1 cursor-help">
+                  {def.label}
+                  <Info className="w-3 h-3 text-ink-soft" strokeWidth={2.5} aria-hidden />
+                </span>
+              </Tooltip>
+              <span className="text-ink-soft text-xs font-medium">
                 {def.lowLabel} ← → {def.highLabel}
               </span>
             </div>

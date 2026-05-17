@@ -57,6 +57,12 @@ export interface Breed {
   wikipediaHe?: string | null;
   /** English Wikipedia URL */
   wikipediaEn?: string | null;
+  /** Additional Wikimedia Commons photos (beyond the lead `imageUrl`) */
+  gallery?: Array<{
+    url: string;
+    width: number;
+    height: number;
+  }>;
 }
 
 export interface BreedMatch {
@@ -67,4 +73,6 @@ export interface BreedMatch {
   strengths: string[];
   /** Trait keys where care is needed */
   watchOuts: string[];
+  /** Plain-language reasons this breed was matched (Hebrew) */
+  reasons: string[];
 }

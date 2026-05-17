@@ -55,7 +55,29 @@
     "imageWidth": 1410,
     "imageHeight": 919,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%9C%D7%91%D7%A8%D7%93%D7%95%D7%A8_%D7%A8%D7%98%D7%A8%D7%99%D7%91%D7%A8",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Labrador_Retriever"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Labrador_Retriever",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/3labradorcols.jpg",
+        "width": 648,
+        "height": 854
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Afra_013.jpg/960px-Afra_013.jpg",
+        "width": 800,
+        "height": 532
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/American_and_English_Labrador_heads.jpg/960px-American_and_English_Labrador_heads.jpg",
+        "width": 800,
+        "height": 550
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Buccleuch_Avon_%281885%29.png",
+        "width": 444,
+        "height": 309
+      }
+    ]
   },
   {
     "slug": "golden",
@@ -113,7 +135,29 @@
     "imageWidth": 652,
     "imageHeight": 515,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%92%D7%95%D7%9C%D7%93%D7%9F_%D7%A8%D7%98%D7%A8%D7%99%D7%91%D7%A8",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Golden_Retriever"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Golden_Retriever",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/At_Sticker_Lumis_Golden.JPG/960px-At_Sticker_Lumis_Golden.JPG",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/74/Golden_Retrievers_dark_and_light.jpg",
+        "width": 665,
+        "height": 555
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Golden_retriever_retrieving_a_pheasant.jpg/960px-Golden_retriever_retrieving_a_pheasant.jpg",
+        "width": 800,
+        "height": 534
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Mrs_Winifred_Charlesworth.jpg",
+        "width": 470,
+        "height": 638
+      }
+    ]
   },
   {
     "slug": "german-shepherd",
@@ -171,7 +215,29 @@
     "imageWidth": 583,
     "imageHeight": 485,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A8%D7%95%D7%A2%D7%94_%D7%92%D7%A8%D7%9E%D7%A0%D7%99",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/German_Shepherd"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/German_Shepherd",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Berger_Blanc_Suisse.png/960px-Berger_Blanc_Suisse.png",
+        "width": 800,
+        "height": 607
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Black-german-shepherd.jpg/960px-Black-german-shepherd.jpg",
+        "width": 800,
+        "height": 599
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Bundesarchiv_Bild_183-08408-0002%2C_VEG_Joachimshof%2C_Nachtw%C3%A4rter_mit_Hund.jpg",
+        "width": 508,
+        "height": 768
+      }
+    ]
   },
   {
     "slug": "malinois",
@@ -229,7 +295,29 @@
     "imageWidth": 1079,
     "imageHeight": 1184,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Belgian_Shepherd"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Belgian_Shepherd",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/04_-_Belgian_shepherd_dog_varieties_-_Groenendael%2CTervuren%2C_Malinois%2C_Laekenois.jpg/960px-04_-_Belgian_shepherd_dog_varieties_-_Groenendael%2CTervuren%2C_Malinois%2C_Laekenois.jpg",
+        "width": 800,
+        "height": 878
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/I%C2%B4Ker_de_R.Brown.jpg/960px-I%C2%B4Ker_de_R.Brown.jpg",
+        "width": 800,
+        "height": 587
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Lakenios_Koira_2013.JPG/960px-Lakenios_Koira_2013.JPG",
+        "width": 800,
+        "height": 877
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Malinois_Shepherd3.JPG",
+        "width": 507,
+        "height": 425
+      }
+    ]
   },
   {
     "slug": "french-bulldog",
@@ -287,7 +375,29 @@
     "imageWidth": 1078,
     "imageHeight": 800,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%95%D7%9C%D7%93%D7%95%D7%92_%D7%A6%D7%A8%D7%A4%D7%AA%D7%99",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/French_Bulldog"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/French_Bulldog",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2008-07-28_Dog_at_Frolick_Field.jpg/960px-2008-07-28_Dog_at_Frolick_Field.jpg",
+        "width": 800,
+        "height": 594
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/900-French-Bulldog-l.jpg",
+        "width": 900,
+        "height": 1600
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/A_French_Bulldog.jpg/960px-A_French_Bulldog.jpg",
+        "width": 800,
+        "height": 1103
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Anna-Maria-Sacher-1908.jpg",
+        "width": 716,
+        "height": 718
+      }
+    ]
   },
   {
     "slug": "poodle-standard",
@@ -345,7 +455,29 @@
     "imageWidth": 4928,
     "imageHeight": 3264,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%93%D7%9C",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Poodle"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Poodle",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Bo_the_poodle_retrieving_a_duck.jpg/960px-Bo_the_poodle_retrieving_a_duck.jpg",
+        "width": 800,
+        "height": 717
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/CH_Renaissance_Hopeful_Impulse.jpg/960px-CH_Renaissance_Hopeful_Impulse.jpg",
+        "width": 800,
+        "height": 972
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Cafe-au-lait_standard_poodle.jpg",
+        "width": 720,
+        "height": 720
+      }
+    ]
   },
   {
     "slug": "poodle-mini",
@@ -403,7 +535,29 @@
     "imageWidth": 4928,
     "imageHeight": 3264,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%93%D7%9C",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Poodle"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Poodle",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Bo_the_poodle_retrieving_a_duck.jpg/960px-Bo_the_poodle_retrieving_a_duck.jpg",
+        "width": 800,
+        "height": 717
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/CH_Renaissance_Hopeful_Impulse.jpg/960px-CH_Renaissance_Hopeful_Impulse.jpg",
+        "width": 800,
+        "height": 972
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Cafe-au-lait_standard_poodle.jpg",
+        "width": 720,
+        "height": 720
+      }
+    ]
   },
   {
     "slug": "bichon-frise",
@@ -461,7 +615,29 @@
     "imageWidth": 2126,
     "imageHeight": 1535,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%99%D7%A9%D7%95%D7%9F_%D7%A4%D7%A8%D7%99%D7%96%D7%94",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Bichon_Fris%C3%A9"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Bichon_Fris%C3%A9",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/16yearoldbichonfrise_%28cropped%29.jpg/960px-16yearoldbichonfrise_%28cropped%29.jpg",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Bichon_Fris%C3%A9_-_studdogbichon.jpg/960px-Bichon_Fris%C3%A9_-_studdogbichon.jpg",
+        "width": 800,
+        "height": 578
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Goya_Alba1.jpg/960px-Goya_Alba1.jpg",
+        "width": 800,
+        "height": 1219
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/58/Honey_Dreams_Dancer_%26_Sahra.jpg",
+        "width": 602,
+        "height": 398
+      }
+    ]
   },
   {
     "slug": "maltese",
@@ -519,7 +695,19 @@
     "imageWidth": 600,
     "imageHeight": 600,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Maltese_dog"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Maltese_dog",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/1AKC_Maltese_Dog_Show_2011.jpg/960px-1AKC_Maltese_Dog_Show_2011.jpg",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Lucy_McElhiney.jpg",
+        "width": 800,
+        "height": 602
+      }
+    ]
   },
   {
     "slug": "chihuahua",
@@ -577,7 +765,19 @@
     "imageWidth": 370,
     "imageHeight": 322,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A6'%D7%99%D7%95%D7%95%D7%90%D7%95%D7%95%D7%94",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Chihuahua_(dog_breed)"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Chihuahua_(dog_breed)",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Chihuahua-Dog.JPG/960px-Chihuahua-Dog.JPG",
+        "width": 800,
+        "height": 536
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Standard_razza_chihuahua.jpg/960px-Standard_razza_chihuahua.jpg",
+        "width": 800,
+        "height": 534
+      }
+    ]
   },
   {
     "slug": "yorkshire",
@@ -635,7 +835,29 @@
     "imageWidth": 575,
     "imageHeight": 714,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%99%D7%95%D7%A8%D7%A7%D7%A9%D7%99%D7%99%D7%A8_%D7%98%D7%A8%D7%99%D7%99%D7%A8",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Yorkshire_Terrier"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Yorkshire_Terrier",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/4_year_old_Yorkie%2C_Leo.jpg/960px-4_year_old_Yorkie%2C_Leo.jpg",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Ernest_Gustave_Girardot04.jpg",
+        "width": 528,
+        "height": 686
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Henri_the_yorki_from_alabama_.jpg/960px-Henri_the_yorki_from_alabama_.jpg",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Holly_the_Yorkshire_Terrier.jpg",
+        "width": 615,
+        "height": 461
+      }
+    ]
   },
   {
     "slug": "shih-tzu",
@@ -693,7 +915,29 @@
     "imageWidth": 426,
     "imageHeight": 341,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A9%D7%99_%D7%98%D7%A1%D7%95",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Shih_Tzu"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Shih_Tzu",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/49/Black_and_White_Shih_Tzu.jpg",
+        "width": 812,
+        "height": 787
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Chinese_guardian_lion%2C_Veendam_%282020%29_02.jpg/960px-Chinese_guardian_lion%2C_Veendam_%282020%29_02.jpg",
+        "width": 800,
+        "height": 450
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Okapi2.jpg/960px-Okapi2.jpg",
+        "width": 800,
+        "height": 695
+      }
+    ]
   },
   {
     "slug": "cavalier",
@@ -751,7 +995,29 @@
     "imageWidth": 691,
     "imageHeight": 505,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Cavalier_King_Charles_Spaniel"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Cavalier_King_Charles_Spaniel",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/20070114_dog_with_bandaged_foot.jpg/960px-20070114_dog_with_bandaged_foot.jpg",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/A_pair_of_Cavalier_King_Charles_Spaniels.JPG/960px-A_pair_of_Cavalier_King_Charles_Spaniels.JPG",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Aid4.jpg",
+        "width": 604,
+        "height": 403
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/BlenheimTn.jpg/960px-BlenheimTn.jpg",
+        "width": 800,
+        "height": 727
+      }
+    ]
   },
   {
     "slug": "cocker",
@@ -809,7 +1075,29 @@
     "imageWidth": 5184,
     "imageHeight": 3456,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/English_Cocker_Spaniel"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/English_Cocker_Spaniel",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/%22Bill%22_-_Cocker_spaniel_anglais_2.JPG/960px-%22Bill%22_-_Cocker_spaniel_anglais_2.JPG",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/AKC_English_Cocker_Spaniel_Dog_Show_2013.jpg/960px-AKC_English_Cocker_Spaniel_Dog_Show_2013.jpg",
+        "width": 800,
+        "height": 1140
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Bild_Braunschimmel.jpg/960px-Bild_Braunschimmel.jpg",
+        "width": 800,
+        "height": 591
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Bojars%27s_english_cocker_spaniel.jpg",
+        "width": 600,
+        "height": 450
+      }
+    ]
   },
   {
     "slug": "beagle",
@@ -867,7 +1155,29 @@
     "imageWidth": 600,
     "imageHeight": 480,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%99%D7%92%D7%9C",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Beagle"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Beagle",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/7/76/4-beagles.jpg",
+        "width": 843,
+        "height": 660
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Beagle-Farben.jpg",
+        "width": 640,
+        "height": 426
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/BeagleNiniJule.jpg",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Beagle_745.jpg",
+        "width": 591,
+        "height": 453
+      }
+    ]
   },
   {
     "slug": "dachshund",
@@ -925,7 +1235,29 @@
     "imageWidth": 1000,
     "imageHeight": 741,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%AA%D7%97%D7%A9_(%D7%9B%D7%9C%D7%91)",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Dachshund"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Dachshund",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Adolf_Eberle_Dackelfamilie.jpg",
+        "width": 549,
+        "height": 449
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Andy_Warhol_by_Jack_Mitchell.jpg",
+        "width": 598,
+        "height": 480
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Carl_Reichert_-_Curious_dachshund_puppies_and_a_frog.jpg/960px-Carl_Reichert_-_Curious_dachshund_puppies_and_a_frog.jpg",
+        "width": 800,
+        "height": 520
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Dachshund.jpg",
+        "width": 516,
+        "height": 408
+      }
+    ]
   },
   {
     "slug": "pug",
@@ -983,7 +1315,29 @@
     "imageWidth": 1000,
     "imageHeight": 665,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A4%D7%90%D7%92",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Pug"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Pug",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/152._Pugs.JPG",
+        "width": 393,
+        "height": 305
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Black_pug_with_longer_legs.jpg/960px-Black_pug_with_longer_legs.jpg",
+        "width": 800,
+        "height": 636
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Carl_Reichert_Mops.jpg/960px-Carl_Reichert_Mops.jpg",
+        "width": 800,
+        "height": 967
+      }
+    ]
   },
   {
     "slug": "boxer",
@@ -1040,7 +1394,29 @@
     "imageWidth": 1373,
     "imageHeight": 1012,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%95%D7%A7%D7%A1%D7%A8_(%D7%9B%D7%9C%D7%91)",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Boxer_(dog_breed)"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Boxer_(dog_breed)",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Bokser_portret.jpg/960px-Bokser_portret.jpg",
+        "width": 800,
+        "height": 1041
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Boxer_dog.jpg/960px-Boxer_dog.jpg",
+        "width": 800,
+        "height": 717
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Boxer_early_genealogy.png",
+        "width": 445,
+        "height": 600
+      }
+    ]
   },
   {
     "slug": "border-collie",
@@ -1099,7 +1475,29 @@
     "imageWidth": 600,
     "imageHeight": 491,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%95%D7%A8%D7%93%D7%A8_%D7%A7%D7%95%D7%9C%D7%99",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Border_Collie"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Border_Collie",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/2015_Telfer_Hemp_Memorial_02.jpg/960px-2015_Telfer_Hemp_Memorial_02.jpg",
+        "width": 800,
+        "height": 1075
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/BC_eye.jpg/960px-BC_eye.jpg",
+        "width": 800,
+        "height": 535
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Border_Collie_Macho_Blanco_y_Negro_%28Batman%2C_los_Baganes_Border_Collie%29.jpg/960px-Border_Collie_Macho_Blanco_y_Negro_%28Batman%2C_los_Baganes_Border_Collie%29.jpg",
+        "width": 800,
+        "height": 547
+      }
+    ]
   },
   {
     "slug": "australian-shepherd",
@@ -1158,7 +1556,29 @@
     "imageWidth": 5184,
     "imageHeight": 3456,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A8%D7%95%D7%A2%D7%94_%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Australian_Shepherd"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Australian_Shepherd",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Australian_Shepherd_Black_Tri%2C_Red_Tri%2C_Blue_Merle.jpg/960px-Australian_Shepherd_Black_Tri%2C_Red_Tri%2C_Blue_Merle.jpg",
+        "width": 800,
+        "height": 535
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Australian_Shepherd_agility_cropped.jpg",
+        "width": 752,
+        "height": 842
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Australian_Shepherd_catching_a_frisbee.jpg/960px-Australian_Shepherd_catching_a_frisbee.jpg",
+        "width": 800,
+        "height": 1000
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Australian_Shepherd_red_bi.JPG/960px-Australian_Shepherd_red_bi.JPG",
+        "width": 800,
+        "height": 533
+      }
+    ]
   },
   {
     "slug": "husky",
@@ -1217,7 +1637,29 @@
     "imageWidth": 800,
     "imageHeight": 579,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%94%D7%90%D7%A1%D7%A7%D7%99_%D7%A1%D7%99%D7%91%D7%99%D7%A8%D7%99",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Siberian_Husky"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Siberian_Husky",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/AN1128493.jpg/960px-AN1128493.jpg",
+        "width": 800,
+        "height": 628
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Balto.jpg/960px-Balto.jpg",
+        "width": 800,
+        "height": 1068
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Gunnar_Kaasen_with_Balto.jpg",
+        "width": 648,
+        "height": 800
+      }
+    ]
   },
   {
     "slug": "vizsla",
@@ -1275,7 +1717,29 @@
     "imageWidth": 2022,
     "imageHeight": 2124,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Vizsla"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Vizsla",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Magyar_Vizsla.jpg/960px-Magyar_Vizsla.jpg",
+        "width": 800,
+        "height": 636
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Vizsla-profile.jpg",
+        "width": 756,
+        "height": 745
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Vizsla.jpg",
+        "width": 320,
+        "height": 240
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Vizsla_puppies_cage.jpg/960px-Vizsla_puppies_cage.jpg",
+        "width": 800,
+        "height": 600
+      }
+    ]
   },
   {
     "slug": "doberman",
@@ -1333,7 +1797,29 @@
     "imageWidth": 3072,
     "imageHeight": 2048,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%93%D7%95%D7%91%D7%A8%D7%9E%D7%9F_%D7%A4%D7%99%D7%A0%D7%A6'%D7%A8",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Dobermann"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Dobermann",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Doberman_Pinscher_Portrait.jpg",
+        "width": 284,
+        "height": 270
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Doberman_Pinschers_black_and_blue.jpg",
+        "width": 664,
+        "height": 413
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Doberman_blue%2C_purebred_CKC.JPG",
+        "width": 640,
+        "height": 423
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Dobermann_Black_and_Tan_%22Vito%22.jpg",
+        "width": 512,
+        "height": 720
+      }
+    ]
   },
   {
     "slug": "rottweiler",
@@ -1391,7 +1877,29 @@
     "imageWidth": 1000,
     "imageHeight": 760,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A8%D7%95%D7%98%D7%95%D7%95%D7%99%D7%99%D7%9C%D7%A8",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Rottweiler"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Rottweiler",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/%22Prince%22_%287369763074%29.jpg/960px-%22Prince%22_%287369763074%29.jpg",
+        "width": 800,
+        "height": 647
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/03_Snow_Bunny_Talitha_Rottweiler.jpg/960px-03_Snow_Bunny_Talitha_Rottweiler.jpg",
+        "width": 800,
+        "height": 534
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Anatomy_dog.png/960px-Anatomy_dog.png",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      }
+    ]
   },
   {
     "slug": "canaan",
@@ -1449,7 +1957,29 @@
     "imageWidth": 600,
     "imageHeight": 422,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%9B%D7%9C%D7%91_%D7%9B%D7%A0%D7%A2%D7%A0%D7%99",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Canaan_Dog"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Canaan_Dog",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/88/CanaanDog3.jpg",
+        "width": 750,
+        "height": 563
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/CanaanDogChakede.jpg",
+        "width": 600,
+        "height": 422
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Canaan_Dog.jpg",
+        "width": 241,
+        "height": 305
+      }
+    ]
   },
   {
     "slug": "jack-russell",
@@ -1508,7 +2038,29 @@
     "imageWidth": 2091,
     "imageHeight": 3136,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%92'%D7%A7_%D7%A8%D7%90%D7%A1%D7%9C_%D7%98%D7%A8%D7%99%D7%99%D7%A8",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Jack_Russell_Terrier"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Jack_Russell_Terrier",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/05052881_PRT_braun_rau.jpg",
+        "width": 640,
+        "height": 480
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Broken_Coated_Jack_Russell_Terrier.jpg/960px-Broken_Coated_Jack_Russell_Terrier.jpg",
+        "width": 800,
+        "height": 830
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Carlisle_Tack.jpg/960px-Carlisle_Tack.jpg",
+        "width": 800,
+        "height": 518
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Dog_on_a_Stick_%282483492371%29.jpg/960px-Dog_on_a_Stick_%282483492371%29.jpg",
+        "width": 800,
+        "height": 641
+      }
+    ]
   },
   {
     "slug": "schnauzer-mini",
@@ -1566,7 +2118,29 @@
     "imageWidth": 1582,
     "imageHeight": 1188,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Miniature_Schnauzer"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Miniature_Schnauzer",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d7/20080420_LunaHallett_%28cropped%29.jpg",
+        "width": 823,
+        "height": 703
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Bungartz%2C_1888%2C_Rauhhaariger_Pinscher_und_Rauhhaariger_Zwergpinscher.jpg",
+        "width": 788,
+        "height": 625
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Miniature_Schauzer_%2811120917415%29.jpg/960px-Miniature_Schauzer_%2811120917415%29.jpg",
+        "width": 800,
+        "height": 606
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Miniature_Schnauzer_salt_%26_pepper_%28cropped%29.jpg/960px-Miniature_Schnauzer_salt_%26_pepper_%28cropped%29.jpg",
+        "width": 800,
+        "height": 601
+      }
+    ]
   },
   {
     "slug": "pomeranian",
@@ -1624,7 +2198,29 @@
     "imageWidth": 768,
     "imageHeight": 636,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A4%D7%95%D7%9E%D7%A8%D7%A0%D7%99%D7%90%D7%9F",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Pomeranian_dog"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Pomeranian_dog",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Black-tan-pom.jpg",
+        "width": 849,
+        "height": 1132
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Wapiti_from_Wagon_Trails.jpg/960px-Wapiti_from_Wagon_Trails.jpg",
+        "width": 800,
+        "height": 548
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/de/Chocolate-pom.jpg",
+        "width": 668,
+        "height": 891
+      }
+    ]
   },
   {
     "slug": "bernese",
@@ -1683,7 +2279,29 @@
     "imageWidth": 8870,
     "imageHeight": 5913,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Bernese_Mountain_Dog"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Bernese_Mountain_Dog",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/3-BerneseMountainDogInGrass.jpg/960px-3-BerneseMountainDogInGrass.jpg",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/5/5e/Adam%2C_Benno%2C_Bernese_Mountain_Dog_and_Her_Pups.jpg",
+        "width": 400,
+        "height": 303
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Berner_Sennenhund_mit_Iris-Heterochromie.png/960px-Berner_Sennenhund_mit_Iris-Heterochromie.png",
+        "width": 800,
+        "height": 1075
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Bernese_Mountain_Dog_-_9_months.JPG/960px-Bernese_Mountain_Dog_-_9_months.JPG",
+        "width": 800,
+        "height": 1201
+      }
+    ]
   },
   {
     "slug": "shiba-inu",
@@ -1742,7 +2360,29 @@
     "imageWidth": 1280,
     "imageHeight": 960,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Shiba_Inu"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Shiba_Inu",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Dog_head_dog%C5%AB.jpg/960px-Dog_head_dog%C5%AB.jpg",
+        "width": 800,
+        "height": 536
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Fm_shiba_inu_puppy.jpg",
+        "width": 438,
+        "height": 346
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Redshibaurajiro.jpg/960px-Redshibaurajiro.jpg",
+        "width": 800,
+        "height": 600
+      }
+    ]
   },
   {
     "slug": "samoyed",
@@ -1801,7 +2441,29 @@
     "imageWidth": 1900,
     "imageHeight": 1954,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Samoyed_dog"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Samoyed_dog",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg/960px-Black_Labrador_Retriever_-_Male_IMG_3323_%28cropped%29.jpg",
+        "width": 800,
+        "height": 539
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Dido_background.jpg/960px-Dido_background.jpg",
+        "width": 800,
+        "height": 500
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Kuznetsk_Alatau_3.jpg/960px-Kuznetsk_Alatau_3.jpg",
+        "width": 800,
+        "height": 533
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Little_Lucy_Samoyed.jpg/960px-Little_Lucy_Samoyed.jpg",
+        "width": 800,
+        "height": 1067
+      }
+    ]
   },
   {
     "slug": "dalmatian",
@@ -1860,7 +2522,29 @@
     "imageWidth": 768,
     "imageHeight": 1024,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%93%D7%9C%D7%9E%D7%98%D7%99",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Dalmatian_dog"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Dalmatian_dog",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Binka_10_06.jpg",
+        "width": 669,
+        "height": 512
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Blauauge.jpg",
+        "width": 709,
+        "height": 472
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Chienne_dalmatienne_allaitant_6_chiots_dalmatiens.jpg",
+        "width": 646,
+        "height": 484
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Dalmatian_puppy%2C_four_months.png",
+        "width": 635,
+        "height": 541
+      }
+    ]
   },
   {
     "slug": "greyhound",
@@ -1918,7 +2602,29 @@
     "imageWidth": 1024,
     "imageHeight": 768,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%92%D7%A8%D7%99%D7%99%D7%94%D7%90%D7%95%D7%A0%D7%93",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Greyhound"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Greyhound",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Blue_greyhound.JPG/960px-Blue_greyhound.JPG",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Bronzen_beeldje_hazewindhond_ForumHadriani_015501_RMO_Leiden.jpg/960px-Bronzen_beeldje_hazewindhond_ForumHadriani_015501_RMO_Leiden.jpg",
+        "width": 800,
+        "height": 623
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/en/7/72/Ghundskeleton.jpg",
+        "width": 410,
+        "height": 280
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/GraceTheGreyhound.jpg/960px-GraceTheGreyhound.jpg",
+        "width": 800,
+        "height": 600
+      }
+    ]
   },
   {
     "slug": "cattle-dog",
@@ -1977,7 +2683,29 @@
     "imageWidth": 800,
     "imageHeight": 640,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%9B%D7%9C%D7%91_%D7%91%D7%A7%D7%A8_%D7%90%D7%95%D7%A1%D7%98%D7%A8%D7%9C%D7%99",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Australian_Cattle_Dog"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Australian_Cattle_Dog",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/%22Bender%22_Australian_Cattle_Dog_Creeping_Legend.jpg/960px-%22Bender%22_Australian_Cattle_Dog_Creeping_Legend.jpg",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/6/69/17_year_old_ACD_Ruby.jpg",
+        "width": 800,
+        "height": 549
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Acd_agility.jpg",
+        "width": 707,
+        "height": 642
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Australian_Catle_Dog_Silverbarn%27s_Paavo.jpg/960px-Australian_Catle_Dog_Silverbarn%27s_Paavo.jpg",
+        "width": 800,
+        "height": 857
+      }
+    ]
   },
   {
     "slug": "great-dane",
@@ -2036,7 +2764,29 @@
     "imageWidth": 1900,
     "imageHeight": 1844,
     "wikipediaHe": null,
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Great_Dane"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Great_Dane",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/1879_GreatDane_Nero.jpg",
+        "width": 447,
+        "height": 326
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/e8/8675eds_win.jpg",
+        "width": 500,
+        "height": 487
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Dog_niemiecki_%C5%BC%C3%B3%C5%82ty_LM980.jpg/960px-Dog_niemiecki_%C5%BC%C3%B3%C5%82ty_LM980.jpg",
+        "width": 800,
+        "height": 776
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/Duffy_the_brindle_Great_Dane.JPG",
+        "width": 800,
+        "height": 722
+      }
+    ]
   },
   {
     "slug": "english-bulldog",
@@ -2095,7 +2845,29 @@
     "imageWidth": 1204,
     "imageHeight": 769,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%91%D7%95%D7%9C%D7%93%D7%95%D7%92_%D7%90%D7%A0%D7%92%D7%9C%D7%99",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Bulldog"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Bulldog",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/%22Venus%22_the_bulldog_mascot_of_the_destroyer_HMS_VANSITTART%2C_1941._A3998.jpg/960px-%22Venus%22_the_bulldog_mascot_of_the_destroyer_HMS_VANSITTART%2C_1941._A3998.jpg",
+        "width": 800,
+        "height": 541
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Brachycephalie.png/960px-Brachycephalie.png",
+        "width": 800,
+        "height": 323
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Bulldog_inglese.jpg/960px-Bulldog_inglese.jpg",
+        "width": 800,
+        "height": 511
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Clyde_The_Bulldog.jpg/960px-Clyde_The_Bulldog.jpg",
+        "width": 800,
+        "height": 799
+      }
+    ]
   },
   {
     "slug": "cane-corso",
@@ -2154,6 +2926,28 @@
     "imageWidth": 528,
     "imageHeight": 704,
     "wikipediaHe": "https://he.wikipedia.org/wiki/%D7%A7%D7%90%D7%A0%D7%94_%D7%A7%D7%95%D7%A8%D7%A1%D7%95",
-    "wikipediaEn": "https://en.wikipedia.org/wiki/Cane_Corso"
+    "wikipediaEn": "https://en.wikipedia.org/wiki/Cane_Corso",
+    "gallery": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/CaneCorso_%2812%29.jpg/960px-CaneCorso_%2812%29.jpg",
+        "width": 800,
+        "height": 577
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Cane_Corso_Aragon.jpg",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Cane_Corso_Fawn.jpg/960px-Cane_Corso_Fawn.jpg",
+        "width": 800,
+        "height": 720
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Viggo-Ears-n-Tail.png",
+        "width": 381,
+        "height": 277
+      }
+    ]
   }
 ]

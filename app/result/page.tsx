@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 import { ResultView } from "@/components/result/ResultView";
 
 export const metadata = {
@@ -24,7 +25,15 @@ export default function ResultPage() {
         </Link>
       </div>
       <div className="mx-auto max-w-5xl">
-        <ResultView />
+        <Suspense
+          fallback={
+            <div className="py-20 text-center text-ink-soft font-display font-bold">
+              טוען תוצאות...
+            </div>
+          }
+        >
+          <ResultView />
+        </Suspense>
       </div>
     </main>
   );

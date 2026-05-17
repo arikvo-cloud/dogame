@@ -12,7 +12,7 @@ import {
   passesAllDealBreakers,
 } from "@/lib/quiz/deal-breakers";
 import type { AnswerMap, Flag } from "@/lib/quiz/types";
-import { QUESTIONS } from "@/lib/quiz/questions";
+import { QUESTIONS, getQuestionById } from "@/lib/quiz/questions";
 
 /** Clamp a number to [0, 10] */
 function clamp(n: number, min = 0, max = 10): number {
@@ -87,6 +87,102 @@ function describeMatch(
   };
 }
 
+/**
+ * Generates plain-language reasons why this breed matches the user.
+ * Picks the 3 user answers whose target trait most strongly aligns with
+ * the breed and renders a short Hebrew sentence each.
+ */
+function explainMatch(
+  user: TraitVector,
+  breed: Breed,
+  answers: AnswerMap,
+  flags: Set<Flag>
+): string[] {
+  const reasons: string[] = [];
+
+  // 1. Flag-based reasons (deterministic and very tangible)
+  if (flags.has("allergic") && breed.hypoallergenic) {
+    reasons.push(`היפואלרגני — מתאים גם לאלרגיים, ${breed.name} משיר מעט מאוד`);
+  }
+  if (flags.has("baby-in-home") && breed.traits.kidFriendly >= 8) {
+    reasons.push(
+      `סבלני עם תינוקות וילדים — ציון התאמה לילדים גבוה (${breed.traits.kidFriendly}/10)`
+    );
+  }
+  if (flags.has("small-space") && breed.traits.apartmentOk >= 8) {
+    reasons.push(
+      `מצוין לדירה — ${breed.size === "toy" || breed.size === "small" ? "קטן" : "מסתדר היטב"} ובלי דרישות שטח גדולות`
+    );
+  }
+  if (flags.has("very-hot") && breed.traits.heatTolerance >= 7) {
+    reasons.push(
+      `עמיד בחום הישראלי (${breed.traits.heatTolerance}/10) — חשוב במיוחד באזורך`
+    );
+  }
+  if (flags.has("first-time") && breed.traits.trainability >= 7) {
+    reasons.push(
+      `קל לאילוף (${breed.traits.trainability}/10) — מעולה לבעלים ראשון`
+    );
+  }
+  if (flags.has("has-cat") && breed.traits.petFriendly >= 8) {
+    reasons.push(`מסתדר טוב עם חתולים וחיות אחרות בבית`);
+  }
+
+  // 2. Trait-based reasons — find user answers whose target trait is closely matched
+  type Cand = {
+    questionId: string;
+    questionText: string;
+    answerLabel: string;
+    traitKey: TraitKey;
+    diff: number;
+  };
+  const candidates: Cand[] = [];
+
+  for (const [qid, aid] of Object.entries(answers)) {
+    const q = getQuestionById(qid);
+    if (!q) continue;
+    const a = q.answers.find((x) => x.id === aid);
+    if (!a) continue;
+    for (const [traitKey] of Object.entries(a.shifts) as [TraitKey, number][]) {
+      const diff = Math.abs(user[traitKey] - breed.traits[traitKey]);
+      candidates.push({
+        questionId: qid,
+        questionText: q.text,
+        answerLabel: a.label,
+        traitKey,
+        diff,
+      });
+    }
+  }
+
+  // Top traits where breed best matches user, dedupe by traitKey
+  const seenTraits = new Set<TraitKey>();
+  const seenQuestions = new Set<string>();
+  candidates
+    .sort((a, b) => a.diff - b.diff)
+    .filter((c) => {
+      if (c.diff > 2.5) return false;
+      if (seenTraits.has(c.traitKey)) return false;
+      if (seenQuestions.has(c.questionId)) return false;
+      seenTraits.add(c.traitKey);
+      seenQuestions.add(c.questionId);
+      return true;
+    })
+    .slice(0, 3)
+    .forEach((c) => {
+      const traitLabel = TRAITS[c.traitKey].label;
+      reasons.push(`ענית "${c.answerLabel}" — הגזע תואם בציר ${traitLabel}`);
+    });
+
+  // Deduplicate and cap at 4
+  const unique: string[] = [];
+  for (const r of reasons) {
+    if (!unique.includes(r)) unique.push(r);
+    if (unique.length >= 4) break;
+  }
+  return unique;
+}
+
 export interface MatchResult {
   matches: BreedMatch[];
   filteredCount: number;
@@ -106,7 +202,8 @@ export function matchBreeds(answers: AnswerMap): MatchResult {
     .map((breed) => {
       const score = scoreBreed(vector, breed);
       const { strengths, watchOuts } = describeMatch(vector, breed);
-      return { breed, score, strengths, watchOuts };
+      const reasons = explainMatch(vector, breed, answers, flags);
+      return { breed, score, strengths, watchOuts, reasons };
     })
     .sort((a, b) => b.score - a.score);
 

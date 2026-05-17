@@ -19,11 +19,41 @@ import { AnimatedHeadline } from "@/components/ui/AnimatedHeadline";
 import { FloatingPaws } from "@/components/ui/FloatingPaws";
 import { HeroParallax } from "@/components/landing/HeroParallax";
 
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://dogame.pages.dev";
+
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      url: BASE_URL,
+      name: "DoGame",
+      description: "משחק אינטראקטיבי להתאמת גזע כלב לסגנון החיים שלך",
+      inLanguage: "he",
+    },
+    {
+      "@type": "WebApplication",
+      name: "DoGame",
+      applicationCategory: "LifestyleApplication",
+      operatingSystem: "Web",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "ILS" },
+      inLanguage: "he",
+      url: BASE_URL,
+    },
+  ],
+};
+
 export default function HomePage() {
   const featuredBreeds = BREEDS.slice(0, 6);
 
   return (
     <main id="main" className="bg-clay">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
+      />
       {/* === Nav === */}
       <nav className="px-4 py-4 sticky top-0 z-30 backdrop-blur-md bg-bg/70 border-b-2 border-border/60">
         <div className="mx-auto max-w-6xl flex items-center justify-between">
@@ -34,10 +64,22 @@ export default function HomePage() {
             <span className="text-2xl transition-transform group-hover:rotate-12">🐾</span>
             DoGame
           </Link>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 md:gap-4">
+            <Link
+              href="/breeds"
+              className="text-ink-soft hover:text-primary-deep text-sm md:text-base font-display font-bold transition-colors"
+            >
+              כל הגזעים
+            </Link>
+            <Link
+              href="/compare"
+              className="hidden sm:inline text-ink-soft hover:text-primary-deep text-sm md:text-base font-display font-bold transition-colors"
+            >
+              השוואה
+            </Link>
             <Link
               href="/about"
-              className="text-ink-soft hover:text-primary-deep text-sm md:text-base font-display font-bold transition-colors"
+              className="hidden md:inline text-ink-soft hover:text-primary-deep text-sm md:text-base font-display font-bold transition-colors"
             >
               על הפרויקט
             </Link>
@@ -294,10 +336,10 @@ export default function HomePage() {
                 <p className="mt-2 text-ink-soft font-medium">37 גזעים פופולריים בישראל</p>
               </div>
               <Link
-                href="/quiz"
+                href="/breeds"
                 className="inline-flex items-center gap-1 text-primary-deep hover:text-primary font-display font-extrabold transition-colors"
               >
-                למצוא את הגזע שלי
+                לראות את כל הגזעים
                 <ArrowLeft className="w-4 h-4" />
               </Link>
             </div>

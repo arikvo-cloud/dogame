@@ -19,6 +19,7 @@ import {
 import { BreedTraits } from "@/components/breed/BreedTraits";
 import { InfoList } from "@/components/breed/InfoList";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
+import { BreedGallery } from "@/components/breed/BreedGallery";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 
 interface PageProps {
@@ -33,16 +34,31 @@ export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const breed = getBreedBySlug(slug);
   if (!breed) return { title: "גזע לא נמצא · DoGame" };
+  const desc = `${breed.tagline}. ${breed.description.slice(0, 140)}`;
   return {
     title: `${breed.name} (${breed.nameEn}) · DoGame`,
-    description: `${breed.tagline}. ${breed.description.slice(0, 140)}`,
+    description: desc,
+    alternates: { canonical: `/breed/${breed.slug}/` },
     openGraph: {
       title: `${breed.name} · DoGame`,
       description: breed.tagline,
       locale: "he_IL",
+      type: "article",
+      images: breed.imageUrl
+        ? [{ url: breed.imageUrl, alt: `תמונה של ${breed.name}` }]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${breed.name} · DoGame`,
+      description: breed.tagline,
+      images: breed.imageUrl ? [breed.imageUrl] : undefined,
     },
   };
 }
+
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://dogame.pages.dev";
 
 export default async function BreedPage({ params }: PageProps) {
   const { slug } = await params;
@@ -50,8 +66,37 @@ export default async function BreedPage({ params }: PageProps) {
   if (!breed) notFound();
   const wiki = bestWikipediaUrl(breed);
 
+  // JSON-LD structured data for the breed page
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${breed.name} (${breed.nameEn})`,
+    description: breed.description,
+    inLanguage: "he",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${BASE_URL}/breed/${breed.slug}/`,
+    },
+    image: breed.imageUrl ?? undefined,
+    publisher: {
+      "@type": "Organization",
+      name: "DoGame",
+      url: BASE_URL,
+    },
+    about: {
+      "@type": "Thing",
+      name: breed.name,
+      alternateName: breed.nameEn,
+      sameAs: [wiki?.url].filter(Boolean),
+    },
+  };
+
   return (
     <main id="main" className="min-h-dvh bg-clay py-8 md:py-12 px-4">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="mx-auto max-w-4xl">
         <div className="mb-6 flex items-center justify-between">
           <Link
@@ -133,6 +178,19 @@ export default async function BreedPage({ params }: PageProps) {
             <p className="text-ink leading-relaxed text-lg font-medium">{breed.description}</p>
           </section>
         </Reveal>
+
+        {/* Gallery */}
+        {breed.gallery && breed.gallery.length > 0 && (
+          <Reveal from="up">
+            <section className="mt-6 rounded-[28px] border-[3px] border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+              <h2 className="font-display font-black text-2xl text-ink mb-4">גלריה</h2>
+              <p className="text-sm text-ink-soft font-medium mb-4">
+                לחץ על תמונה כדי להגדיל. תמונות מ-Wikimedia Commons תחת רישיון CC.
+              </p>
+              <BreedGallery breed={breed} />
+            </section>
+          </Reveal>
+        )}
 
         {/* Traits */}
         <Reveal from="up">

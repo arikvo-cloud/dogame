@@ -23,6 +23,8 @@ export interface TraitDef {
   highLabel: string;
   /** Default weight used by the matcher. Some answers can override per-axis weight. */
   weight: number;
+  /** Plain-language explanation shown in tooltips */
+  description: string;
 }
 
 export const TRAITS: Record<TraitKey, TraitDef> = {
@@ -32,6 +34,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "קטן",
     highLabel: "ענק",
     weight: 1.2,
+    description: "הגודל הפיזי הבוגר של הכלב, מ-toy (פחות מ-5 ק\"ג) עד giant (40+ ק\"ג).",
   },
   energy: {
     key: "energy",
@@ -39,6 +42,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "רגוע",
     highLabel: "פעיל מאוד",
     weight: 1.4,
+    description: "כמה פעילות יומית הגזע צורך — מ-30 דק' הליכה ועד שעות של ריצה ומשחק.",
   },
   trainability: {
     key: "trainability",
@@ -46,6 +50,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "אתגרי",
     highLabel: "קל מאוד",
     weight: 1.3,
+    description: "כמה הגזע אינטליגנטי ונכון לשמוע פקודות. גבוה = מהיר ללמוד.",
   },
   grooming: {
     key: "grooming",
@@ -53,6 +58,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "מינימלית",
     highLabel: "גבוהה",
     weight: 1.0,
+    description: "כמה סירוק, רחיצה ותספורת מקצועית הגזע צריך. גבוה = יקר ועתיר זמן.",
   },
   shedding: {
     key: "shedding",
@@ -60,6 +66,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "אין/מועטה",
     highLabel: "רבה",
     weight: 1.0,
+    description: "כמה פרווה הגזע משיר. גבוה = פרווה בכל הבית, השפעה על אלרגיות.",
   },
   kidFriendly: {
     key: "kidFriendly",
@@ -67,6 +74,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "פחות",
     highLabel: "מצוין",
     weight: 1.1,
+    description: "כמה הגזע סבלני, עדין ובטוח לסביבת ילדים — במיוחד הקטנים.",
   },
   petFriendly: {
     key: "petFriendly",
@@ -74,6 +82,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "פחות",
     highLabel: "מצוין",
     weight: 0.9,
+    description: "כמה קל לגזע לחיות לצד חתולים, כלבים אחרים או חיות קטנות.",
   },
   apartmentOk: {
     key: "apartmentOk",
@@ -81,6 +90,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "פחות",
     highLabel: "מצוין",
     weight: 1.0,
+    description: "כמה הגזע מסתדר בלי גינה — אם הוא רגוע מספיק ולא צריך הרבה מקום.",
   },
   heatTolerance: {
     key: "heatTolerance",
@@ -88,6 +98,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "רגיש",
     highLabel: "עמיד",
     weight: 1.3,
+    description: "כמה הגזע מסתדר בחום הישראלי. נמוך = מסוכן בלי מיזוג בקיץ.",
   },
   barkLevel: {
     key: "barkLevel",
@@ -95,6 +106,7 @@ export const TRAITS: Record<TraitKey, TraitDef> = {
     lowLabel: "שקט",
     highLabel: "ווקאלי",
     weight: 0.8,
+    description: "כמה הגזע נובח. גבוה = יכול להיות בעיה עם שכנים רגישים.",
   },
 };
 
