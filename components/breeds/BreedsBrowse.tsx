@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Search, X, Filter as FilterIcon, Sparkles, Shield } from "lucide-react";
 import { BREEDS } from "@/lib/breeds/data";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
+import { FavoriteButton } from "@/components/breed/FavoriteButton";
 import { Pill } from "@/components/ui/Pill";
 import { cn } from "@/lib/cn";
 import type { Breed, BreedSize } from "@/lib/breeds/types";
@@ -345,10 +346,19 @@ function FilterChips({
 
 function BreedTile({ breed }: { breed: Breed }) {
   return (
-    <Link
-      href={`/breed/${breed.slug}`}
-      className="group block rounded-[22px] border-[3px] border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] hover:-translate-y-1 hover:border-border-strong transition-all"
-    >
+    <div className="relative">
+      <div className="absolute top-2 right-2 z-10">
+        <FavoriteButton
+          slug={breed.slug}
+          breedName={breed.name}
+          size="sm"
+          stopPropagation
+        />
+      </div>
+      <Link
+        href={`/breed/${breed.slug}`}
+        className="group block rounded-[22px] border-[3px] border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] hover:-translate-y-1 hover:border-border-strong transition-all"
+      >
       <div className="flex justify-center mb-2.5 group-hover:scale-105 transition-transform">
         <BreedPhoto breed={breed} size={140} rounded="rounded-[18px]" />
       </div>
@@ -378,6 +388,7 @@ function BreedTile({ breed }: { breed: Breed }) {
           </Pill>
         )}
       </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

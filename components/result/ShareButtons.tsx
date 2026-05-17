@@ -12,6 +12,7 @@ import {
 import { useQuizStore } from "@/store/useQuizStore";
 import { useRouter } from "next/navigation";
 import type { AnswerMap } from "@/lib/quiz/types";
+import { useToast } from "@/components/ui/Toast";
 
 interface Props {
   topBreedName: string;
@@ -23,6 +24,7 @@ interface Props {
 export function ShareButtons({ topBreedName, topScore, answers }: Props) {
   const router = useRouter();
   const reset = useQuizStore((s) => s.reset);
+  const toast = useToast();
   const [copied, setCopied] = useState(false);
 
   const origin =
@@ -50,7 +52,10 @@ export function ShareButtons({ topBreedName, topScore, answers }: Props) {
           const ok = await copyToClipboard(text);
           if (ok) {
             setCopied(true);
+            toast.show("הקישור הועתק ללוח 📋", "success");
             setTimeout(() => setCopied(false), 2000);
+          } else {
+            toast.show("לא הצלחנו להעתיק. נסה שוב.", "error");
           }
         }}
       >

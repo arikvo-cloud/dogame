@@ -17,16 +17,30 @@ const rubik = Rubik({
   display: "swap",
 });
 
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://dogame.pages.dev";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: "DoGame · מצא את הכלב המושלם בשבילך",
   description:
     "משחק אינטראקטיבי שעוזר לך למצוא את גזע הכלב המתאים לסגנון החיים שלך — לפני שמביאים כלב הביתה.",
   keywords: ["כלבים", "גזעי כלבים", "אימוץ", "בחירת כלב", "כלב משפחתי"],
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-touch-icon.svg" }],
+  },
   openGraph: {
     title: "DoGame · מצא את הכלב המושלם בשבילך",
     description: "משחק התאמת גזע — בחירה אחראית של כלב לסגנון החיים שלך.",
     locale: "he_IL",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DoGame · מצא את הכלב המושלם בשבילך",
+    description: "משחק התאמת גזע — בחירה אחראית של כלב לסגנון החיים שלך.",
   },
 };
 

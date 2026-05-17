@@ -20,6 +20,9 @@ import { BreedTraits } from "@/components/breed/BreedTraits";
 import { InfoList } from "@/components/breed/InfoList";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { BreedGallery } from "@/components/breed/BreedGallery";
+import { FavoriteButton } from "@/components/breed/FavoriteButton";
+import { CostEstimator } from "@/components/breed/CostEstimator";
+import { FavoritesBadge } from "@/components/providers/FavoritesBadge";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 
 interface PageProps {
@@ -105,20 +108,25 @@ export default async function BreedPage({ params }: PageProps) {
           >
             <span className="text-2xl">🐾</span> DoGame
           </Link>
-          <Link
-            href="/result"
-            className="inline-flex items-center gap-1 text-ink-soft hover:text-primary-deep text-sm font-display font-bold transition-colors"
-          >
-            חזרה לתוצאות
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="flex items-center gap-3">
+            <FavoritesBadge />
+            <Link
+              href="/breeds"
+              className="text-sm text-ink-soft hover:text-primary-deep font-display font-bold transition-colors"
+            >
+              ← כל הגזעים
+            </Link>
+          </div>
         </div>
 
         {/* Hero */}
         <header
-          className="rounded-[36px] border-[3px] bg-surface p-6 md:p-10 text-center shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]"
+          className="relative rounded-[36px] border-[3px] bg-surface p-6 md:p-10 text-center shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]"
           style={{ borderColor: breed.accent }}
         >
+          <div className="absolute top-4 right-4 z-10">
+            <FavoriteButton slug={breed.slug} breedName={breed.name} size="md" />
+          </div>
           <div className="flex justify-center">
             <BreedPhoto
               breed={breed}
@@ -198,6 +206,13 @@ export default async function BreedPage({ params }: PageProps) {
             <h2 className="font-display font-black text-2xl text-ink mb-5">פרופיל תכונות</h2>
             <BreedTraits traits={breed.traits} />
           </section>
+        </Reveal>
+
+        {/* Cost estimator */}
+        <Reveal from="up">
+          <div className="mt-6">
+            <CostEstimator breed={breed} />
+          </div>
         </Reveal>
 
         {/* Care + mistakes grid */}

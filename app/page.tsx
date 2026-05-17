@@ -12,6 +12,7 @@ import { DogMascot } from "@/components/quiz/DogMascot";
 import { BREEDS } from "@/lib/breeds/data";
 import { Pill } from "@/components/ui/Pill";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
+import { FavoritesBadge } from "@/components/providers/FavoritesBadge";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { CountUp } from "@/components/ui/CountUp";
@@ -83,6 +84,7 @@ export default function HomePage() {
             >
               על הפרויקט
             </Link>
+            <FavoritesBadge />
             <Link
               href="/quiz"
               className="inline-flex items-center gap-1 bg-primary text-white border-[3px] border-primary-deep px-4 py-2 rounded-[16px] font-display font-extrabold shadow-[0_3px_0_var(--color-primary-deep)] hover:-translate-y-px active:translate-y-0.5 active:shadow-[0_1px_0_var(--color-primary-deep)] transition-all"
