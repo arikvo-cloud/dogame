@@ -5,8 +5,6 @@ import {
   Sparkles,
   Shield,
   Clock,
-  CheckCircle2,
-  Star,
 } from "lucide-react";
 import { DogMascot } from "@/components/quiz/DogMascot";
 import { BREEDS } from "@/lib/breeds/data";
@@ -17,6 +15,7 @@ import { AuroraBackground } from "@/components/providers/AuroraBackground";
 import { ScrollStory } from "@/components/landing/ScrollStory";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { BreedMarquee } from "@/components/landing/BreedMarquee";
+import { HeroPhotoFeature } from "@/components/landing/HeroPhotoFeature";
 import { LazyMount } from "@/components/ui/LazyMount";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
@@ -138,28 +137,9 @@ export default function HomePage() {
             </Reveal>
           </div>
 
-          {/* Hero mascot with parallax */}
+          {/* Hero feature photo (editorial dominance) */}
           <HeroParallax className="order-1 md:order-2 flex justify-center">
-            <div className="relative">
-              <div
-                aria-hidden
-                className="absolute -inset-10 bg-gradient-to-tr from-primary/30 via-peach/30 to-accent/25 blur-3xl rounded-full animate-blob"
-              />
-              <div className="relative bg-surface border-[4px] border-border-strong rounded-full p-10 md:p-14 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]">
-                <DogMascot mood="smile" size={220} />
-              </div>
-              <div className="hidden md:flex absolute -top-2 -right-2 z-10 items-center gap-1.5 bg-success text-white border-2 border-success/80 px-3 py-1.5 rounded-full font-display font-extrabold text-sm shadow-[0_3px_0_rgba(20,83,45,0.4)] animate-float-slow">
-                <CheckCircle2 className="w-4 h-4" strokeWidth={3} />
-                100% חינמי
-              </div>
-              <div
-                className="hidden md:flex absolute -bottom-2 -left-2 z-10 items-center gap-1.5 bg-accent text-white border-2 border-accent-deep px-3 py-1.5 rounded-full font-display font-extrabold text-sm shadow-[0_3px_0_var(--color-accent-deep)] animate-float-slow"
-                style={{ animationDelay: "1s" }}
-              >
-                <Star className="w-4 h-4 fill-current" strokeWidth={0} />
-                3-5 גזעים
-              </div>
-            </div>
+            <HeroPhotoFeature />
           </HeroParallax>
         </div>
       </section>
