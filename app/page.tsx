@@ -78,18 +78,14 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            <h1 className="mt-3 md:mt-5 font-extrabold font-display text-ink leading-[0.95] tracking-tight text-[clamp(2rem,7vw,4.5rem)] lg:text-7xl">
-              איזה כלב{" "}
-              <span className="block sm:inline">
-                באמת{" "}
-                <span className="relative inline-block whitespace-nowrap">
-                  <span className="relative z-10 text-primary-deep">מתאים לך?</span>
-                  <span
-                    aria-hidden
-                    className="absolute -bottom-1 right-0 left-0 h-3 md:h-4 -z-0 rounded-full"
-                    style={{ background: "#FED7AA" }}
-                  />
-                </span>
+            <h1 className="mt-3 md:mt-5 font-extrabold font-display text-ink leading-[1.02] tracking-tight text-[clamp(1.75rem,6vw,4.5rem)] lg:text-7xl break-words">
+              איזה כלב באמת{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10 text-primary-deep">מתאים לך?</span>
+                <span
+                  aria-hidden
+                  className="absolute right-0 left-0 -bottom-0.5 h-[0.2em] -z-0 rounded-full bg-peach"
+                />
               </span>
             </h1>
 
