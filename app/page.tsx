@@ -20,8 +20,6 @@ import { LazyMount } from "@/components/ui/LazyMount";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { CountUp } from "@/components/ui/CountUp";
-import { AnimatedHeadline } from "@/components/ui/AnimatedHeadline";
-import { HeroParallax } from "@/components/landing/HeroParallax";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://dogame.pages.dev";
@@ -62,9 +60,16 @@ export default function HomePage() {
       <SiteNav />
 
       {/* === Hero === */}
-      <section className="px-4 pt-10 pb-20 md:pt-16 md:pb-24 relative overflow-hidden">
-        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center relative">
-          <div className="order-2 md:order-1">
+      <section className="px-4 pt-8 pb-16 md:pt-12 md:pb-20 relative">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+          {/* Photo: appears first in DOM, so it's on top on mobile.
+              On desktop (RTL grid) it lands on the left half. */}
+          <div className="w-full">
+            <HeroPhotoFeature />
+          </div>
+
+          {/* Text */}
+          <div className="text-right">
             <Reveal from="up" delay={0.05}>
               <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
                 <span className="block w-6 h-px bg-ink-mute" aria-hidden />
@@ -73,19 +78,20 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            <div className="mt-4 md:mt-6 text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] text-ink">
-              <AnimatedHeadline
-                as="h1"
-                delay={0.2}
-                className="leading-[0.95] font-display"
-                words={[
-                  { text: "איזה" },
-                  { text: "כלב" },
-                  { text: "באמת" },
-                  { text: "מתאים לך?", accent: true, underline: true },
-                ]}
-              />
-            </div>
+            <h1 className="mt-3 md:mt-5 font-extrabold font-display text-ink leading-[0.95] tracking-tight text-[clamp(2rem,7vw,4.5rem)] lg:text-7xl">
+              איזה כלב{" "}
+              <span className="block sm:inline">
+                באמת{" "}
+                <span className="relative inline-block whitespace-nowrap">
+                  <span className="relative z-10 text-primary-deep">מתאים לך?</span>
+                  <span
+                    aria-hidden
+                    className="absolute -bottom-1 right-0 left-0 h-3 md:h-4 -z-0 rounded-full"
+                    style={{ background: "#FED7AA" }}
+                  />
+                </span>
+              </span>
+            </h1>
 
             <Reveal from="up" delay={0.7}>
               <p className="mt-7 md:mt-8 text-lg md:text-2xl text-ink-soft leading-relaxed max-w-prose font-medium">
@@ -133,11 +139,6 @@ export default function HomePage() {
               </ul>
             </Reveal>
           </div>
-
-          {/* Hero feature photo (editorial dominance) */}
-          <HeroParallax className="order-1 md:order-2 flex justify-center">
-            <HeroPhotoFeature />
-          </HeroParallax>
         </div>
       </section>
 
