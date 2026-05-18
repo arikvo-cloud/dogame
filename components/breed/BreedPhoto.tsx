@@ -15,6 +15,8 @@ interface Props {
   priority?: boolean;
   /** Subtle "ken-burns" zoom on entrance — opt-in for hero usage only */
   kenBurns?: boolean;
+  /** "cover" crops to fill; "contain" shows full dog letterboxed on tinted bg */
+  fit?: "cover" | "contain";
 }
 
 /**
@@ -29,6 +31,7 @@ export function BreedPhoto({
   className,
   priority,
   kenBurns = false,
+  fit = "cover",
 }: Props) {
   if (kenBurns) {
     return (
@@ -75,11 +78,14 @@ export function BreedPhoto({
       style={containerStyle}
     >
       <Image
-        src={proxyImage(breed.imageUrl, { w: size, h: size })}
+        src={proxyImage(breed.imageUrl, { w: size, h: size, fit })}
         alt={`תמונה של ${breed.name}`}
         fill
         sizes={`${size}px`}
-        className="object-cover relative z-[1]"
+        className={cn(
+          "relative z-[1]",
+          fit === "contain" ? "object-contain" : "object-cover"
+        )}
         priority={priority}
         unoptimized
       />

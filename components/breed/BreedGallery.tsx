@@ -74,14 +74,15 @@ export function BreedGallery({ breed }: Props) {
               "cursor-zoom-in transition-transform hover:-translate-y-1",
               "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
             )}
+            style={{ background: `${breed.accent}33` }}
             aria-label={`הצג תמונה ${i + 2} של ${breed.name}`}
           >
             <Image
-              src={proxyImage(p.url, { w: 300, h: 300 })}
+              src={proxyImage(p.url, { w: 300, h: 300, fit: "contain" })}
               alt={`${breed.name} — תמונה ${i + 2}`}
               fill
               sizes="(max-width: 768px) 50vw, 25vw"
-              className="object-cover transition-transform duration-500 group-hover:scale-110"
+              className="object-contain transition-transform duration-500 group-hover:scale-110"
               unoptimized
             />
           </button>

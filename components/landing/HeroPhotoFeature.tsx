@@ -145,7 +145,7 @@ export function HeroPhotoFeature() {
         onMouseLeave={() => setPaused(false)}
       >
         {/* Card stack — current card is the visible one with swipe */}
-        <div className="relative aspect-[4/5] select-none">
+        <div className="relative aspect-[5/5] md:aspect-[4/5] select-none">
           <AnimatePresence initial={false} custom={dir} mode="popLayout">
             <motion.div
               key={current.slug}

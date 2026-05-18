@@ -109,10 +109,10 @@ export default async function BreedPage({ params }: PageProps) {
 
         {/* Hero — editorial photo-dominant */}
         <header className="relative grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 md:gap-10 items-center">
-          {/* Photo half — full bleed editorial */}
-          <div className="relative order-1">
+          {/* Photo half — below text on mobile, on the desktop side */}
+          <div className="relative order-2 md:order-1">
             <div
-              className="relative aspect-[4/5] rounded-[28px] overflow-hidden border border-border shadow-[var(--shadow-clay-xl)]"
+              className="relative aspect-[5/4] md:aspect-[4/5] rounded-[28px] overflow-hidden border border-border shadow-[var(--shadow-clay-xl)]"
               style={{ background: `${breed.accent}30` }}
             >
               <BreedPhoto
@@ -129,8 +129,8 @@ export default async function BreedPage({ params }: PageProps) {
             </div>
           </div>
 
-          {/* Text half */}
-          <div className="order-2 text-right">
+          {/* Text half — above photo on mobile */}
+          <div className="order-1 md:order-2 text-right">
             <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
               <span className="block w-6 h-px bg-ink-mute" aria-hidden />
               פרופיל גזע

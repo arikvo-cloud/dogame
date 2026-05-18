@@ -360,7 +360,7 @@ function BreedTile({ breed }: { breed: Breed }) {
         className="group block rounded-[22px] border-2 border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] hover:-translate-y-1 hover:border-border-strong transition-all"
       >
       <div className="flex justify-center mb-2.5 group-hover:scale-105 transition-transform">
-        <BreedPhoto breed={breed} size={140} rounded="rounded-[18px]" />
+        <BreedPhoto breed={breed} size={140} rounded="rounded-[18px]" fit="contain" />
       </div>
       <div className="font-display font-extrabold text-sm text-ink leading-tight">
         {breed.name}

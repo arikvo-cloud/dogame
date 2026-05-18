@@ -62,14 +62,13 @@ export default function HomePage() {
       {/* === Hero === */}
       <section className="px-4 pt-8 pb-16 md:pt-12 md:pb-20 relative">
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-          {/* Photo: appears first in DOM, so it's on top on mobile.
-              On desktop (RTL grid) it lands on the left half. */}
-          <div className="w-full">
+          {/* Photo: appears below the text on mobile, on the desktop-left in RTL grid */}
+          <div className="w-full order-2 md:order-1">
             <HeroPhotoFeature />
           </div>
 
-          {/* Text */}
-          <div className="text-right">
+          {/* Text: comes first on mobile so H1 + CTA are above the fold */}
+          <div className="text-right order-1 md:order-2">
             <Reveal from="up" delay={0.05}>
               <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
                 <span className="block w-6 h-px bg-ink-mute" aria-hidden />
@@ -164,10 +163,10 @@ export default function HomePage() {
       </LazyMount>
 
       {/* === Why — editorial 3-column === */}
-      <section className="px-4 py-20 md:py-28 border-y border-border relative">
+      <section className="px-4 py-14 md:py-20 border-y border-border relative">
         <div className="mx-auto max-w-6xl relative">
           <Reveal from="up">
-            <div className="mb-14 max-w-3xl">
+            <div className="mb-10 max-w-3xl">
               <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
                 <span className="block w-6 h-px bg-ink-mute" aria-hidden />
                 הגישה שלנו
@@ -223,10 +222,10 @@ export default function HomePage() {
       </section>
 
       {/* === How it works — editorial stepper === */}
-      <section className="px-4 py-20 md:py-28 relative">
+      <section className="px-4 py-14 md:py-20 relative">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <div className="mb-14 max-w-3xl">
+            <div className="mb-10 max-w-3xl">
               <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
                 <span className="block w-6 h-px bg-ink-mute" aria-hidden />
                 איך זה עובד
@@ -260,7 +259,7 @@ export default function HomePage() {
             ].map(({ num, title, text }) => (
               <StaggerItem
                 key={num}
-                className="bg-bg grid grid-cols-[auto_1fr] gap-6 md:gap-12 items-baseline py-8 md:py-10 group"
+                className="bg-bg grid grid-cols-[auto_1fr] gap-6 md:gap-12 items-baseline py-5 md:py-7 group"
               >
                 <div className="font-display font-extrabold text-5xl md:text-7xl text-ink/15 leading-none tabular-nums">
                   {num}
@@ -285,7 +284,7 @@ export default function HomePage() {
       </LazyMount>
 
       {/* === Featured breeds — magazine grid === */}
-      <section className="px-4 py-20 md:py-28 relative">
+      <section className="px-4 py-14 md:py-20 relative">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <div className="flex items-end justify-between mb-10 md:mb-14 flex-wrap gap-4">
