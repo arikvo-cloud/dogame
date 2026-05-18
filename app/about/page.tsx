@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { DogMascot } from "@/components/quiz/DogMascot";
 import { SiteNav } from "@/components/providers/SiteNav";
+import { AuroraBackground } from "@/components/providers/AuroraBackground";
 
 export const metadata = {
   title: "על הפרויקט · DoGame",
@@ -12,6 +13,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main id="main" className="min-h-dvh bg-clay">
+      <AuroraBackground />
       <SiteNav />
       <div className="mx-auto max-w-3xl px-4 py-8 md:py-16">
 

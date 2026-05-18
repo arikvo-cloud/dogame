@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { ResultView } from "@/components/result/ResultView";
 import { SiteNav } from "@/components/providers/SiteNav";
+import { AuroraBackground } from "@/components/providers/AuroraBackground";
 import { Skeleton } from "@/components/ui/Skeleton";
 
 export const metadata = {
@@ -32,6 +33,7 @@ function ResultSkeleton() {
 export default function ResultPage() {
   return (
     <main id="main" className="min-h-dvh bg-clay">
+      <AuroraBackground />
       <SiteNav />
       <div className="mx-auto max-w-5xl px-4 py-8 md:py-12">
         <Suspense fallback={<ResultSkeleton />}>

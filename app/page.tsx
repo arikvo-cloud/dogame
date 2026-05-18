@@ -13,8 +13,11 @@ import { BREEDS } from "@/lib/breeds/data";
 import { Pill } from "@/components/ui/Pill";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { SiteNav } from "@/components/providers/SiteNav";
+import { AuroraBackground } from "@/components/providers/AuroraBackground";
 import { ScrollStory } from "@/components/landing/ScrollStory";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { CursorSpotlight } from "@/components/landing/CursorSpotlight";
+import { BreedMarquee } from "@/components/landing/BreedMarquee";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { CountUp } from "@/components/ui/CountUp";
@@ -53,6 +56,7 @@ export default function HomePage() {
 
   return (
     <main id="main" className="bg-clay">
+      <AuroraBackground />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
@@ -60,9 +64,10 @@ export default function HomePage() {
       <SiteNav />
 
       {/* === Hero === */}
-      <section className="px-4 pt-10 pb-20 md:pt-16 md:pb-28 relative overflow-hidden">
+      <CursorSpotlight>
+      <section className="px-4 pt-10 pb-20 md:pt-20 md:pb-32 relative overflow-hidden">
         <FloatingPaws count={10} />
-        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center relative">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-20 items-center relative">
           <div className="order-2 md:order-1">
             <Reveal from="up" delay={0.05}>
               <Pill tone="accent" icon={<Sparkles className="w-3.5 h-3.5" strokeWidth={2.5} />}>
@@ -70,11 +75,11 @@ export default function HomePage() {
               </Pill>
             </Reveal>
 
-            <div className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] text-ink">
+            <div className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8.5rem] font-black leading-[0.95] text-ink tracking-tight">
               <AnimatedHeadline
                 as="h1"
                 delay={0.2}
-                className="leading-[1.05]"
+                className="leading-[0.95]"
                 words={[
                   { text: "איזה" },
                   { text: "כלב" },
@@ -85,11 +90,11 @@ export default function HomePage() {
             </div>
 
             <Reveal from="up" delay={0.7}>
-              <p className="mt-6 text-lg md:text-xl text-ink-soft leading-relaxed max-w-prose font-medium">
+              <p className="mt-7 md:mt-8 text-lg md:text-2xl text-ink-soft leading-relaxed max-w-prose font-medium">
                 ענה על שאלון קצר על סגנון החיים שלך וקבל המלצה אישית
                 ל-3-5 גזעים שיתאימו לך בדיוק.{" "}
                 <span className="text-ink font-bold">בלי לחץ, בלי תשלום</span> — רק מידע
-                מבוסס שיעזור לך לבחור נכון לפני שמביאים כלב הביתה.
+                מבוסס שיעזור לך לבחור נכון.
               </p>
             </Reveal>
 
@@ -156,6 +161,10 @@ export default function HomePage() {
           </HeroParallax>
         </div>
       </section>
+      </CursorSpotlight>
+
+      {/* === Auto-scrolling breed marquee === */}
+      <BreedMarquee />
 
       {/* === Stats strip === */}
       <section className="px-4 pb-12 -mt-8 md:-mt-12 relative z-10">
@@ -294,42 +303,66 @@ export default function HomePage() {
       {/* === Testimonials === */}
       <Testimonials />
 
-      {/* === Featured breeds === */}
-      <section className="px-4 py-16 md:py-24 bg-bg-soft border-y-[3px] border-border">
+      {/* === Featured breeds — magazine grid === */}
+      <section className="px-4 py-20 md:py-28 relative">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <div className="flex items-end justify-between mb-8 flex-wrap gap-4">
+            <div className="flex items-end justify-between mb-10 md:mb-14 flex-wrap gap-4">
               <div>
                 <Pill tone="primary">🐶 הכירו</Pill>
-                <h2 className="mt-3 text-3xl md:text-5xl font-black text-ink">
-                  כמה מהגזעים במאגר
+                <h2 className="mt-3 text-4xl md:text-6xl font-black text-ink leading-tight tracking-tight">
+                  הגזעים שכבר{" "}
+                  <span className="relative inline-block whitespace-nowrap">
+                    <span className="relative z-10 text-primary-deep">מחכים לך</span>
+                    <span
+                      aria-hidden
+                      className="absolute -bottom-1 right-0 left-0 h-3 md:h-4 -z-0 rounded-full"
+                      style={{ background: "#FED7AA" }}
+                    />
+                  </span>
                 </h2>
-                <p className="mt-2 text-ink-soft font-medium">37 גזעים פופולריים בישראל</p>
+                <p className="mt-3 text-ink-soft text-lg font-medium">
+                  37 גזעים פופולריים בישראל — לחץ כדי לקרוא הכל
+                </p>
               </div>
               <Link
                 href="/breeds"
-                className="inline-flex items-center gap-1 text-primary-deep hover:text-primary font-display font-extrabold transition-colors"
+                className="inline-flex items-center gap-2 bg-surface text-ink border-[3px] border-border-strong px-5 py-2.5 rounded-[16px] shadow-[var(--shadow-clay-sm)] hover:-translate-y-px hover:border-primary-soft transition-all font-display font-extrabold text-sm"
               >
-                לראות את כל הגזעים
+                לכל הגזעים
                 <ArrowLeft className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
           <Stagger
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
-            stagger={0.06}
+            className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5"
+            stagger={0.08}
           >
             {featuredBreeds.map((b) => (
               <StaggerItem key={b.slug}>
                 <Link
                   href={`/breed/${b.slug}`}
-                  className="group block rounded-[22px] border-[3px] border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] hover:-translate-y-1 hover:border-border-strong transition-all"
+                  className="group relative block rounded-[26px] border-[3px] border-border bg-surface overflow-hidden shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] hover:-translate-y-2 hover:border-primary-soft transition-all"
                 >
-                  <div className="flex justify-center mb-2.5 group-hover:scale-105 transition-transform">
-                    <BreedPhoto breed={b} size={96} rounded="rounded-[18px]" />
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <BreedPhoto
+                      breed={b}
+                      size={400}
+                      rounded="rounded-none"
+                      className="!w-full !h-full !rounded-none !border-0 !shadow-none scale-100 group-hover:scale-110 transition-transform duration-700"
+                    />
                   </div>
-                  <div className="font-display font-extrabold text-sm text-ink leading-tight">
-                    {b.name}
+                  <div className="p-4">
+                    <div className="font-display font-black text-lg md:text-xl text-ink leading-tight">
+                      {b.name}
+                    </div>
+                    <p className="mt-1 text-sm text-ink-soft font-medium line-clamp-2">
+                      {b.tagline}
+                    </p>
+                    <div className="mt-3 inline-flex items-center gap-1 text-xs text-primary-deep font-display font-extrabold opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
+                      קרא עוד
+                      <ArrowLeft className="w-3.5 h-3.5" />
+                    </div>
                   </div>
                 </Link>
               </StaggerItem>

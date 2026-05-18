@@ -144,13 +144,19 @@ html[data-theme="dark"] {
     inset 0 -2px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* Smooth color transitions when switching theme */
+/* Smooth color transitions when switching theme + smooth scroll */
 html {
   color-scheme: light;
   transition: background-color 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* === Base === */
@@ -198,51 +204,134 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* === Background ambience: floating warm blobs === */
+/* === Aurora mesh background ===
+ * Layered, slowly drifting gradient blobs that give the bg a cinematic
+ * "premium app" feel. Built with absolutely-positioned children inside
+ * .aurora so we can z-index real content above. */
 .bg-clay {
   background: var(--color-bg);
   position: relative;
   overflow: hidden;
-}
-.bg-clay::before,
-.bg-clay::after {
-  content: "";
-  position: absolute;
-  inset: auto;
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.4;
-  pointer-events: none;
-  z-index: 0;
-  will-change: transform;
-  transform: translateZ(0);
-  contain: paint;
-}
-.bg-clay::before {
-  width: 700px;
-  height: 700px;
-  top: -200px;
-  right: -200px;
-  background: radial-gradient(circle, #FDBA74 0%, transparent 70%);
-}
-.bg-clay::after {
-  width: 620px;
-  height: 620px;
-  bottom: -220px;
-  left: -180px;
-  background: radial-gradient(circle, #93C5FD 0%, transparent 70%);
+  isolation: isolate;
 }
 .bg-clay > * {
   position: relative;
   z-index: 1;
 }
 
-/* Hide expensive blobs on small phones */
-@media (max-width: 480px) {
-  .bg-clay::before,
-  .bg-clay::after {
-    display: none;
+.aurora {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  will-change: transform;
+  transform: translateZ(0);
+  contain: paint;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+}
+html[data-theme="dark"] .aurora-blob {
+  mix-blend-mode: screen;
+  opacity: 0.35;
+  filter: blur(80px);
+}
+
+/* Blob 1: warm peach top-right */
+.aurora-blob-1 {
+  width: 60vmax;
+  height: 60vmax;
+  top: -20vmax;
+  right: -15vmax;
+  background: radial-gradient(circle at 30% 30%, #FDBA74 0%, transparent 60%);
+  animation: aurora-drift-1 24s ease-in-out infinite;
+}
+/* Blob 2: orange center */
+.aurora-blob-2 {
+  width: 50vmax;
+  height: 50vmax;
+  top: 10vmax;
+  left: -15vmax;
+  background: radial-gradient(circle at 50% 50%, #F97316 0%, transparent 60%);
+  animation: aurora-drift-2 32s ease-in-out infinite;
+  opacity: 0.3;
+}
+/* Blob 3: blue accent bottom-left */
+.aurora-blob-3 {
+  width: 55vmax;
+  height: 55vmax;
+  bottom: -20vmax;
+  left: -10vmax;
+  background: radial-gradient(circle at 60% 40%, #93C5FD 0%, transparent 60%);
+  animation: aurora-drift-3 28s ease-in-out infinite;
+  opacity: 0.4;
+}
+/* Blob 4: rose subtle mid-right */
+.aurora-blob-4 {
+  width: 45vmax;
+  height: 45vmax;
+  top: 40vmax;
+  right: -5vmax;
+  background: radial-gradient(circle at 40% 60%, #E8826B 0%, transparent 65%);
+  animation: aurora-drift-4 36s ease-in-out infinite;
+  opacity: 0.28;
+}
+/* Blob 5: gold/mustard tiny accent */
+.aurora-blob-5 {
+  width: 30vmax;
+  height: 30vmax;
+  top: 70vmax;
+  left: 30vmax;
+  background: radial-gradient(circle at 50% 50%, #E8B14A 0%, transparent 60%);
+  animation: aurora-drift-5 40s ease-in-out infinite;
+  opacity: 0.22;
+}
+
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-3vw, 4vw, 0) scale(1.08); }
+}
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4vw, -3vw, 0) scale(0.92); }
+}
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(5vw, -5vw, 0) scale(1.06); }
+}
+@keyframes aurora-drift-4 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-4vw, 3vw, 0) scale(1.04); }
+}
+@keyframes aurora-drift-5 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2vw, -2vw, 0) scale(0.94); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none !important;
   }
+}
+
+/* Optional fine grain noise overlay — adds a subtle film texture */
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+html[data-theme="dark"] .grain {
+  mix-blend-mode: screen;
+  opacity: 0.04;
 }
 
 /* === Clay surface util ===
@@ -302,6 +391,28 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+/* Marquee — RTL document means visual direction reverses; we counter that
+ * by using `translate3d(-x, 0, 0)` which moves toward the start (right in
+ * RTL = positive screen X, left in LTR = negative screen X). To get a
+ * consistent right-to-left scroll regardless of dir, we use a CSS keyframe
+ * that translates a fixed positive distance which renders the same in both. */
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(50%, 0, 0); }
+}
+.marquee-track {
+  animation: marquee-scroll 40s linear infinite;
+}
+.group\/marquee:hover .marquee-track,
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
 }
 
 /* Hide scrollbar */

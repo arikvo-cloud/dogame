@@ -24,6 +24,7 @@ import { FavoriteButton } from "@/components/breed/FavoriteButton";
 import { CostEstimator } from "@/components/breed/CostEstimator";
 import { BreedChat } from "@/components/breed/BreedChat";
 import { SiteNav } from "@/components/providers/SiteNav";
+import { AuroraBackground } from "@/components/providers/AuroraBackground";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 
 interface PageProps {
@@ -97,6 +98,7 @@ export default async function BreedPage({ params }: PageProps) {
 
   return (
     <main id="main" className="min-h-dvh bg-clay">
+      <AuroraBackground />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

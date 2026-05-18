@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { QuizContainer } from "@/components/quiz/QuizContainer";
 import { SiteNav } from "@/components/providers/SiteNav";
+import { AuroraBackground } from "@/components/providers/AuroraBackground";
 
 export const metadata = {
   title: "השאלון · DoGame",
@@ -10,6 +11,7 @@ export const metadata = {
 export default function QuizPage() {
   return (
     <main id="main" className="min-h-dvh bg-clay">
+      <AuroraBackground />
       <SiteNav />
       <div className="px-4 py-8 md:py-12">
         <QuizContainer />
