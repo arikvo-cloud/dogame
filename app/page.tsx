@@ -73,7 +73,7 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            <div className="mt-4 md:mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] text-ink">
+            <div className="mt-4 md:mt-6 text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] text-ink">
               <AnimatedHeadline
                 as="h1"
                 delay={0.2}
