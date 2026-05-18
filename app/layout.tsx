@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Heebo, Rubik } from "next/font/google";
+import { Heebo, Frank_Ruhl_Libre } from "next/font/google";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { Analytics } from "@/components/providers/Analytics";
 import "./globals.css";
@@ -7,14 +7,16 @@ import "./globals.css";
 const heebo = Heebo({
   variable: "--font-heebo",
   subsets: ["hebrew", "latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
-const rubik = Rubik({
-  variable: "--font-rubik",
+// Editorial Hebrew serif — used by Haaretz and other Israeli newspapers.
+// Gives DoGame a "premium guide / magazine" feel for headings.
+const frankRuhl = Frank_Ruhl_Libre({
+  variable: "--font-frank-ruhl",
   subsets: ["hebrew", "latin"],
-  weight: ["700", "800", "900"],
+  weight: ["500", "700", "800", "900"],
   display: "swap",
 });
 
@@ -60,7 +62,7 @@ export default function RootLayout({
     <html
       lang="he"
       dir="rtl"
-      className={`${heebo.variable} ${rubik.variable} h-full antialiased`}
+      className={`${heebo.variable} ${frankRuhl.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

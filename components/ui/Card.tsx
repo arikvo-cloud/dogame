@@ -19,7 +19,7 @@ export function Card({ className, tone = "default", ...props }: CardProps) {
   return (
     <div
       className={cn(
-        "relative rounded-[28px] border-[3px] p-6 md:p-8",
+        "relative rounded-[28px] border-2 p-6 md:p-8",
         "shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]",
         toneStyles[tone],
         className

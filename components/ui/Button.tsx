@@ -20,7 +20,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  */
 const baseStyles =
   "group relative inline-flex items-center justify-center gap-2 font-display font-extrabold select-none cursor-pointer " +
-  "border-[3px] transition-all duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] " +
+  "border-2 transition-all duration-200 ease-[cubic-bezier(0.34,1.56,0.64,1)] " +
   "disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 disabled:hover:translate-y-0 " +
   "active:translate-y-[4px] active:shadow-[var(--shadow-clay-press)] " +
   "hover:-translate-y-[2px]";

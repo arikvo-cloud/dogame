@@ -69,16 +69,19 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-20 items-center relative">
           <div className="order-2 md:order-1">
             <Reveal from="up" delay={0.05}>
-              <Pill tone="accent" icon={<Sparkles className="w-3.5 h-3.5" strokeWidth={2.5} />}>
-                משחק חינמי · 100% בעברית
-              </Pill>
+              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
+                <span className="block w-8 h-px bg-ink-mute" aria-hidden />
+                <Sparkles className="w-3.5 h-3.5" strokeWidth={2} />
+                המדריך המאוים לבחירת כלב
+                <span className="block w-8 h-px bg-ink-mute" aria-hidden />
+              </div>
             </Reveal>
 
-            <div className="mt-6 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[8.5rem] font-black leading-[0.95] text-ink tracking-tight">
+            <div className="mt-5 md:mt-7 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[9rem] font-extrabold leading-[0.92] text-ink">
               <AnimatedHeadline
                 as="h1"
                 delay={0.2}
-                className="leading-[0.95]"
+                className="leading-[0.92] font-display"
                 words={[
                   { text: "איזה" },
                   { text: "כלב" },

@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* === Claymorphism warm palette === */
+  /* === Refined editorial-warm palette === */
   /* Background and surfaces */
-  --color-bg: #FFF7ED;
-  --color-bg-soft: #FFEDD5;
-  --color-bg-warm: #FED7AA;
+  --color-bg: #FAF5EC;
+  --color-bg-soft: #F2EADA;
+  --color-bg-warm: #E8DCC0;
   --color-surface: #FFFFFF;
-  --color-surface-tint: #FFFBF5;
+  --color-surface-tint: #FBF7EE;
 
-  /* Primary (playful orange) */
-  --color-primary: #F97316;
-  --color-primary-soft: #FB923C;
-  --color-primary-deep: #C2410C;
+  /* Primary — refined orange (less candy, more terracotta) */
+  --color-primary: #EA580C;
+  --color-primary-soft: #F97316;
+  --color-primary-deep: #9A3412;
   --color-primary-tint: #FFEDD5;
 
-  /* Accent (trust blue) */
-  --color-accent: #2563EB;
-  --color-accent-soft: #60A5FA;
+  /* Accent — deeper editorial blue */
+  --color-accent: #1E40AF;
+  --color-accent-soft: #3B82F6;
   --color-accent-tint: #DBEAFE;
-  --color-accent-deep: #1D4ED8;
+  --color-accent-deep: #1E3A8A;
 
-  /* Secondary - playful peach */
+  /* Secondary - peach (rare use) */
   --color-peach: #FDBA74;
   --color-peach-deep: #EA580C;
 
@@ -36,22 +36,25 @@
   --color-danger-tint: #FEE2E2;
   --color-info: #2563EB;
 
-  /* Ink (text) */
-  --color-ink: #7C2D12;
-  --color-ink-soft: #9A3412;
-  --color-ink-mute: #C2410C;
-  --color-ink-faint: #FDBA74;
+  /* Ink (text) — refined deep brown, less reddish */
+  --color-ink: #1F1611;
+  --color-ink-soft: #4A3B30;
+  --color-ink-mute: #7A6453;
+  --color-ink-faint: #A89684;
   --color-ink-on-primary: #FFFFFF;
 
-  /* Border */
-  --color-border: #FED7AA;
-  --color-border-strong: #FB923C;
-  --color-border-ink: #7C2D12;
+  /* Border — refined neutral warm */
+  --color-border: #E4D6BD;
+  --color-border-strong: #C9B594;
+  --color-border-ink: #1F1611;
 
-  /* === Typography === */
+  /* === Typography ===
+   * UI/body: Heebo (clean Hebrew sans, good readability).
+   * Display: Frank Ruhl Libre — editorial Hebrew serif used by Haaretz and
+   * other Israeli newspapers. Gives DoGame a "premium guide" feel. */
   --font-sans: var(--font-heebo), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
-  --font-display: var(--font-rubik), var(--font-heebo), system-ui, sans-serif;
-  --font-fun: var(--font-rubik), system-ui, sans-serif;
+  --font-display: var(--font-frank-ruhl), Georgia, "Frank Ruehl CLM", serif;
+  --font-serif: var(--font-frank-ruhl), Georgia, serif;
 
   /* === Radii (chunky claymorphism) === */
   --radius-sm: 12px;
@@ -62,35 +65,33 @@
   --radius-3xl: 48px;
   --radius-blob: 50% 60% 55% 45% / 55% 45% 50% 50%;
 
-  /* === Clay shadows ===
-   * Two-layer recipe:
-   *   1. Hard offset bottom (gives "sit on shelf" depth)
-   *   2. Soft ambient outer (atmospheric warmth)
-   * Inner highlight on top for the silicone gleam. */
+  /* === Refined editorial shadows ===
+   * Subtle elevation instead of chunky hard-offset shelf shadows.
+   * Buttons keep a small hard offset for tactility (clay personality),
+   * but cards/surfaces get soft ambient elevation only. */
   --shadow-clay-sm:
-    0 2px 0 0 var(--color-border-strong),
-    0 4px 12px -4px rgba(124, 45, 18, 0.12);
+    0 1px 0 0 rgba(31, 22, 17, 0.06),
+    0 2px 8px -2px rgba(31, 22, 17, 0.06);
   --shadow-clay:
-    0 4px 0 0 var(--color-border-strong),
-    0 10px 22px -8px rgba(124, 45, 18, 0.22);
+    0 1px 0 0 rgba(31, 22, 17, 0.06),
+    0 6px 20px -8px rgba(31, 22, 17, 0.12);
   --shadow-clay-lg:
-    0 6px 0 0 var(--color-border-strong),
-    0 14px 32px -10px rgba(154, 52, 18, 0.28);
+    0 2px 0 0 rgba(31, 22, 17, 0.05),
+    0 10px 32px -10px rgba(31, 22, 17, 0.14);
   --shadow-clay-xl:
-    0 8px 0 0 var(--color-border-strong),
-    0 22px 50px -16px rgba(154, 52, 18, 0.35);
+    0 4px 0 0 rgba(31, 22, 17, 0.04),
+    0 24px 48px -16px rgba(31, 22, 17, 0.18);
   --shadow-clay-press:
-    0 1px 0 0 var(--color-border-strong),
-    0 3px 8px -3px rgba(124, 45, 18, 0.16);
+    0 1px 0 0 rgba(31, 22, 17, 0.08),
+    0 2px 6px -2px rgba(31, 22, 17, 0.10);
   --shadow-inner-clay:
-    inset 0 2px 0 rgba(255, 255, 255, 0.55),
-    inset 0 -2px 0 rgba(124, 45, 18, 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
   --shadow-glow-primary:
-    0 6px 0 0 var(--color-primary-deep),
-    0 16px 36px -10px rgba(249, 115, 22, 0.45);
+    0 3px 0 0 var(--color-primary-deep),
+    0 12px 24px -8px rgba(234, 88, 12, 0.35);
   --shadow-glow-accent:
-    0 6px 0 0 var(--color-accent-deep),
-    0 16px 36px -10px rgba(37, 99, 235, 0.45);
+    0 3px 0 0 var(--color-accent-deep),
+    0 12px 24px -8px rgba(30, 64, 175, 0.35);
 
   /* === Motion ===
    * Squishy / bouncy / friendly. Spring overshoot gives clay personality. */
@@ -176,8 +177,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 800;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   color: var(--color-ink);
+}
+/* Frank Ruhl serif benefits from tighter optical sizing at huge display sizes */
+.text-5xl, .text-6xl, .text-7xl, .text-8xl, .text-9xl {
+  letter-spacing: -0.03em;
 }
 
 /* Selection */
