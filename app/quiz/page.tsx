@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { QuizContainer } from "@/components/quiz/QuizContainer";
+import { SiteNav } from "@/components/providers/SiteNav";
 
 export const metadata = {
   title: "השאלון · DoGame",
@@ -8,22 +9,11 @@ export const metadata = {
 
 export default function QuizPage() {
   return (
-    <main id="main" className="min-h-dvh bg-clay py-8 md:py-14 px-4">
-      <div className="mx-auto max-w-3xl mb-6 flex items-center justify-between">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 text-ink-soft hover:text-primary-deep font-display font-extrabold transition-colors text-lg"
-        >
-          <span className="text-2xl">🐾</span> DoGame
-        </Link>
-        <Link
-          href="/about"
-          className="text-sm text-ink-soft hover:text-primary-deep transition-colors font-display font-bold"
-        >
-          על הפרויקט
-        </Link>
+    <main id="main" className="min-h-dvh bg-clay">
+      <SiteNav />
+      <div className="px-4 py-8 md:py-12">
+        <QuizContainer />
       </div>
-      <QuizContainer />
     </main>
   );
 }

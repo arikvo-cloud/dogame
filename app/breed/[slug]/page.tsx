@@ -23,7 +23,7 @@ import { BreedGallery } from "@/components/breed/BreedGallery";
 import { FavoriteButton } from "@/components/breed/FavoriteButton";
 import { CostEstimator } from "@/components/breed/CostEstimator";
 import { BreedChat } from "@/components/breed/BreedChat";
-import { FavoritesBadge } from "@/components/providers/FavoritesBadge";
+import { SiteNav } from "@/components/providers/SiteNav";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 
 interface PageProps {
@@ -96,29 +96,13 @@ export default async function BreedPage({ params }: PageProps) {
   };
 
   return (
-    <main id="main" className="min-h-dvh bg-clay py-8 md:py-12 px-4">
+    <main id="main" className="min-h-dvh bg-clay">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="mx-auto max-w-4xl">
-        <div className="mb-6 flex items-center justify-between">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-display font-extrabold text-lg text-ink hover:text-primary-deep transition-colors"
-          >
-            <span className="text-2xl">🐾</span> DoGame
-          </Link>
-          <div className="flex items-center gap-3">
-            <FavoritesBadge />
-            <Link
-              href="/breeds"
-              className="text-sm text-ink-soft hover:text-primary-deep font-display font-bold transition-colors"
-            >
-              ← כל הגזעים
-            </Link>
-          </div>
-        </div>
+      <SiteNav />
+      <div className="mx-auto max-w-4xl px-4 py-8 md:py-12">
 
         {/* Hero */}
         <header

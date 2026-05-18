@@ -12,7 +12,8 @@ import { DogMascot } from "@/components/quiz/DogMascot";
 import { BREEDS } from "@/lib/breeds/data";
 import { Pill } from "@/components/ui/Pill";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
-import { FavoritesBadge } from "@/components/providers/FavoritesBadge";
+import { SiteNav } from "@/components/providers/SiteNav";
+import { ScrollStory } from "@/components/landing/ScrollStory";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { CountUp } from "@/components/ui/CountUp";
@@ -55,45 +56,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
       />
-      {/* === Nav === */}
-      <nav className="px-4 py-4 sticky top-0 z-30 backdrop-blur-md bg-bg/70 border-b-2 border-border/60">
-        <div className="mx-auto max-w-6xl flex items-center justify-between">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-display font-black text-xl text-ink group"
-          >
-            <span className="text-2xl transition-transform group-hover:rotate-12">🐾</span>
-            DoGame
-          </Link>
-          <div className="flex items-center gap-3 md:gap-4">
-            <Link
-              href="/breeds"
-              className="text-ink-soft hover:text-primary-deep text-sm md:text-base font-display font-bold transition-colors"
-            >
-              כל הגזעים
-            </Link>
-            <Link
-              href="/compare"
-              className="hidden sm:inline text-ink-soft hover:text-primary-deep text-sm md:text-base font-display font-bold transition-colors"
-            >
-              השוואה
-            </Link>
-            <Link
-              href="/about"
-              className="hidden md:inline text-ink-soft hover:text-primary-deep text-sm md:text-base font-display font-bold transition-colors"
-            >
-              על הפרויקט
-            </Link>
-            <FavoritesBadge />
-            <Link
-              href="/quiz"
-              className="inline-flex items-center gap-1 bg-primary text-white border-[3px] border-primary-deep px-4 py-2 rounded-[16px] font-display font-extrabold shadow-[0_3px_0_var(--color-primary-deep)] hover:-translate-y-px active:translate-y-0.5 active:shadow-[0_1px_0_var(--color-primary-deep)] transition-all"
-            >
-              התחל משחק
-            </Link>
-          </div>
-        </div>
-      </nav>
+      <SiteNav />
 
       {/* === Hero === */}
       <section className="px-4 pt-10 pb-20 md:pt-16 md:pb-28 relative overflow-hidden">
@@ -210,20 +173,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* === Why === */}
+      {/* === Pinned scroll story (replaces the static "Why" hero) === */}
+      <ScrollStory />
+
+      {/* === Why (3 cards) === */}
       <section className="px-4 py-16 md:py-24 bg-bg-soft border-y-[3px] border-border relative overflow-hidden">
         <FloatingPaws count={6} />
         <div className="mx-auto max-w-6xl relative">
           <Reveal from="up">
             <div className="text-center mb-12">
-              <Pill tone="warning">⚠ מציאות עצובה</Pill>
+              <Pill tone="primary">✨ הגישה שלנו</Pill>
               <h2 className="mt-4 text-3xl md:text-5xl font-black text-ink">
-                למה זה חשוב?
+                למה DoGame עובד?
               </h2>
               <p className="mt-4 text-ink-soft text-lg md:text-xl max-w-2xl mx-auto font-medium">
-                <span className="text-primary-deep font-extrabold">⅓ מהכלבים</span>{" "}
-                מוחזרים למחסות בשנה הראשונה. הסיבה הראשונה: אי-התאמה. אנחנו רוצים
-                לעזור לך לבחור נכון מההתחלה.
+                שלושה עקרונות שמובילים את ההמלצה — מבוססת על מאפיינים אמיתיים, לא על
+                "מי הכי חמוד".
               </p>
             </div>
           </Reveal>

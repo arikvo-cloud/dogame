@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Copy, Check, MessageCircle, RefreshCw } from "lucide-react";
+import { Copy, Check, MessageCircle, RefreshCw, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import {
   buildShareText,
@@ -12,6 +12,8 @@ import {
 import { useQuizStore } from "@/store/useQuizStore";
 import { useRouter } from "next/navigation";
 import type { AnswerMap } from "@/lib/quiz/types";
+import type { BreedMatch } from "@/lib/breeds/types";
+import type { TraitVector } from "@/lib/traits";
 import { useToast } from "@/components/ui/Toast";
 
 interface Props {
@@ -19,13 +21,27 @@ interface Props {
   topScore: number;
   /** Answers to encode in the share URL (so recipients see the same results) */
   answers: AnswerMap;
+  /** Top match — used for PDF generation */
+  topMatch: BreedMatch;
+  /** All matches — also included in PDF */
+  allMatches: BreedMatch[];
+  /** User trait vector — also included in PDF */
+  userVector: TraitVector;
 }
 
-export function ShareButtons({ topBreedName, topScore, answers }: Props) {
+export function ShareButtons({
+  topBreedName,
+  topScore,
+  answers,
+  topMatch,
+  allMatches,
+  userVector,
+}: Props) {
   const router = useRouter();
   const reset = useQuizStore((s) => s.reset);
   const toast = useToast();
   const [copied, setCopied] = useState(false);
+  const [downloading, setDownloading] = useState(false);
 
   const origin =
     typeof window !== "undefined" ? window.location.origin : "https://dogame.pages.dev";
@@ -65,6 +81,27 @@ export function ShareButtons({ topBreedName, topScore, answers }: Props) {
           <Copy className="w-5 h-5" strokeWidth={2.5} />
         )}
         {copied ? "הועתק!" : "העתק לינק"}
+      </Button>
+      <Button
+        size="lg"
+        variant="soft"
+        disabled={downloading}
+        onClick={async () => {
+          setDownloading(true);
+          try {
+            const { downloadResultPdf } = await import("@/lib/pdf");
+            await downloadResultPdf(topMatch, allMatches, userVector);
+            toast.show("ה-PDF הורד בהצלחה 📄", "success");
+          } catch (err) {
+            const msg = err instanceof Error ? err.message : "שגיאה";
+            toast.show(`יצירת PDF נכשלה: ${msg}`, "error");
+          } finally {
+            setDownloading(false);
+          }
+        }}
+      >
+        <FileDown className="w-5 h-5" strokeWidth={2.5} />
+        {downloading ? "מכין PDF…" : "הורד PDF"}
       </Button>
       <Button
         size="lg"

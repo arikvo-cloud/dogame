@@ -176,6 +176,9 @@ export function ResultView() {
             topBreedName={top.breed.name}
             topScore={top.score}
             answers={answers}
+            topMatch={top}
+            allMatches={matches}
+            userVector={vector}
           />
         </div>
       </div>

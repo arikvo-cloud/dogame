@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { CompareParamsReader } from "@/components/breeds/CompareParamsReader";
+import { SiteNav } from "@/components/providers/SiteNav";
 
 export const metadata = {
   title: "השוואת גזעים · DoGame",
@@ -16,22 +17,9 @@ export const metadata = {
 
 export default function ComparePage() {
   return (
-    <main id="main" className="min-h-dvh bg-clay py-8 md:py-12 px-4">
-      <div className="mx-auto max-w-5xl">
-        <div className="mb-6 flex items-center justify-between">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-display font-extrabold text-lg text-ink hover:text-primary-deep transition-colors"
-          >
-            <span className="text-2xl">🐾</span> DoGame
-          </Link>
-          <Link
-            href="/breeds"
-            className="text-sm text-ink-soft hover:text-primary-deep font-display font-bold transition-colors"
-          >
-            ← כל הגזעים
-          </Link>
-        </div>
+    <main id="main" className="min-h-dvh bg-clay">
+      <SiteNav />
+      <div className="mx-auto max-w-5xl px-4 py-8 md:py-12">
 
         <header className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-black text-ink leading-tight">

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { DogMascot } from "@/components/quiz/DogMascot";
+import { SiteNav } from "@/components/providers/SiteNav";
 
 export const metadata = {
   title: "על הפרויקט · DoGame",
@@ -10,14 +11,9 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <main id="main" className="min-h-dvh bg-clay py-8 md:py-16 px-4">
-      <div className="mx-auto max-w-3xl">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-2 font-display font-extrabold text-xl text-ink mb-8 hover:text-primary-deep transition-colors"
-        >
-          <span className="text-2xl">🐾</span> DoGame
-        </Link>
+    <main id="main" className="min-h-dvh bg-clay">
+      <SiteNav />
+      <div className="mx-auto max-w-3xl px-4 py-8 md:py-16">
 
         <div className="rounded-[36px] border-[3px] border-border bg-surface p-8 md:p-12 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]">
           <div className="flex justify-center">

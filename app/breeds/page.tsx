@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BreedsBrowse } from "@/components/breeds/BreedsBrowse";
 import { BREEDS } from "@/lib/breeds/data";
+import { SiteNav } from "@/components/providers/SiteNav";
 
 export const metadata = {
   title: "כל הגזעים · DoGame",
@@ -16,22 +17,9 @@ export const metadata = {
 
 export default function BreedsIndexPage() {
   return (
-    <main id="main" className="min-h-dvh bg-clay py-8 md:py-12 px-4">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-6 flex items-center justify-between">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 font-display font-extrabold text-lg text-ink hover:text-primary-deep transition-colors"
-          >
-            <span className="text-2xl">🐾</span> DoGame
-          </Link>
-          <Link
-            href="/quiz"
-            className="inline-flex items-center gap-1 bg-primary text-white border-[3px] border-primary-deep px-4 py-2 rounded-[16px] font-display font-extrabold shadow-[0_3px_0_var(--color-primary-deep)] hover:-translate-y-px transition-transform"
-          >
-            התחל משחק
-          </Link>
-        </div>
+    <main id="main" className="min-h-dvh bg-clay">
+      <SiteNav />
+      <div className="mx-auto max-w-6xl px-4 py-8 md:py-12">
 
         <header className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-ink leading-tight">
