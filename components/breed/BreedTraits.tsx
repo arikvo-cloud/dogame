@@ -34,7 +34,7 @@ export function BreedTraits({ traits }: Props) {
               visible: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="rounded-[18px] border-[3px] border-border bg-surface p-3.5 shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)]"
+            className="rounded-[18px] border-2 border-border bg-surface p-3.5 shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)]"
           >
             <div className="flex items-center justify-between text-sm mb-2.5">
               <Tooltip content={def.description}>

@@ -32,13 +32,13 @@ export function ThemeSwitcher({ className }: { className?: string }) {
   return (
     <details className={cn("relative", className)}>
       <summary
-        className="list-none cursor-pointer inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-surface text-ink border-[3px] border-border-strong shadow-[var(--shadow-clay-sm)] hover:border-primary-soft transition-colors [&::-webkit-details-marker]:hidden"
+        className="list-none cursor-pointer inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-surface text-ink border-2 border-border-strong shadow-[var(--shadow-clay-sm)] hover:border-primary-soft transition-colors [&::-webkit-details-marker]:hidden"
         aria-label={`ערכת נושא: ${active.label}`}
       >
         <ActiveIcon className="w-4 h-4" strokeWidth={2.5} aria-hidden />
       </summary>
       <div
-        className="absolute end-0 mt-2 w-44 rounded-[18px] border-[3px] border-border-strong bg-surface shadow-[var(--shadow-clay-xl)] p-1.5 z-40"
+        className="absolute end-0 mt-2 w-44 rounded-[18px] border-2 border-border-strong bg-surface shadow-[var(--shadow-clay-xl)] p-1.5 z-40"
         role="menu"
       >
         {OPTIONS.map((opt) => {

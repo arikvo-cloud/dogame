@@ -16,14 +16,14 @@ export default function NotFound() {
           className="inline-block"
         >
           <div className="relative">
-            <div className="bg-surface rounded-full p-5 border-[4px] border-border-strong shadow-[var(--shadow-clay-xl)] inline-block">
+            <div className="bg-surface rounded-full p-5 border-2 border-border-strong shadow-[var(--shadow-clay-xl)] inline-block">
               <DogMascot mood="thinking" size={160} />
             </div>
             <motion.div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="absolute -top-4 -right-6 bg-warning text-ink border-[3px] border-warning-deep rounded-full px-4 py-1.5 font-display font-black text-lg shadow-[0_3px_0_var(--color-warning-deep)]"
+              className="absolute -top-4 -right-6 bg-warning text-ink border-2 border-warning-deep rounded-full px-4 py-1.5 font-display font-black text-lg shadow-[0_3px_0_var(--color-warning-deep)]"
             >
               ?
             </motion.div>
@@ -60,14 +60,14 @@ export default function NotFound() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-primary text-white border-[3px] border-primary-deep px-6 py-3.5 rounded-[20px] font-display font-extrabold text-lg shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] transition-all"
+            className="inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep px-6 py-3.5 rounded-[20px] font-display font-extrabold text-lg shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] transition-all"
           >
             <Home className="w-5 h-5" strokeWidth={2.5} />
             לעמוד הבית
           </Link>
           <Link
             href="/breeds"
-            className="inline-flex items-center gap-2 bg-surface text-ink border-[3px] border-border-strong px-6 py-3.5 rounded-[20px] font-display font-extrabold text-lg shadow-[var(--shadow-clay)] hover:-translate-y-0.5 transition-transform"
+            className="inline-flex items-center gap-2 bg-surface text-ink border-2 border-border-strong px-6 py-3.5 rounded-[20px] font-display font-extrabold text-lg shadow-[var(--shadow-clay)] hover:-translate-y-0.5 transition-transform"
           >
             <Search className="w-5 h-5" strokeWidth={2.5} />
             לדפדף בגזעים

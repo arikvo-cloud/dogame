@@ -69,7 +69,7 @@ export function BreedGallery({ breed }: Props) {
             type="button"
             onClick={() => setActiveIdx(i + 1)}
             className={cn(
-              "group relative aspect-square overflow-hidden rounded-[18px] border-[3px] border-border-strong",
+              "group relative aspect-square overflow-hidden rounded-[18px] border-2 border-border-strong",
               "shadow-[inset_0_2px_0_rgba(255,255,255,0.5),0_3px_0_var(--color-border-strong)]",
               "cursor-zoom-in transition-transform hover:-translate-y-1",
               "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
@@ -105,7 +105,7 @@ export function BreedGallery({ breed }: Props) {
             <button
               type="button"
               onClick={() => setActiveIdx(null)}
-              className="absolute top-4 left-4 w-12 h-12 inline-flex items-center justify-center rounded-full bg-surface border-[3px] border-border-strong text-ink shadow-[var(--shadow-clay)] hover:scale-105 transition-transform"
+              className="absolute top-4 left-4 w-12 h-12 inline-flex items-center justify-center rounded-full bg-surface border-2 border-border-strong text-ink shadow-[var(--shadow-clay)] hover:scale-105 transition-transform"
               aria-label="סגירה"
             >
               <X className="w-5 h-5" strokeWidth={3} />
@@ -120,7 +120,7 @@ export function BreedGallery({ breed }: Props) {
                   i === null ? null : (i + 1) % uniquePhotos.length
                 );
               }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 inline-flex items-center justify-center rounded-full bg-surface border-[3px] border-border-strong text-ink shadow-[var(--shadow-clay)] hover:scale-105 transition-transform z-10"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 inline-flex items-center justify-center rounded-full bg-surface border-2 border-border-strong text-ink shadow-[var(--shadow-clay)] hover:scale-105 transition-transform z-10"
               aria-label="הקודמת"
             >
               <ChevronRight className="w-6 h-6" strokeWidth={3} />
@@ -135,7 +135,7 @@ export function BreedGallery({ breed }: Props) {
                     : (i - 1 + uniquePhotos.length) % uniquePhotos.length
                 );
               }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 inline-flex items-center justify-center rounded-full bg-surface border-[3px] border-border-strong text-ink shadow-[var(--shadow-clay)] hover:scale-105 transition-transform z-10"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 inline-flex items-center justify-center rounded-full bg-surface border-2 border-border-strong text-ink shadow-[var(--shadow-clay)] hover:scale-105 transition-transform z-10"
               aria-label="הבאה"
             >
               <ChevronLeft className="w-6 h-6" strokeWidth={3} />
@@ -147,7 +147,7 @@ export function BreedGallery({ breed }: Props) {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="relative max-w-5xl w-full max-h-[85vh] aspect-square sm:aspect-[4/3] bg-surface rounded-[24px] overflow-hidden border-[4px] border-border-strong"
+              className="relative max-w-5xl w-full max-h-[85vh] aspect-square sm:aspect-[4/3] bg-surface rounded-[24px] overflow-hidden border-2 border-border-strong"
               onClick={(e) => e.stopPropagation()}
             >
               <Image

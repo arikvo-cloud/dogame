@@ -34,9 +34,9 @@ export function CostEstimator({ breed }: Props) {
   ];
 
   return (
-    <section className="rounded-[28px] border-[3px] border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+    <section className="rounded-[28px] border-2 border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
       <div className="flex items-center gap-3 mb-4">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-[16px] bg-mustard text-ink border-[3px] border-mustard-soft shadow-[inset_0_2px_0_rgba(255,255,255,0.5)]">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-[16px] bg-mustard text-ink border-2 border-mustard-soft shadow-[inset_0_2px_0_rgba(255,255,255,0.5)]">
           <Wallet className="w-6 h-6" strokeWidth={2.5} aria-hidden />
         </div>
         <div>
@@ -67,7 +67,7 @@ export function CostEstimator({ breed }: Props) {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="w-full inline-flex items-center justify-between gap-2 px-4 py-3 rounded-[18px] bg-surface border-[3px] border-border-strong shadow-[var(--shadow-clay-sm)] font-display font-extrabold text-ink hover:border-primary-soft transition-colors cursor-pointer"
+        className="w-full inline-flex items-center justify-between gap-2 px-4 py-3 rounded-[18px] bg-surface border-2 border-border-strong shadow-[var(--shadow-clay-sm)] font-display font-extrabold text-ink hover:border-primary-soft transition-colors cursor-pointer"
       >
         <span className="text-sm">פירוט מלא של ההוצאות</span>
         <ChevronDown

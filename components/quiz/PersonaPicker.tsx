@@ -73,7 +73,7 @@ export function PersonaPicker({ onSkipToQuiz }: Props) {
             whileHover={{ y: -3 }}
             whileTap={{ y: 2, scale: 0.985 }}
             className={cn(
-              "group text-right rounded-[24px] border-[3px] border-border bg-surface p-5",
+              "group text-right rounded-[24px] border-2 border-border bg-surface p-5",
               "shadow-[var(--shadow-clay),var(--shadow-inner-clay)]",
               "hover:border-primary-soft hover:bg-surface-tint transition-colors cursor-pointer",
               "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
@@ -82,7 +82,7 @@ export function PersonaPicker({ onSkipToQuiz }: Props) {
             <div className="flex items-start gap-3">
               <span
                 aria-hidden
-                className="shrink-0 flex items-center justify-center w-14 h-14 rounded-[18px] bg-primary-tint border-[3px] border-border-strong text-3xl shadow-[inset_0_2px_0_rgba(255,255,255,0.6)]"
+                className="shrink-0 flex items-center justify-center w-14 h-14 rounded-[18px] bg-primary-tint border-2 border-border-strong text-3xl shadow-[inset_0_2px_0_rgba(255,255,255,0.6)]"
               >
                 {p.emoji}
               </span>
@@ -107,7 +107,7 @@ export function PersonaPicker({ onSkipToQuiz }: Props) {
         <button
           type="button"
           onClick={onSkipToQuiz}
-          className="inline-flex items-center gap-2 bg-surface text-ink border-[3px] border-border-strong px-6 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-clay)] hover:-translate-y-0.5 hover:border-primary-soft active:translate-y-0.5 transition-all"
+          className="inline-flex items-center gap-2 bg-surface text-ink border-2 border-border-strong px-6 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-clay)] hover:-translate-y-0.5 hover:border-primary-soft active:translate-y-0.5 transition-all"
         >
           או דלג ועבור לשאלון המלא
           <ArrowLeft className="w-4 h-4" />

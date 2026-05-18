@@ -39,7 +39,7 @@ export function AnswerOption({ answer, selected, onClick, index, disabled }: Pro
       whileTap={disabled ? undefined : { y: 2, scale: 0.985 }}
       className={cn(
         "group relative w-full text-right flex items-center gap-4",
-        "rounded-[22px] border-[3px] px-4 py-4 md:py-5",
+        "rounded-[22px] border-2 px-4 py-4 md:py-5",
         "font-display text-lg md:text-xl",
         "transition-colors duration-150 cursor-pointer",
         "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
@@ -53,7 +53,7 @@ export function AnswerOption({ answer, selected, onClick, index, disabled }: Pro
       <span
         aria-hidden
         className={cn(
-          "flex items-center justify-center shrink-0 w-14 h-14 rounded-[18px] text-3xl border-[3px]",
+          "flex items-center justify-center shrink-0 w-14 h-14 rounded-[18px] text-3xl border-2",
           "transition-all duration-200",
           selected
             ? "bg-primary border-primary-deep text-white shadow-[inset_0_2px_0_rgba(255,255,255,0.4),0_2px_0_var(--color-primary-deep)]"
@@ -70,7 +70,7 @@ export function AnswerOption({ answer, selected, onClick, index, disabled }: Pro
       <span
         aria-hidden
         className={cn(
-          "flex items-center justify-center shrink-0 w-8 h-8 rounded-full border-[3px] transition-all",
+          "flex items-center justify-center shrink-0 w-8 h-8 rounded-full border-2 transition-all",
           selected
             ? "bg-primary border-primary-deep text-white scale-100"
             : "bg-bg border-border-strong text-transparent scale-90 group-hover:scale-100"

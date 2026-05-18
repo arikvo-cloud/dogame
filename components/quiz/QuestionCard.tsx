@@ -41,7 +41,7 @@ export function QuestionCard({
       {/* Floating mascot above card */}
       <div className="flex justify-center -mb-12 md:-mb-16 relative z-10">
         <motion.div
-          className="bg-surface rounded-full p-3 border-[3px] border-border-strong shadow-[var(--shadow-clay-lg)]"
+          className="bg-surface rounded-full p-3 border-2 border-border-strong shadow-[var(--shadow-clay-lg)]"
           animate={isLocked ? { scale: [1, 1.08, 1], rotate: [0, -4, 4, 0] } : {}}
           transition={{ duration: 0.4, ease: "easeOut" }}
         >
@@ -50,7 +50,7 @@ export function QuestionCard({
       </div>
 
       <motion.div
-        className="relative rounded-[32px] border-[3px] border-border bg-surface pt-20 md:pt-24 px-6 md:px-10 pb-8 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]"
+        className="relative rounded-[32px] border-2 border-border bg-surface pt-20 md:pt-24 px-6 md:px-10 pb-8 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]"
         animate={isLocked ? { scale: [1, 1.015, 1] } : {}}
         transition={{ duration: 0.4 }}
       >

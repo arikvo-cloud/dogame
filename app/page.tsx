@@ -103,7 +103,7 @@ export default function HomePage() {
                 <MagneticButton>
                   <Link
                     href="/quiz"
-                    className="group inline-flex items-center justify-center gap-2 bg-primary text-white border-[3px] border-primary-deep px-7 py-4 rounded-[22px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-lg transition-all"
+                    className="group inline-flex items-center justify-center gap-2 bg-primary text-white border-2 border-primary-deep px-7 py-4 rounded-[22px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-lg transition-all"
                   >
                     בוא נתחיל
                     <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
@@ -111,7 +111,7 @@ export default function HomePage() {
                 </MagneticButton>
                 <Link
                   href="/about"
-                  className="inline-flex items-center justify-center gap-2 bg-surface text-ink border-[3px] border-border px-7 py-4 rounded-[22px] font-display font-extrabold text-lg shadow-[var(--shadow-clay)] hover:-translate-y-0.5 hover:border-border-strong active:translate-y-1 transition-all"
+                  className="inline-flex items-center justify-center gap-2 bg-surface text-ink border-2 border-border px-7 py-4 rounded-[22px] font-display font-extrabold text-lg shadow-[var(--shadow-clay)] hover:-translate-y-0.5 hover:border-border-strong active:translate-y-1 transition-all"
                 >
                   איך זה עובד?
                 </Link>
@@ -145,7 +145,7 @@ export default function HomePage() {
       <section className="px-4 pb-12 -mt-8 md:-mt-12 relative z-10">
         <div className="mx-auto max-w-4xl">
           <Reveal from="up">
-            <div className="rounded-[24px] border-[3px] border-border bg-surface px-6 py-5 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] flex flex-wrap items-center justify-around gap-6 text-center">
+            <div className="rounded-[24px] border-2 border-border bg-surface px-6 py-5 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] flex flex-wrap items-center justify-around gap-6 text-center">
               <Stat number={37} suffix="+" label="גזעים פופולריים" />
               <span aria-hidden className="w-px h-10 bg-border-strong opacity-50" />
               <Stat number={10} label="צירי תכונות" />
@@ -163,112 +163,115 @@ export default function HomePage() {
         <ScrollStory />
       </LazyMount>
 
-      {/* === Why (3 cards) === */}
-      <section className="px-4 py-16 md:py-24 bg-bg-soft border-y-[3px] border-border relative overflow-hidden">
+      {/* === Why — editorial 3-column === */}
+      <section className="px-4 py-20 md:py-28 border-y border-border relative">
         <div className="mx-auto max-w-6xl relative">
           <Reveal from="up">
-            <div className="text-center mb-12">
-              <Pill tone="primary">✨ הגישה שלנו</Pill>
-              <h2 className="mt-4 text-3xl md:text-5xl font-black text-ink">
-                למה DoGame עובד?
+            <div className="mb-14 max-w-3xl">
+              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
+                <span className="block w-6 h-px bg-ink-mute" aria-hidden />
+                הגישה שלנו
+              </div>
+              <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-ink leading-[1.05] tracking-tight">
+                שלושה עקרונות שמובילים{" "}
+                <span className="text-primary-deep italic">כל המלצה</span>
               </h2>
-              <p className="mt-4 text-ink-soft text-lg md:text-xl max-w-2xl mx-auto font-medium">
-                שלושה עקרונות שמובילים את ההמלצה — מבוססת על מאפיינים אמיתיים, לא על
-                "מי הכי חמוד".
+              <p className="mt-5 text-ink-soft text-lg md:text-xl font-medium max-w-prose">
+                אנחנו לא מנחשים לפי "מי הכי חמוד". כל גזע נמדד מול הסגנון שלך
+                ב-10 מימדים — חינוך, אנרגיה, אקלים, רגישות לילדים — וכל אלה
+                משוקללים לפני שמדבר על התאמה.
               </p>
             </div>
           </Reveal>
 
-          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-5" stagger={0.12}>
+          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border" stagger={0.1}>
             {[
               {
-                Icon: Heart,
+                num: "01",
                 title: "אחריות לפני אהבה",
                 text:
                   "כלב הוא 10-15 שנות התחייבות. השאלון עוזר לך להבין אם זה הזמן הנכון, ואיזה גזע באמת יתאים.",
-                tone: "primary" as const,
               },
               {
-                Icon: Sparkles,
+                num: "02",
                 title: "מאפיינים אמיתיים",
                 text:
-                  "10 צירי תכונות (גודל, אנרגיה, אילוף, אקלים) — לא רק 'איזה כלב הכי חמוד'.",
-                tone: "accent" as const,
+                  "10 צירי תכונות (גודל, אנרגיה, אילוף, אקלים) — לא רק \"איזה כלב הכי חמוד\".",
               },
               {
-                Icon: Shield,
+                num: "03",
                 title: "מותאם לישראל",
                 text:
-                  "השאלון מתחשב בחום הישראלי, מגורים בדירה, ואפילו בגזע הלאומי שלנו (כלב כנעני).",
-                tone: "primary" as const,
+                  "השאלון מתחשב בחום הישראלי, מגורים בדירה, ואפילו בגזע הלאומי שלנו — הכלב הכנעני.",
               },
-            ].map(({ Icon, title, text, tone }) => (
+            ].map(({ num, title, text }) => (
               <StaggerItem
-                key={title}
-                className="rounded-[28px] border-[3px] border-border bg-surface p-7 text-center shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] hover:-translate-y-1 transition-transform"
+                key={num}
+                className="bg-bg p-7 md:p-9 group"
               >
-                <div
-                  className={
-                    "inline-flex items-center justify-center w-16 h-16 rounded-[20px] border-[3px] mb-4 shadow-[inset_0_2px_0_rgba(255,255,255,0.5),0_3px_0_var(--color-primary-deep)] " +
-                    (tone === "accent"
-                      ? "bg-accent text-white border-accent-deep"
-                      : "bg-primary text-white border-primary-deep")
-                  }
-                >
-                  <Icon className="w-7 h-7" strokeWidth={2.5} />
+                <div className="font-display font-extrabold text-5xl text-primary-deep/30 leading-none">
+                  {num}
                 </div>
-                <h3 className="font-display font-black text-xl text-ink">{title}</h3>
-                <p className="mt-2 text-ink-soft leading-relaxed font-medium">{text}</p>
+                <h3 className="mt-5 font-display font-extrabold text-2xl text-ink leading-tight">
+                  {title}
+                </h3>
+                <p className="mt-3 text-ink-soft leading-relaxed font-medium">{text}</p>
               </StaggerItem>
             ))}
           </Stagger>
         </div>
       </section>
 
-      {/* === How it works === */}
-      <section className="px-4 py-16 md:py-24 relative overflow-hidden">
+      {/* === How it works — editorial stepper === */}
+      <section className="px-4 py-20 md:py-28 relative">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <div className="text-center mb-12">
-              <Pill tone="accent">🎯 פשוט וקל</Pill>
-              <h2 className="mt-4 text-3xl md:text-5xl font-black text-ink">איך זה עובד?</h2>
-              <p className="mt-4 text-ink-soft text-lg md:text-xl">שלוש דקות. שלושה שלבים.</p>
+            <div className="mb-14 max-w-3xl">
+              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
+                <span className="block w-6 h-px bg-ink-mute" aria-hidden />
+                איך זה עובד
+              </div>
+              <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-ink leading-[1.05] tracking-tight">
+                שלושה שלבים — <span className="italic text-primary-deep">שלוש דקות</span>
+              </h2>
             </div>
           </Reveal>
 
-          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-6" stagger={0.15}>
+          <Stagger className="space-y-px bg-border" stagger={0.12}>
             {[
               {
-                num: "1",
+                num: "01",
                 title: "ענה על שאלון קצר",
                 text:
                   "שאלות על המגורים שלך, רמת הפעילות, ניסיון קודם וההעדפות. השאלון מסתגל לתשובות שלך.",
               },
               {
-                num: "2",
+                num: "02",
                 title: "האלגוריתם עובד",
                 text:
                   "10 צירי תכונות, כללי סינון חכמים, חישוב התאמה משוקלל מול 37 גזעים פופולריים.",
               },
               {
-                num: "3",
+                num: "03",
                 title: "קבל המלצה אישית",
                 text:
                   "3-5 גזעים מתאימים עם אחוז התאמה, חוזקות, נקודות לתשומת לב, ומדריך טיפול.",
               },
             ].map(({ num, title, text }) => (
-              <StaggerItem key={num} className="relative">
-                <div className="relative rounded-[28px] border-[3px] border-border bg-surface p-6 pt-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] hover:-translate-y-1 transition-transform h-full">
-                  <div
-                    aria-hidden
-                    className="absolute -top-5 -right-3 w-16 h-16 inline-flex items-center justify-center rounded-[18px] bg-primary text-white border-[3px] border-primary-deep font-display font-black text-3xl shadow-[0_4px_0_var(--color-primary-deep)]"
-                  >
-                    {num}
-                  </div>
-                  <h3 className="font-display font-black text-xl text-ink mb-2 mt-4">
+              <StaggerItem
+                key={num}
+                className="bg-bg grid grid-cols-[auto_1fr] gap-6 md:gap-12 items-baseline py-8 md:py-10 group"
+              >
+                <div className="font-display font-extrabold text-5xl md:text-7xl text-ink/15 leading-none tabular-nums">
+                  {num}
+                </div>
+                <div>
+                  <h3 className="font-display font-extrabold text-2xl md:text-3xl text-ink leading-tight">
                     {title}
                   </h3>
-                  <p className="text-ink-soft leading-relaxed font-medium">{text}</p>
+                  <p className="mt-3 text-ink-soft text-base md:text-lg leading-relaxed font-medium max-w-2xl">
+                    {text}
+                  </p>
                 </div>
               </StaggerItem>
             ))}
@@ -305,7 +308,7 @@ export default function HomePage() {
               </div>
               <Link
                 href="/breeds"
-                className="inline-flex items-center gap-2 bg-surface text-ink border-[3px] border-border-strong px-5 py-2.5 rounded-[16px] shadow-[var(--shadow-clay-sm)] hover:-translate-y-px hover:border-primary-soft transition-all font-display font-extrabold text-sm"
+                className="inline-flex items-center gap-2 bg-surface text-ink border-2 border-border-strong px-5 py-2.5 rounded-[16px] shadow-[var(--shadow-clay-sm)] hover:-translate-y-px hover:border-primary-soft transition-all font-display font-extrabold text-sm"
               >
                 לכל הגזעים
                 <ArrowLeft className="w-4 h-4" />
@@ -320,7 +323,7 @@ export default function HomePage() {
               <StaggerItem key={b.slug}>
                 <Link
                   href={`/breed/${b.slug}`}
-                  className="group relative block rounded-[26px] border-[3px] border-border bg-surface overflow-hidden shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] hover:-translate-y-2 hover:border-primary-soft transition-all"
+                  className="group relative block rounded-[26px] border-2 border-border bg-surface overflow-hidden shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] hover:-translate-y-2 hover:border-primary-soft transition-all"
                 >
                   <div className="aspect-[4/3] overflow-hidden">
                     <BreedPhoto
@@ -352,10 +355,10 @@ export default function HomePage() {
       {/* === Final CTA === */}
       <section className="px-4 py-16 md:py-24">
         <Reveal from="scale">
-          <div className="mx-auto max-w-3xl text-center relative rounded-[40px] border-[4px] border-primary-deep bg-gradient-to-br from-primary-tint via-surface to-accent-tint p-8 md:p-14 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)] overflow-hidden">
+          <div className="mx-auto max-w-3xl text-center relative rounded-[40px] border-2 border-primary-deep bg-gradient-to-br from-primary-tint via-surface to-accent-tint p-8 md:p-14 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)] overflow-hidden">
             <div className="relative">
               <div className="flex justify-center mb-4">
-                <div className="bg-surface rounded-full p-3 border-[3px] border-border-strong shadow-[var(--shadow-clay-lg)]">
+                <div className="bg-surface rounded-full p-3 border-2 border-border-strong shadow-[var(--shadow-clay-lg)]">
                   <DogMascot mood="ball" size={120} />
                 </div>
               </div>
@@ -369,7 +372,7 @@ export default function HomePage() {
               <MagneticButton className="mt-7">
                 <Link
                   href="/quiz"
-                  className="group inline-flex items-center gap-2 bg-primary text-white border-[3px] border-primary-deep px-8 py-4 rounded-[24px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-xl transition-all"
+                  className="group inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep px-8 py-4 rounded-[24px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-xl transition-all"
                 >
                   התחל את המשחק
                   <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />

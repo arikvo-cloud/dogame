@@ -75,7 +75,7 @@ export function CompareView({ initialA, initialB }: Props) {
           type="button"
           onClick={swap}
           aria-label="החלף בין הגזעים"
-          className="self-end md:self-auto inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent text-white border-[3px] border-accent-deep shadow-[0_3px_0_var(--color-accent-deep)] hover:rotate-180 transition-transform"
+          className="self-end md:self-auto inline-flex items-center justify-center w-12 h-12 rounded-full bg-accent text-white border-2 border-accent-deep shadow-[0_3px_0_var(--color-accent-deep)] hover:rotate-180 transition-transform"
         >
           <ArrowRightLeft className="w-5 h-5" strokeWidth={2.5} />
         </button>
@@ -99,7 +99,7 @@ export function CompareView({ initialA, initialB }: Props) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5 }}
-        className="rounded-[28px] border-[3px] border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]"
+        className="rounded-[28px] border-2 border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]"
       >
         <h2 className="font-display font-black text-2xl text-ink mb-2 text-center">
           השוואת פרופיל תכונות
@@ -129,7 +129,7 @@ export function CompareView({ initialA, initialB }: Props) {
       </motion.section>
 
       {/* Head-to-head trait table */}
-      <section className="rounded-[28px] border-[3px] border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+      <section className="rounded-[28px] border-2 border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
         <h2 className="font-display font-black text-2xl text-ink mb-5 text-center">
           טבלת השוואה
         </h2>
@@ -189,19 +189,19 @@ export function CompareView({ initialA, initialB }: Props) {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-stretch">
         <Link
           href={`/breed/${a.slug}`}
-          className="inline-flex items-center justify-center gap-2 bg-surface text-ink border-[3px] border-border-strong px-5 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-clay)] hover:-translate-y-0.5 transition-transform"
+          className="inline-flex items-center justify-center gap-2 bg-surface text-ink border-2 border-border-strong px-5 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-clay)] hover:-translate-y-0.5 transition-transform"
         >
           קרא עוד על {a.name}
         </Link>
         <Link
           href="/quiz"
-          className="inline-flex items-center justify-center gap-2 bg-primary text-white border-[3px] border-primary-deep px-5 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 transition-transform"
+          className="inline-flex items-center justify-center gap-2 bg-primary text-white border-2 border-primary-deep px-5 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 transition-transform"
         >
           ענה על השאלון
         </Link>
         <Link
           href={`/breed/${b.slug}`}
-          className="inline-flex items-center justify-center gap-2 bg-surface text-ink border-[3px] border-border-strong px-5 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-clay)] hover:-translate-y-0.5 transition-transform"
+          className="inline-flex items-center justify-center gap-2 bg-surface text-ink border-2 border-border-strong px-5 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-clay)] hover:-translate-y-0.5 transition-transform"
         >
           קרא עוד על {b.name}
         </Link>
@@ -222,7 +222,7 @@ function BreedSpotlight({
   return (
     <div
       className={cn(
-        "rounded-[28px] border-[3px] bg-surface p-5 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] text-center",
+        "rounded-[28px] border-2 bg-surface p-5 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] text-center",
         accent === "primary" ? "border-primary-deep" : "border-accent-deep"
       )}
     >

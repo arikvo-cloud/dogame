@@ -37,7 +37,7 @@ export function BreedPhotoKenBurns({
       <div
         aria-hidden
         className={cn(
-          "flex items-center justify-center border-[3px] border-border-strong",
+          "flex items-center justify-center border-2 border-border-strong",
           "shadow-[inset_0_2px_0_rgba(255,255,255,0.5),0_3px_0_var(--color-border-strong)]",
           rounded,
           className
@@ -52,8 +52,7 @@ export function BreedPhotoKenBurns({
   return (
     <div
       className={cn(
-        "relative overflow-hidden border-[3px] border-border-strong",
-        "shadow-[inset_0_2px_0_rgba(255,255,255,0.5),0_3px_0_var(--color-border-strong)]",
+        "relative overflow-hidden border border-border photo-skeleton",
         rounded,
         className
       )}

@@ -28,7 +28,7 @@ export function FavoritesBadge({ className }: Props) {
       href="/favorites"
       aria-label={`המועדפים שלי${active ? ` (${count})` : ""}`}
       className={cn(
-        "relative inline-flex items-center justify-center w-10 h-10 rounded-[12px] border-[3px] transition-colors",
+        "relative inline-flex items-center justify-center w-10 h-10 rounded-[12px] border-2 transition-colors",
         "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
         active
           ? "bg-rose/15 text-rose border-rose/50 hover:bg-rose/20"

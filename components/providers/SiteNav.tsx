@@ -73,7 +73,7 @@ export function SiteNav() {
           <FavoritesBadge />
           <Link
             href="/quiz"
-            className="inline-flex items-center gap-1 bg-primary text-white border-[3px] border-primary-deep px-4 py-2 rounded-[16px] font-display font-extrabold shadow-[0_3px_0_var(--color-primary-deep)] hover:-translate-y-px active:translate-y-0.5 active:shadow-[0_1px_0_var(--color-primary-deep)] transition-all"
+            className="inline-flex items-center gap-1 bg-primary text-white border-2 border-primary-deep px-4 py-2 rounded-[16px] font-display font-extrabold shadow-[0_3px_0_var(--color-primary-deep)] hover:-translate-y-px active:translate-y-0.5 active:shadow-[0_1px_0_var(--color-primary-deep)] transition-all"
           >
             התחל משחק
           </Link>
@@ -88,7 +88,7 @@ export function SiteNav() {
             onClick={() => setOpen(true)}
             aria-label="פתח תפריט"
             aria-expanded={open}
-            className="inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-surface text-ink border-[3px] border-border-strong shadow-[var(--shadow-clay-sm)] hover:border-primary-soft transition-colors"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-surface text-ink border-2 border-border-strong shadow-[var(--shadow-clay-sm)] hover:border-primary-soft transition-colors"
           >
             <Menu className="w-5 h-5" strokeWidth={2.5} />
           </button>
@@ -116,7 +116,7 @@ export function SiteNav() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", stiffness: 320, damping: 32 }}
-              className="fixed top-0 right-0 z-50 h-dvh w-[78vw] max-w-xs bg-surface border-l-[3px] border-border-strong shadow-[var(--shadow-clay-xl)] md:hidden flex flex-col"
+              className="fixed top-0 right-0 z-50 h-dvh w-[78vw] max-w-xs bg-surface border-l-2 border-border-strong shadow-[var(--shadow-clay-xl)] md:hidden flex flex-col"
               role="dialog"
               aria-modal="true"
               aria-label="תפריט ראשי"
@@ -150,8 +150,8 @@ export function SiteNav() {
                         className={cn(
                           "flex items-center gap-3 rounded-[16px] px-3.5 py-3 font-display font-extrabold transition-colors",
                           active
-                            ? "bg-primary text-white border-[3px] border-primary-deep shadow-[0_3px_0_var(--color-primary-deep)]"
-                            : "bg-bg-soft text-ink border-[3px] border-border-strong hover:bg-primary-tint"
+                            ? "bg-primary text-white border-2 border-primary-deep shadow-[0_3px_0_var(--color-primary-deep)]"
+                            : "bg-bg-soft text-ink border-2 border-border-strong hover:bg-primary-tint"
                         )}
                       >
                         <Icon className="w-5 h-5" strokeWidth={2.5} />

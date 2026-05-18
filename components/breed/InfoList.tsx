@@ -19,7 +19,7 @@ export function InfoList({ title, Icon, items, variant = "primary" }: Props) {
   return (
     <section
       className={cn(
-        "rounded-[26px] border-[3px] p-5 md:p-6 shadow-[var(--shadow-clay)]",
+        "rounded-[26px] border-2 p-5 md:p-6 shadow-[var(--shadow-clay)]",
         variantStyles[variant]
       )}
     >

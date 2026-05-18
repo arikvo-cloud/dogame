@@ -190,7 +190,7 @@ export default async function BreedPage({ params }: PageProps) {
 
         {/* Description */}
         <Reveal from="up">
-          <section className="mt-6 rounded-[28px] border-[3px] border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+          <section className="mt-6 rounded-[28px] border-2 border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
             <h2 className="font-display font-black text-2xl text-ink mb-3">
               על {breed.name}
             </h2>
@@ -201,7 +201,7 @@ export default async function BreedPage({ params }: PageProps) {
         {/* Gallery */}
         {breed.gallery && breed.gallery.length > 0 && (
           <Reveal from="up">
-            <section className="mt-6 rounded-[28px] border-[3px] border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+            <section className="mt-6 rounded-[28px] border-2 border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
               <h2 className="font-display font-black text-2xl text-ink mb-4">גלריה</h2>
               <p className="text-sm text-ink-soft font-medium mb-4">
                 לחץ על תמונה כדי להגדיל. תמונות מ-Wikimedia Commons תחת רישיון CC.
@@ -213,7 +213,7 @@ export default async function BreedPage({ params }: PageProps) {
 
         {/* Traits */}
         <Reveal from="up">
-          <section className="mt-6 rounded-[28px] border-[3px] border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+          <section className="mt-6 rounded-[28px] border-2 border-border bg-surface p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
             <h2 className="font-display font-black text-2xl text-ink mb-5">פרופיל תכונות</h2>
             <BreedTraits traits={breed.traits} />
           </section>
@@ -275,7 +275,7 @@ export default async function BreedPage({ params }: PageProps) {
           <div className="mt-10 text-center">
             <Link
               href="/quiz"
-              className="inline-flex items-center gap-2 bg-primary text-white border-[3px] border-primary-deep font-display font-extrabold px-8 py-4 rounded-[22px] text-lg shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] transition-all"
+              className="inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep font-display font-extrabold px-8 py-4 rounded-[22px] text-lg shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] transition-all"
             >
               בדוק התאמה אישית במשחק
             </Link>

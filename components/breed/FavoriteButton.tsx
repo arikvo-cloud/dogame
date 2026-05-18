@@ -62,7 +62,7 @@ export function FavoriteButton({
       aria-pressed={isFavorite}
       aria-label={isFavorite ? `הסר את ${breedName} ממועדפים` : `הוסף את ${breedName} למועדפים`}
       className={cn(
-        "relative inline-flex items-center justify-center border-[3px] transition-all cursor-pointer",
+        "relative inline-flex items-center justify-center border-2 transition-all cursor-pointer",
         "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
         sizes,
         // Avoid flashing the wrong state during SSR/hydration

@@ -65,9 +65,9 @@ export function AdoptionLinks({ breed }: Props) {
   const links = buildLinks(breed);
 
   return (
-    <section className="rounded-[28px] border-[3px] border-leaf-dark bg-leaf/15 p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+    <section className="rounded-[28px] border-2 border-leaf-dark bg-leaf/15 p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
       <div className="flex items-start gap-3 mb-4">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-[16px] bg-leaf text-white border-[3px] border-leaf-dark shadow-[0_3px_0_var(--color-leaf-dark)]">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-[16px] bg-leaf text-white border-2 border-leaf-dark shadow-[0_3px_0_var(--color-leaf-dark)]">
           <HeartHandshake className="w-6 h-6" strokeWidth={2.5} aria-hidden />
         </div>
         <div className="flex-1">
@@ -94,7 +94,7 @@ export function AdoptionLinks({ breed }: Props) {
             viewport={{ once: true }}
             transition={{ delay: 0.05 * i, duration: 0.3 }}
             whileHover={{ y: -2 }}
-            className="group flex items-center gap-3 rounded-[16px] bg-surface border-[3px] border-border-strong px-3.5 py-3 shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)] hover:border-leaf-dark transition-colors"
+            className="group flex items-center gap-3 rounded-[16px] bg-surface border-2 border-border-strong px-3.5 py-3 shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)] hover:border-leaf-dark transition-colors"
           >
             <span
               aria-hidden

@@ -16,7 +16,7 @@ export function ProgressBar({ current, total }: ProgressBarProps) {
         <span className="text-primary-deep">{pct}%</span>
       </div>
       <div
-        className="relative h-4 w-full rounded-full bg-bg-soft border-[3px] border-border-strong overflow-hidden shadow-[inset_0_2px_4px_rgba(124,45,18,0.12)]"
+        className="relative h-4 w-full rounded-full bg-bg-soft border-2 border-border-strong overflow-hidden shadow-[inset_0_2px_4px_rgba(124,45,18,0.12)]"
         role="progressbar"
         aria-valuemin={0}
         aria-valuemax={total}

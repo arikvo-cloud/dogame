@@ -76,7 +76,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-bg text-ink">
         <a
           href="#main"
-          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:right-3 focus-visible:z-50 focus-visible:bg-primary focus-visible:text-white focus-visible:px-4 focus-visible:py-2 focus-visible:rounded-[14px] focus-visible:border-[3px] focus-visible:border-primary-deep focus-visible:font-display focus-visible:font-extrabold"
+          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:right-3 focus-visible:z-50 focus-visible:bg-primary focus-visible:text-white focus-visible:px-4 focus-visible:py-2 focus-visible:rounded-[14px] focus-visible:border-2 focus-visible:border-primary-deep focus-visible:font-display focus-visible:font-extrabold"
         >
           דלג לתוכן
         </a>

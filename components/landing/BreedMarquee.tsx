@@ -22,7 +22,7 @@ export function BreedMarquee() {
   return (
     <section
       aria-label="כל הגזעים במאגר"
-      className="relative overflow-hidden py-6 md:py-10 border-y-[3px] border-border bg-surface-tint/60 group/marquee"
+      className="relative overflow-hidden py-6 md:py-10 border-y-2 border-border bg-surface-tint/60 group/marquee"
     >
       {/* Edge fades */}
       <div
@@ -66,7 +66,7 @@ function MarqueeTile({
       href={`/breed/${breed.slug}`}
       className={cn(
         "relative block w-32 h-32 md:w-44 md:h-44 rounded-[20px] overflow-hidden",
-        "border-[3px] border-border-strong shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)]",
+        "border-2 border-border-strong shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)]",
         "transition-transform duration-300 hover:scale-[1.04] hover:-translate-y-1",
         "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
       )}

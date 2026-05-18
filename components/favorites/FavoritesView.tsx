@@ -37,8 +37,8 @@ export function FavoritesView() {
 
   if (favorites.length === 0) {
     return (
-      <div className="rounded-[28px] border-[3px] border-border bg-surface p-10 text-center shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-[24px] bg-rose/15 border-[3px] border-rose/40 mb-4">
+      <div className="rounded-[28px] border-2 border-border bg-surface p-10 text-center shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-[24px] bg-rose/15 border-2 border-rose/40 mb-4">
           <Heart className="w-10 h-10 text-rose" strokeWidth={2} aria-hidden />
         </div>
         <h2 className="text-2xl font-black text-ink">עדיין אין לך מועדפים 💛</h2>
@@ -47,7 +47,7 @@ export function FavoritesView() {
         </p>
         <Link
           href="/breeds"
-          className="mt-6 inline-flex items-center gap-2 bg-primary text-white border-[3px] border-primary-deep px-6 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 transition-transform"
+          className="mt-6 inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep px-6 py-3 rounded-[20px] font-display font-extrabold shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 transition-transform"
         >
           לדפדף בגזעים
           <ArrowLeft className="w-4 h-4" />
@@ -106,7 +106,7 @@ export function FavoritesView() {
             >
               <Link
                 href={`/breed/${b.slug}`}
-                className="group block rounded-[22px] border-[3px] border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] hover:-translate-y-1 hover:border-border-strong transition-all"
+                className="group block rounded-[22px] border-2 border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] hover:-translate-y-1 hover:border-border-strong transition-all"
               >
                 <div className="flex justify-center mb-2.5 group-hover:scale-105 transition-transform">
                   <BreedPhoto breed={b} size={140} rounded="rounded-[18px]" />

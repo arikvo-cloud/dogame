@@ -94,9 +94,9 @@ export function BreedChat({ breed }: Props) {
   }
 
   return (
-    <section className="rounded-[28px] border-[3px] border-accent-soft bg-accent-tint/40 p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+    <section className="rounded-[28px] border-2 border-accent-soft bg-accent-tint/40 p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
       <div className="flex items-center gap-3 mb-4">
-        <div className="inline-flex items-center justify-center w-12 h-12 rounded-[16px] bg-accent text-white border-[3px] border-accent-deep shadow-[0_3px_0_var(--color-accent-deep)]">
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-[16px] bg-accent text-white border-2 border-accent-deep shadow-[0_3px_0_var(--color-accent-deep)]">
           <Bot className="w-6 h-6" strokeWidth={2.5} aria-hidden />
         </div>
         <div>
@@ -166,13 +166,13 @@ export function BreedChat({ breed }: Props) {
           aria-label="שאל שאלה"
           maxLength={500}
           disabled={turns.at(-1)?.loading}
-          className="flex-1 bg-surface border-[3px] border-border-strong rounded-[16px] px-4 py-2.5 font-display text-ink placeholder:text-ink-soft focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-accent-tint disabled:opacity-50 shadow-[var(--shadow-clay-sm)]"
+          className="flex-1 bg-surface border-2 border-border-strong rounded-[16px] px-4 py-2.5 font-display text-ink placeholder:text-ink-soft focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-accent-tint disabled:opacity-50 shadow-[var(--shadow-clay-sm)]"
         />
         <button
           type="submit"
           disabled={!input.trim() || turns.at(-1)?.loading}
           aria-label="שלח שאלה"
-          className="inline-flex items-center justify-center w-11 h-11 rounded-[16px] bg-accent text-white border-[3px] border-accent-deep shadow-[0_3px_0_var(--color-accent-deep)] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_1px_0_var(--color-accent-deep)] transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:translate-y-0 cursor-pointer"
+          className="inline-flex items-center justify-center w-11 h-11 rounded-[16px] bg-accent text-white border-2 border-accent-deep shadow-[0_3px_0_var(--color-accent-deep)] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[0_1px_0_var(--color-accent-deep)] transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:translate-y-0 cursor-pointer"
         >
           <Send className="w-5 h-5" strokeWidth={2.5} />
         </button>

@@ -14,7 +14,7 @@ export function Skeleton({ className, rounded = "rounded-[16px]" }: SkeletonProp
     <div
       aria-hidden
       className={cn(
-        "relative overflow-hidden border-[3px] border-border bg-bg-soft",
+        "relative overflow-hidden border-2 border-border bg-bg-soft",
         "before:absolute before:inset-0",
         "before:bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.6)_50%,transparent_100%)]",
         "before:translate-x-[-100%] before:animate-[shimmer_1.6s_infinite]",
@@ -28,7 +28,7 @@ export function Skeleton({ className, rounded = "rounded-[16px]" }: SkeletonProp
 /** Pre-built breed-card skeleton grid (used while filtering or loading) */
 export function BreedCardSkeleton() {
   return (
-    <div className="rounded-[22px] border-[3px] border-border bg-surface p-3 text-center shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)]">
+    <div className="rounded-[22px] border-2 border-border bg-surface p-3 text-center shadow-[var(--shadow-clay-sm),var(--shadow-inner-clay)]">
       <Skeleton className="h-[140px] w-full mb-2.5" rounded="rounded-[18px]" />
       <Skeleton className="h-4 w-3/4 mx-auto mb-2" rounded="rounded-md" />
       <div className="flex justify-center gap-1">

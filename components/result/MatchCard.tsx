@@ -29,7 +29,7 @@ export function MatchCard({ match, rank }: Props) {
       }}
       whileHover={{ y: -3 }}
       className={cn(
-        "relative rounded-[32px] border-[3px] p-5 md:p-7 transition-colors",
+        "relative rounded-[32px] border-2 p-5 md:p-7 transition-colors",
         isTop
           ? "border-primary-deep bg-surface shadow-[var(--shadow-glow-primary),var(--shadow-inner-clay)]"
           : "border-border bg-surface shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] hover:border-border-strong"
@@ -40,7 +40,7 @@ export function MatchCard({ match, rank }: Props) {
           initial={{ y: -20, opacity: 0, scale: 0.7 }}
           animate={{ y: 0, opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, type: "spring", stiffness: 300, damping: 18 }}
-          className="absolute -top-3 right-6 inline-flex items-center gap-1.5 bg-primary-deep text-white border-[3px] border-primary-deep rounded-full px-3 py-1 font-display font-extrabold text-xs shadow-[0_3px_0_var(--color-primary-deep)]"
+          className="absolute -top-3 right-6 inline-flex items-center gap-1.5 bg-primary-deep text-white border-2 border-primary-deep rounded-full px-3 py-1 font-display font-extrabold text-xs shadow-[0_3px_0_var(--color-primary-deep)]"
         >
           <Trophy className="w-3.5 h-3.5" strokeWidth={3} />
           ההתאמה המובילה

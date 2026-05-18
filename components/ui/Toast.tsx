@@ -112,7 +112,7 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: () => void }
       exit={{ opacity: 0, y: 12, scale: 0.95 }}
       transition={{ type: "spring", stiffness: 280, damping: 24 }}
       className={cn(
-        "pointer-events-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-[18px] border-[3px] shadow-[var(--shadow-clay-lg)]",
+        "pointer-events-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-[18px] border-2 shadow-[var(--shadow-clay-lg)]",
         v.bg,
         v.border
       )}

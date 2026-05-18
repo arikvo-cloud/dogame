@@ -115,7 +115,7 @@ export function BreedsBrowse() {
   return (
     <div>
       {/* Search + filter toggle */}
-      <div className="rounded-[28px] border-[3px] border-border bg-surface p-4 md:p-5 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+      <div className="rounded-[28px] border-2 border-border bg-surface p-4 md:p-5 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
         <div className="flex flex-col md:flex-row gap-3 items-stretch md:items-center">
           <div className="relative flex-1">
             <Search
@@ -129,7 +129,7 @@ export function BreedsBrowse() {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="חיפוש לפי שם הגזע (עברית / English)"
               aria-label="חיפוש גזע"
-              className="w-full bg-bg-soft border-[3px] border-border-strong rounded-[18px] pr-10 pl-3 py-2.5 font-display text-base text-ink placeholder:text-ink-soft focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              className="w-full bg-bg-soft border-2 border-border-strong rounded-[18px] pr-10 pl-3 py-2.5 font-display text-base text-ink placeholder:text-ink-soft focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
             />
             {query && (
               <button
@@ -146,7 +146,7 @@ export function BreedsBrowse() {
             <button
               type="button"
               onClick={() => setFiltersOpen((v) => !v)}
-              className="inline-flex items-center gap-1.5 bg-bg-soft text-ink border-[3px] border-border-strong px-4 py-2.5 rounded-[16px] font-display font-extrabold shadow-[var(--shadow-clay-sm)] hover:bg-primary-tint transition-colors"
+              className="inline-flex items-center gap-1.5 bg-bg-soft text-ink border-2 border-border-strong px-4 py-2.5 rounded-[16px] font-display font-extrabold shadow-[var(--shadow-clay-sm)] hover:bg-primary-tint transition-colors"
               aria-expanded={filtersOpen}
             >
               <FilterIcon className="w-4 h-4" strokeWidth={2.5} />
@@ -161,7 +161,7 @@ export function BreedsBrowse() {
               value={sort}
               onChange={(e) => setSort(e.target.value as SortMode)}
               aria-label="מיון"
-              className="bg-bg-soft border-[3px] border-border-strong rounded-[16px] px-3 py-2.5 font-display font-bold text-ink shadow-[var(--shadow-clay-sm)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+              className="bg-bg-soft border-2 border-border-strong rounded-[16px] px-3 py-2.5 font-display font-bold text-ink shadow-[var(--shadow-clay-sm)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
             >
               <option value="default">סדר רגיל</option>
               <option value="name-asc">לפי שם (א-ת)</option>
@@ -263,7 +263,7 @@ export function BreedsBrowse() {
 
       {/* Results grid */}
       {filtered.length === 0 ? (
-        <div className="rounded-[28px] border-[3px] border-warning/40 bg-warning-tint p-8 text-center shadow-[var(--shadow-clay)]">
+        <div className="rounded-[28px] border-2 border-warning/40 bg-warning-tint p-8 text-center shadow-[var(--shadow-clay)]">
           <p className="text-lg font-display font-bold text-ink">
             לא נמצאו גזעים שמתאימים לסינון הנוכחי 🐾
           </p>
@@ -357,7 +357,7 @@ function BreedTile({ breed }: { breed: Breed }) {
       </div>
       <Link
         href={`/breed/${breed.slug}`}
-        className="group block rounded-[22px] border-[3px] border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] hover:-translate-y-1 hover:border-border-strong transition-all"
+        className="group block rounded-[22px] border-2 border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] hover:-translate-y-1 hover:border-border-strong transition-all"
       >
       <div className="flex justify-center mb-2.5 group-hover:scale-105 transition-transform">
         <BreedPhoto breed={breed} size={140} rounded="rounded-[18px]" />

@@ -54,7 +54,7 @@ const STATS = [
 
 export function Testimonials() {
   return (
-    <section className="px-4 py-16 md:py-24 bg-bg-soft border-y-[3px] border-border">
+    <section className="px-4 py-16 md:py-24 bg-bg-soft border-y-2 border-border">
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <Pill tone="success">💬 מה אומרים</Pill>
@@ -83,11 +83,11 @@ export function Testimonials() {
                 stiffness: 180,
                 damping: 22,
               }}
-              className="relative rounded-[28px] border-[3px] border-border bg-surface p-6 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]"
+              className="relative rounded-[28px] border-2 border-border bg-surface p-6 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]"
             >
               <div
                 aria-hidden
-                className="absolute -top-3 -right-3 inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-primary text-white border-[3px] border-primary-deep shadow-[0_3px_0_var(--color-primary-deep)]"
+                className="absolute -top-3 -right-3 inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-primary text-white border-2 border-primary-deep shadow-[0_3px_0_var(--color-primary-deep)]"
               >
                 <Quote className="w-4 h-4" strokeWidth={3} />
               </div>
@@ -132,7 +132,7 @@ export function Testimonials() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
-          className="rounded-[28px] border-[3px] border-primary-deep bg-gradient-to-br from-primary-tint via-surface to-accent-tint p-6 md:p-7 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]"
+          className="rounded-[28px] border-2 border-primary-deep bg-gradient-to-br from-primary-tint via-surface to-accent-tint p-6 md:p-7 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {STATS.map((s) => (

@@ -106,7 +106,7 @@ export function ScrollStory() {
   return (
     <section
       ref={containerRef}
-      className="relative h-dvh overflow-hidden bg-bg-soft border-y-[3px] border-border"
+      className="relative h-dvh overflow-hidden bg-bg-soft border-y-2 border-border"
     >
       {/* Decorative ambient blur */}
       <div
@@ -196,7 +196,7 @@ function StoryPanel({
       }
     >
       <div className="story-num inline-flex items-center gap-2 text-ink-soft font-display font-extrabold text-sm mb-3">
-        <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-surface border-[3px] border-border-strong text-ink shadow-[var(--shadow-clay-sm)]">
+        <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-surface border-2 border-border-strong text-ink shadow-[var(--shadow-clay-sm)]">
           {number}
         </span>
         <span className="uppercase tracking-wide">{eyebrow}</span>
@@ -211,7 +211,7 @@ function StoryPanel({
       {cta && (
         <Link
           href="/quiz"
-          className="story-body mt-7 inline-flex items-center gap-2 bg-primary text-white border-[3px] border-primary-deep px-6 py-3 rounded-[20px] font-display font-extrabold text-lg shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 transition-transform"
+          className="story-body mt-7 inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep px-6 py-3 rounded-[20px] font-display font-extrabold text-lg shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 transition-transform"
         >
           התחל עכשיו
           <ArrowLeft className="w-5 h-5" />

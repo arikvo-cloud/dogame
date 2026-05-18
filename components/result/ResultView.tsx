@@ -59,7 +59,7 @@ export function ResultView() {
 
   if (matches.length === 0) {
     return (
-      <div className="rounded-[32px] border-[3px] border-warning/40 bg-warning-tint p-8 text-center shadow-[var(--shadow-clay-lg)]">
+      <div className="rounded-[32px] border-2 border-warning/40 bg-warning-tint p-8 text-center shadow-[var(--shadow-clay-lg)]">
         <h2 className="text-2xl font-black text-ink">
           לא מצאנו גזע שעובר את כל הקריטריונים שלך
         </h2>
@@ -70,7 +70,7 @@ export function ResultView() {
         <div className="mt-6">
           <Link
             href="/quiz"
-            className="inline-block bg-primary text-white border-[3px] border-primary-deep font-display font-extrabold px-6 py-3 rounded-[18px] shadow-[var(--shadow-glow-primary)]"
+            className="inline-block bg-primary text-white border-2 border-primary-deep font-display font-extrabold px-6 py-3 rounded-[18px] shadow-[var(--shadow-glow-primary)]"
           >
             חזרה לשאלון
           </Link>
@@ -155,7 +155,7 @@ export function ResultView() {
           ))}
         </div>
 
-        <aside className="lg:sticky lg:top-4 rounded-[32px] border-[3px] border-border bg-surface p-6 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+        <aside className="lg:sticky lg:top-4 rounded-[32px] border-2 border-border bg-surface p-6 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
           <h2 className="text-xl font-black text-ink mb-1">
             פרופיל ההתאמה
           </h2>
@@ -175,8 +175,8 @@ export function ResultView() {
       <AdoptionLinks breed={top.breed} />
 
       {/* Share */}
-      <div className="rounded-[32px] border-[3px] border-primary-soft bg-primary-tint p-6 md:p-10 text-center shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
-        <div className="inline-flex items-center justify-center w-14 h-14 bg-primary text-white rounded-[18px] border-[3px] border-primary-deep shadow-[0_3px_0_var(--color-primary-deep)] mb-3">
+      <div className="rounded-[32px] border-2 border-primary-soft bg-primary-tint p-6 md:p-10 text-center shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+        <div className="inline-flex items-center justify-center w-14 h-14 bg-primary text-white rounded-[18px] border-2 border-primary-deep shadow-[0_3px_0_var(--color-primary-deep)] mb-3">
           <Share2 className="w-7 h-7" strokeWidth={2.5} />
         </div>
         <h2 className="text-2xl md:text-3xl font-black text-ink">שתף את התוצאה</h2>

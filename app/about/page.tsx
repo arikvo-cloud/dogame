@@ -17,9 +17,9 @@ export default function AboutPage() {
       <SiteNav />
       <div className="mx-auto max-w-3xl px-4 py-8 md:py-16">
 
-        <div className="rounded-[36px] border-[3px] border-border bg-surface p-8 md:p-12 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]">
+        <div className="rounded-[36px] border-2 border-border bg-surface p-8 md:p-12 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]">
           <div className="flex justify-center">
-            <div className="bg-bg-soft rounded-full p-3 border-[3px] border-border-strong shadow-[var(--shadow-clay-lg)]">
+            <div className="bg-bg-soft rounded-full p-3 border-2 border-border-strong shadow-[var(--shadow-clay-lg)]">
               <DogMascot mood="thinking" size={140} />
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function AboutPage() {
               </p>
             </section>
 
-            <section className="rounded-[24px] border-[3px] border-accent-soft bg-accent-tint p-5">
+            <section className="rounded-[24px] border-2 border-accent-soft bg-accent-tint p-5">
               <h2 className="font-display font-black text-xl mb-2 text-accent-deep">🔐 פרטיות</h2>
               <p className="text-ink-soft font-medium">
                 אין רישום, אין שמירת נתונים בענן, אין עוקבני פרסום. התשובות שלך
@@ -90,7 +90,7 @@ export default function AboutPage() {
           <div className="mt-10 text-center">
             <Link
               href="/quiz"
-              className="inline-flex items-center gap-2 bg-primary text-white border-[3px] border-primary-deep px-8 py-4 rounded-[22px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-lg transition-all"
+              className="inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep px-8 py-4 rounded-[22px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-lg transition-all"
             >
               התחל את המשחק
               <ArrowLeft className="w-5 h-5" />

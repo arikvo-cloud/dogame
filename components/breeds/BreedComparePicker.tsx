@@ -53,7 +53,7 @@ export function BreedComparePicker({
         type="button"
         onClick={() => setOpen((v) => !v)}
         className={cn(
-          "w-full rounded-[24px] border-[3px] bg-surface p-4 text-right shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] transition-all hover:-translate-y-0.5",
+          "w-full rounded-[24px] border-2 bg-surface p-4 text-right shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] transition-all hover:-translate-y-0.5",
           "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
           selected ? "border-primary-deep" : "border-border-strong"
         )}
@@ -84,7 +84,7 @@ export function BreedComparePicker({
 
       {open && (
         <div
-          className="absolute z-30 inset-x-0 mt-2 rounded-[20px] border-[3px] border-border-strong bg-surface shadow-[var(--shadow-clay-xl)] overflow-hidden"
+          className="absolute z-30 inset-x-0 mt-2 rounded-[20px] border-2 border-border-strong bg-surface shadow-[var(--shadow-clay-xl)] overflow-hidden"
           role="listbox"
         >
           <div className="p-3 border-b-2 border-border">
