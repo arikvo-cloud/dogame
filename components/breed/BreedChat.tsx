@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, Send, Bot, User, AlertCircle } from "lucide-react";
 import type { Breed } from "@/lib/breeds/types";
 import { TRAITS } from "@/lib/traits";
+import { track } from "@/lib/track";
 import { cn } from "@/lib/cn";
 
 interface Props {
@@ -54,6 +55,7 @@ export function BreedChat({ breed }: Props) {
     const q = question.trim();
     if (!q) return;
     setShowSuggestions(false);
+    track.aiAsk(breed.slug);
     const idx = turns.length;
     setTurns((prev) => [...prev, { question: q, loading: true }]);
     setInput("");

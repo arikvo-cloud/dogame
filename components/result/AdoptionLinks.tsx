@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ExternalLink, Search, HeartHandshake, MapPin } from "lucide-react";
 import type { Breed } from "@/lib/breeds/types";
+import { track } from "@/lib/track";
 
 interface Props {
   breed: Breed;
@@ -87,6 +88,7 @@ export function AdoptionLinks({ breed }: Props) {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => track.adoptionClick(link.id, breed.slug)}
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}

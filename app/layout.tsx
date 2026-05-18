@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Heebo, Rubik } from "next/font/google";
 import { MotionProvider } from "@/components/providers/MotionProvider";
+import { Analytics } from "@/components/providers/Analytics";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -60,7 +61,16 @@ export default function RootLayout({
       lang="he"
       dir="rtl"
       className={`${heebo.variable} ${rubik.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        {/* Apply saved theme synchronously to avoid flash of wrong colors. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('dogame-theme-v1')||'system';var r=t==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):t;document.documentElement.setAttribute('data-theme',r);}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-bg text-ink">
         <a
           href="#main"
@@ -69,6 +79,7 @@ export default function RootLayout({
           דלג לתוכן
         </a>
         <MotionProvider>{children}</MotionProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Heart } from "lucide-react";
 import { useFavorite } from "@/store/useFavoritesStore";
 import { useToast } from "@/components/ui/Toast";
+import { track } from "@/lib/track";
 import { cn } from "@/lib/cn";
 
 interface Props {
@@ -42,6 +43,7 @@ export function FavoriteButton({
       e.stopPropagation();
     }
     const nowFavorite = toggle();
+    track.favoriteToggle(slug, nowFavorite);
     if (nowFavorite) {
       setBurst((n) => n + 1);
       toast.show(`${breedName} נוסף למועדפים 💛`, "success");

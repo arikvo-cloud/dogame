@@ -98,6 +98,61 @@
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* === Dark theme overrides === */
+html[data-theme="dark"] {
+  --color-bg: #1a0f0a;
+  --color-bg-soft: #2a1a12;
+  --color-bg-warm: #3a2418;
+  --color-surface: #2a1a12;
+  --color-surface-tint: #34201a;
+
+  --color-primary-tint: #3a2418;
+  --color-accent-tint: #1e2a3a;
+
+  /* In dark mode, ink colors become light */
+  --color-ink: #FFF7ED;
+  --color-ink-soft: #FDE8C8;
+  --color-ink-mute: #FDBA74;
+  --color-ink-faint: #C2410C;
+
+  --color-border: #4a2e1f;
+  --color-border-strong: #C2410C;
+  --color-border-ink: #FFF7ED;
+
+  --color-success-tint: #0c2a1a;
+  --color-warning-tint: #3a2a0c;
+  --color-danger-tint: #3a1414;
+
+  /* Adjusted clay shadows — softer in dark */
+  --shadow-clay-sm:
+    0 2px 0 0 var(--color-border-strong),
+    0 4px 12px -4px rgba(0, 0, 0, 0.5);
+  --shadow-clay:
+    0 4px 0 0 var(--color-border-strong),
+    0 10px 22px -8px rgba(0, 0, 0, 0.5);
+  --shadow-clay-lg:
+    0 6px 0 0 var(--color-border-strong),
+    0 14px 32px -10px rgba(0, 0, 0, 0.6);
+  --shadow-clay-xl:
+    0 8px 0 0 var(--color-border-strong),
+    0 22px 50px -16px rgba(0, 0, 0, 0.7);
+  --shadow-clay-press:
+    0 1px 0 0 var(--color-border-strong),
+    0 3px 8px -3px rgba(0, 0, 0, 0.4);
+  --shadow-inner-clay:
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth color transitions when switching theme */
+html {
+  color-scheme: light;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 /* === Base === */
 html,
 body {

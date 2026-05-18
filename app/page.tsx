@@ -14,6 +14,7 @@ import { Pill } from "@/components/ui/Pill";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { SiteNav } from "@/components/providers/SiteNav";
 import { ScrollStory } from "@/components/landing/ScrollStory";
+import { Testimonials } from "@/components/landing/Testimonials";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { CountUp } from "@/components/ui/CountUp";
@@ -289,6 +290,9 @@ export default function HomePage() {
           </Stagger>
         </div>
       </section>
+
+      {/* === Testimonials === */}
+      <Testimonials />
 
       {/* === Featured breeds === */}
       <section className="px-4 py-16 md:py-24 bg-bg-soft border-y-[3px] border-border">

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, Home, Search, GitCompare, Info, Heart, Sparkles } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { FavoritesBadge } from "./FavoritesBadge";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 import { cn } from "@/lib/cn";
 
 interface NavLink {
@@ -68,6 +69,7 @@ export function SiteNav() {
           <Link href="/about" className={deskLink(pathname, "/about")}>
             על הפרויקט
           </Link>
+          <ThemeSwitcher />
           <FavoritesBadge />
           <Link
             href="/quiz"
@@ -77,8 +79,9 @@ export function SiteNav() {
           </Link>
         </div>
 
-        {/* Mobile: hamburger + heart + CTA */}
+        {/* Mobile: hamburger + theme + heart */}
         <div className="flex md:hidden items-center gap-2">
+          <ThemeSwitcher />
           <FavoritesBadge />
           <button
             type="button"

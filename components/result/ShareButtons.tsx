@@ -1,7 +1,15 @@
 "use client";
 
-import { useState } from "react";
-import { Copy, Check, MessageCircle, RefreshCw, FileDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  Copy,
+  Check,
+  MessageCircle,
+  RefreshCw,
+  FileDown,
+  Share2,
+  Mail,
+} from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import {
   buildShareText,
@@ -15,6 +23,7 @@ import type { AnswerMap } from "@/lib/quiz/types";
 import type { BreedMatch } from "@/lib/breeds/types";
 import type { TraitVector } from "@/lib/traits";
 import { useToast } from "@/components/ui/Toast";
+import { track } from "@/lib/track";
 
 interface Props {
   topBreedName: string;
@@ -47,19 +56,66 @@ export function ShareButtons({
     typeof window !== "undefined" ? window.location.origin : "https://dogame.pages.dev";
   // Shareable result URL with encoded answers
   const shareUrl = buildShareUrl(answers, origin);
-  const text = `${buildShareText(topBreedName, topScore)} ${shareUrl}`;
+  const shareText = buildShareText(topBreedName, topScore);
+  const text = `${shareText} ${shareUrl}`;
+
+  // Detect native share availability (mobile Safari/Android, some desktop browsers)
+  const [canNativeShare, setCanNativeShare] = useState(false);
+  useEffect(() => {
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
+      setCanNativeShare(true);
+    }
+  }, []);
+
+  async function nativeShare() {
+    if (!canNativeShare) return;
+    try {
+      await navigator.share({
+        title: `${topBreedName} · DoGame`,
+        text: shareText,
+        url: shareUrl,
+      });
+      track.share("native");
+    } catch (err) {
+      // AbortError when user cancels — ignore. Any other error: fallback to copy.
+      if (err instanceof Error && err.name !== "AbortError") {
+        const ok = await copyToClipboard(text);
+        if (ok) toast.show("הקישור הועתק במקום", "info");
+      }
+    }
+  }
 
   return (
     <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
+      {canNativeShare && (
+        <Button size="lg" variant="primary" onClick={nativeShare}>
+          <Share2 className="w-5 h-5" strokeWidth={2.5} />
+          שתף
+        </Button>
+      )}
       <Button
         size="lg"
-        variant="primary"
+        variant={canNativeShare ? "soft" : "primary"}
         onClick={() => {
           window.open(whatsappLink(text), "_blank", "noopener,noreferrer");
+          track.share("whatsapp");
         }}
       >
         <MessageCircle className="w-5 h-5" strokeWidth={2.5} />
-        שתף בוואטסאפ
+        ווטסאפ
+      </Button>
+      <Button
+        size="lg"
+        variant="soft"
+        onClick={() => {
+          const subject = encodeURIComponent(`התאמת גזע כלב מ-DoGame: ${topBreedName}`);
+          const body = encodeURIComponent(`${shareText}\n\n${shareUrl}`);
+          window.location.href = `mailto:?subject=${subject}&body=${body}`;
+          track.share("native");
+        }}
+      >
+        <Mail className="w-5 h-5" strokeWidth={2.5} />
+        מייל
       </Button>
       <Button
         size="lg"
@@ -68,6 +124,7 @@ export function ShareButtons({
           const ok = await copyToClipboard(text);
           if (ok) {
             setCopied(true);
+            track.share("copy");
             toast.show("הקישור הועתק ללוח 📋", "success");
             setTimeout(() => setCopied(false), 2000);
           } else {
@@ -91,6 +148,7 @@ export function ShareButtons({
           try {
             const { downloadResultPdf } = await import("@/lib/pdf");
             await downloadResultPdf(topMatch, allMatches, userVector);
+            track.share("pdf");
             toast.show("ה-PDF הורד בהצלחה 📄", "success");
           } catch (err) {
             const msg = err instanceof Error ? err.message : "שגיאה";

@@ -8,6 +8,7 @@ import { Share2, Sparkles, Eye } from "lucide-react";
 import { useQuizStore } from "@/store/useQuizStore";
 import { matchBreeds } from "@/lib/breeds/matcher";
 import { decodeAnswers } from "@/lib/share";
+import { track } from "@/lib/track";
 import { MatchCard } from "./MatchCard";
 import { ShareButtons } from "./ShareButtons";
 import { CompatibilityRadar } from "./CompatibilityRadar";
@@ -30,6 +31,17 @@ export function ResultView() {
   const answers = sharedAnswers ?? storeAnswers;
 
   useEffect(() => setHydrated(true), []);
+
+  // Track quiz completion once per session
+  const [tracked, setTracked] = useState(false);
+  useEffect(() => {
+    if (!hydrated || tracked || Object.keys(answers).length === 0) return;
+    const { matches } = matchBreeds(answers);
+    if (matches[0]) {
+      track.quizComplete(matches[0].breed.slug, matches[0].score);
+      setTracked(true);
+    }
+  }, [hydrated, tracked, answers]);
 
   useEffect(() => {
     if (!hydrated) return;
