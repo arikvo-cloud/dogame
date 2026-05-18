@@ -105,63 +105,86 @@ export default async function BreedPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <SiteNav />
-      <div className="mx-auto max-w-4xl px-4 py-8 md:py-12">
+      <div className="mx-auto max-w-5xl px-4 py-6 md:py-10">
 
-        {/* Hero */}
-        <header
-          className="relative rounded-[36px] border-[3px] bg-surface p-6 md:p-10 text-center shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)]"
-          style={{ borderColor: breed.accent }}
-        >
-          <div className="absolute top-4 right-4 z-10">
-            <FavoriteButton slug={breed.slug} breedName={breed.name} size="md" />
+        {/* Hero — editorial photo-dominant */}
+        <header className="relative grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 md:gap-10 items-center">
+          {/* Photo half — full bleed editorial */}
+          <div className="relative order-1">
+            <div
+              className="relative aspect-[4/5] rounded-[28px] overflow-hidden border border-border shadow-[var(--shadow-clay-xl)]"
+              style={{ background: `${breed.accent}30` }}
+            >
+              <BreedPhoto
+                breed={breed}
+                size={700}
+                rounded="rounded-none"
+                className="!w-full !h-full !rounded-none !border-0 !shadow-none"
+                priority
+                kenBurns
+              />
+            </div>
+            <div className="absolute top-4 right-4 z-10">
+              <FavoriteButton slug={breed.slug} breedName={breed.name} size="md" />
+            </div>
           </div>
-          <div className="flex justify-center">
-            <BreedPhoto
-              breed={breed}
-              size={176}
-              rounded="rounded-[32px]"
-              priority
-              kenBurns
-            />
-          </div>
-          <h1 className="mt-5 text-4xl md:text-5xl font-black text-ink leading-tight">
-            {breed.name}
-          </h1>
-          <p className="text-base text-ink-mute font-display font-bold mt-1">{breed.nameEn}</p>
-          <p className="mt-4 text-lg text-ink-soft max-w-prose mx-auto font-medium">
-            {breed.tagline}
-          </p>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 text-sm">
-            <span className="inline-flex items-center gap-1.5 bg-bg-soft border-2 border-border-strong px-3 py-1.5 rounded-full font-display font-bold text-ink shadow-[var(--shadow-clay-sm)]">
-              <Scale className="w-4 h-4" strokeWidth={2.5} />
-              {breed.weightKg[0]}-{breed.weightKg[1]} ק"ג
-            </span>
-            <span className="inline-flex items-center gap-1.5 bg-bg-soft border-2 border-border-strong px-3 py-1.5 rounded-full font-display font-bold text-ink shadow-[var(--shadow-clay-sm)]">
-              <Clock className="w-4 h-4" strokeWidth={2.5} />
-              {breed.lifeExpectancy[0]}-{breed.lifeExpectancy[1]} שנים
-            </span>
-            <span className="inline-flex items-center gap-1.5 bg-bg-soft border-2 border-border-strong px-3 py-1.5 rounded-full font-display font-bold text-ink shadow-[var(--shadow-clay-sm)]">
-              <Activity className="w-4 h-4" strokeWidth={2.5} />
-              {breed.exerciseMinPerDay} דק'/יום
-            </span>
-            {breed.hypoallergenic && (
-              <span className="inline-flex items-center gap-1.5 bg-success text-white border-2 border-success/80 px-3 py-1.5 rounded-full font-display font-extrabold shadow-[0_3px_0_rgba(20,83,45,0.5)]">
-                <Sparkles className="w-4 h-4" strokeWidth={2.5} />
-                היפואלרגני
-              </span>
-            )}
-            {wiki && (
-              <a
-                href={wiki.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-accent text-white border-2 border-accent-deep px-3 py-1.5 rounded-full font-display font-extrabold shadow-[0_3px_0_var(--color-accent-deep)] hover:-translate-y-px transition-transform"
-              >
-                <ExternalLink className="w-4 h-4" strokeWidth={2.5} />
-                ויקיפדיה {wiki.lang === "he" ? "(עברית)" : "(EN)"}
-              </a>
-            )}
+          {/* Text half */}
+          <div className="order-2 text-right">
+            <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
+              <span className="block w-6 h-px bg-ink-mute" aria-hidden />
+              פרופיל גזע
+            </div>
+            <h1 className="mt-3 text-5xl md:text-6xl lg:text-7xl font-extrabold font-display text-ink leading-[0.95]">
+              {breed.name}
+            </h1>
+            <p className="mt-2 text-base text-ink-mute font-display font-medium italic">
+              {breed.nameEn}
+            </p>
+            <p className="mt-5 text-lg md:text-xl text-ink-soft leading-relaxed font-medium">
+              {breed.tagline}
+            </p>
+
+            <dl className="mt-6 grid grid-cols-3 gap-3 max-w-md">
+              <div className="border-t-2 border-border pt-3">
+                <dt className="text-[10px] uppercase tracking-wide font-display font-bold text-ink-mute">משקל</dt>
+                <dd className="mt-1 text-base font-display font-extrabold text-ink">
+                  {breed.weightKg[0]}–{breed.weightKg[1]}<span className="text-xs text-ink-mute"> ק"ג</span>
+                </dd>
+              </div>
+              <div className="border-t-2 border-border pt-3">
+                <dt className="text-[10px] uppercase tracking-wide font-display font-bold text-ink-mute">תוחלת חיים</dt>
+                <dd className="mt-1 text-base font-display font-extrabold text-ink">
+                  {breed.lifeExpectancy[0]}–{breed.lifeExpectancy[1]}<span className="text-xs text-ink-mute"> שנים</span>
+                </dd>
+              </div>
+              <div className="border-t-2 border-border pt-3">
+                <dt className="text-[10px] uppercase tracking-wide font-display font-bold text-ink-mute">פעילות</dt>
+                <dd className="mt-1 text-base font-display font-extrabold text-ink">
+                  {breed.exerciseMinPerDay}<span className="text-xs text-ink-mute"> דק'/יום</span>
+                </dd>
+              </div>
+            </dl>
+
+            <div className="mt-5 flex flex-wrap items-center gap-2">
+              {breed.hypoallergenic && (
+                <span className="inline-flex items-center gap-1.5 bg-success-tint text-success-deep border border-success/40 px-3 py-1 rounded-full font-display font-extrabold text-xs">
+                  <Sparkles className="w-3 h-3" strokeWidth={2.5} />
+                  היפואלרגני
+                </span>
+              )}
+              {wiki && (
+                <a
+                  href={wiki.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 bg-accent-tint text-accent-deep border border-accent-soft px-3 py-1 rounded-full font-display font-extrabold text-xs hover:bg-accent hover:text-white transition-colors"
+                >
+                  <ExternalLink className="w-3 h-3" strokeWidth={2.5} />
+                  ויקיפדיה
+                </a>
+              )}
+            </div>
           </div>
         </header>
 

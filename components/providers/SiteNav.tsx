@@ -48,13 +48,13 @@ export function SiteNav() {
   }, [open]);
 
   return (
-    <nav className="px-4 py-4 sticky top-0 z-30 backdrop-blur-md bg-bg/70 border-b-2 border-border/60">
-      <div className="mx-auto max-w-6xl flex items-center justify-between">
+    <nav className="px-3 sm:px-4 py-3 sm:py-4 sticky top-0 z-30 backdrop-blur-md bg-bg/70 border-b border-border/60">
+      <div className="mx-auto max-w-6xl flex items-center justify-between gap-2">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 font-display font-black text-xl text-ink group"
+          className="inline-flex items-center gap-2 font-display font-black text-lg sm:text-xl text-ink group whitespace-nowrap"
         >
-          <span className="text-2xl transition-transform group-hover:rotate-12">🐾</span>
+          <span className="text-xl sm:text-2xl transition-transform group-hover:rotate-12">🐾</span>
           DoGame
         </Link>
 

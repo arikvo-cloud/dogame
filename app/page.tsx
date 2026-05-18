@@ -21,7 +21,6 @@ import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { CountUp } from "@/components/ui/CountUp";
 import { AnimatedHeadline } from "@/components/ui/AnimatedHeadline";
-import { FloatingPaws } from "@/components/ui/FloatingPaws";
 import { HeroParallax } from "@/components/landing/HeroParallax";
 
 const BASE_URL =
@@ -63,24 +62,22 @@ export default function HomePage() {
       <SiteNav />
 
       {/* === Hero === */}
-      <section className="px-4 pt-10 pb-20 md:pt-20 md:pb-32 relative overflow-hidden">
-        <FloatingPaws count={10} />
-        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-20 items-center relative">
+      <section className="px-4 pt-10 pb-20 md:pt-16 md:pb-24 relative overflow-hidden">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center relative">
           <div className="order-2 md:order-1">
             <Reveal from="up" delay={0.05}>
               <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
-                <span className="block w-8 h-px bg-ink-mute" aria-hidden />
+                <span className="block w-6 h-px bg-ink-mute" aria-hidden />
                 <Sparkles className="w-3.5 h-3.5" strokeWidth={2} />
                 המדריך המאוים לבחירת כלב
-                <span className="block w-8 h-px bg-ink-mute" aria-hidden />
               </div>
             </Reveal>
 
-            <div className="mt-5 md:mt-7 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[9rem] font-extrabold leading-[0.92] text-ink">
+            <div className="mt-4 md:mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[0.95] text-ink">
               <AnimatedHeadline
                 as="h1"
                 delay={0.2}
-                className="leading-[0.92] font-display"
+                className="leading-[0.95] font-display"
                 words={[
                   { text: "איזה" },
                   { text: "כלב" },
