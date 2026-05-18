@@ -54,3 +54,4 @@ Thumbs.db
 # scratch / test artifacts
 .qa*.json
 .answer*.txt
+audit-*.png
