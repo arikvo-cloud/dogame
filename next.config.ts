@@ -5,14 +5,20 @@ const nextConfig: NextConfig = {
   output: "export",
 
   images: {
-    // Cloudflare Pages serves static files only; the Next.js image optimizer
-    // requires a server, so we render Wikimedia photos as-is.
+    // All breed photos are routed through images.weserv.nl (see
+    // lib/image-proxy.ts) which gives us WebP + proper resizing + edge
+    // caching — works on Cloudflare Pages without a Next image server.
     unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
         hostname: "upload.wikimedia.org",
         pathname: "/wikipedia/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.weserv.nl",
+        pathname: "/**",
       },
     ],
   },

@@ -39,8 +39,8 @@ export function ScrollStory() {
             scrollTrigger: {
               trigger: containerRef.current,
               start: "top top",
-              end: "+=300%",
-              scrub: 0.7,
+              end: "+=150%",
+              scrub: 0.5,
               pin: true,
               anticipatePin: 1,
             },

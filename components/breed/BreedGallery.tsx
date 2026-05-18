@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Breed } from "@/lib/breeds/types";
 import { cn } from "@/lib/cn";
+import { proxyImage } from "@/lib/image-proxy";
 
 interface Props {
   breed: Breed;
@@ -76,7 +77,7 @@ export function BreedGallery({ breed }: Props) {
             aria-label={`הצג תמונה ${i + 2} של ${breed.name}`}
           >
             <Image
-              src={p.url}
+              src={proxyImage(p.url, { w: 300, h: 300 })}
               alt={`${breed.name} — תמונה ${i + 2}`}
               fill
               sizes="(max-width: 768px) 50vw, 25vw"
@@ -150,7 +151,7 @@ export function BreedGallery({ breed }: Props) {
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={uniquePhotos[activeIdx].url}
+                src={proxyImage(uniquePhotos[activeIdx].url, { w: 1200, fit: "contain" })}
                 alt={`${breed.name} — תמונה ${activeIdx + 1}`}
                 fill
                 sizes="100vw"

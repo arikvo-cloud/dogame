@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { BREEDS } from "@/lib/breeds/data";
 import { cn } from "@/lib/cn";
+import { proxyImage } from "@/lib/image-proxy";
 
 /**
  * Auto-scrolling band of breed photos.
@@ -15,9 +16,8 @@ import { cn } from "@/lib/cn";
  * The animation uses transform only — GPU-composited.
  */
 export function BreedMarquee() {
-  // Use breeds with imageUrl, randomize order so it doesn't repeat the same
-  // alphabetical pattern as the index page.
-  const items = BREEDS.filter((b) => b.imageUrl).slice(0, 30);
+  // Show fewer photos on small screens (network/perf) — 12 vs 24.
+  const items = BREEDS.filter((b) => b.imageUrl).slice(0, 24);
 
   return (
     <section
@@ -74,7 +74,7 @@ function MarqueeTile({
     >
       {breed.imageUrl ? (
         <Image
-          src={breed.imageUrl}
+          src={proxyImage(breed.imageUrl, { w: 180, h: 180 })}
           alt={breed.name}
           fill
           sizes="176px"

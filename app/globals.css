@@ -204,134 +204,39 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* === Aurora mesh background ===
- * Layered, slowly drifting gradient blobs that give the bg a cinematic
- * "premium app" feel. Built with absolutely-positioned children inside
- * .aurora so we can z-index real content above. */
+/* === Lightweight ambient background ===
+ * Two STATIC gradient blobs (no animation) painted with `background:` on the
+ * container — no extra DOM, no GPU layers, no continuous paint cost.
+ * Disabled entirely on small screens. */
 .bg-clay {
   background: var(--color-bg);
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
+}
+.bg-clay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(60vmax 60vmax at 90% -10%, rgba(253, 186, 116, 0.35), transparent 60%),
+    radial-gradient(50vmax 50vmax at -10% 110%, rgba(147, 197, 253, 0.28), transparent 60%);
+  contain: paint;
+}
+html[data-theme="dark"] .bg-clay::before {
+  background:
+    radial-gradient(60vmax 60vmax at 90% -10%, rgba(249, 115, 22, 0.18), transparent 60%),
+    radial-gradient(50vmax 50vmax at -10% 110%, rgba(37, 99, 235, 0.16), transparent 60%);
 }
 .bg-clay > * {
   position: relative;
   z-index: 1;
 }
 
-.aurora {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.aurora-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(70px);
-  will-change: transform;
-  transform: translateZ(0);
-  contain: paint;
-  opacity: 0.55;
-  mix-blend-mode: multiply;
-}
-html[data-theme="dark"] .aurora-blob {
-  mix-blend-mode: screen;
-  opacity: 0.35;
-  filter: blur(80px);
-}
-
-/* Blob 1: warm peach top-right */
-.aurora-blob-1 {
-  width: 60vmax;
-  height: 60vmax;
-  top: -20vmax;
-  right: -15vmax;
-  background: radial-gradient(circle at 30% 30%, #FDBA74 0%, transparent 60%);
-  animation: aurora-drift-1 24s ease-in-out infinite;
-}
-/* Blob 2: orange center */
-.aurora-blob-2 {
-  width: 50vmax;
-  height: 50vmax;
-  top: 10vmax;
-  left: -15vmax;
-  background: radial-gradient(circle at 50% 50%, #F97316 0%, transparent 60%);
-  animation: aurora-drift-2 32s ease-in-out infinite;
-  opacity: 0.3;
-}
-/* Blob 3: blue accent bottom-left */
-.aurora-blob-3 {
-  width: 55vmax;
-  height: 55vmax;
-  bottom: -20vmax;
-  left: -10vmax;
-  background: radial-gradient(circle at 60% 40%, #93C5FD 0%, transparent 60%);
-  animation: aurora-drift-3 28s ease-in-out infinite;
-  opacity: 0.4;
-}
-/* Blob 4: rose subtle mid-right */
-.aurora-blob-4 {
-  width: 45vmax;
-  height: 45vmax;
-  top: 40vmax;
-  right: -5vmax;
-  background: radial-gradient(circle at 40% 60%, #E8826B 0%, transparent 65%);
-  animation: aurora-drift-4 36s ease-in-out infinite;
-  opacity: 0.28;
-}
-/* Blob 5: gold/mustard tiny accent */
-.aurora-blob-5 {
-  width: 30vmax;
-  height: 30vmax;
-  top: 70vmax;
-  left: 30vmax;
-  background: radial-gradient(circle at 50% 50%, #E8B14A 0%, transparent 60%);
-  animation: aurora-drift-5 40s ease-in-out infinite;
-  opacity: 0.22;
-}
-
-@keyframes aurora-drift-1 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(-3vw, 4vw, 0) scale(1.08); }
-}
-@keyframes aurora-drift-2 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(4vw, -3vw, 0) scale(0.92); }
-}
-@keyframes aurora-drift-3 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(5vw, -5vw, 0) scale(1.06); }
-}
-@keyframes aurora-drift-4 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(-4vw, 3vw, 0) scale(1.04); }
-}
-@keyframes aurora-drift-5 {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(2vw, -2vw, 0) scale(0.94); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .aurora-blob {
-    animation: none !important;
+@media (max-width: 480px) {
+  .bg-clay::before {
+    display: none;
   }
-}
-
-/* Optional fine grain noise overlay — adds a subtle film texture */
-.grain {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
-}
-html[data-theme="dark"] .grain {
-  mix-blend-mode: screen;
-  opacity: 0.04;
 }
 
 /* === Clay surface util ===
@@ -391,6 +296,20 @@ html[data-theme="dark"] .grain {
 @keyframes shimmer {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
+}
+
+@keyframes paw-drift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(8px, -16px) rotate(8deg); }
+}
+.floating-paw {
+  animation: paw-drift 12s ease-in-out infinite;
+  filter: drop-shadow(0 1px 2px rgba(124, 45, 18, 0.08));
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-paw {
+    animation: none;
+  }
 }
 
 /* Marquee — RTL document means visual direction reverses; we counter that

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Breed } from "@/lib/breeds/types";
 import { cn } from "@/lib/cn";
+import { proxyImage } from "@/lib/image-proxy";
 import { BreedPhotoKenBurns } from "./BreedPhotoKenBurns";
 
 interface Props {
@@ -75,12 +76,13 @@ export function BreedPhoto({
       style={containerStyle}
     >
       <Image
-        src={breed.imageUrl}
+        src={proxyImage(breed.imageUrl, { w: size, h: size })}
         alt={`תמונה של ${breed.name}`}
         fill
         sizes={`${size}px`}
         className="object-cover"
         priority={priority}
+        unoptimized
       />
     </div>
   );

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import type { Breed } from "@/lib/breeds/types";
 import { cn } from "@/lib/cn";
+import { proxyImage } from "@/lib/image-proxy";
 
 interface Props {
   breed: Breed;
@@ -65,12 +66,13 @@ export function BreedPhotoKenBurns({
         transition={reduced ? undefined : { duration: 8, ease: "easeOut" }}
       >
         <Image
-          src={breed.imageUrl}
+          src={proxyImage(breed.imageUrl, { w: size, h: size })}
           alt={`תמונה של ${breed.name}`}
           fill
           sizes={`${size}px`}
           className="object-cover"
           priority={priority}
+          unoptimized
         />
       </motion.div>
     </div>

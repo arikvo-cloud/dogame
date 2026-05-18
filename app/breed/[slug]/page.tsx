@@ -23,6 +23,7 @@ import { BreedGallery } from "@/components/breed/BreedGallery";
 import { FavoriteButton } from "@/components/breed/FavoriteButton";
 import { CostEstimator } from "@/components/breed/CostEstimator";
 import { BreedChat } from "@/components/breed/BreedChat";
+import { LazyMount } from "@/components/ui/LazyMount";
 import { SiteNav } from "@/components/providers/SiteNav";
 import { AuroraBackground } from "@/components/providers/AuroraBackground";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
@@ -202,12 +203,14 @@ export default async function BreedPage({ params }: PageProps) {
           </div>
         </Reveal>
 
-        {/* AI Q&A chat */}
-        <Reveal from="up">
-          <div className="mt-6">
-            <BreedChat breed={breed} />
-          </div>
-        </Reveal>
+        {/* AI Q&A chat — heavy component, deferred until in view */}
+        <LazyMount rootMargin="300px" minHeight={320}>
+          <Reveal from="up">
+            <div className="mt-6">
+              <BreedChat breed={breed} />
+            </div>
+          </Reveal>
+        </LazyMount>
 
         {/* Care + mistakes grid */}
         <Stagger className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5" stagger={0.1}>

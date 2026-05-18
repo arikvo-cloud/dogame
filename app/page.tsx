@@ -16,8 +16,8 @@ import { SiteNav } from "@/components/providers/SiteNav";
 import { AuroraBackground } from "@/components/providers/AuroraBackground";
 import { ScrollStory } from "@/components/landing/ScrollStory";
 import { Testimonials } from "@/components/landing/Testimonials";
-import { CursorSpotlight } from "@/components/landing/CursorSpotlight";
 import { BreedMarquee } from "@/components/landing/BreedMarquee";
+import { LazyMount } from "@/components/ui/LazyMount";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { CountUp } from "@/components/ui/CountUp";
@@ -64,7 +64,6 @@ export default function HomePage() {
       <SiteNav />
 
       {/* === Hero === */}
-      <CursorSpotlight>
       <section className="px-4 pt-10 pb-20 md:pt-20 md:pb-32 relative overflow-hidden">
         <FloatingPaws count={10} />
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-20 items-center relative">
@@ -161,7 +160,6 @@ export default function HomePage() {
           </HeroParallax>
         </div>
       </section>
-      </CursorSpotlight>
 
       {/* === Auto-scrolling breed marquee === */}
       <BreedMarquee />
@@ -184,11 +182,12 @@ export default function HomePage() {
       </section>
 
       {/* === Pinned scroll story (replaces the static "Why" hero) === */}
-      <ScrollStory />
+      <LazyMount rootMargin="400px" minHeight="100dvh">
+        <ScrollStory />
+      </LazyMount>
 
       {/* === Why (3 cards) === */}
       <section className="px-4 py-16 md:py-24 bg-bg-soft border-y-[3px] border-border relative overflow-hidden">
-        <FloatingPaws count={6} />
         <div className="mx-auto max-w-6xl relative">
           <Reveal from="up">
             <div className="text-center mb-12">
@@ -301,7 +300,9 @@ export default function HomePage() {
       </section>
 
       {/* === Testimonials === */}
-      <Testimonials />
+      <LazyMount rootMargin="200px" minHeight={500}>
+        <Testimonials />
+      </LazyMount>
 
       {/* === Featured breeds — magazine grid === */}
       <section className="px-4 py-20 md:py-28 relative">
@@ -375,7 +376,6 @@ export default function HomePage() {
       <section className="px-4 py-16 md:py-24">
         <Reveal from="scale">
           <div className="mx-auto max-w-3xl text-center relative rounded-[40px] border-[4px] border-primary-deep bg-gradient-to-br from-primary-tint via-surface to-accent-tint p-8 md:p-14 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)] overflow-hidden">
-            <FloatingPaws count={6} />
             <div className="relative">
               <div className="flex justify-center mb-4">
                 <div className="bg-surface rounded-full p-3 border-[3px] border-border-strong shadow-[var(--shadow-clay-lg)]">
