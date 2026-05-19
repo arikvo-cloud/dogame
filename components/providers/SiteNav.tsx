@@ -2,42 +2,28 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Home, Search, GitCompare, Info, Heart, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { FavoritesBadge } from "./FavoritesBadge";
-import { ThemeSwitcher } from "./ThemeSwitcher";
-import { cn } from "@/lib/cn";
 
 interface NavLink {
   href: string;
   label: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
 }
 
 const NAV_LINKS: NavLink[] = [
-  { href: "/", label: "ראשי", icon: Home },
-  { href: "/quiz", label: "התחל משחק", icon: Sparkles },
-  { href: "/breeds", label: "כל הגזעים", icon: Search },
-  { href: "/compare", label: "השוואת גזעים", icon: GitCompare },
-  { href: "/favorites", label: "המועדפים שלי", icon: Heart },
-  { href: "/about", label: "על הפרויקט", icon: Info },
+  { href: "/breeds", label: "גזעים" },
+  { href: "/compare", label: "השוואה" },
+  { href: "/favorites", label: "מועדפים" },
+  { href: "/about", label: "על הפרויקט" },
 ];
 
-/**
- * Site-wide navigation. On desktop, shows inline links. On mobile,
- * collapses to a hamburger button that opens a slide-in drawer.
- */
+/** Brutalist top nav — black border bar, mono accents, hard inverse hover. */
 export function SiteNav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  // Close on route change
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  useEffect(() => setOpen(false), [pathname]);
 
-  // Lock body scroll when drawer open
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -48,137 +34,100 @@ export function SiteNav() {
   }, [open]);
 
   return (
-    <nav className="px-3 sm:px-4 py-3 sm:py-4 sticky top-0 z-30 backdrop-blur-md bg-bg/70 border-b border-border/60">
-      <div className="mx-auto max-w-6xl flex items-center justify-between gap-2">
+    <nav className="sticky top-0 z-30 bg-white border-b-2 border-black">
+      <div className="mx-auto max-w-7xl flex items-stretch h-14">
+        {/* Logo cell */}
         <Link
           href="/"
-          className="inline-flex items-center gap-2 font-display font-black text-lg sm:text-xl text-ink group whitespace-nowrap"
+          className="flex items-center gap-2 px-4 border-l-2 border-black font-mono uppercase font-bold text-sm tracking-[0.08em] hover:bg-black hover:text-white transition-colors"
         >
-          <span className="text-xl sm:text-2xl transition-transform group-hover:rotate-12">🐾</span>
-          DoGame
+          <span>DOGAME</span>
+          <span className="text-[color:var(--color-primary)]">▮</span>
+          <span className="opacity-60">042</span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-4">
-          <Link href="/breeds" className={deskLink(pathname, "/breeds")}>
-            כל הגזעים
-          </Link>
-          <Link href="/compare" className={deskLink(pathname, "/compare")}>
-            השוואה
-          </Link>
-          <Link href="/about" className={deskLink(pathname, "/about")}>
-            על הפרויקט
-          </Link>
-          <ThemeSwitcher />
-          <FavoritesBadge />
-          <Link
-            href="/quiz"
-            className="inline-flex items-center gap-1 bg-primary text-white border-2 border-primary-deep px-4 py-2 rounded-[16px] font-display font-extrabold shadow-[0_3px_0_var(--color-primary-deep)] hover:-translate-y-px active:translate-y-0.5 active:shadow-[0_1px_0_var(--color-primary-deep)] transition-all"
-          >
-            התחל משחק
-          </Link>
+        {/* Desktop links — each is a cell with hard divider */}
+        <div className="hidden md:flex flex-1">
+          {NAV_LINKS.map((link) => {
+            const active = pathname === link.href || pathname.startsWith(link.href + "/");
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={
+                  "flex items-center px-5 border-l-2 border-black font-bold text-sm transition-colors " +
+                  (active ? "bg-black text-white" : "hover:bg-black hover:text-white")
+                }
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
-        {/* Mobile: hamburger + theme + heart */}
-        <div className="flex md:hidden items-center gap-2">
-          <ThemeSwitcher />
-          <FavoritesBadge />
-          <button
-            type="button"
-            onClick={() => setOpen(true)}
-            aria-label="פתח תפריט"
-            aria-expanded={open}
-            className="inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-surface text-ink border-2 border-border-strong shadow-[var(--shadow-clay-sm)] hover:border-primary-soft transition-colors"
-          >
-            <Menu className="w-5 h-5" strokeWidth={2.5} />
-          </button>
-        </div>
+        {/* Spacer for mobile */}
+        <div className="flex-1 md:hidden" />
+
+        {/* Right: primary CTA */}
+        <Link
+          href="/quiz"
+          className="hidden md:flex items-center px-6 border-r-2 border-black bg-[color:var(--color-primary)] text-white font-bold text-sm uppercase tracking-wider hover:bg-black transition-colors"
+        >
+          התחל משחק ▶
+        </Link>
+
+        {/* Mobile hamburger */}
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          aria-label="פתח תפריט"
+          aria-expanded={open}
+          className="md:hidden inline-flex items-center justify-center w-14 border-r-2 border-black bg-black text-white"
+        >
+          <Menu className="w-5 h-5" strokeWidth={3} />
+        </button>
       </div>
 
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {open && (
-          <>
-            <motion.button
+      {/* Mobile overlay menu */}
+      {open && (
+        <div
+          className="fixed inset-0 z-50 bg-white"
+          onClick={() => setOpen(false)}
+        >
+          <div className="border-b-2 border-black h-14 flex items-stretch">
+            <div className="flex-1 flex items-center px-4 font-mono uppercase font-bold text-sm tracking-[0.08em]">
+              <span>DOGAME</span>
+              <span className="text-[color:var(--color-primary)] mx-2">▮</span>
+              <span className="opacity-60">042</span>
+            </div>
+            <button
               type="button"
-              key="backdrop"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
               onClick={() => setOpen(false)}
               aria-label="סגור תפריט"
-              className="fixed inset-0 z-40 bg-ink/60 backdrop-blur-sm md:hidden"
-            />
-            <motion.aside
-              key="drawer"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 320, damping: 32 }}
-              className="fixed top-0 right-0 z-50 h-dvh w-[78vw] max-w-xs bg-surface border-l-2 border-border-strong shadow-[var(--shadow-clay-xl)] md:hidden flex flex-col"
-              role="dialog"
-              aria-modal="true"
-              aria-label="תפריט ראשי"
+              className="inline-flex items-center justify-center w-14 border-r-2 border-black bg-black text-white"
             >
-              <div className="flex items-center justify-between p-4 border-b-2 border-border">
-                <div className="inline-flex items-center gap-2 font-display font-black text-lg text-ink">
-                  <span className="text-2xl">🐾</span>
-                  DoGame
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  aria-label="סגור"
-                  className="inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-bg-soft text-ink border-2 border-border-strong"
-                >
-                  <X className="w-5 h-5" strokeWidth={2.5} />
-                </button>
-              </div>
-
-              <ul className="flex-1 py-3 px-3 space-y-1 overflow-y-auto">
-                {NAV_LINKS.map((link) => {
-                  const active =
-                    link.href === "/"
-                      ? pathname === "/"
-                      : pathname?.startsWith(link.href);
-                  const Icon = link.icon;
-                  return (
-                    <li key={link.href}>
-                      <Link
-                        href={link.href}
-                        className={cn(
-                          "flex items-center gap-3 rounded-[16px] px-3.5 py-3 font-display font-extrabold transition-colors",
-                          active
-                            ? "bg-primary text-white border-2 border-primary-deep shadow-[0_3px_0_var(--color-primary-deep)]"
-                            : "bg-bg-soft text-ink border-2 border-border-strong hover:bg-primary-tint"
-                        )}
-                      >
-                        <Icon className="w-5 h-5" strokeWidth={2.5} />
-                        {link.label}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="p-4 border-t-2 border-border bg-bg-soft/50">
-                <p className="text-xs text-ink-soft text-center font-medium">
-                  🐾 נבנה באהבה לכלבי ישראל
-                </p>
-              </div>
-            </motion.aside>
-          </>
-        )}
-      </AnimatePresence>
+              <X className="w-5 h-5" strokeWidth={3} />
+            </button>
+          </div>
+          <div className="flex flex-col">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="px-6 py-5 border-b-2 border-black font-display font-black text-3xl hover:bg-black hover:text-white transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/quiz"
+              className="px-6 py-5 border-b-2 border-black bg-[color:var(--color-primary)] text-white font-display font-black text-3xl"
+            >
+              התחל משחק ▶
+            </Link>
+          </div>
+        </div>
+      )}
     </nav>
-  );
-}
-
-function deskLink(pathname: string | null, target: string) {
-  const active = pathname?.startsWith(target);
-  return cn(
-    "text-sm md:text-base font-display font-bold transition-colors",
-    active ? "text-primary-deep" : "text-ink-soft hover:text-primary-deep"
   );
 }

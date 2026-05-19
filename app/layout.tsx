@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Heebo, Frank_Ruhl_Libre } from "next/font/google";
+import { Heebo, IBM_Plex_Mono } from "next/font/google";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { Analytics } from "@/components/providers/Analytics";
 import "./globals.css";
@@ -7,16 +7,15 @@ import "./globals.css";
 const heebo = Heebo({
   variable: "--font-heebo",
   subsets: ["hebrew", "latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "700", "900"],
   display: "swap",
 });
 
-// Editorial Hebrew serif — used by Haaretz and other Israeli newspapers.
-// Gives DoGame a "premium guide / magazine" feel for headings.
-const frankRuhl = Frank_Ruhl_Libre({
-  variable: "--font-frank-ruhl",
-  subsets: ["hebrew", "latin"],
-  weight: ["500", "700", "800", "900"],
+// Brutalist accent — used for numerals, English labels, meta text.
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -48,7 +47,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FFF7ED",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
 };
@@ -62,21 +61,13 @@ export default function RootLayout({
     <html
       lang="he"
       dir="rtl"
-      className={`${heebo.variable} ${frankRuhl.variable} h-full antialiased`}
+      className={`${heebo.variable} ${plexMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <head>
-        {/* Apply saved theme synchronously to avoid flash of wrong colors. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('dogame-theme-v1')||'system';var r=t==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):t;document.documentElement.setAttribute('data-theme',r);}catch(e){}})();`,
-          }}
-        />
-      </head>
-      <body className="min-h-full flex flex-col bg-bg text-ink">
+      <body className="min-h-full flex flex-col bg-white text-black">
         <a
           href="#main"
-          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:right-3 focus-visible:z-50 focus-visible:bg-primary focus-visible:text-white focus-visible:px-4 focus-visible:py-2 focus-visible:rounded-[14px] focus-visible:border-2 focus-visible:border-primary-deep focus-visible:font-display focus-visible:font-extrabold"
+          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:right-3 focus-visible:z-50 focus-visible:bg-black focus-visible:text-white focus-visible:px-4 focus-visible:py-2 focus-visible:border-2 focus-visible:border-black focus-visible:font-bold"
         >
           דלג לתוכן
         </a>
