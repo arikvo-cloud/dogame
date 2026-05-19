@@ -29,10 +29,12 @@ export function QuizContainer() {
   const history = useQuizStore((s) => s.history);
 
   useEffect(() => {
-    setHydrated(true);
-    if (typeof window !== "undefined") {
-      setPickerDismissed(sessionStorage.getItem(PICKER_DISMISSED_KEY) === "1");
-    }
+    queueMicrotask(() => {
+      setHydrated(true);
+      if (typeof window !== "undefined") {
+        setPickerDismissed(sessionStorage.getItem(PICKER_DISMISSED_KEY) === "1");
+      }
+    });
   }, []);
 
   function dismissPicker() {

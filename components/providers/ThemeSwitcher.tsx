@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 import { Sun, Moon, Monitor } from "lucide-react";
 import { useTheme, type Theme } from "./ThemeProvider";
 import { cn } from "@/lib/cn";
@@ -19,7 +19,7 @@ const OPTIONS: Array<{ value: Theme; label: string; Icon: typeof Sun }> = [
 export function ThemeSwitcher({ className }: { className?: string }) {
   const { theme, setTheme } = useTheme();
   const [hydrated, setHydrated] = useState(false);
-  useEffect(() => setHydrated(true), []);
+  useEffect(() => { queueMicrotask(() => setHydrated(true)); }, []);
 
   if (!hydrated) {
     // Reserve space so the layout doesn't jump after hydration.

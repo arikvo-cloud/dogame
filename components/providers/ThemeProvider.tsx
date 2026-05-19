@@ -51,10 +51,12 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     } catch {
       // localStorage unavailable
     }
-    setThemeState(stored);
     const r = stored === "system" ? getSystemTheme() : stored;
-    setResolved(r);
     applyTheme(r);
+    queueMicrotask(() => {
+      setThemeState(stored);
+      setResolved(r);
+    });
   }, []);
 
   // Re-resolve when system preference changes (only if theme=system)

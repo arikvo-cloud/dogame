@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useRouter } from "next/navigation";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import { PERSONAS, type Persona } from "@/lib/quiz/personas";
 import { useQuizStore } from "@/store/useQuizStore";
@@ -17,7 +16,6 @@ interface Props {
  * and jump to the next unanswered question) or take the full quiz from scratch.
  */
 export function PersonaPicker({ onSkipToQuiz }: Props) {
-  const router = useRouter();
   const answer = useQuizStore((s) => s.answer);
   const reset = useQuizStore((s) => s.reset);
 

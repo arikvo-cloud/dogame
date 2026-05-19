@@ -32,7 +32,7 @@ export function ResultView() {
   const isShared = sharedAnswers !== null;
   const answers = sharedAnswers ?? storeAnswers;
 
-  useEffect(() => setHydrated(true), []);
+  useEffect(() => { queueMicrotask(() => setHydrated(true)); }, []);
 
   // Track quiz completion once per session
   const [tracked, setTracked] = useState(false);
@@ -41,7 +41,7 @@ export function ResultView() {
     const { matches } = matchBreeds(answers);
     if (matches[0]) {
       track.quizComplete(matches[0].breed.slug, matches[0].score);
-      setTracked(true);
+      queueMicrotask(() => setTracked(true));
     }
   }, [hydrated, tracked, answers]);
 
@@ -169,7 +169,7 @@ export function ResultView() {
           <CompatibilityRadar user={vector} breed={top.breed.traits} />
           {filteredCount > 0 && (
             <div className="mt-4 rounded-[16px] bg-bg-soft border-2 border-border-strong p-3 text-xs text-ink-soft font-medium">
-              <strong className="text-ink">{filteredCount} גזעים</strong> סוננו אוטומטית בגלל אי-התאמה מהותית (אקלים, אלרגיה וכו').
+              <strong className="text-ink">{filteredCount} גזעים</strong> סוננו אוטומטית בגלל אי-התאמה מהותית (אקלים, אלרגיה וכו&apos;).
             </div>
           )}
         </aside>

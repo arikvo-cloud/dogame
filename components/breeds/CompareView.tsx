@@ -242,11 +242,11 @@ function BreedSpotlight({
       <div className="mt-3 flex items-center justify-center gap-2 flex-wrap text-xs text-ink-soft font-display font-bold">
         <span className="inline-flex items-center gap-1 bg-bg-soft border-2 border-border-strong px-2.5 py-0.5 rounded-full">
           <Scale className="w-3 h-3" strokeWidth={2.5} />
-          {breed.weightKg[0]}–{breed.weightKg[1]} ק"ג
+          {breed.weightKg[0]}–{breed.weightKg[1]} ק&quot;ג
         </span>
         <span className="inline-flex items-center gap-1 bg-bg-soft border-2 border-border-strong px-2.5 py-0.5 rounded-full">
           <Activity className="w-3 h-3" strokeWidth={2.5} />
-          {breed.exerciseMinPerDay} דק'
+          {breed.exerciseMinPerDay} דק&apos;
         </span>
         <span className="inline-flex items-center gap-1 bg-bg-soft border-2 border-border-strong px-2.5 py-0.5 rounded-full">
           <Clock className="w-3 h-3" strokeWidth={2.5} />

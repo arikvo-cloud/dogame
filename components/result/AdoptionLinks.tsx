@@ -16,7 +16,6 @@ interface Props {
  */
 function buildLinks(breed: Breed) {
   const queryHe = encodeURIComponent(breed.name);
-  const queryEn = encodeURIComponent(breed.nameEn);
   return [
     {
       id: "yad4",
@@ -76,7 +75,7 @@ export function AdoptionLinks({ breed }: Props) {
           </h2>
           <p className="text-sm text-ink-soft font-medium mt-0.5">
             לפני שרוכשים — בדקו אם יש כלב מתאים לאימוץ. הצלת חיים, חיסכון
-            ניכר, וגם הכלב ה"מעורב" יכול להיות מושלם בשבילך.
+            ניכר, וגם הכלב ה&quot;מעורב&quot; יכול להיות מושלם בשבילך.
           </p>
         </div>
       </div>
@@ -126,7 +125,7 @@ export function AdoptionLinks({ breed }: Props) {
 
       <p className="mt-4 text-[11px] text-ink-soft font-medium text-center leading-relaxed">
         🐾 שני אחי שני מהכלבים שאהבת — אדם וכלב במחזה האימוץ זה מתחיל בהצלת חיים.
-        אגודות כמו <strong>תנו'בה</strong> ו-<strong>SPCA</strong> אורגנו לעזרה.
+        אגודות כמו <strong>תנו&apos;בה</strong> ו-<strong>SPCA</strong> אורגנו לעזרה.
       </p>
     </section>
   );

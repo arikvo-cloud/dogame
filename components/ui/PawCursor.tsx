@@ -24,7 +24,7 @@ export function PawCursor() {
       typeof window !== "undefined" &&
       window.matchMedia("(pointer: fine)").matches;
     if (!fine) return;
-    setEnabled(true);
+    queueMicrotask(() => setEnabled(true));
   }, [reduced]);
 
   useEffect(() => {

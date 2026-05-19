@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useState } from "react";
 import type { ReactNode } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, X, AlertTriangle, Info } from "lucide-react";

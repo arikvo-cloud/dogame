@@ -18,7 +18,7 @@ interface Props {
 export function FavoritesBadge({ className }: Props) {
   const count = useFavoritesStore((s) => s.breedSlugs.length + s.dogIds.length);
   const [hydrated, setHydrated] = useState(false);
-  useEffect(() => setHydrated(true), []);
+  useEffect(() => { queueMicrotask(() => setHydrated(true)); }, []);
 
   const displayCount = hydrated ? count : 0;
   const active = displayCount > 0;

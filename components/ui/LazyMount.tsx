@@ -27,7 +27,7 @@ export function LazyMount({
     if (mounted) return;
     if (!ref.current) return;
     if (typeof IntersectionObserver === "undefined") {
-      setMounted(true);
+      queueMicrotask(() => setMounted(true));
       return;
     }
     const obs = new IntersectionObserver(

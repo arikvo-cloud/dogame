@@ -63,7 +63,7 @@ export function ShareButtons({
   const [canNativeShare, setCanNativeShare] = useState(false);
   useEffect(() => {
     if (typeof navigator !== "undefined" && typeof navigator.share === "function") {
-      setCanNativeShare(true);
+      queueMicrotask(() => setCanNativeShare(true));
     }
   }, []);
 

@@ -33,7 +33,7 @@ export function estimateAnnualCost(b: Breed): CostBreakdown {
   // === Vet ===
   // Annual: routine checkup, vaccinations, chip — ~700-1200 base
   // + 1-2 unexpected visits depending on breed risk
-  let vetBase = 800;
+  const vetBase = 800;
   let vetTop = 1400;
   // High-risk breeds (brachycephalic, large with hip issues, etc.)
   if (b.size === "giant" || b.size === "large") vetTop += 600;
@@ -67,7 +67,7 @@ export function estimateAnnualCost(b: Breed): CostBreakdown {
   }
 
   // === Extras: toys, leashes, training treats, bedding, kennel days ===
-  let extrasLow = 500;
+  const extrasLow = 500;
   let extrasHigh = 1500;
   if (b.size === "giant" || b.size === "large") extrasHigh += 400;
   // High-energy dogs chew through more toys

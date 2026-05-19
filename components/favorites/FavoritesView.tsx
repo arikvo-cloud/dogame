@@ -27,7 +27,7 @@ export function FavoritesView() {
   const dogIds = useFavoritesStore((s) => s.dogIds);
   const clear = useFavoritesStore((s) => s.clear);
 
-  useEffect(() => setHydrated(true), []);
+  useEffect(() => { queueMicrotask(() => setHydrated(true)); }, []);
 
   const favBreeds = useMemo(
     () => BREEDS.filter((b) => breedSlugs.includes(b.slug)),

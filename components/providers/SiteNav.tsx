@@ -36,7 +36,7 @@ export function SiteNav() {
 
   // Close on route change
   useEffect(() => {
-    setOpen(false);
+    queueMicrotask(() => setOpen(false));
   }, [pathname]);
 
   // Lock body scroll when drawer open

@@ -72,7 +72,7 @@ export function HeroPhotoFeature() {
   };
 
   useEffect(() => {
-    setOrderedDogs((prev) => shuffle(prev));
+    queueMicrotask(() => setOrderedDogs((prev) => shuffle(prev)));
   }, []);
 
   useEffect(() => {
