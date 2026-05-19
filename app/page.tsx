@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { BREEDS } from "@/lib/breeds/data";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { SiteNav } from "@/components/providers/SiteNav";
+import { proxyImage } from "@/lib/image-proxy";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://dogame.pages.dev";
@@ -75,14 +77,20 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="md:col-span-4 border-t-2 md:border-t-0 md:border-l-2 border-black relative">
-            <BreedPhoto
-              breed={hero}
-              size={600}
-              rounded="rounded-none"
-              className="!w-full !h-full !border-0 aspect-square md:aspect-auto md:absolute md:inset-0"
-              priority
-            />
+          <div className="md:col-span-4 border-t-2 md:border-t-0 md:border-l-2 border-black relative bg-[#F5F5F5]">
+            <div className="relative aspect-[4/5] md:aspect-auto md:h-full">
+              {hero.imageUrl && (
+                <Image
+                  src={proxyImage(hero.imageUrl, { w: 700, h: 875, fit: "contain" })}
+                  alt={`תמונה של ${hero.name}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-contain"
+                  priority
+                  unoptimized
+                />
+              )}
+            </div>
             <div className="absolute bottom-0 inset-x-0 bg-white border-t-2 border-black px-4 py-2.5 flex items-center justify-between">
               <Link
                 href={`/breed/${hero.slug}`}
