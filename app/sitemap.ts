@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { BREEDS } from "@/lib/breeds/data";
+import { ADOPTABLE_DOGS } from "@/lib/dogs/data";
+import { SHELTERS } from "@/lib/shelters/data";
 
 export const dynamic = "force-static";
 
@@ -12,6 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/`, lastModified: now, changeFrequency: "weekly", priority: 1 },
     { url: `${BASE_URL}/quiz/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/breeds/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE_URL}/adopt/`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE_URL}/shelters/`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/about-adoption/`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/about/`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
   ];
 
@@ -22,5 +27,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...breedRoutes];
+  const dogRoutes: MetadataRoute.Sitemap = ADOPTABLE_DOGS.map((d) => ({
+    url: `${BASE_URL}/dog/${d.id}/`,
+    lastModified: new Date(d.dateAvailable),
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  const shelterRoutes: MetadataRoute.Sitemap = SHELTERS.map((s) => ({
+    url: `${BASE_URL}/shelter/${s.slug}/`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...breedRoutes, ...dogRoutes, ...shelterRoutes];
 }
