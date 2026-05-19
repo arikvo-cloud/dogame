@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Heebo, IBM_Plex_Mono } from "next/font/google";
+import { Rubik, Plus_Jakarta_Sans } from "next/font/google";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { Analytics } from "@/components/providers/Analytics";
 import "./globals.css";
 
-const heebo = Heebo({
-  variable: "--font-heebo",
+// Primary font: Rubik — geometric modern sans, native Hebrew + Latin support
+const rubik = Rubik({
+  variable: "--font-rubik",
   subsets: ["hebrew", "latin"],
-  weight: ["400", "700", "900"],
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
-// Brutalist accent — used for numerals, English labels, meta text.
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
+// Secondary font: Plus Jakarta Sans — English meta, labels, accent text
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   display: "swap",
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#FFFFFF",
+  themeColor: "#FAF5FF",
   width: "device-width",
   initialScale: 1,
 };
@@ -61,13 +62,13 @@ export default function RootLayout({
     <html
       lang="he"
       dir="rtl"
-      className={`${heebo.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${rubik.variable} ${jakarta.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-white text-black">
+      <body className="min-h-full flex flex-col bg-[var(--color-bg)] text-[var(--color-ink)]">
         <a
           href="#main"
-          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:right-3 focus-visible:z-50 focus-visible:bg-black focus-visible:text-white focus-visible:px-4 focus-visible:py-2 focus-visible:border-2 focus-visible:border-black focus-visible:font-bold"
+          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-3 focus-visible:right-3 focus-visible:z-50 focus-visible:bg-[var(--color-primary)] focus-visible:text-white focus-visible:px-4 focus-visible:py-2 focus-visible:rounded-lg focus-visible:font-bold"
         >
           דלג לתוכן
         </a>

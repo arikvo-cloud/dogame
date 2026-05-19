@@ -1,15 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
+import { motion } from "motion/react";
+import { Heart, Zap, Sun, Users, ArrowLeft } from "lucide-react";
 import { BREEDS } from "@/lib/breeds/data";
-import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { SiteNav } from "@/components/providers/SiteNav";
 import { proxyImage } from "@/lib/image-proxy";
-import { BrutMarquee } from "@/components/landing/BrutMarquee";
-import { HeroHeadline } from "@/components/landing/HeroHeadline";
-import { BrutCounter } from "@/components/landing/BrutCounter";
-import { CursorLabel } from "@/components/landing/CursorLabel";
-import { WipeMask } from "@/components/landing/WipeMask";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://dogame.pages.dev";
@@ -28,268 +25,334 @@ const homeJsonLd = {
   ],
 };
 
+const FEATURED_COUNT = 6;
+const STORY_BREED_INDEX = 3;
+
+const BENEFITS = [
+  {
+    icon: Zap,
+    title: "גודל ואנרגיה",
+    body: "כלב קטן בדירה או גדול עם ריצות? נמצא את ההתאמה הנכונה לאורח החיים שלך.",
+  },
+  {
+    icon: Sun,
+    title: "התאמה לאקלים",
+    body: "מגיע לישראל — השאלון מתחשב בחום, בלחות ובעונות השנה.",
+  },
+  {
+    icon: Users,
+    title: "אופי משפחתי",
+    body: "ילדים, חתולים, שכנים? בוחנים את טמפרמנט הגזע לפני שמביאים הביתה.",
+  },
+];
+
+// spring easing for motion/react — `as const` keeps `type` as a string literal
+const springTransition = { type: "spring", stiffness: 260, damping: 28 } as const;
+
+// Fade-up reveal, used throughout
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function HomePage() {
-  const featured = BREEDS.slice(0, 12);
-  const hero = featured[0];
+  const featured = BREEDS.slice(0, FEATURED_COUNT);
+  const storyBreed = BREEDS[STORY_BREED_INDEX];
 
   return (
-    <main id="main" className="bg-white text-black">
+    <main id="main" className="bg-[var(--color-bg)] text-[var(--color-ink)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
       />
-      <WipeMask />
-      <CursorLabel />
+
       <SiteNav />
 
-      {/* === MASTHEAD BAR — black band with mono meta === */}
-      <div className="border-b-2 border-black bg-black text-white brut-scan">
-        <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-1.5 font-mono uppercase text-[10px] tracking-[0.18em]">
-          <span>ISSUE / 042 · מאי 2026</span>
-          <span className="hidden sm:inline">{BREEDS.length} BREEDS / 4 REGIONS / 1 GOAL</span>
-          <span className="text-[color:var(--color-primary)] animate-blink">● LIVE</span>
+      {/* ======================================================
+          HERO — single column, large type, gradient word
+      ====================================================== */}
+      <section className="relative overflow-hidden">
+        {/* Soft radial purple-pink hero glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 gradient-hero-radial"
+        />
+
+        <div className="relative mx-auto max-w-3xl px-5 pt-20 pb-16 text-center">
+          <motion.h1
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            transition={{ ...springTransition, delay: 0.05 }}
+            className="font-display font-bold text-[clamp(2.6rem,6vw,5rem)] leading-[1.08] tracking-[-0.025em]"
+          >
+            איזה כלב{" "}
+            <span className="gradient-brand-text">מתאים</span>{" "}
+            לך?
+          </motion.h1>
+
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            transition={{ ...springTransition, delay: 0.12 }}
+            className="mt-5 text-[clamp(1rem,2.5vw,1.2rem)] text-[var(--color-ink-mute)] leading-[1.6] max-w-xl mx-auto"
+          >
+            שאלון של 3–5 דקות שמשווה את סגנון החיים שלך מול{" "}
+            <strong className="text-[var(--color-ink)] font-semibold">
+              {BREEDS.length} גזעים
+            </strong>{" "}
+            ומחזיר לך 3 התאמות אישיות.
+          </motion.p>
+
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            transition={{ ...springTransition, delay: 0.20 }}
+            className="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3"
+          >
+            <Link href="/quiz" className="btn-primary text-base px-8 py-4">
+              התחל את השאלון ←
+            </Link>
+            <Link href="/breeds" className="btn-ghost text-base px-6 py-4">
+              דפדף בגזעים
+            </Link>
+          </motion.div>
+
+          {/* Trust signals */}
+          <motion.p
+            initial="hidden"
+            animate="visible"
+            variants={fadeUp}
+            transition={{ ...springTransition, delay: 0.28 }}
+            className="mt-5 text-sm text-[var(--color-ink-faint)] tracking-wide"
+          >
+            5 דקות · ללא הרשמה · ללא תשלום
+          </motion.p>
         </div>
-      </div>
+      </section>
 
-      {/* === NEWS TICKER === */}
-      <BrutMarquee
-        items={[
-          "איזה כלב מתאים לך?",
-          `${BREEDS.length} גזעים זמינים`,
-          "שאלון של 3–5 דקות",
-          "ללא הרשמה · ללא תשלום",
-          "המתודולוגיה: 10 צירי תכונות",
-          "מותאם לאקלים הישראלי",
-          "הכנעני · הגזע הלאומי",
-          "מסקר ועד תוצאה — שלוש דקות",
-        ]}
-      />
+      {/* ======================================================
+          STORY SECTION 1 — "המסע שלך מתחיל כאן"
+      ====================================================== */}
+      <section className="mx-auto max-w-5xl px-5 py-16 md:py-24">
+        <div className="bg-[var(--color-muted)] rounded-[20px] overflow-hidden grid grid-cols-1 md:grid-cols-2 gap-0 border border-[var(--color-border)]"
+          style={{ boxShadow: "var(--shadow-clay-lg)" }}
+        >
+          {/* Text side */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15, margin: "0px 0px -8% 0px" }}
+            variants={fadeUp}
+            transition={{ ...springTransition, delay: 0.05 }}
+            className="p-8 md:p-12 flex flex-col justify-center"
+          >
+            <span
+              className="inline-block text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-primary)] mb-4"
+              style={{ fontFamily: "var(--font-jakarta), sans-serif" }}
+            >
+              הסיפור שלך
+            </span>
+            <h2 className="font-display font-bold text-[clamp(1.8rem,4vw,2.8rem)] leading-[1.12] tracking-[-0.02em] mb-4">
+              המסע שלך{" "}
+              <span className="gradient-brand-text">מתחיל כאן</span>
+            </h2>
+            <p className="text-base text-[var(--color-ink-soft)] leading-[1.65] max-w-sm">
+              לפני שמביאים כלב הביתה, שווה להבין מה באמת מתאים לחיים שלך — לא רק מי הכי חמוד. השאלון עוזר לך לחשוב נכון.
+            </p>
+          </motion.div>
 
-      {/* === HERO — asymmetric, no center alignment === */}
-      <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-12">
-          <div className="md:col-span-8 md:border-l-2 md:border-black p-5 md:p-10 flex flex-col justify-between min-h-[60vh] md:min-h-[80vh]">
-            <div>
-              <div className="font-mono uppercase text-xs tracking-[0.18em] inline-flex items-center gap-2">
-                <span className="w-3 h-3 bg-black inline-block" />
-                <span>הפרק.</span>
-                <span className="opacity-60">/ 01</span>
-              </div>
-              <HeroHeadline
-                words={[
-                  { text: "איזה" },
-                  { text: "כלב" },
-                  { text: "מתאים", highlight: true },
-                  { text: "לך?" },
-                ]}
+          {/* Breed photo side */}
+          {storyBreed?.imageUrl && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.15, margin: "0px 0px -8% 0px" }}
+              transition={{ ...springTransition, delay: 0.14 }}
+              className="relative aspect-[4/3] md:aspect-auto md:min-h-[320px]"
+            >
+              <Image
+                src={proxyImage(storyBreed.imageUrl, { w: 600, h: 480, fit: "cover" })}
+                alt={`תמונה של ${storyBreed.name}`}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                unoptimized
               />
-              <p className="mt-8 font-mono text-base md:text-lg leading-relaxed max-w-2xl text-black">
-                שאלון של 3–5 דקות. ללא הרשמה. ללא תשלום.
-                האלגוריתם משווה את התשובות שלך מול {BREEDS.length} גזעים — ומחזיר 3 התאמות אישיות.
-              </p>
-            </div>
+            </motion.div>
+          )}
+        </div>
+      </section>
 
-            <div className="mt-10 flex flex-wrap gap-3 items-center">
-              <Link href="/quiz" className="brut-btn brut-btn-alarm text-base">
-                התחל את השאלון ▶
-              </Link>
-              <Link href="/breeds" className="brut-btn brut-btn-ghost text-base">
-                ←  או דפדף בגזעים
-              </Link>
-            </div>
-          </div>
+      {/* ======================================================
+          STORY SECTION 2 — "מה הופך כלב למתאים?" (3 benefits)
+      ====================================================== */}
+      <section className="mx-auto max-w-5xl px-5 pb-16 md:pb-24">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1, margin: "0px 0px -8% 0px" }}
+          variants={fadeUp}
+          transition={{ ...springTransition }}
+          className="text-center mb-10"
+        >
+          <h2 className="font-display font-bold text-[clamp(1.7rem,3.5vw,2.5rem)] tracking-[-0.02em]">
+            מה הופך כלב{" "}
+            <span className="gradient-brand-text">למתאים?</span>
+          </h2>
+        </motion.div>
 
-          <div className="md:col-span-4 border-t-2 md:border-t-0 md:border-l-2 border-black relative bg-[#F5F5F5]">
-            <div className="relative aspect-[4/5] md:aspect-auto md:h-full">
-              {hero.imageUrl && (
-                <Image
-                  src={proxyImage(hero.imageUrl, { w: 700, h: 875, fit: "contain" })}
-                  alt={`תמונה של ${hero.name}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-contain"
-                  priority
-                  unoptimized
-                />
-              )}
-            </div>
-            <div className="absolute bottom-0 inset-x-0 bg-white border-t-2 border-black px-4 py-2.5 flex items-center justify-between">
-              <Link
-                href={`/breed/${hero.slug}`}
-                className="font-display font-black text-xl text-black hover:underline"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {BENEFITS.map((b, i) => (
+            <motion.div
+              key={b.title}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1, margin: "0px 0px -8% 0px" }}
+              variants={fadeUp}
+              transition={{ ...springTransition, delay: i * 0.08 }}
+              className="card-soft p-7 text-center"
+            >
+              {/* Icon in gradient circle */}
+              <div
+                className="w-12 h-12 mx-auto mb-5 rounded-full flex items-center justify-center gradient-brand"
               >
-                {hero.name}
-              </Link>
-              <span className="font-mono uppercase text-[10px] tracking-[0.12em] opacity-70">
-                לדוגמה
-              </span>
-            </div>
-          </div>
+                <b.icon className="w-5 h-5 text-white" strokeWidth={2} />
+              </div>
+              <h3 className="font-display font-bold text-xl mb-2 tracking-[-0.01em]">
+                {b.title}
+              </h3>
+              <p className="text-sm text-[var(--color-ink-mute)] leading-[1.65]">
+                {b.body}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* === STATS STRIP === */}
-      <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4">
-          <StatBrut label="גזעים" to={BREEDS.length} padTo={2} />
-          <StatBrut label="צירי תכונות" to={10} padTo={2} border />
-          <StatBrut label="חוקי סינון" to={5} padTo={2} border />
-          <StatBrut label="דקות בלבד" fixed="3–5" border accent />
-        </div>
-      </section>
-
-      {/* === FEATURED GRID === */}
-      <section className="border-b-2 border-black">
-        <div className="mx-auto max-w-7xl px-4 md:px-10 py-8 md:py-14">
-          <div className="flex items-baseline justify-between border-b-2 border-black pb-3 mb-6">
-            <h2 className="font-display font-black text-3xl md:text-5xl tracking-[-0.04em]">
-              הגזעים
+      {/* ======================================================
+          FEATURED BREEDS ROW
+      ====================================================== */}
+      <section className="bg-[var(--color-muted)] border-y border-[var(--color-border)] py-14 md:py-20">
+        <div className="mx-auto max-w-5xl px-5">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1, margin: "0px 0px -8% 0px" }}
+            variants={fadeUp}
+            transition={{ ...springTransition }}
+            className="flex items-baseline justify-between mb-8"
+          >
+            <h2 className="font-display font-bold text-[clamp(1.4rem,3vw,2rem)] tracking-[-0.02em]">
+              גזעים מובחרים
             </h2>
             <Link
               href="/breeds"
-              className="font-mono uppercase text-xs tracking-[0.14em] hover:underline inline-flex items-center gap-2"
+              className="text-sm text-[var(--color-primary)] font-medium flex items-center gap-1 hover:underline"
             >
-              לכל ה-{BREEDS.length} <ArrowLeft className="w-3 h-3" strokeWidth={3} />
+              לכל ה-{BREEDS.length}
+              <ArrowLeft className="w-3.5 h-3.5" strokeWidth={2.5} />
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-0 border-2 border-black divide-x-2 divide-y-2 divide-black">
-            {featured.map((b, i) => (
-              <Link
-                key={b.slug}
-                href={`/breed/${b.slug}`}
-                data-cursor-label="VIEW"
-                className="group block relative bg-white brut-cell"
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+            {featured.map((breed, i) => (
+              <motion.div
+                key={breed.slug}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.05, margin: "0px 0px -8% 0px" }}
+                variants={fadeUp}
+                transition={{ ...springTransition, delay: i * 0.05 }}
               >
-                <div className="aspect-square relative overflow-hidden">
-                  <BreedPhoto
-                    breed={b}
-                    size={300}
-                    rounded="rounded-none"
-                    className="!w-full !h-full !border-0"
-                  />
-                </div>
-                <div className="border-t-2 border-black px-3 py-2 bg-white group-hover:bg-[color:var(--color-primary)] group-hover:text-white brut-cell">
-                  <div className="font-display font-black text-sm md:text-base leading-tight truncate">
-                    {b.name}
+                <Link
+                  href={`/breed/${breed.slug}`}
+                  className="group block breed-card bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[16px] overflow-hidden focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]"
+                >
+                  <div className="aspect-square relative overflow-hidden">
+                    {breed.imageUrl ? (
+                      <Image
+                        src={proxyImage(breed.imageUrl, { w: 280, h: 280, fit: "cover" })}
+                        alt={`תמונה של ${breed.name}`}
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 16vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        unoptimized
+                      />
+                    ) : (
+                      <div
+                        className="w-full h-full flex items-center justify-center text-4xl"
+                        style={{ background: `${breed.accent}30` }}
+                      >
+                        {breed.emoji}
+                      </div>
+                    )}
                   </div>
-                  <div className="font-mono uppercase text-[9px] tracking-[0.12em] opacity-70 truncate">
-                    {String(i + 1).padStart(2, "0")} / {b.nameEn}
+                  <div className="px-3 py-2.5">
+                    <p className="font-semibold text-sm leading-tight truncate text-[var(--color-ink)]">
+                      {breed.name}
+                    </p>
+                    <p className="text-xs text-[var(--color-ink-faint)] truncate mt-0.5">
+                      {breed.nameEn}
+                    </p>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* === BIG TYPE — single-statement section === */}
-      <section className="border-b-2 border-black bg-black text-white">
-        <div className="mx-auto max-w-7xl px-4 md:px-10 py-14 md:py-24">
-          <p className="font-display font-black leading-[0.9] tracking-[-0.04em] text-[clamp(2.5rem,7vw,6.5rem)]">
-            לא לפי{" "}
-            <span className="inline-block bg-white text-black px-3">
-              מי הכי חמוד.
-            </span>{" "}
-            לפי מה שמתאים{" "}
-            <span className="text-[color:var(--color-primary)]">לחיים שלך</span>.
-          </p>
-          <div className="mt-10 flex items-center gap-4">
-            <div className="h-[2px] flex-1 bg-white" />
-            <span className="font-mono uppercase text-[11px] tracking-[0.16em]">
-              N°042 · המתודולוגיה
-            </span>
-            <div className="h-[2px] flex-1 bg-white" />
-          </div>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-white divide-y-2 md:divide-y-0 md:divide-x-2 divide-white">
-            <MethodCell num="01" title="אחריות לפני אהבה" text="10–15 שנים. החלטה גדולה. השאלון עוזר להבין אם זה הזמן הנכון." />
-            <MethodCell num="02" title="מאפיינים אמיתיים" text="10 צירי תכונות — גודל, אנרגיה, אילוף, אקלים. לא 'מי הכי חמוד'." />
-            <MethodCell num="03" title="מותאם לישראל" text="חום, מגורים בדירה, ואפילו הכנעני — הגזע הלאומי שלנו." />
-          </div>
-        </div>
-      </section>
-
-      {/* === FINAL CTA === */}
-      <section className="border-b-2 border-black bg-[color:var(--color-acid)]">
-        <div className="mx-auto max-w-7xl px-4 md:px-10 py-16 md:py-24 text-center">
-          <h2 className="font-display font-black leading-[0.85] tracking-[-0.04em] text-[clamp(3rem,10vw,8rem)]">
-            דקות. לא שעות.
-          </h2>
-          <p className="mt-6 font-mono uppercase text-xs md:text-sm tracking-[0.16em]">
-            3–5 דקות · ללא הרשמה · ללא תשלום
-          </p>
-          <Link
-            href="/quiz"
-            className="brut-btn brut-btn-alarm mt-10 text-xl md:text-2xl py-5 px-10"
+      {/* ======================================================
+          FINAL CTA BAND
+      ====================================================== */}
+      <section className="py-20 md:py-28 gradient-brand relative overflow-hidden">
+        {/* Subtle radial highlight */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse 70% 80% at 50% 50%, rgba(255,255,255,0.10) 0%, transparent 70%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-3xl px-5 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            transition={{ ...springTransition }}
           >
-            התחל את השאלון ▶
-          </Link>
+            <Heart className="w-10 h-10 text-white/70 mx-auto mb-5" strokeWidth={1.5} />
+            <h2 className="font-display font-bold text-[clamp(2rem,5vw,3.5rem)] leading-[1.1] tracking-[-0.025em] text-white mb-5">
+              מוכנים לגלות?
+            </h2>
+            <p className="text-white/80 text-[1.05rem] mb-8 leading-[1.6]">
+              3–5 דקות · ללא הרשמה · ללא תשלום
+            </p>
+            <Link
+              href="/quiz"
+              className="inline-flex items-center gap-2 bg-white text-[var(--color-primary-deep)] font-bold text-base px-8 py-4 rounded-[16px] hover:bg-[var(--color-primary-tint)] transition-colors duration-200"
+              style={{ boxShadow: "0 4px 20px rgba(15,23,42,0.18)" }}
+            >
+              התחל את השאלון ←
+            </Link>
+          </motion.div>
         </div>
       </section>
 
-      <footer className="bg-black text-white">
-        <div className="mx-auto max-w-7xl px-4 md:px-10 py-8 flex flex-col md:flex-row items-center justify-between gap-3 font-mono uppercase text-[11px] tracking-[0.14em]">
-          <span>© 2026 DoGame · ISRAEL</span>
-          <span className="text-[color:var(--color-primary)]">● BUILD 042</span>
+      {/* ======================================================
+          FOOTER
+      ====================================================== */}
+      <footer className="border-t border-[var(--color-border)] bg-[var(--color-bg)]">
+        <div className="mx-auto max-w-5xl px-5 py-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-[var(--color-ink-faint)]">
+          <span>© 2026 DoGame</span>
+          <span>בחר את הכלב שמתאים לחיים שלך</span>
         </div>
       </footer>
     </main>
-  );
-}
-
-function StatBrut({
-  label,
-  to,
-  padTo,
-  fixed,
-  border,
-  accent,
-}: {
-  label: string;
-  to?: number;
-  padTo?: number;
-  fixed?: string;
-  border?: boolean;
-  accent?: boolean;
-}) {
-  return (
-    <div
-      className={
-        "p-5 md:p-8 " +
-        (border ? "md:border-l-2 md:border-black " : "") +
-        (accent ? "bg-[color:var(--color-acid)] " : "bg-white ")
-      }
-    >
-      <div className="font-mono uppercase text-[10px] tracking-[0.16em] opacity-70">
-        {label}
-      </div>
-      <div className="mt-2 font-display font-black text-5xl md:text-7xl leading-none tabular-nums tracking-[-0.04em] brut-counter">
-        <BrutCounter to={to} padTo={padTo} fixed={fixed} />
-      </div>
-    </div>
-  );
-}
-
-function MethodCell({
-  num,
-  title,
-  text,
-}: {
-  num: string;
-  title: string;
-  text: string;
-}) {
-  return (
-    <div className="p-6 md:p-8">
-      <div className="font-mono uppercase text-[11px] tracking-[0.18em] text-[color:var(--color-primary)]">
-        {num}
-      </div>
-      <h3 className="mt-3 font-display font-black text-2xl md:text-3xl leading-tight">
-        {title}
-      </h3>
-      <p className="mt-3 font-mono text-sm md:text-base leading-relaxed">
-        {text}
-      </p>
-    </div>
   );
 }
