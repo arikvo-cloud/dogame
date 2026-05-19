@@ -171,14 +171,14 @@ export default function HomePage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.15, margin: "0px 0px -8% 0px" }}
               transition={{ ...springTransition, delay: 0.14 }}
-              className="relative aspect-[4/3] md:aspect-auto md:min-h-[320px]"
+              className="relative aspect-[4/3] md:aspect-auto md:min-h-[360px] bg-[var(--color-surface)]"
             >
               <Image
-                src={proxyImage(storyBreed.imageUrl, { w: 600, h: 480, fit: "cover" })}
+                src={proxyImage(storyBreed.imageUrl, { w: 800, h: 600, fit: "contain" })}
                 alt={`תמונה של ${storyBreed.name}`}
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="object-contain p-4 md:p-6"
                 unoptimized
               />
             </motion.div>
