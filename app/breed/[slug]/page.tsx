@@ -27,6 +27,9 @@ import { LazyMount } from "@/components/ui/LazyMount";
 import { SiteNav } from "@/components/providers/SiteNav";
 import { AuroraBackground } from "@/components/providers/AuroraBackground";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
+import { dogsForBreed } from "@/lib/dogs/helpers";
+import { DogCard } from "@/components/dogs/DogCard";
+import { SectionMark } from "@/components/ui/SectionMark";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -198,6 +201,25 @@ export default async function BreedPage({ params }: PageProps) {
             <p className="text-ink leading-relaxed text-lg font-medium">{breed.description}</p>
           </section>
         </Reveal>
+
+        {/* Available now */}
+        {(() => {
+          const availableDogs = dogsForBreed(breed.slug, 3);
+          if (availableDogs.length === 0) return null;
+          return (
+            <Reveal from="up">
+              <section className="mt-6 rounded-[28px] border-2 border-primary-deep bg-primary-tint p-6 md:p-8 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
+                <SectionMark numeral={`${availableDogs.length}`} label={`${breed.name} מחכים לבית`} />
+                <p className="mt-3 text-ink-soft text-base md:text-lg font-medium max-w-prose">
+                  {availableDogs.length} כלבים מהגזע הזה (או תערובות) זמינים לאימוץ ברגע זה.
+                </p>
+                <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {availableDogs.map((d) => <DogCard key={d.id} dog={d} />)}
+                </div>
+              </section>
+            </Reveal>
+          );
+        })()}
 
         {/* Gallery */}
         {breed.gallery && breed.gallery.length > 0 && (
