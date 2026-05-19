@@ -1,0 +1,58 @@
+# Cloudflare Pages headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# HTML pages — never cache.
+# Browsers (especially mobile Safari) hold onto HTML via bfcache and back-forward
+# cache even when max-age=0 is set. no-store forces a fresh fetch every visit.
+/
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+  Pragma: no-cache
+  Expires: 0
+
+/breeds
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/breeds/
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/quiz
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/quiz/
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/result
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/result/
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/about
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/about/
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/favorites
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/favorites/
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/compare
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/compare/
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/breed/*
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+/spline-demo
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+/spline-demo/
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+
+# Hashed static assets — safe to cache forever
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# RSC prefetch payloads — short cache so they revalidate on deploy
+/_next/*
+  Cache-Control: public, max-age=60, must-revalidate
+/*/__next.*
+  Cache-Control: public, max-age=60, must-revalidate
