@@ -5,6 +5,11 @@ import { BREEDS } from "@/lib/breeds/data";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { SiteNav } from "@/components/providers/SiteNav";
 import { proxyImage } from "@/lib/image-proxy";
+import { BrutMarquee } from "@/components/landing/BrutMarquee";
+import { HeroHeadline } from "@/components/landing/HeroHeadline";
+import { BrutCounter } from "@/components/landing/BrutCounter";
+import { CursorLabel } from "@/components/landing/CursorLabel";
+import { WipeMask } from "@/components/landing/WipeMask";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://dogame.pages.dev";
@@ -33,16 +38,32 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd) }}
       />
+      <WipeMask />
+      <CursorLabel />
       <SiteNav />
 
       {/* === MASTHEAD BAR — black band with mono meta === */}
-      <div className="border-b-2 border-black bg-black text-white">
+      <div className="border-b-2 border-black bg-black text-white brut-scan">
         <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-1.5 font-mono uppercase text-[10px] tracking-[0.18em]">
           <span>ISSUE / 042 · מאי 2026</span>
           <span className="hidden sm:inline">{BREEDS.length} BREEDS / 4 REGIONS / 1 GOAL</span>
           <span className="text-[color:var(--color-primary)] animate-blink">● LIVE</span>
         </div>
       </div>
+
+      {/* === NEWS TICKER === */}
+      <BrutMarquee
+        items={[
+          "איזה כלב מתאים לך?",
+          `${BREEDS.length} גזעים זמינים`,
+          "שאלון של 3–5 דקות",
+          "ללא הרשמה · ללא תשלום",
+          "המתודולוגיה: 10 צירי תכונות",
+          "מותאם לאקלים הישראלי",
+          "הכנעני · הגזע הלאומי",
+          "מסקר ועד תוצאה — שלוש דקות",
+        ]}
+      />
 
       {/* === HERO — asymmetric, no center alignment === */}
       <section className="border-b-2 border-black">
@@ -54,13 +75,14 @@ export default function HomePage() {
                 <span>הפרק.</span>
                 <span className="opacity-60">/ 01</span>
               </div>
-              <h1 className="mt-6 font-display font-black text-black leading-[0.85] tracking-[-0.04em] text-[clamp(3.5rem,12vw,11rem)] break-words">
-                איזה כלב{" "}
-                <span className="inline-block bg-[color:var(--color-primary)] text-white px-3 py-1">
-                  מתאים
-                </span>{" "}
-                לך?
-              </h1>
+              <HeroHeadline
+                words={[
+                  { text: "איזה" },
+                  { text: "כלב" },
+                  { text: "מתאים", highlight: true },
+                  { text: "לך?" },
+                ]}
+              />
               <p className="mt-8 font-mono text-base md:text-lg leading-relaxed max-w-2xl text-black">
                 שאלון של 3–5 דקות. ללא הרשמה. ללא תשלום.
                 האלגוריתם משווה את התשובות שלך מול {BREEDS.length} גזעים — ומחזיר 3 התאמות אישיות.
@@ -109,10 +131,10 @@ export default function HomePage() {
       {/* === STATS STRIP === */}
       <section className="border-b-2 border-black">
         <div className="mx-auto max-w-7xl grid grid-cols-2 md:grid-cols-4">
-          <Stat label="גזעים" num={String(BREEDS.length).padStart(2, "0")} />
-          <Stat label="צירי תכונות" num="10" border />
-          <Stat label="חוקי סינון" num="05" border />
-          <Stat label="דקות בלבד" num="3–5" border accent />
+          <StatBrut label="גזעים" to={BREEDS.length} padTo={2} />
+          <StatBrut label="צירי תכונות" to={10} padTo={2} border />
+          <StatBrut label="חוקי סינון" to={5} padTo={2} border />
+          <StatBrut label="דקות בלבד" fixed="3–5" border accent />
         </div>
       </section>
 
@@ -136,7 +158,8 @@ export default function HomePage() {
               <Link
                 key={b.slug}
                 href={`/breed/${b.slug}`}
-                className="group block relative bg-white transition-colors"
+                data-cursor-label="VIEW"
+                className="group block relative bg-white brut-cell"
               >
                 <div className="aspect-square relative overflow-hidden">
                   <BreedPhoto
@@ -146,7 +169,7 @@ export default function HomePage() {
                     className="!w-full !h-full !border-0"
                   />
                 </div>
-                <div className="border-t-2 border-black px-3 py-2 bg-white group-hover:bg-[color:var(--color-primary)] group-hover:text-white transition-colors">
+                <div className="border-t-2 border-black px-3 py-2 bg-white group-hover:bg-[color:var(--color-primary)] group-hover:text-white brut-cell">
                   <div className="font-display font-black text-sm md:text-base leading-tight truncate">
                     {b.name}
                   </div>
@@ -214,14 +237,18 @@ export default function HomePage() {
   );
 }
 
-function Stat({
+function StatBrut({
   label,
-  num,
+  to,
+  padTo,
+  fixed,
   border,
   accent,
 }: {
   label: string;
-  num: string;
+  to?: number;
+  padTo?: number;
+  fixed?: string;
   border?: boolean;
   accent?: boolean;
 }) {
@@ -236,8 +263,8 @@ function Stat({
       <div className="font-mono uppercase text-[10px] tracking-[0.16em] opacity-70">
         {label}
       </div>
-      <div className="mt-2 font-display font-black text-5xl md:text-7xl leading-none tabular-nums tracking-[-0.04em]">
-        {num}
+      <div className="mt-2 font-display font-black text-5xl md:text-7xl leading-none tabular-nums tracking-[-0.04em] brut-counter">
+        <BrutCounter to={to} padTo={padTo} fixed={fixed} />
       </div>
     </div>
   );

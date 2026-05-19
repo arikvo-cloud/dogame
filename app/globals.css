@@ -311,3 +311,126 @@ h1, h2, h3, h4, h5, h6 {
   50% { color: #000000; }
 }
 .animate-blink { animation: blink-acid 800ms steps(2) infinite; }
+
+/* === BRUTALIST ANIMATIONS ===
+ * All step-based or linear. No easing curves. No softness. */
+
+/* News-ticker marquee — continuous horizontal scroll */
+@keyframes brut-ticker {
+  from { transform: translate3d(0%, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+.brut-ticker {
+  display: flex;
+  white-space: nowrap;
+  animation: brut-ticker 30s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brut-ticker { animation: none; }
+}
+
+/* Word snap-in — opacity 0 → 1 in a single step + harsh slide */
+@keyframes brut-word-in {
+  from { opacity: 0; transform: translate3d(0, 20px, 0); }
+  to   { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+.brut-word {
+  opacity: 0;
+  display: inline-block;
+  animation: brut-word-in 280ms steps(4) forwards;
+}
+
+/* Page-load wipe — two black bars enter from top/bottom, meet, disappear */
+@keyframes brut-wipe-top {
+  0% { transform: translateY(-100%); }
+  40% { transform: translateY(0); }
+  60% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+@keyframes brut-wipe-bottom {
+  0% { transform: translateY(100%); }
+  40% { transform: translateY(0); }
+  60% { transform: translateY(0); }
+  100% { transform: translateY(100%); }
+}
+.brut-wipe-mask {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+.brut-wipe-mask::before,
+.brut-wipe-mask::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  background: #000;
+}
+.brut-wipe-mask::before {
+  top: 0;
+  animation: brut-wipe-top 900ms steps(6) forwards;
+}
+.brut-wipe-mask::after {
+  bottom: 0;
+  animation: brut-wipe-bottom 900ms steps(6) forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brut-wipe-mask { display: none; }
+}
+
+/* Counter snap — each digit feels like a flip */
+.brut-counter {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Scan line — for the "● LIVE" tag area, subtle CRT feel */
+@keyframes brut-scan {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+.brut-scan {
+  position: relative;
+  overflow: hidden;
+}
+.brut-scan::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%);
+  pointer-events: none;
+  animation: brut-scan 4s linear infinite;
+}
+
+/* Cursor follower — block + label */
+.brut-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 9999;
+  display: none;
+}
+.brut-cursor[data-active="true"] { display: block; }
+.brut-cursor-box {
+  position: absolute;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  transform: translate(10px, 10px);
+}
+
+/* Hover lift for breed cells — instant invert, no transition */
+.brut-cell {
+  transition: background 80ms steps(2), color 80ms steps(2);
+}
