@@ -6,6 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import { Share2, Eye } from "lucide-react";
 import { SectionMark } from "@/components/ui/SectionMark";
+import { Reveal } from "@/components/ui/Reveal";
 import { useQuizStore } from "@/store/useQuizStore";
 import { matchBreeds } from "@/lib/breeds/matcher";
 import { decodeAnswers } from "@/lib/share";
@@ -176,6 +177,23 @@ export function ResultView() {
 
       {/* Adoption next-step */}
       <AdoptionLinks breed={top.breed} />
+
+      {/* Browse adoptable dogs CTA */}
+      <Reveal from="up">
+        <div className="text-center py-6">
+          <Link
+            href={
+              answers["adopt-senior"] === "young-only"
+                ? "/adopt?ageGroup=young"
+                : "/adopt"
+            }
+            data-paw-zone
+            className="inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep font-display font-extrabold px-7 py-3.5 rounded-[20px] text-lg shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 transition-all"
+          >
+            צפו בכלבים מחכים לאימוץ
+          </Link>
+        </div>
+      </Reveal>
 
       {/* Share */}
       <div className="rounded-[32px] border-2 border-primary-soft bg-primary-tint p-6 md:p-10 text-center shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)]">
