@@ -53,12 +53,14 @@ export function getNextQuestion(answers: AnswerMap): Question | null {
   return candidates[0] ?? null;
 }
 
-/** Total visible questions remaining (used for progress estimation). */
-export function estimatedTotal(answers: AnswerMap): number {
-  const { flags } = buildUserVector(answers);
-  const visible = QUESTIONS.filter((q) => isVisible(q, flags));
-  // We cap by MAX_QUESTIONS to avoid showing 25/25
-  return Math.min(visible.length, MAX_QUESTIONS);
+/** Total questions the quiz will ask — always MAX_QUESTIONS for a stable
+ *  progress bar. The engine reaches this cap as long as visible candidates
+ *  exist (26 questions available, only 15 needed, so the cap is the binding
+ *  constraint in practice). The previous version returned the currently
+ *  visible count which jumped from "/12" to "/15" as flags unlocked
+ *  showIf-gated questions, confusing the progress UI. */
+export function estimatedTotal(_answers: AnswerMap): number {
+  return MAX_QUESTIONS;
 }
 
 export function isQuizComplete(answers: AnswerMap): boolean {
