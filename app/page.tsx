@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowLeft, Clock, Shield, Sparkles } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { DogMascot } from "@/components/quiz/DogMascot";
 import { BREEDS } from "@/lib/breeds/data";
+import { AdoptionStatBanner } from "@/components/landing/AdoptionStatBanner";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { SiteNav } from "@/components/providers/SiteNav";
 import { AuroraBackground } from "@/components/providers/AuroraBackground";
@@ -76,62 +77,8 @@ export default function HomePage() {
       <section className="px-4 pt-8 pb-14 md:pt-12 md:pb-20 relative">
         <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-14 items-start">
           {/* Text column — 7/12 on desktop for editorial weight */}
-          <div className="text-right md:col-span-7 order-1">
-            <Reveal from="up" delay={0.05}>
-              <SectionMark numeral="00" label="הסיפור" />
-            </Reveal>
-
-            <h1 className="mt-5 font-extrabold font-display text-ink leading-[0.95] tracking-tight text-[clamp(2.5rem,8vw,6rem)] break-words">
-              איזה כלב{" "}
-              <span className="italic text-primary-deep font-medium">באמת</span>{" "}
-              מתאים לך?
-            </h1>
-
-            <Reveal from="up" delay={0.45}>
-              <p className="drop-cap mt-8 text-lg md:text-xl text-ink-soft leading-relaxed max-w-prose font-medium">
-                ענו על שאלון קצר על סגנון החיים שלכם, וקבלו המלצה אישית
-                ל-3 עד 5 גזעים שיתאימו לכם בדיוק. בלי לחץ, בלי תשלום — רק
-                מידע מבוסס, שיעזור לכם לבחור נכון את חבר הבית הבא.
-              </p>
-            </Reveal>
-
-            <Reveal from="up" delay={0.7}>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
-                <MagneticButton>
-                  <Link
-                    href="/quiz"
-                    data-paw-zone
-                    className="group inline-flex items-center justify-center gap-2 bg-primary text-white border-2 border-primary-deep px-7 py-4 rounded-[22px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-lg transition-all"
-                  >
-                    התחילו את השאלון
-                    <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                  </Link>
-                </MagneticButton>
-                <Link
-                  href="/about"
-                  className="inline-flex items-center justify-center gap-2 px-3 py-4 font-display font-bold text-base text-ink-soft hover:text-ink underline underline-offset-4 decoration-ink-mute/40 hover:decoration-primary transition-colors"
-                >
-                  או — קראו איך זה עובד
-                </Link>
-              </div>
-            </Reveal>
-
-            <Reveal from="up" delay={0.9}>
-              <ul className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-ink-soft font-display font-bold tabular-nums">
-                <li className="inline-flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-primary-deep" strokeWidth={2.5} />
-                  3–5 דקות
-                </li>
-                <li className="inline-flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-primary-deep" strokeWidth={2.5} />
-                  ללא הרשמה
-                </li>
-                <li className="inline-flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-primary-deep" strokeWidth={2.5} />
-                  <CountUp to={37} suffix="+ גזעים" />
-                </li>
-              </ul>
-            </Reveal>
+          <div className="md:col-span-7 order-1">
+            <AdoptionStatBanner />
           </div>
 
           {/* Photo column — 5/12 on desktop, with editorial caption */}
