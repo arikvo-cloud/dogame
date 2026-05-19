@@ -16,17 +16,17 @@ interface Props {
  * Renders nothing visible until hydrated to avoid SSR/client mismatch.
  */
 export function FavoritesBadge({ className }: Props) {
-  const slugs = useFavoritesStore((s) => s.slugs);
+  const count = useFavoritesStore((s) => s.breedSlugs.length + s.dogIds.length);
   const [hydrated, setHydrated] = useState(false);
   useEffect(() => setHydrated(true), []);
 
-  const count = hydrated ? slugs.length : 0;
-  const active = count > 0;
+  const displayCount = hydrated ? count : 0;
+  const active = displayCount > 0;
 
   return (
     <Link
       href="/favorites"
-      aria-label={`המועדפים שלי${active ? ` (${count})` : ""}`}
+      aria-label={`המועדפים שלי${active ? ` (${displayCount})` : ""}`}
       className={cn(
         "relative inline-flex items-center justify-center w-10 h-10 rounded-[12px] border-2 transition-colors",
         "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
@@ -38,9 +38,9 @@ export function FavoritesBadge({ className }: Props) {
     >
       <Heart className="w-4 h-4" strokeWidth={2.5} fill={active ? "currentColor" : "transparent"} />
       <AnimatePresence>
-        {hydrated && count > 0 && (
+        {active && (
           <motion.span
-            key={count}
+            key={displayCount}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
@@ -48,7 +48,7 @@ export function FavoritesBadge({ className }: Props) {
             className="absolute -top-1.5 -left-1.5 min-w-[18px] h-[18px] inline-flex items-center justify-center bg-primary text-white text-[10px] font-display font-black rounded-full px-1 border-2 border-bg"
             aria-hidden
           >
-            {count > 99 ? "99+" : count}
+            {displayCount > 99 ? "99+" : displayCount}
           </motion.span>
         )}
       </AnimatePresence>

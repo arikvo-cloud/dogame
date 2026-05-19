@@ -20,7 +20,7 @@ const SIZE_LABELS: Record<string, string> = {
 
 export function FavoritesView() {
   const [hydrated, setHydrated] = useState(false);
-  const slugs = useFavoritesStore((s) => s.slugs);
+  const slugs = useFavoritesStore((s) => s.breedSlugs);
   const clear = useFavoritesStore((s) => s.clear);
 
   useEffect(() => setHydrated(true), []);
