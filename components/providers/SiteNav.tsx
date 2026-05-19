@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Home, Search, GitCompare, Info, Heart, Sparkles } from "lucide-react";
+import { Menu, X, Home, Search, GitCompare, Info, Heart, Sparkles, MapPin } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { FavoritesBadge } from "./FavoritesBadge";
 import { ThemeSwitcher } from "./ThemeSwitcher";
@@ -17,8 +17,10 @@ interface NavLink {
 
 const NAV_LINKS: NavLink[] = [
   { href: "/", label: "ראשי", icon: Home },
+  { href: "/adopt", label: "אימוץ", icon: Heart },
   { href: "/quiz", label: "התחל משחק", icon: Sparkles },
   { href: "/breeds", label: "כל הגזעים", icon: Search },
+  { href: "/shelters", label: "מקלטים", icon: MapPin },
   { href: "/compare", label: "השוואת גזעים", icon: GitCompare },
   { href: "/favorites", label: "המועדפים שלי", icon: Heart },
   { href: "/about", label: "על הפרויקט", icon: Info },
@@ -60,6 +62,9 @@ export function SiteNav() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-4">
+          <Link href="/shelters" className={deskLink(pathname, "/shelters")}>
+            מקלטים
+          </Link>
           <Link href="/breeds" className={deskLink(pathname, "/breeds")}>
             כל הגזעים
           </Link>
@@ -72,10 +77,10 @@ export function SiteNav() {
           <ThemeSwitcher />
           <FavoritesBadge />
           <Link
-            href="/quiz"
+            href="/adopt"
             className="inline-flex items-center gap-1 bg-primary text-white border-2 border-primary-deep px-4 py-2 rounded-[16px] font-display font-extrabold shadow-[0_3px_0_var(--color-primary-deep)] hover:-translate-y-px active:translate-y-0.5 active:shadow-[0_1px_0_var(--color-primary-deep)] transition-all"
           >
-            התחל משחק
+            אימוץ
           </Link>
         </div>
 
