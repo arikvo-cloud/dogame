@@ -86,7 +86,7 @@ export function HeroPhotoFeature() {
       x: d > 0 ? 320 : -320,
       opacity: 0,
       rotate: d > 0 ? 12 : -12,
-      transition: { duration: 0.32 },
+      transition: { duration: 0.22, ease: [0.4, 0, 1, 1] as const },
     }),
   };
 
@@ -146,7 +146,7 @@ export function HeroPhotoFeature() {
       >
         {/* Card stack — current card is the visible one with swipe */}
         <div className="relative aspect-[5/5] md:aspect-[4/5] select-none">
-          <AnimatePresence initial={false} custom={dir} mode="popLayout">
+          <AnimatePresence initial={false} custom={dir} mode="wait">
             <motion.div
               key={current.slug}
               custom={dir}

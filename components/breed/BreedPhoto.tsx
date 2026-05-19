@@ -41,6 +41,7 @@ export function BreedPhoto({
         rounded={rounded}
         className={className}
         priority={priority}
+        fit={fit}
       />
     );
   }

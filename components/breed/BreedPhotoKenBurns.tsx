@@ -12,6 +12,8 @@ interface Props {
   rounded?: string;
   className?: string;
   priority?: boolean;
+  /** "cover" crops to fill; "contain" shows full dog letterboxed on tinted bg */
+  fit?: "cover" | "contain";
 }
 
 /**
@@ -24,6 +26,7 @@ export function BreedPhotoKenBurns({
   rounded = "rounded-[22px]",
   className,
   priority,
+  fit = "cover",
 }: Props) {
   const reduced = useReducedMotion();
   const containerStyle = {
@@ -65,11 +68,11 @@ export function BreedPhotoKenBurns({
         transition={reduced ? undefined : { duration: 8, ease: "easeOut" }}
       >
         <Image
-          src={proxyImage(breed.imageUrl, { w: size, h: size })}
+          src={proxyImage(breed.imageUrl, { w: size, h: size, fit })}
           alt={`תמונה של ${breed.name}`}
           fill
           sizes={`${size}px`}
-          className="object-cover"
+          className={fit === "contain" ? "object-contain" : "object-cover"}
           priority={priority}
           unoptimized
         />

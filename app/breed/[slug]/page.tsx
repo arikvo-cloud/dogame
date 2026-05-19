@@ -122,6 +122,7 @@ export default async function BreedPage({ params }: PageProps) {
                 className="!w-full !h-full !rounded-none !border-0 !shadow-none"
                 priority
                 kenBurns
+                fit="contain"
               />
             </div>
             <div className="absolute top-4 right-4 z-10">
