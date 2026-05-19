@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/flatten-rsc-paths.mjs",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "next build && npx wrangler pages deploy out --project-name dogame --commit-dirty=true"
+    "deploy": "npm run build && npx wrangler pages deploy out --project-name dogame --commit-dirty=true"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
