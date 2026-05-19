@@ -820,5 +820,51 @@
         "shifts": { "energy": -2 }
       }
     ]
+  },
+  {
+    "id": "adopt-mixed-breed",
+    "layer": "preferences",
+    "text": "האם אתם פתוחים לאמץ כלב תערובת (לא גזעי-יחוס)?",
+    "subtext": "רוב הכלבים במקלטים הם תערובות בריאות וייחודיות.",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "yes",
+        "label": "בהחלט",
+        "emoji": "🐕",
+        "shifts": {},
+        "value": { "acceptsMixedBreed": true }
+      },
+      {
+        "id": "prefer-purebred",
+        "label": "אני מעדיף גזע ספציפי",
+        "emoji": "📜",
+        "shifts": {},
+        "value": { "acceptsMixedBreed": false }
+      }
+    ]
+  },
+  {
+    "id": "adopt-senior",
+    "layer": "preferences",
+    "text": "האם אתם פתוחים לאמץ כלב מבוגר (7+ שנים)?",
+    "subtext": "כלבים מבוגרים רגועים יותר, מאולפים, ולעיתים זקוקים לבית הכי דחוף.",
+    "mascot": "smile",
+    "answers": [
+      {
+        "id": "yes",
+        "label": "כן, מבוגרים יותר רגועים",
+        "emoji": "🦴",
+        "shifts": {},
+        "value": { "acceptsSenior": true }
+      },
+      {
+        "id": "young-only",
+        "label": "אני מעדיף צעיר",
+        "emoji": "🌱",
+        "shifts": {},
+        "value": { "acceptsSenior": false }
+      }
+    ]
   }
 ]

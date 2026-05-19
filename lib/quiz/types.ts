@@ -28,6 +28,8 @@ export interface AnswerOption {
   shifts: Partial<Record<TraitKey, number>>;
   /** Flags this answer raises (used for deal-breakers and conditional questions) */
   flags?: Flag[];
+  /** Informational metadata (e.g. adoption-readiness keys). Not used by the matcher. */
+  value?: Record<string, boolean | number | string>;
 }
 
 export interface QuestionShowIf {
