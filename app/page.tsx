@@ -3,6 +3,11 @@ import { ArrowLeft } from "lucide-react";
 import { DogMascot } from "@/components/quiz/DogMascot";
 import { BREEDS } from "@/lib/breeds/data";
 import { AdoptionStatBanner } from "@/components/landing/AdoptionStatBanner";
+import { ADOPTABLE_DOGS } from "@/lib/dogs/data";
+import { dogsOfTheWeek } from "@/lib/dogs/helpers";
+import { SHELTERS } from "@/lib/shelters/data";
+import { DogCard } from "@/components/dogs/DogCard";
+import { ShelterCard } from "@/components/shelters/ShelterCard";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { SiteNav } from "@/components/providers/SiteNav";
 import { AuroraBackground } from "@/components/providers/AuroraBackground";
@@ -45,7 +50,7 @@ const homeJsonLd = {
 };
 
 export default function HomePage() {
-  const [hero, ...rest] = BREEDS.slice(0, 6);
+  const [hero, ...rest] = BREEDS.slice(0, 4);
   const featuredHero = hero;
   const featuredRest = rest;
 
@@ -114,6 +119,30 @@ export default function HomePage() {
               <span>3–5 דקות</span>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* === Adoptable dogs of the week === */}
+      <section className="px-4 py-12 md:py-16 relative">
+        <div className="mx-auto max-w-6xl">
+          <Reveal from="up">
+            <div className="flex items-end justify-between mb-8 md:mb-10 flex-wrap gap-4">
+              <div>
+                <SectionMark numeral="01" label="הכלבים השבוע" />
+                <h2 className="mt-4 text-3xl md:text-5xl font-extrabold font-display text-ink leading-[1.02] tracking-tight">
+                  8 כלבים שמחכים{" "}
+                  <span className="italic text-primary-deep font-medium">לבית</span>
+                </h2>
+              </div>
+              <Link href="/adopt" data-paw-zone className="inline-flex items-center gap-2 text-ink font-display font-extrabold text-sm underline underline-offset-4 decoration-ink-mute/40 hover:decoration-primary transition-colors">
+                כל הכלבים ({ADOPTABLE_DOGS.length})
+                <ArrowLeft className="w-4 h-4" />
+              </Link>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {dogsOfTheWeek(8).map((d) => <DogCard key={d.id} dog={d} compact />)}
+          </div>
         </div>
       </section>
 
@@ -322,6 +351,50 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* === Why adoption matters === */}
+      <section className="px-4 py-14 md:py-20 relative">
+        <div className="mx-auto max-w-5xl">
+          <Reveal from="up">
+            <SectionMark numeral="04" label="למה אימוץ" />
+            <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-ink leading-[1.02] tracking-tight max-w-3xl">
+              אימוץ כלב הוא{" "}
+              <span className="italic text-primary-deep font-medium">החלטה אתית</span>{" "}
+              — וגם החלטה חכמה.
+            </h2>
+          </Reveal>
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-px bg-border md:rounded-[24px] overflow-hidden md:border-2 md:border-border">
+            <Stat3 num="1/3" label="מהכלבים חוזרים למקלט בשנה הראשונה — בחירה נכונה משנה זאת" />
+            <Stat3 num="0₪" label="אימוץ זול משמעותית מקנייה. רק עלות חיסונים ועיקור" />
+            <Stat3 num="60%" label="מהכלבים בישראל הם תערובות — בריאות, חכמות, ייחודיות" />
+          </div>
+          <p className="mt-3 text-xs text-ink-mute italic">* נתונים מקורבים. ראו /about-adoption להרחבה.</p>
+        </div>
+      </section>
+
+      {/* === Shelters across Israel === */}
+      <section className="px-4 py-14 md:py-20 relative">
+        <div className="mx-auto max-w-6xl">
+          <Reveal from="up">
+            <div className="flex items-end justify-between mb-8 flex-wrap gap-4">
+              <div>
+                <SectionMark numeral="05" label="המקלטים" />
+                <h2 className="mt-4 text-3xl md:text-5xl font-extrabold font-display text-ink leading-[1.02] tracking-tight">
+                  איפה{" "}
+                  <span className="italic text-primary-deep font-medium">מאמצים</span>
+                </h2>
+              </div>
+              <Link href="/shelters" data-paw-zone className="inline-flex items-center gap-2 text-ink font-display font-extrabold text-sm underline underline-offset-4 decoration-ink-mute/40 hover:decoration-primary transition-colors">
+                לכל המקלטים
+                <ArrowLeft className="w-4 h-4" />
+              </Link>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {SHELTERS.slice(0, 3).map((s) => <ShelterCard key={s.id} shelter={s} />)}
+          </div>
+        </div>
+      </section>
+
       <BlobDivider tone="warm" />
 
       {/* === Final CTA — magazine call-out === */}
@@ -333,23 +406,21 @@ export default function HomePage() {
                 <DogMascot mood="ball" size={120} />
               </div>
             </div>
-            <SectionMark numeral="04" label="המסקנה" className="justify-center" />
+            <SectionMark numeral="06" label="המסקנה" className="justify-center" />
             <h2 className="mt-5 text-5xl md:text-7xl lg:text-8xl font-extrabold font-display text-ink leading-[0.95] tracking-tight max-w-3xl mx-auto">
-              מוכנים למצוא את{" "}
-              <span className="italic text-primary-deep font-medium">החבר</span>{" "}
-              הכי טוב שלכם?
+              מוכנים{" "}
+              <span className="italic text-primary-deep font-medium">לאמץ</span>?
             </h2>
             <p className="mt-6 text-ink-soft text-lg md:text-xl font-medium max-w-xl mx-auto">
-              כמה דקות. בלי הרשמה. רק כמה שאלות שיכולות לחסוך
-              שנים של אי-התאמה.
+              כמה דקות. בלי הרשמה. מאות כלבים מחכים לבית ברגע זה.
             </p>
             <MagneticButton className="mt-9">
               <Link
-                href="/quiz"
+                href="/adopt"
                 data-paw-zone
                 className="group inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep px-9 py-5 rounded-[24px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-xl transition-all"
               >
-                התחילו את המשחק
+                מצאו כלב לאמץ
                 <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
               </Link>
             </MagneticButton>
@@ -362,6 +433,15 @@ export default function HomePage() {
         <p>DoGame · נבנה באהבה לכלבי ישראל ולמשפחות שלהם</p>
       </footer>
     </main>
+  );
+}
+
+function Stat3({ num, label }: { num: string; label: string }) {
+  return (
+    <div className="bg-surface p-7 text-center">
+      <div className="serif-numeral text-[clamp(3rem,6vw,4.5rem)] text-primary-deep tabular-nums">{num}</div>
+      <div className="mt-3 text-sm text-ink-soft font-display font-bold leading-snug">{label}</div>
+    </div>
   );
 }
 
