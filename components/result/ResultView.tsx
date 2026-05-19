@@ -3,8 +3,9 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { motion } from "motion/react";
-import { Share2, Sparkles, Eye } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { Share2, Eye } from "lucide-react";
+import { SectionMark } from "@/components/ui/SectionMark";
 import { useQuizStore } from "@/store/useQuizStore";
 import { matchBreeds } from "@/lib/breeds/matcher";
 import { decodeAnswers } from "@/lib/share";
@@ -59,23 +60,31 @@ export function ResultView() {
 
   if (matches.length === 0) {
     return (
-      <div className="rounded-[32px] border-2 border-warning/40 bg-warning-tint p-8 text-center shadow-[var(--shadow-clay-lg)]">
-        <h2 className="text-2xl font-black text-ink">
-          לא מצאנו גזע שעובר את כל הקריטריונים שלך
-        </h2>
-        <p className="mt-2 text-ink-soft">
-          זה קורה כשיש שילוב מאוד מגביל. נסה לרכך שאלה אחת — אולי לבחור באלרגיה
-          קלה במקום חזקה, או לאפשר גזע גדול יותר.
-        </p>
-        <div className="mt-6">
+      <AnimatePresence>
+        <motion.div
+          key="no-matches"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          className="rounded-[32px] border-2 border-warning/40 bg-warning-tint p-10 md:p-14 text-center shadow-[var(--shadow-clay-lg)]"
+        >
+          <SectionMark numeral="N°0" label="ללא התאמה" className="justify-center" />
+          <h2 className="mt-5 pull-quote !text-3xl md:!text-4xl">
+            לא מצאנו גזע שעובר את כל הקריטריונים
+          </h2>
+          <p className="mt-5 text-ink-soft text-base md:text-lg max-w-prose mx-auto leading-relaxed">
+            זה קורה כשיש שילוב מאוד מגביל. נסו לרכך שאלה אחת — אולי לבחור באלרגיה
+            קלה במקום חזקה, או לאפשר גזע גדול יותר.
+          </p>
           <Link
             href="/quiz"
-            className="inline-block bg-primary text-white border-2 border-primary-deep font-display font-extrabold px-6 py-3 rounded-[18px] shadow-[var(--shadow-glow-primary)]"
+            className="mt-8 inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep font-display font-extrabold px-7 py-3.5 rounded-[20px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 transition-all"
           >
             חזרה לשאלון
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
     );
   }
 
@@ -98,7 +107,7 @@ export function ResultView() {
         </div>
       )}
 
-      {/* Hero */}
+      {/* Hero — editorial reveal */}
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -106,39 +115,33 @@ export function ResultView() {
         className="text-center relative"
       >
         <Confetti count={36} duration={2} />
-        <motion.span
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.15, type: "spring", stiffness: 240, damping: 18 }}
-          className="inline-flex items-center gap-1.5 bg-accent-tint text-accent-deep border-2 border-accent-soft px-3.5 py-1.5 rounded-full text-sm font-display font-extrabold shadow-[var(--shadow-clay-sm)]"
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.15 }}
+          className="flex justify-center"
         >
-          <Sparkles className="w-4 h-4" strokeWidth={2.5} />
-          {isShared ? "תוצאות משותפות" : "התוצאות שלך מוכנות"}
-        </motion.span>
+          <SectionMark
+            numeral={isShared ? "↗" : "N°1"}
+            label={isShared ? "תוצאות משותפות" : "התוצאות מוכנות"}
+          />
+        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, type: "spring", stiffness: 220, damping: 24 }}
-          className="mt-4 text-3xl md:text-5xl lg:text-6xl font-black text-ink leading-[1.1]"
+          className="mt-5 font-extrabold font-display text-ink leading-[0.95] tracking-tight text-[clamp(2.25rem,7vw,5.5rem)]"
         >
-          הכלב שמתאים לך הוא{" "}
-          <span className="relative inline-block whitespace-nowrap">
-            <span className="relative z-10 text-primary-deep">{top.breed.name}</span>
-            <motion.span
-              aria-hidden
-              className="absolute -bottom-1 right-0 left-0 h-3 md:h-4 -z-0 rounded-full origin-right"
-              style={{ background: "#FED7AA" }}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.6, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            />
+          הכלב שמתאים לכם הוא{" "}
+          <span className="italic text-primary-deep font-medium whitespace-nowrap">
+            {top.breed.name}
           </span>
         </motion.h1>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7, duration: 0.4 }}
-          className="mt-4 text-ink-soft text-lg md:text-xl max-w-2xl mx-auto"
+          className="mt-5 text-ink-soft text-lg md:text-xl max-w-2xl mx-auto font-medium tabular-nums"
         >
           {top.breed.tagline} ·{" "}
           <span className="font-display font-extrabold text-primary-deep">

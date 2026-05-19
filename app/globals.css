@@ -113,6 +113,10 @@ html[data-theme="dark"] .paper-card {
    * Squishy / bouncy / friendly. Spring overshoot gives clay personality. */
   --ease-squish: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-magazine: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur-base: 280ms;
+  --dur-slow: 480ms;
 }
 
 /* === Dark theme overrides === */
@@ -405,3 +409,134 @@ html[data-theme="dark"] .photo-skeleton::after {
   -ms-overflow-style: none;
 }
 .scrollbar-none::-webkit-scrollbar { display: none; }
+
+/* Aceternity-style entrance for the decorative Spotlight SVG.
+ * Slides in from upper-left and fades to ~50% opacity. */
+@keyframes spotlight {
+  0% { opacity: 0; transform: translate(-72%, -62%) scale(0.5); }
+  100% { opacity: 1; transform: translate(-50%, -40%) scale(1); }
+}
+.animate-spotlight {
+  animation: spotlight 2s ease 0.75s 1 forwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-spotlight {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* === Editorial typography utilities ===
+ * Magazine-grade typographic moves that lean into Frank Ruhl Libre.
+ * Used selectively — these are decorative and should not appear everywhere. */
+
+/* Drop cap — the first letter of a paragraph rendered at display size, floated.
+ * RTL note: float:right for Hebrew. Margin on the left side (inline-end) is
+ * where the text wraps. */
+.drop-cap::first-letter {
+  font-family: var(--font-display);
+  font-weight: 800;
+  float: right;
+  font-size: 3.6em;
+  line-height: 0.82;
+  margin: 0.06em 0 0 0.18em;
+  color: var(--color-primary-deep);
+  letter-spacing: -0.03em;
+}
+
+/* Tabular numerals for stat readouts, prices, step indicators. */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+/* Old-style numerals for editorial flow (in body text). */
+.oldstyle-nums {
+  font-variant-numeric: oldstyle-nums;
+  font-feature-settings: "onum" 1;
+}
+
+/* Magazine hairline rule — used between sections and inline between meta items. */
+.magazine-rule {
+  border: 0;
+  height: 1px;
+  background: var(--color-ink);
+  opacity: 0.18;
+}
+html[data-theme="dark"] .magazine-rule {
+  opacity: 0.25;
+}
+
+/* Column rule — vertical hairline that lives between editorial columns. */
+.column-rule-y {
+  border-inline-start: 1px solid var(--color-ink);
+  opacity: 1; /* applies to the border via currentColor inheritance */
+  border-color: color-mix(in oklab, var(--color-ink) 18%, transparent);
+}
+
+/* Pull quote — oversized serif, hanging quotemarks, generous leading. */
+.pull-quote {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.18;
+  letter-spacing: -0.025em;
+  color: var(--color-ink);
+  font-style: italic;
+}
+.pull-quote::before {
+  content: "\201E"; /* low-9 quote, reads correctly in Hebrew context */
+  margin-inline-end: 0.1em;
+  color: var(--color-primary);
+  font-style: normal;
+}
+.pull-quote::after {
+  content: "\201D";
+  margin-inline-start: 0.05em;
+  color: var(--color-primary);
+  font-style: normal;
+}
+
+/* Serif numeral display — for huge "01" / "N°1" treatments. */
+.serif-numeral {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.05em;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* Hover lift token — used across editorial cards. Pairs with --ease-magazine. */
+.lift-on-hover {
+  transition:
+    transform var(--dur-base) var(--ease-magazine),
+    box-shadow var(--dur-base) var(--ease-magazine),
+    border-color var(--dur-base) var(--ease-magazine);
+}
+.lift-on-hover:hover {
+  transform: translateY(-4px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .lift-on-hover {
+    transition: none;
+  }
+  .lift-on-hover:hover {
+    transform: none;
+  }
+}
+
+/* Loading spinner for Suspense fallbacks (Spline, etc.) */
+.spline-loader {
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  animation: spline-spin 0.8s linear infinite;
+}
+@keyframes spline-spin {
+  to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spline-loader { animation: none; }
+}

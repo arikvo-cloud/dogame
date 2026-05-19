@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Heebo, Frank_Ruhl_Libre } from "next/font/google";
 import { MotionProvider } from "@/components/providers/MotionProvider";
 import { Analytics } from "@/components/providers/Analytics";
+import { PawCursor } from "@/components/ui/PawCursor";
 import "./globals.css";
 
 const heebo = Heebo({
@@ -81,6 +82,7 @@ export default function RootLayout({
           דלג לתוכן
         </a>
         <MotionProvider>{children}</MotionProvider>
+        <PawCursor />
         <Analytics />
       </body>
     </html>

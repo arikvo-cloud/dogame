@@ -1,8 +1,8 @@
-import Link from "next/link";
 import { BreedsBrowse } from "@/components/breeds/BreedsBrowse";
 import { BREEDS } from "@/lib/breeds/data";
 import { SiteNav } from "@/components/providers/SiteNav";
 import { AuroraBackground } from "@/components/providers/AuroraBackground";
+import { SectionMark } from "@/components/ui/SectionMark";
 
 export const metadata = {
   title: "כל הגזעים · DoGame",
@@ -21,24 +21,20 @@ export default function BreedsIndexPage() {
     <main id="main" className="min-h-dvh bg-clay">
       <AuroraBackground />
       <SiteNav />
-      <div className="mx-auto max-w-6xl px-4 py-8 md:py-12">
-
-        <header className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-ink leading-tight">
-            כל{" "}
-            <span className="relative inline-block whitespace-nowrap">
-              <span className="relative z-10 text-primary-deep">הגזעים</span>
-              <span
-                aria-hidden
-                className="absolute -bottom-1 right-0 left-0 h-3 md:h-4 -z-0 rounded-full"
-                style={{ background: "#FED7AA" }}
-              />
-            </span>
-          </h1>
-          <p className="mt-4 text-ink-soft text-lg md:text-xl max-w-2xl mx-auto font-medium">
-            דפדף ב-{BREEDS.length} גזעי כלבים פופולריים בישראל. חיפוש לפי שם או
-            סינון לפי תכונות כדי למצוא את הגזע המתאים.
-          </p>
+      <div className="mx-auto max-w-6xl px-4 py-10 md:py-14">
+        <header className="mb-10 md:mb-14">
+          <SectionMark numeral="A→Z" label="קטלוג הגזעים" />
+          <div className="mt-5 grid md:grid-cols-12 gap-6 md:gap-10 items-end">
+            <h1 className="md:col-span-7 font-extrabold font-display text-ink leading-[0.95] tracking-tight text-[clamp(2.5rem,7vw,5.5rem)]">
+              כל{" "}
+              <span className="italic text-primary-deep font-medium">הגזעים</span>
+            </h1>
+            <p className="md:col-span-5 text-ink-soft text-base md:text-lg font-medium max-w-prose leading-relaxed">
+              דפדפו ב-{BREEDS.length} גזעי כלבים פופולריים בישראל. חיפוש לפי שם,
+              או סינון לפי תכונות כדי למצוא את הגזע המתאים לסגנון החיים שלכם.
+            </p>
+          </div>
+          <hr className="magazine-rule mt-10" />
         </header>
 
         <BreedsBrowse />

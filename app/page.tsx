@@ -1,14 +1,7 @@
 import Link from "next/link";
-import {
-  ArrowLeft,
-  Heart,
-  Sparkles,
-  Shield,
-  Clock,
-} from "lucide-react";
+import { ArrowLeft, Clock, Shield, Sparkles } from "lucide-react";
 import { DogMascot } from "@/components/quiz/DogMascot";
 import { BREEDS } from "@/lib/breeds/data";
-import { Pill } from "@/components/ui/Pill";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { SiteNav } from "@/components/providers/SiteNav";
 import { AuroraBackground } from "@/components/providers/AuroraBackground";
@@ -16,10 +9,13 @@ import { ScrollStory } from "@/components/landing/ScrollStory";
 import { Testimonials } from "@/components/landing/Testimonials";
 import { BreedMarquee } from "@/components/landing/BreedMarquee";
 import { HeroPhotoFeature } from "@/components/landing/HeroPhotoFeature";
+import { BlobDivider } from "@/components/landing/BlobDivider";
 import { LazyMount } from "@/components/ui/LazyMount";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { CountUp } from "@/components/ui/CountUp";
+import { IssueMark } from "@/components/ui/IssueMark";
+import { SectionMark } from "@/components/ui/SectionMark";
 
 const BASE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://dogame.pages.dev";
@@ -48,7 +44,9 @@ const homeJsonLd = {
 };
 
 export default function HomePage() {
-  const featuredBreeds = BREEDS.slice(0, 6);
+  const [hero, ...rest] = BREEDS.slice(0, 6);
+  const featuredHero = hero;
+  const featuredRest = rest;
 
   return (
     <main id="main" className="bg-clay">
@@ -59,80 +57,90 @@ export default function HomePage() {
       />
       <SiteNav />
 
-      {/* === Hero === */}
-      <section className="px-4 pt-8 pb-16 md:pt-12 md:pb-20 relative">
-        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
-          {/* Photo: appears below the text on mobile, on the desktop-left in RTL grid */}
-          <div className="w-full order-2 md:order-1">
-            <HeroPhotoFeature />
-          </div>
+      {/* === Editorial masthead === */}
+      <div className="px-4 pt-6 md:pt-8 relative">
+        <div className="mx-auto max-w-6xl flex items-center justify-between gap-4">
+          <IssueMark
+            issue="042"
+            edition="מאי 2026"
+            volume="מהדורה ישראלית"
+          />
+          <span className="hidden md:block text-[10px] uppercase tracking-[0.24em] font-display font-bold text-ink-mute">
+            המדריך המאויר לבחירת כלב
+          </span>
+        </div>
+        <hr className="magazine-rule mx-auto max-w-6xl mt-4" />
+      </div>
 
-          {/* Text: comes first on mobile so H1 + CTA are above the fold */}
-          <div className="text-right order-1 md:order-2">
+      {/* === Hero — feature spread === */}
+      <section className="px-4 pt-8 pb-14 md:pt-12 md:pb-20 relative">
+        <div className="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 lg:gap-14 items-start">
+          {/* Text column — 7/12 on desktop for editorial weight */}
+          <div className="text-right md:col-span-7 order-1">
             <Reveal from="up" delay={0.05}>
-              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
-                <span className="block w-6 h-px bg-ink-mute" aria-hidden />
-                <Sparkles className="w-3.5 h-3.5" strokeWidth={2} />
-                המדריך המאוים לבחירת כלב
-              </div>
+              <SectionMark numeral="00" label="הסיפור" />
             </Reveal>
 
-            <h1 className="mt-3 md:mt-5 font-extrabold font-display text-ink leading-[1.02] tracking-tight text-[clamp(1.75rem,6vw,4.5rem)] lg:text-7xl break-words">
-              איזה כלב באמת{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10 text-primary-deep">מתאים לך?</span>
-                <span
-                  aria-hidden
-                  className="absolute right-0 left-0 -bottom-0.5 h-[0.2em] -z-0 rounded-full bg-peach"
-                />
-              </span>
+            <h1 className="mt-5 font-extrabold font-display text-ink leading-[0.95] tracking-tight text-[clamp(2.5rem,8vw,6rem)] break-words">
+              איזה כלב{" "}
+              <span className="italic text-primary-deep font-medium">באמת</span>{" "}
+              מתאים לך?
             </h1>
 
-            <Reveal from="up" delay={0.7}>
-              <p className="mt-7 md:mt-8 text-lg md:text-2xl text-ink-soft leading-relaxed max-w-prose font-medium">
-                ענה על שאלון קצר על סגנון החיים שלך וקבל המלצה אישית
-                ל-3-5 גזעים שיתאימו לך בדיוק.{" "}
-                <span className="text-ink font-bold">בלי לחץ, בלי תשלום</span> — רק מידע
-                מבוסס שיעזור לך לבחור נכון.
+            <Reveal from="up" delay={0.45}>
+              <p className="drop-cap mt-8 text-lg md:text-xl text-ink-soft leading-relaxed max-w-prose font-medium">
+                ענו על שאלון קצר על סגנון החיים שלכם, וקבלו המלצה אישית
+                ל-3 עד 5 גזעים שיתאימו לכם בדיוק. בלי לחץ, בלי תשלום — רק
+                מידע מבוסס, שיעזור לכם לבחור נכון את חבר הבית הבא.
               </p>
             </Reveal>
 
-            <Reveal from="up" delay={0.85}>
-              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <Reveal from="up" delay={0.7}>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3 items-stretch sm:items-center">
                 <MagneticButton>
                   <Link
                     href="/quiz"
+                    data-paw-zone
                     className="group inline-flex items-center justify-center gap-2 bg-primary text-white border-2 border-primary-deep px-7 py-4 rounded-[22px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-lg transition-all"
                   >
-                    בוא נתחיל
+                    התחילו את השאלון
                     <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                   </Link>
                 </MagneticButton>
                 <Link
                   href="/about"
-                  className="inline-flex items-center justify-center gap-2 bg-surface text-ink border-2 border-border px-7 py-4 rounded-[22px] font-display font-extrabold text-lg shadow-[var(--shadow-clay)] hover:-translate-y-0.5 hover:border-border-strong active:translate-y-1 transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-3 py-4 font-display font-bold text-base text-ink-soft hover:text-ink underline underline-offset-4 decoration-ink-mute/40 hover:decoration-primary transition-colors"
                 >
-                  איך זה עובד?
+                  או — קראו איך זה עובד
                 </Link>
               </div>
             </Reveal>
 
-            <Reveal from="up" delay={1.0}>
-              <ul className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-ink-soft font-display font-bold">
-                <li className="inline-flex items-center gap-1.5">
+            <Reveal from="up" delay={0.9}>
+              <ul className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-ink-soft font-display font-bold tabular-nums">
+                <li className="inline-flex items-center gap-2">
                   <Clock className="w-4 h-4 text-primary-deep" strokeWidth={2.5} />
-                  3-5 דקות
+                  3–5 דקות
                 </li>
-                <li className="inline-flex items-center gap-1.5">
+                <li className="inline-flex items-center gap-2">
                   <Shield className="w-4 h-4 text-primary-deep" strokeWidth={2.5} />
                   ללא הרשמה
                 </li>
-                <li className="inline-flex items-center gap-1.5">
+                <li className="inline-flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-primary-deep" strokeWidth={2.5} />
                   <CountUp to={37} suffix="+ גזעים" />
                 </li>
               </ul>
             </Reveal>
+          </div>
+
+          {/* Photo column — 5/12 on desktop, with editorial caption */}
+          <div className="w-full md:col-span-5 order-2" data-paw-zone>
+            <HeroPhotoFeature />
+            <div className="mt-4 flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] font-display font-bold text-ink-mute">
+              <span className="block h-px flex-1 bg-ink-mute opacity-40" />
+              <span>החליקו לתמונה הבאה</span>
+            </div>
           </div>
         </div>
       </section>
@@ -140,135 +148,124 @@ export default function HomePage() {
       {/* === Auto-scrolling breed marquee === */}
       <BreedMarquee />
 
-      {/* === Stats strip === */}
-      <section className="px-4 pb-12 -mt-8 md:-mt-12 relative z-10">
-        <div className="mx-auto max-w-4xl">
+      {/* === Editorial dek (replaces stats strip) === */}
+      <section className="px-4 py-10 md:py-14 relative">
+        <div className="mx-auto max-w-4xl text-center">
           <Reveal from="up">
-            <div className="rounded-[24px] border-2 border-border bg-surface px-6 py-5 shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] flex flex-wrap items-center justify-around gap-6 text-center">
-              <Stat number={37} suffix="+" label="גזעים פופולריים" />
-              <span aria-hidden className="w-px h-10 bg-border-strong opacity-50" />
-              <Stat number={10} label="צירי תכונות" />
-              <span aria-hidden className="w-px h-10 bg-border-strong opacity-50" />
-              <Stat number={5} label="חוקי סינון חכמים" />
-              <span aria-hidden className="w-px h-10 bg-border-strong opacity-50" />
-              <Stat number={3} suffix="-5" label="דקות בלבד" />
+            <p className="pull-quote">
+              לא לפי &ldquo;מי הכי חמוד&rdquo; — אלא לפי מה שמתאים לחיים שלכם
+            </p>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-ink-mute font-display font-bold tabular-nums">
+              <span>
+                <CountUp to={37} suffix="+ גזעים" />
+              </span>
+              <span aria-hidden className="text-ink-faint">·</span>
+              <span>10 צירי תכונות</span>
+              <span aria-hidden className="text-ink-faint">·</span>
+              <span>5 חוקי סינון</span>
+              <span aria-hidden className="text-ink-faint">·</span>
+              <span>3–5 דקות</span>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* === Pinned scroll story (replaces the static "Why" hero) === */}
+      <BlobDivider tone="warm" />
+
+      {/* === Pinned scroll story (kept — strong differentiator) === */}
       <LazyMount rootMargin="400px" minHeight="100dvh">
         <ScrollStory />
       </LazyMount>
 
-      {/* === Why — editorial 3-column === */}
-      <section className="px-4 py-14 md:py-20 border-y border-border relative">
-        <div className="mx-auto max-w-6xl relative">
+      {/* === Why — asymmetric editorial spread === */}
+      <section className="px-4 py-16 md:py-24 relative bg-bg-soft">
+        <div className="mx-auto max-w-6xl">
           <Reveal from="up">
-            <div className="mb-10 max-w-3xl">
-              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
-                <span className="block w-6 h-px bg-ink-mute" aria-hidden />
-                הגישה שלנו
-              </div>
-              <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-ink leading-[1.05] tracking-tight">
-                שלושה עקרונות שמובילים{" "}
-                <span className="text-primary-deep italic">כל המלצה</span>
-              </h2>
-              <p className="mt-5 text-ink-soft text-lg md:text-xl font-medium max-w-prose">
-                אנחנו לא מנחשים לפי "מי הכי חמוד". כל גזע נמדד מול הסגנון שלך
-                ב-10 מימדים — חינוך, אנרגיה, אקלים, רגישות לילדים — וכל אלה
-                משוקללים לפני שמדבר על התאמה.
-              </p>
-            </div>
+            <SectionMark numeral="01" label="הגישה שלנו" />
+            <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-ink leading-[1.02] tracking-tight max-w-3xl">
+              שלושה עקרונות שמובילים{" "}
+              <span className="italic text-primary-deep font-medium">כל המלצה</span>
+            </h2>
+            <p className="mt-5 text-ink-soft text-lg md:text-xl font-medium max-w-prose">
+              אנחנו לא מנחשים. כל גזע נמדד מול הסגנון שלך
+              ב-10 מימדים — חינוך, אנרגיה, אקלים, רגישות לילדים — וכל
+              אלה משוקללים לפני שמדבר על התאמה.
+            </p>
           </Reveal>
 
-          <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border" stagger={0.1}>
-            {[
-              {
-                num: "01",
-                title: "אחריות לפני אהבה",
-                text:
-                  "כלב הוא 10-15 שנות התחייבות. השאלון עוזר לך להבין אם זה הזמן הנכון, ואיזה גזע באמת יתאים.",
-              },
-              {
-                num: "02",
-                title: "מאפיינים אמיתיים",
-                text:
-                  "10 צירי תכונות (גודל, אנרגיה, אילוף, אקלים) — לא רק \"איזה כלב הכי חמוד\".",
-              },
-              {
-                num: "03",
-                title: "מותאם לישראל",
-                text:
-                  "השאלון מתחשב בחום הישראלי, מגורים בדירה, ואפילו בגזע הלאומי שלנו — הכלב הכנעני.",
-              },
-            ].map(({ num, title, text }) => (
-              <StaggerItem
-                key={num}
-                className="bg-bg p-7 md:p-9 group"
-              >
-                <div className="font-display font-extrabold text-5xl text-primary-deep/30 leading-none">
-                  {num}
-                </div>
-                <h3 className="mt-5 font-display font-extrabold text-2xl text-ink leading-tight">
-                  {title}
-                </h3>
-                <p className="mt-3 text-ink-soft leading-relaxed font-medium">{text}</p>
-              </StaggerItem>
-            ))}
-          </Stagger>
+          {/* Asymmetric grid: 1 large feature + 2 stacked smaller */}
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-px bg-border md:rounded-[28px] overflow-hidden md:border-2 md:border-border">
+            <Reveal from="up" delay={0.1} className="md:col-span-2">
+              <WhyCard
+                num="01"
+                title="אחריות לפני אהבה"
+                text="כלב הוא 10–15 שנות התחייבות. השאלון עוזר לכם להבין אם זה הזמן הנכון, ואיזה גזע באמת יתאים — לפני שמביאים כלב הביתה."
+                large
+              />
+            </Reveal>
+            <div className="flex flex-col gap-px bg-border">
+              <Reveal from="up" delay={0.2}>
+                <WhyCard
+                  num="02"
+                  title="מאפיינים אמיתיים"
+                  text="10 צירי תכונות — גודל, אנרגיה, אילוף, אקלים — לא רק 'מי הכי חמוד'."
+                />
+              </Reveal>
+              <Reveal from="up" delay={0.3}>
+                <WhyCard
+                  num="03"
+                  title="מותאם לישראל"
+                  text="חום, מגורים בדירה, ואפילו הכלב הכנעני — הגזע הלאומי שלנו."
+                />
+              </Reveal>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* === How it works — editorial stepper === */}
-      <section className="px-4 py-14 md:py-20 relative">
+      <BlobDivider tone="warm" flip />
+
+      {/* === How it works — oversized serif stepper === */}
+      <section className="px-4 py-16 md:py-24 relative">
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <div className="mb-10 max-w-3xl">
-              <div className="inline-flex items-center gap-2 text-[11px] tracking-[0.18em] uppercase font-display font-bold text-ink-mute">
-                <span className="block w-6 h-px bg-ink-mute" aria-hidden />
-                איך זה עובד
-              </div>
-              <h2 className="mt-3 text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-ink leading-[1.05] tracking-tight">
-                שלושה שלבים — <span className="italic text-primary-deep">שלוש דקות</span>
-              </h2>
-            </div>
+            <SectionMark numeral="02" label="התהליך" />
+            <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-ink leading-[1.02] tracking-tight">
+              שלושה שלבים —{" "}
+              <span className="italic text-primary-deep font-medium">שלוש דקות</span>
+            </h2>
           </Reveal>
 
-          <Stagger className="space-y-px bg-border" stagger={0.12}>
+          <Stagger className="mt-14 divide-y divide-border" stagger={0.12}>
             {[
               {
                 num: "01",
-                title: "ענה על שאלון קצר",
-                text:
-                  "שאלות על המגורים שלך, רמת הפעילות, ניסיון קודם וההעדפות. השאלון מסתגל לתשובות שלך.",
+                title: "עונים על שאלון קצר",
+                text: "שאלות על המגורים שלכם, רמת הפעילות, ניסיון קודם וההעדפות. השאלון מסתגל לתשובות שלכם בזמן אמת.",
               },
               {
                 num: "02",
                 title: "האלגוריתם עובד",
-                text:
-                  "10 צירי תכונות, כללי סינון חכמים, חישוב התאמה משוקלל מול 37 גזעים פופולריים.",
+                text: "10 צירי תכונות, חוקי סינון חכמים, חישוב משוקלל מול 37 גזעים פופולריים בישראל.",
               },
               {
                 num: "03",
-                title: "קבל המלצה אישית",
-                text:
-                  "3-5 גזעים מתאימים עם אחוז התאמה, חוזקות, נקודות לתשומת לב, ומדריך טיפול.",
+                title: "מקבלים המלצה אישית",
+                text: "3–5 גזעים מתאימים עם אחוז התאמה, חוזקות, נקודות לתשומת לב, ומדריך טיפול מפורט.",
               },
             ].map(({ num, title, text }) => (
               <StaggerItem
                 key={num}
-                className="bg-bg grid grid-cols-[auto_1fr] gap-6 md:gap-12 items-baseline py-5 md:py-7 group"
+                className="grid grid-cols-[auto_1fr] gap-6 md:gap-12 items-baseline py-8 md:py-12"
               >
-                <div className="font-display font-extrabold text-5xl md:text-7xl text-ink/15 leading-none tabular-nums">
+                <div className="serif-numeral text-[clamp(4.5rem,11vw,9rem)] text-primary-deep/15">
                   {num}
                 </div>
                 <div>
-                  <h3 className="font-display font-extrabold text-2xl md:text-3xl text-ink leading-tight">
+                  <h3 className="font-display font-extrabold text-2xl md:text-4xl text-ink leading-tight tracking-tight">
                     {title}
                   </h3>
-                  <p className="mt-3 text-ink-soft text-base md:text-lg leading-relaxed font-medium max-w-2xl">
+                  <p className="mt-4 text-ink-soft text-base md:text-lg leading-relaxed font-medium max-w-2xl">
                     {text}
                   </p>
                 </div>
@@ -278,71 +275,98 @@ export default function HomePage() {
         </div>
       </section>
 
+      <BlobDivider tone="primary" />
+
       {/* === Testimonials === */}
       <LazyMount rootMargin="200px" minHeight={500}>
         <Testimonials />
       </LazyMount>
 
-      {/* === Featured breeds — magazine grid === */}
-      <section className="px-4 py-14 md:py-20 relative">
+      {/* === Featured breeds — magazine spread (1 hero + 5 supporting) === */}
+      <section className="px-4 py-16 md:py-24 relative">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <div className="flex items-end justify-between mb-10 md:mb-14 flex-wrap gap-4">
               <div>
-                <Pill tone="primary">🐶 הכירו</Pill>
-                <h2 className="mt-3 text-4xl md:text-6xl font-black text-ink leading-tight tracking-tight">
-                  הגזעים שכבר{" "}
-                  <span className="relative inline-block whitespace-nowrap">
-                    <span className="relative z-10 text-primary-deep">מחכים לך</span>
-                    <span
-                      aria-hidden
-                      className="absolute -bottom-1 right-0 left-0 h-3 md:h-4 -z-0 rounded-full"
-                      style={{ background: "#FED7AA" }}
-                    />
+                <SectionMark numeral="03" label="הגזעים" />
+                <h2 className="mt-5 text-4xl md:text-6xl font-extrabold font-display text-ink leading-[1.02] tracking-tight">
+                  מי שכבר{" "}
+                  <span className="italic text-primary-deep font-medium">
+                    מחכה לכם
                   </span>
                 </h2>
-                <p className="mt-3 text-ink-soft text-lg font-medium">
-                  37 גזעים פופולריים בישראל — לחץ כדי לקרוא הכל
+                <p className="mt-4 text-ink-soft text-lg font-medium max-w-prose">
+                  37 גזעים פופולריים בישראל — כל אחד עם פרופיל מלא.
                 </p>
               </div>
               <Link
                 href="/breeds"
-                className="inline-flex items-center gap-2 bg-surface text-ink border-2 border-border-strong px-5 py-2.5 rounded-[16px] shadow-[var(--shadow-clay-sm)] hover:-translate-y-px hover:border-primary-soft transition-all font-display font-extrabold text-sm"
+                data-paw-zone
+                className="inline-flex items-center gap-2 text-ink font-display font-extrabold text-sm underline underline-offset-4 decoration-ink-mute/40 hover:decoration-primary transition-colors"
               >
                 לכל הגזעים
                 <ArrowLeft className="w-4 h-4" />
               </Link>
             </div>
           </Reveal>
-          <Stagger
-            className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5"
-            stagger={0.08}
-          >
-            {featuredBreeds.map((b) => (
+
+          {/* Magazine layout: 1 hero card (col-span-2 on desktop) + 5 supporting.
+              fit="contain" lets the whole dog be visible against its accent-tinted bg. */}
+          <Stagger className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5" stagger={0.08}>
+            <StaggerItem className="col-span-2 md:row-span-2">
+              <Link
+                href={`/breed/${featuredHero.slug}`}
+                data-paw-zone
+                className="group relative flex flex-col h-full rounded-[28px] border-2 border-border bg-surface overflow-hidden shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)] lift-on-hover hover:border-primary-soft"
+              >
+                <div className="relative aspect-[4/3] md:aspect-[5/4] overflow-hidden">
+                  <BreedPhoto
+                    breed={featuredHero}
+                    size={900}
+                    rounded="rounded-none"
+                    fit="contain"
+                    className="!w-full !h-full !rounded-none !border-0 !shadow-none transition-transform duration-[900ms] group-hover:scale-[1.03]"
+                  />
+                </div>
+                <div className="p-6 md:p-8 flex-1 flex flex-col">
+                  <SectionMark numeral="N°1" label="המומלץ השבוע" />
+                  <div className="mt-3 font-display font-extrabold text-2xl md:text-4xl text-ink leading-tight tracking-tight">
+                    {featuredHero.name}
+                  </div>
+                  <p className="mt-3 text-base md:text-lg text-ink-soft font-medium leading-relaxed line-clamp-3 max-w-prose">
+                    {featuredHero.tagline}
+                  </p>
+                  <div className="mt-auto pt-5 inline-flex items-center gap-1.5 text-sm text-primary-deep font-display font-extrabold">
+                    קראו את הפרופיל המלא
+                    <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            </StaggerItem>
+
+            {featuredRest.map((b) => (
               <StaggerItem key={b.slug}>
                 <Link
                   href={`/breed/${b.slug}`}
-                  className="group relative block rounded-[26px] border-2 border-border bg-surface overflow-hidden shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] hover:-translate-y-2 hover:border-primary-soft transition-all"
+                  data-paw-zone
+                  className="group relative flex flex-col h-full rounded-[22px] border-2 border-border bg-surface overflow-hidden shadow-[var(--shadow-clay-lg),var(--shadow-inner-clay)] lift-on-hover hover:border-primary-soft"
                 >
-                  <div className="aspect-[4/3] overflow-hidden">
+                  <div className="relative aspect-[5/4] overflow-hidden">
                     <BreedPhoto
                       breed={b}
                       size={400}
                       rounded="rounded-none"
-                      className="!w-full !h-full !rounded-none !border-0 !shadow-none scale-100 group-hover:scale-110 transition-transform duration-700"
+                      fit="contain"
+                      className="!w-full !h-full !rounded-none !border-0 !shadow-none transition-transform duration-700 group-hover:scale-[1.05]"
                     />
                   </div>
-                  <div className="p-4">
-                    <div className="font-display font-black text-lg md:text-xl text-ink leading-tight">
+                  <div className="p-4 flex-1 flex flex-col">
+                    <div className="font-display font-extrabold text-base md:text-lg text-ink leading-tight">
                       {b.name}
                     </div>
-                    <p className="mt-1 text-sm text-ink-soft font-medium line-clamp-2">
+                    <p className="mt-1 text-xs md:text-sm text-ink-soft font-medium line-clamp-2">
                       {b.tagline}
                     </p>
-                    <div className="mt-3 inline-flex items-center gap-1 text-xs text-primary-deep font-display font-extrabold opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all">
-                      קרא עוד
-                      <ArrowLeft className="w-3.5 h-3.5" />
-                    </div>
                   </div>
                 </Link>
               </StaggerItem>
@@ -351,59 +375,87 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* === Final CTA === */}
-      <section className="px-4 py-16 md:py-24">
-        <Reveal from="scale">
-          <div className="mx-auto max-w-3xl text-center relative rounded-[40px] border-2 border-primary-deep bg-gradient-to-br from-primary-tint via-surface to-accent-tint p-8 md:p-14 shadow-[var(--shadow-clay-xl),var(--shadow-inner-clay)] overflow-hidden">
-            <div className="relative">
-              <div className="flex justify-center mb-4">
-                <div className="bg-surface rounded-full p-3 border-2 border-border-strong shadow-[var(--shadow-clay-lg)]">
-                  <DogMascot mood="ball" size={120} />
-                </div>
+      <BlobDivider tone="warm" />
+
+      {/* === Final CTA — magazine call-out === */}
+      <section className="px-4 py-20 md:py-28">
+        <Reveal from="up">
+          <div className="mx-auto max-w-4xl text-center relative">
+            <div className="flex justify-center mb-6">
+              <div className="bg-surface rounded-full p-3 border-2 border-border-strong shadow-[var(--shadow-clay-lg)]">
+                <DogMascot mood="ball" size={120} />
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-ink leading-tight">
-                מוכן למצוא את החבר הכי טוב שלך?
-              </h2>
-              <p className="mt-4 text-ink-soft text-lg md:text-xl font-medium max-w-xl mx-auto">
-                לחץ כאן כדי להתחיל. ללא הרשמה, ללא תשלום — רק כמה דקות שיכולות לחסוך
-                שנים של אי-התאמה.
-              </p>
-              <MagneticButton className="mt-7">
-                <Link
-                  href="/quiz"
-                  className="group inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep px-8 py-4 rounded-[24px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-xl transition-all"
-                >
-                  התחל את המשחק
-                  <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
-                </Link>
-              </MagneticButton>
             </div>
+            <SectionMark numeral="04" label="המסקנה" className="justify-center" />
+            <h2 className="mt-5 text-5xl md:text-7xl lg:text-8xl font-extrabold font-display text-ink leading-[0.95] tracking-tight max-w-3xl mx-auto">
+              מוכנים למצוא את{" "}
+              <span className="italic text-primary-deep font-medium">החבר</span>{" "}
+              הכי טוב שלכם?
+            </h2>
+            <p className="mt-6 text-ink-soft text-lg md:text-xl font-medium max-w-xl mx-auto">
+              כמה דקות. בלי הרשמה. רק כמה שאלות שיכולות לחסוך
+              שנים של אי-התאמה.
+            </p>
+            <MagneticButton className="mt-9">
+              <Link
+                href="/quiz"
+                data-paw-zone
+                className="group inline-flex items-center gap-2 bg-primary text-white border-2 border-primary-deep px-9 py-5 rounded-[24px] shadow-[var(--shadow-glow-primary)] hover:-translate-y-0.5 active:translate-y-1 active:shadow-[var(--shadow-clay-press)] font-display font-extrabold text-xl transition-all"
+              >
+                התחילו את המשחק
+                <ArrowLeft className="w-6 h-6 group-hover:-translate-x-1 transition-transform" />
+              </Link>
+            </MagneticButton>
           </div>
         </Reveal>
       </section>
 
-      <footer className="px-4 py-10 text-center text-ink-soft text-sm font-display font-bold border-t-2 border-border/60">
-        <p>DoGame · נבנה באהבה לכלבי ישראל ולמשפחות שלהם 🐾</p>
+      <footer className="px-4 py-10 text-center text-ink-soft text-sm font-display font-bold border-t border-border/60">
+        <hr className="magazine-rule mx-auto max-w-6xl mb-6" />
+        <p>DoGame · נבנה באהבה לכלבי ישראל ולמשפחות שלהם</p>
       </footer>
     </main>
   );
 }
 
-function Stat({
-  number,
-  suffix,
-  label,
+function WhyCard({
+  num,
+  title,
+  text,
+  large = false,
 }: {
-  number: number;
-  suffix?: string;
-  label: string;
+  num: string;
+  title: string;
+  text: string;
+  large?: boolean;
 }) {
   return (
-    <div>
-      <div className="text-3xl md:text-4xl font-black text-primary-deep font-display leading-none">
-        <CountUp to={number} suffix={suffix} />
+    <div
+      className={`bg-surface h-full p-7 md:p-10 group ${
+        large ? "md:py-14" : ""
+      }`}
+    >
+      <div
+        className={`serif-numeral text-primary-deep/25 ${
+          large ? "text-[clamp(5rem,9vw,8rem)]" : "text-[clamp(3rem,5vw,5rem)]"
+        }`}
+      >
+        {num}
       </div>
-      <div className="mt-1 text-sm text-ink-soft font-display font-bold">{label}</div>
+      <h3
+        className={`mt-5 font-display font-extrabold text-ink leading-tight tracking-tight ${
+          large ? "text-3xl md:text-4xl" : "text-xl md:text-2xl"
+        }`}
+      >
+        {title}
+      </h3>
+      <p
+        className={`mt-4 text-ink-soft leading-relaxed font-medium ${
+          large ? "text-base md:text-lg max-w-md" : "text-sm md:text-base"
+        }`}
+      >
+        {text}
+      </p>
     </div>
   );
 }

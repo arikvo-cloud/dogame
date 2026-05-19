@@ -2,13 +2,12 @@
 
 import { motion } from "motion/react";
 import { Quote, Star } from "lucide-react";
-import { Pill } from "@/components/ui/Pill";
+import { SectionMark } from "@/components/ui/SectionMark";
 
 interface Testimonial {
   quote: string;
   author: string;
   context: string;
-  emoji: string;
   breed?: string;
 }
 
@@ -18,7 +17,6 @@ const TESTIMONIALS: Testimonial[] = [
       "התלבטנו בין 6 גזעים. השאלון הסתיים תוך 4 דקות והתאמתו לי בולדוג צרפתי — שאפילו לא חשבנו עליו. עכשיו הוא בבית והכל פשוט מתאים.",
     author: "מיכל",
     context: "תל אביב · אמא ל-2 ילדים",
-    emoji: "🐶",
     breed: "בולדוג צרפתי",
   },
   {
@@ -26,7 +24,6 @@ const TESTIMONIALS: Testimonial[] = [
       "החיפוש בגוגל היה הומבריב מהומה. כאן קיבלתי 5 גזעים מתאימים עם הסבר למה כל אחד. דייקנות שלא הצלחנו להגיע אליה אצל מאלפים.",
     author: "יוסי",
     context: "חיפה · רץ מרתון",
-    emoji: "🏃",
     breed: "וייזסלה",
   },
   {
@@ -34,14 +31,12 @@ const TESTIMONIALS: Testimonial[] = [
       'הצ\'אט של ה-AI ענה לי על שאלה ספציפית: "האם הוא יסתדר עם החתולה שלי?" — קיבלתי תשובה מנומקת, לא העתק-הדבק מויקיפדיה.',
     author: "נועה",
     context: "ירושלים · בעלים של חתולה",
-    emoji: "🐱",
   },
   {
     quote:
       "אהבתי שזה לא דוחק לרכישת גורים. הקישורים לאגודות אימוץ שיכנעו אותי לבדוק קודם — ובסוף אימצנו כלב מעורב מנפלא!",
     author: "תמר",
     context: "באר שבע · אימצה מתנו'בה",
-    emoji: "💚",
   },
 ];
 
@@ -56,12 +51,15 @@ export function Testimonials() {
   return (
     <section className="px-4 py-16 md:py-24 bg-bg-soft border-y-2 border-border">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-12">
-          <Pill tone="success">💬 מה אומרים</Pill>
-          <h2 className="mt-4 text-3xl md:text-5xl font-black text-ink">
-            משפחות שכבר בחרו נכון
+        <div className="text-center mb-14">
+          <div className="flex justify-center">
+            <SectionMark label="מה אומרים" />
+          </div>
+          <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-extrabold font-display text-ink leading-[1.02] tracking-tight">
+            משפחות שכבר{" "}
+            <span className="italic text-primary-deep font-medium">בחרו נכון</span>
           </h2>
-          <p className="mt-4 text-ink-soft text-lg md:text-xl max-w-2xl mx-auto font-medium">
+          <p className="mt-5 text-ink-soft text-base md:text-lg max-w-2xl mx-auto font-medium">
             הסיפורים האלה הם דוגמאות אופייניות מהאופן שבו אנשים השתמשו ב-DoGame.
             <span className="block mt-1 text-xs opacity-70">
               * דוגמאות איוריות, לא חוות-דעת אמיתיות
@@ -106,9 +104,9 @@ export function Testimonials() {
               <figcaption className="mt-4 pt-4 border-t-2 border-dashed border-border flex items-center gap-3">
                 <span
                   aria-hidden
-                  className="inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-primary-tint border-2 border-border-strong text-2xl"
+                  className="inline-flex items-center justify-center w-10 h-10 rounded-[12px] bg-primary-tint border-2 border-border-strong font-display font-extrabold text-lg text-primary-deep shrink-0"
                 >
-                  {t.emoji}
+                  {t.author.charAt(0)}
                 </span>
                 <div className="flex-1 min-w-0">
                   <div className="font-display font-extrabold text-ink text-sm">
@@ -137,7 +135,7 @@ export function Testimonials() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             {STATS.map((s) => (
               <div key={s.label}>
-                <div className="text-3xl md:text-4xl font-black text-primary-deep font-display leading-none">
+                <div className="text-3xl md:text-4xl font-black text-primary-deep font-display leading-none tabular-nums">
                   {s.number}
                   <span className="text-base">{s.suffix}</span>
                 </div>

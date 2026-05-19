@@ -255,50 +255,64 @@ export function BreedsBrowse() {
         </AnimatePresence>
       </div>
 
-      {/* Result count */}
-      <div className="mt-5 mb-4 text-sm text-ink-soft font-display font-bold">
-        מציג <span className="text-primary-deep">{filtered.length}</span> מתוך{" "}
-        {BREEDS.length} גזעים
+      {/* Result count — editorial */}
+      <div className="mt-6 mb-5 flex items-center gap-3 text-xs uppercase tracking-[0.2em] font-display font-bold text-ink-mute">
+        <span className="tabular-nums">
+          <span className="text-primary-deep">{filtered.length}</span>
+          <span className="text-ink-faint"> / {BREEDS.length}</span>
+        </span>
+        <span aria-hidden className="block h-px flex-1 bg-ink-mute opacity-30" />
+        <span>גזעים</span>
       </div>
 
       {/* Results grid */}
-      {filtered.length === 0 ? (
-        <div className="rounded-[28px] border-2 border-warning/40 bg-warning-tint p-8 text-center shadow-[var(--shadow-clay)]">
-          <p className="text-lg font-display font-bold text-ink">
-            לא נמצאו גזעים שמתאימים לסינון הנוכחי 🐾
-          </p>
-          <button
-            type="button"
-            onClick={() => {
-              resetFilters();
-              setQuery("");
-            }}
-            className="mt-3 inline-flex items-center gap-1 text-primary-deep font-display font-extrabold"
+      <AnimatePresence mode="wait" initial={false}>
+        {filtered.length === 0 ? (
+          <motion.div
+            key="empty"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="rounded-[28px] border-2 border-warning/40 bg-warning-tint p-10 text-center shadow-[var(--shadow-clay)]"
           >
-            ניקוי הכל
-          </button>
-        </div>
-      ) : (
-        <motion.div
-          layout
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
-        >
-          <AnimatePresence mode="popLayout">
-            {filtered.map((b) => (
-              <motion.div
-                key={b.slug}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <BreedTile breed={b} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-      )}
+            <p className="pull-quote !text-2xl">
+              לא מצאנו גזעים שמתאימים לסינון
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                resetFilters();
+                setQuery("");
+              }}
+              className="mt-5 inline-flex items-center gap-1 text-primary-deep font-display font-extrabold underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors"
+            >
+              נקו הכל והתחילו מחדש
+            </button>
+          </motion.div>
+        ) : (
+          <motion.div
+            key="grid"
+            layout
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4"
+          >
+            <AnimatePresence mode="popLayout">
+              {filtered.map((b) => (
+                <motion.div
+                  key={b.slug}
+                  layout
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.92 }}
+                  transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <BreedTile breed={b} />
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
@@ -357,7 +371,8 @@ function BreedTile({ breed }: { breed: Breed }) {
       </div>
       <Link
         href={`/breed/${breed.slug}`}
-        className="group block rounded-[22px] border-2 border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] hover:-translate-y-1 hover:border-border-strong transition-all"
+        data-paw-zone
+        className="group block rounded-[22px] border-2 border-border bg-surface p-3 text-center shadow-[var(--shadow-clay),var(--shadow-inner-clay)] lift-on-hover hover:border-border-strong"
       >
       <div className="flex justify-center mb-2.5 group-hover:scale-105 transition-transform">
         <BreedPhoto breed={breed} size={140} rounded="rounded-[18px]" />
