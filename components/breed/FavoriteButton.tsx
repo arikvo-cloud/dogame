@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Heart } from "lucide-react";
-import { useFavorite } from "@/store/useFavoritesStore";
+import { useFavoriteBreed, useFavoriteDog } from "@/store/useFavoritesStore";
 import { useToast } from "@/components/ui/Toast";
 import { track } from "@/lib/track";
 import { cn } from "@/lib/cn";
@@ -11,6 +11,8 @@ import { cn } from "@/lib/cn";
 interface Props {
   slug: string;
   breedName: string;
+  /** "breed" (default) or "dog" — determines which favorites list is used */
+  type?: "breed" | "dog";
   /** Visual size — sm: compact for card overlay; md: standard */
   size?: "sm" | "md";
   className?: string;
@@ -19,17 +21,20 @@ interface Props {
 }
 
 /**
- * Heart button that toggles a breed in favorites (localStorage).
+ * Heart button that toggles a breed or dog in favorites (localStorage).
  * Bursts a small heart on activation. Respects reduced-motion.
  */
 export function FavoriteButton({
   slug,
   breedName,
+  type = "breed",
   size = "md",
   className,
   stopPropagation,
 }: Props) {
-  const { isFavorite, toggle } = useFavorite(slug);
+  const breedHook = useFavoriteBreed(slug);
+  const dogHook = useFavoriteDog(slug);
+  const { isFavorite, toggle } = type === "dog" ? dogHook : breedHook;
   const reduced = useReducedMotion();
   const toast = useToast();
   const [hydrated, setHydrated] = useState(false);
