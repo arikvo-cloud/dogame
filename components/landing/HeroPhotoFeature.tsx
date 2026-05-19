@@ -11,28 +11,12 @@ import {
   useReducedMotion,
   type PanInfo,
 } from "motion/react";
-import { Heart, ChevronLeft, ChevronRight } from "lucide-react";
-import { BREEDS } from "@/lib/breeds/data";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { dogsOfTheWeek } from "@/lib/dogs/helpers";
+import { getShelterById } from "@/lib/shelters/data";
 import { proxyImage } from "@/lib/image-proxy";
-import { useFavoritesStore } from "@/store/useFavoritesStore";
-import { useToast } from "@/components/ui/Toast";
-import { track } from "@/lib/track";
 import { cn } from "@/lib/cn";
-import type { Breed } from "@/lib/breeds/types";
-
-/**
- * Curated breed slugs for the hero. Order is randomized per visit.
- */
-const FEATURE_SLUGS = [
-  "golden",
-  "labrador",
-  "border-collie",
-  "canaan",
-  "vizsla",
-  "bichon-frise",
-  "german-shepherd",
-  "cavalier",
-];
+import type { AdoptableDog } from "@/lib/dogs/types";
 
 const AUTO_ROTATE_MS = 10000;
 const SWIPE_THRESHOLD = 80; // px to commit a swipe
@@ -47,26 +31,23 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 /**
- * Tinder-style breed browser.
- * - Big photo of the breed (full dog visible — uses object-contain on a
- *   tinted background so nothing gets cropped).
- * - Drag/swipe left or right to switch breeds (snaps back to center).
- * - Heart button adds the breed to favorites.
+ * Tinder-style adoptable dog browser.
+ * - Big photo of the dog (full dog visible — uses object-contain on a
+ *   neutral background so nothing gets cropped).
+ * - Drag/swipe left or right to switch dogs (snaps back to center).
  * - Auto-rotates every 10s unless the user is interacting (paused on
  *   hover / drag).
- * - Caption with name + tagline below the photo.
+ * - Caption with dog name + breed + shelter city below the photo.
  */
 export function HeroPhotoFeature() {
   const reduced = useReducedMotion();
-  const toast = useToast();
-  const favSlugs = useFavoritesStore((s) => s.slugs);
-  const toggleFav = useFavoritesStore((s) => s.toggle);
-  const [hydrated, setHydrated] = useState(false);
+  // TODO 5.x: re-enable for dog favorites
+  // const toast = useToast();
+  // const favSlugs = useFavoritesStore((s) => s.slugs);
+  // const toggleFav = useFavoritesStore((s) => s.toggle);
 
-  const [orderedBreeds, setOrderedBreeds] = useState<Breed[]>(() =>
-    FEATURE_SLUGS.map((slug) => BREEDS.find((b) => b.slug === slug)!).filter(
-      Boolean
-    )
+  const [orderedDogs, setOrderedDogs] = useState<AdoptableDog[]>(() =>
+    dogsOfTheWeek(8)
   );
   const [activeIdx, setActiveIdx] = useState(0);
   const [paused, setPaused] = useState(false);
@@ -90,37 +71,34 @@ export function HeroPhotoFeature() {
     }),
   };
 
-  useEffect(() => setHydrated(true), []);
   useEffect(() => {
-    setOrderedBreeds((prev) => shuffle(prev));
+    setOrderedDogs((prev) => shuffle(prev));
   }, []);
 
   useEffect(() => {
     if (reduced || paused) return;
     const id = window.setInterval(() => {
       setDir(-1);
-      setActiveIdx((i) => (i + 1) % orderedBreeds.length);
+      setActiveIdx((i) => (i + 1) % orderedDogs.length);
     }, AUTO_ROTATE_MS);
     return () => window.clearInterval(id);
-  }, [reduced, paused, orderedBreeds.length]);
+  }, [reduced, paused, orderedDogs.length]);
 
-  if (orderedBreeds.length === 0) return null;
-  const current = orderedBreeds[activeIdx];
-  const isFav = hydrated && favSlugs.includes(current.slug);
+  if (orderedDogs.length === 0) return null;
+  const current = orderedDogs[activeIdx];
 
   function next() {
     setDir(-1);
-    setActiveIdx((i) => (i + 1) % orderedBreeds.length);
+    setActiveIdx((i) => (i + 1) % orderedDogs.length);
   }
   function prev() {
     setDir(1);
-    setActiveIdx((i) => (i - 1 + orderedBreeds.length) % orderedBreeds.length);
+    setActiveIdx((i) => (i - 1 + orderedDogs.length) % orderedDogs.length);
   }
 
   function handleDragEnd(_: unknown, info: PanInfo) {
     const swipe = info.offset.x;
     if (swipe < -SWIPE_THRESHOLD) {
-      // dragged left → next (in RTL, "left" = forward visually)
       next();
     } else if (swipe > SWIPE_THRESHOLD) {
       prev();
@@ -128,14 +106,15 @@ export function HeroPhotoFeature() {
     x.set(0);
   }
 
-  function handleFavorite() {
-    const nowFav = toggleFav(current.slug);
-    track.favoriteToggle(current.slug, nowFav);
-    toast.show(
-      nowFav ? `${current.name} נוסף למועדפים 💛` : `${current.name} הוסר מהמועדפים`,
-      nowFav ? "success" : "info"
-    );
-  }
+  // TODO 5.x: re-enable handleFavorite for dog favorites
+  // function handleFavorite() {
+  //   const nowFav = toggleFav(current.id);
+  //   track.favoriteToggle(current.id, nowFav);
+  //   toast.show(
+  //     nowFav ? `${current.name} נוסף למועדפים 💛` : `${current.name} הוסר מהמועדפים`,
+  //     nowFav ? "success" : "info"
+  //   );
+  // }
 
   return (
     <div className="relative w-full max-w-xl mx-auto">
@@ -148,7 +127,7 @@ export function HeroPhotoFeature() {
         <div className="relative aspect-[5/5] md:aspect-[4/5] select-none">
           <AnimatePresence initial={false} custom={dir} mode="wait">
             <motion.div
-              key={current.slug}
+              key={current.id}
               custom={dir}
               drag={reduced ? false : "x"}
               dragConstraints={{ left: 0, right: 0 }}
@@ -164,15 +143,15 @@ export function HeroPhotoFeature() {
               className="absolute inset-0 cursor-grab active:cursor-grabbing"
             >
               <Link
-                href={`/breed/${current.slug}`}
+                href={`/dog/${current.id}`}
                 draggable={false}
                 className="block w-full h-full rounded-[28px] overflow-hidden border border-border shadow-[var(--shadow-clay-xl)] photo-skeleton"
-                style={{ background: `${current.accent}33` }}
+                style={{ background: "var(--color-bg-soft)" }}
               >
                 {current.imageUrl ? (
                   <Image
                     src={proxyImage(current.imageUrl, { w: 700, h: 875, fit: "contain" })}
-                    alt={`${current.name} — ${current.tagline}`}
+                    alt={`${current.name} — ${current.breedDisplay}`}
                     fill
                     sizes="(max-width: 768px) 90vw, 36rem"
                     className="object-contain relative z-[1] pointer-events-none"
@@ -204,22 +183,22 @@ export function HeroPhotoFeature() {
           </button>
         </div>
 
-        {/* Caption + favorite */}
+        {/* Caption */}
         <div className="mt-4 flex items-start gap-3">
           <div className="flex-1 min-w-0">
             <AnimatePresence mode="wait">
               <motion.div
-                key={current.slug}
+                key={current.id}
                 initial={reduced ? false : { opacity: 0, y: 8 }}
                 animate={reduced ? undefined : { opacity: 1, y: 0 }}
                 exit={reduced ? undefined : { opacity: 0, y: 8 }}
                 transition={{ duration: 0.3 }}
               >
                 <div className="text-[10px] tracking-[0.2em] uppercase font-display font-bold text-ink-mute">
-                  לדוגמה
+                  כלב לאימוץ
                 </div>
                 <Link
-                  href={`/breed/${current.slug}`}
+                  href={`/dog/${current.id}`}
                   className="group inline-flex items-baseline gap-1.5 mt-0.5"
                 >
                   <span className="font-display font-extrabold text-2xl md:text-3xl text-ink leading-tight">
@@ -231,46 +210,27 @@ export function HeroPhotoFeature() {
                   />
                 </Link>
                 <p className="mt-1 text-sm text-ink-soft font-medium leading-snug line-clamp-2">
-                  {current.tagline}
+                  {current.breedDisplay} · {getShelterById(current.shelterId)?.city ?? ""}
                 </p>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Heart button */}
-          <button
-            type="button"
-            onClick={handleFavorite}
-            aria-pressed={isFav}
-            aria-label={
-              isFav
-                ? `הסר את ${current.name} ממועדפים`
-                : `הוסף את ${current.name} למועדפים`
-            }
-            className={cn(
-              "shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full border-2 transition-all cursor-pointer",
-              "focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg",
-              isFav
-                ? "bg-rose text-white border-rose shadow-md"
-                : "bg-surface text-ink-soft border-border hover:text-rose hover:border-rose/60"
-            )}
-          >
-            <Heart className="w-5 h-5" strokeWidth={2.5} fill={isFav ? "currentColor" : "transparent"} />
-          </button>
+          {/* TODO 5.x: re-enable heart button for dog favorites */}
         </div>
 
         {/* Dot indicators + swipe hint */}
         <div className="mt-3 flex items-center justify-between gap-3">
           <div className="flex items-center gap-1.5">
-            {orderedBreeds.map((b, i) => (
+            {orderedDogs.map((d, i) => (
               <button
-                key={b.slug}
+                key={d.id}
                 type="button"
                 onClick={() => {
                   setDir(i > activeIdx ? -1 : 1);
                   setActiveIdx(i);
                 }}
-                aria-label={`עבור ל-${b.name}`}
+                aria-label={`עבור ל-${d.name}`}
                 className={cn(
                   "rounded-full transition-all",
                   i === activeIdx ? "w-6 h-1.5 bg-ink" : "w-1.5 h-1.5 bg-ink/25 hover:bg-ink/50"
