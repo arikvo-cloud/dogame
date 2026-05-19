@@ -84,6 +84,13 @@ export default function RootLayout({
         <MotionProvider>{children}</MotionProvider>
         <PawCursor />
         <Analytics />
+        <footer className="border-t-2 border-border/60 mt-12">
+          <div className="mx-auto max-w-6xl px-4 py-6 text-center">
+            <p className="text-[11px] text-ink-mute italic max-w-prose mx-auto opacity-70">
+              * פרטי הכלבים והמקלטים באתר הם דוגמאות איוריות. לאימוץ בפועל, פנו ישירות לאחת מאגודות הרווחה המופיעות באתר.
+            </p>
+          </div>
+        </footer>
       </body>
     </html>
   );
