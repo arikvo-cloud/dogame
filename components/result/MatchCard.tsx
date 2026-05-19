@@ -7,6 +7,8 @@ import type { BreedMatch } from "@/lib/breeds/types";
 import { cn } from "@/lib/cn";
 import { BreedPhoto } from "@/components/breed/BreedPhoto";
 import { CountUp } from "@/components/ui/CountUp";
+import { dogsForBreed } from "@/lib/dogs/helpers";
+import { DogCard } from "@/components/dogs/DogCard";
 
 interface Props {
   match: BreedMatch;
@@ -139,6 +141,28 @@ export function MatchCard({ match, rank }: Props) {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {isTop && (() => {
+          const available = dogsForBreed(breed.slug, 3);
+          if (available.length === 0) return null;
+          return (
+            <div className="mt-7 border-t border-border pt-6">
+              <div className="flex items-center gap-2 text-primary-deep font-display font-extrabold text-xs uppercase tracking-[0.2em] mb-4">
+                {available.length} {breed.name} מחכים לבית
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {available.map((d) => <DogCard key={d.id} dog={d} compact />)}
+              </div>
+              <Link
+                href="/adopt"
+                className="mt-4 inline-flex items-center gap-1 font-display font-extrabold text-primary-deep underline underline-offset-4 decoration-primary/40 hover:decoration-primary transition-colors"
+              >
+                לכל הכלבים הזמינים לאימוץ
+                <ChevronLeft className="w-4 h-4" strokeWidth={3} />
+              </Link>
+            </div>
+          );
+        })()}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-6">
           <AnimatePresence initial={false}>
