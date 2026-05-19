@@ -1,12 +1,8 @@
-import { buildUserVector, topMargin } from "@/lib/breeds/matcher";
+import { buildUserVector } from "@/lib/breeds/matcher";
 import type { AnswerMap, Flag, Question } from "./types";
 import { CORE_QUESTIONS, QUESTIONS } from "./questions";
 
 const MAX_QUESTIONS = 15;
-/** If top match has this margin over #2, we can stop early. */
-const CONFIDENCE_MARGIN = 14;
-/** Minimum questions before we allow early stopping. */
-const MIN_QUESTIONS = 9;
 
 /** Question passes its showIf rule against current user flags. */
 function isVisible(question: Question, flags: Set<Flag>): boolean {
@@ -24,7 +20,9 @@ function isVisible(question: Question, flags: Set<Flag>): boolean {
  * 1. Ask all core questions first, in order.
  * 2. After core: pick the next visible, unanswered, highest-priority question.
  *    Priority = layer (lifestyle > preferences) + axes still unconstrained.
- * 3. Stop when MAX_QUESTIONS reached or confidence margin exceeded after MIN_QUESTIONS.
+ * 3. Stop when MAX_QUESTIONS reached OR no more visible candidates exist.
+ *    (Confidence-based early stopping was removed to give every quiz-taker
+ *    the full 15-question experience.)
  */
 export function getNextQuestion(answers: AnswerMap): Question | null {
   const answeredIds = new Set(Object.keys(answers));
@@ -35,11 +33,8 @@ export function getNextQuestion(answers: AnswerMap): Question | null {
     if (!answeredIds.has(q.id)) return q;
   }
 
-  // Phase 2/3: stop conditions
+  // Phase 2: hard cap at MAX_QUESTIONS
   if (answeredIds.size >= MAX_QUESTIONS) return null;
-  if (answeredIds.size >= MIN_QUESTIONS && topMargin(answers) >= CONFIDENCE_MARGIN) {
-    return null;
-  }
 
   // Pick next visible, unanswered question — prefer lifestyle, then preferences
   const layerOrder: Record<string, number> = {

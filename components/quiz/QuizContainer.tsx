@@ -24,7 +24,17 @@ export function QuizContainer() {
   const answers = useQuizStore((s) => s.answers);
   const answer = useQuizStore((s) => s.answer);
   const goBack = useQuizStore((s) => s.goBack);
+  const reset = useQuizStore((s) => s.reset);
   const history = useQuizStore((s) => s.history);
+
+  function handleReset() {
+    if (!confirm("להתחיל את השאלון מחדש? כל התשובות יימחקו.")) return;
+    reset();
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem(PICKER_DISMISSED_KEY);
+      setPickerDismissed(false);
+    }
+  }
 
   useEffect(() => {
     setHydrated(true);
@@ -124,6 +134,19 @@ export function QuizContainer() {
           isLocked={pending !== null}
         />
       </AnimatePresence>
+
+      {/* Reset link — visible mid-quiz so users can start over */}
+      {answeredCount > 0 && (
+        <div className="mt-6 text-center">
+          <button
+            type="button"
+            onClick={handleReset}
+            className="text-sm text-[var(--color-ink-mute)] hover:text-[var(--color-primary)] underline underline-offset-4 decoration-[var(--color-border-strong)] hover:decoration-[var(--color-primary)] transition-colors"
+          >
+            התחל מחדש
+          </button>
+        </div>
+      )}
     </div>
   );
 }

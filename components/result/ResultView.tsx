@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "motion/react";
-import { Share2, Sparkles, Eye } from "lucide-react";
+import { Share2, Sparkles, Eye, RotateCcw } from "lucide-react";
 import { useQuizStore } from "@/store/useQuizStore";
 import { matchBreeds } from "@/lib/breeds/matcher";
 import { decodeAnswers } from "@/lib/share";
@@ -21,6 +21,16 @@ export function ResultView() {
   const searchParams = useSearchParams();
   const [hydrated, setHydrated] = useState(false);
   const storeAnswers = useQuizStore((s) => s.answers);
+  const reset = useQuizStore((s) => s.reset);
+
+  function handleReset() {
+    if (!confirm("להתחיל את השאלון מחדש? כל התשובות יימחקו.")) return;
+    reset();
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem("dogame-picker-dismissed-v1");
+    }
+    router.push("/quiz");
+  }
 
   // If `?q=` is present in the URL, use those shared answers instead of local store
   const sharedAnswers = useMemo(() => {
@@ -170,6 +180,20 @@ export function ResultView() {
           )}
         </aside>
       </div>
+
+      {/* Retake quiz CTA */}
+      {!isShared && (
+        <div className="text-center py-4">
+          <button
+            type="button"
+            onClick={handleReset}
+            className="inline-flex items-center gap-2 bg-[var(--color-surface)] border border-[var(--color-border-strong)] text-[var(--color-primary)] hover:bg-[var(--color-primary-tint)] hover:border-[var(--color-primary)] transition-colors px-5 py-2.5 rounded-[14px] font-semibold text-sm"
+          >
+            <RotateCcw className="w-4 h-4" strokeWidth={2.2} />
+            ענה על השאלון מחדש
+          </button>
+        </div>
+      )}
 
       {/* Adoption next-step */}
       <AdoptionLinks breed={top.breed} />
